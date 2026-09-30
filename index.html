@@ -1409,7 +1409,7 @@
       "9月17日已交付 6,574 词匿名精修版、学术概念流图及交付说明",
       "展现了理工科计算机技术赋能人文社科定量研究的跨学科跨界实力"
     ],
-    "image": "assets/images/res_mcssci_governance.png"
+    "image": "assets/images/res_mcssci_governance.jpg"
   },
   {
     "id": "ind-01",
@@ -1435,7 +1435,7 @@
       "9/24 业务 DDL 全面按期保质交付（停车系统与双学期排课引擎）",
       "主导推进新一代 AI Agent 智能体产品需求落地（杨忠伟线）"
     ],
-    "image": "assets/images/ind_zhuofan_agent.png"
+    "image": "assets/images/opshub_06_外部协同任务与项目推进管道看板.png"
   },
   {
     "id": "ind-02",
@@ -1776,8 +1776,12 @@
       ).join("");
 
       content.innerHTML = `
-        <div class="mb-4 rounded-xl overflow-hidden max-h-[300px] border border-slate-800">
-          <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover" />
+        <div class="mb-4 rounded-xl overflow-hidden max-h-[460px] bg-slate-950 border border-slate-800 flex items-center justify-center relative group">
+          <img src="${p.image}" alt="${p.title}" class="w-full max-h-[440px] object-contain" />
+          <a href="${p.image}" target="_blank" class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/90 hover:bg-sky-600 text-slate-200 hover:text-white border border-slate-700 shadow-lg flex items-center gap-1.5 backdrop-blur transition-all">
+            <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+            <span>查看高清原图</span>
+          </a>
         </div>
 
         <div class="flex items-center gap-2 mb-2">
