@@ -647,288 +647,915 @@
   <!-- Portfolio Engine Script -->
   <script>
     const projects = [
-      // 1. 软件著作权 (14项全部带实景大图配图)
-      {
-        id: "soft-11",
-        category: "softcopy",
-        image: "assets/images/edgesafe_img3.jpg",
-        title: "工业边缘动态环境智能监测系统 (EdgeSafe)",
-        subtitle: "西门子杯国二依托软著 · NVIDIA Jetson 现场级实时视觉预警",
-        role: "系统架构师 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 11 · CIMC",
-        metrics: "60页代码 · 16页说明书 · 9张高清图",
-        tech: ["NVIDIA Jetson", "TensorRT", "C++", "Python", "声学驱动", "工业大屏"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/11_工业边缘动态监测_CIMC-EdgeSafe",
-        description: "部署于全国智能制造赛事实物样机上的边缘端安全总控系统。以 Jetson 边缘计算模组为中枢，完成产线动态 ROI 空间标定、人员违规入侵毫秒级声光预警。",
-        highlights: [
-          "自研边缘端多状态流转机与事件生命周期管理架构",
-          "现场工业级低延迟音频输出与声学驱动功放模组联动",
-          "云端多节点数据中枢与工业态势分析综合大屏实时回传"
-        ]
-      },
-      {
-        id: "soft-10",
-        category: "softcopy",
-        image: "assets/images/linklab_img1.jpg",
-        title: "面向视障群体的无障碍互助与智能导行服务系统",
-        subtitle: "研电赛省二等奖依托软著 (LinkAble) · 多模态 AI 导行与一键 SOS 调度",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 10 · 研电赛",
-        metrics: "60页代码 · 17页说明书 · 14张高清图",
-        tech: ["微信小程序", "多模态视觉", "WebRTC", "GIS 地理计算", "无障碍辅助"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/10_无障碍导行互助_LinkLab",
-        description: "专为盲人及低视力群体打造的数字化无障碍产品。结合端侧视觉感知识别障碍物与药品，遇到复杂险情时支持平滑无缝切入就近志愿者音视频通话协助。",
-        highlights: [
-          "大字高对比无障碍界面，支持全局读屏软件完全兼容适配",
-          "基于地理距离与技能标签的志愿者极速抢单匹配算法",
-          "防误触倒计时取消机制与全流程端云加密隐私脱敏传输"
-        ]
-      },
-      {
-        id: "soft-14",
-        category: "softcopy",
-        image: "assets/images/opshub_02_数字化运维工作总台主控仪表盘.png",
-        title: "异构多端算力协同与数字化运维工作总台系统 (Ops-Hub)",
-        subtitle: "三端算力专属分工 (Mac/Win4070S/Jetson) · 任务分流矩阵与自动化总台",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 14 · 开源总台",
-        metrics: "60页代码 · 10页说明书 · 10张高清图",
-        tech: ["Python", "Tailscale Mesh", "CLI ops", "Tailwind CSS", "LaunchAgent"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/14_异构多端算力协同运维总台_Ops-Hub",
-        description: "贯通 Mac 移动控制中枢、Windows 4070S 深度计算后端及 Jetson 边缘感知节点。具备算力任务分流推导、外部交付管道跟踪及早晚自动巡检发布能力。",
-        highlights: [
-          "基于任务语义特征的决策矩阵算法，秒级指引执行终端并亮起安全红线",
-          "Tailscale 虚拟专网探针低开销毫秒级 RTT 延迟与负载度量",
-          "严格 60 页自研代码鉴别材料与 0 占位符高保真说明书交付"
-        ]
-      },
-      {
-        id: "soft-12",
-        category: "softcopy",
-        image: "assets/images/quota_02_算力额度监控总控大屏.jpg",
-        title: "大语言模型多源算力额度监控与自动化分析系统 (QuotaMonitor)",
-        subtitle: "零 Token 开销穿透采集、跨周期归一化与四级梯度预警状态机",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 12 · 算力治理",
-        metrics: "60页代码 · 15页说明书 · 11张高清图",
-        tech: ["Python 标准库", "launchd 守护", "HTML5", "CSS Grid", "Pytest"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/12_大模型多源算力额度监控_AI-QuotaMonitor",
-        description: "解决研发团队多云异构大模型（OpenAI, Claude, DeepSeek等）配额口径割裂与突发超额停机痛点。通过只读状态探针穿透采集，毫秒级捕获余量。",
-        highlights: [
-          "自然周、5小时滑动窗口及固定月额度的跨平台统一折算引擎",
-          "四级预警状态机（Normal ➔ Watch ➔ Warning ➔ Tripped）",
-          "结合 macOS launchd 守护进程穿越 TCC 沙箱实现自动化免密发布"
-        ]
-      },
-      {
-        id: "soft-01",
-        category: "softcopy",
-        image: "assets/images/esg_img2.jpg",
-        title: "农村金融ESG智能评价与碳金融服务系统",
-        subtitle: "Multi-Agent 驱动的企业绿色信贷多维评价与碳减排区块链存证",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 01",
-        metrics: "60页代码 · 18页说明书 · 15张高清图",
-        tech: ["Python", "Flask", "Multi-Agent", "Blockchain", "RESTful"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/01_农村金融ESG",
-        description: "面向农村金融机构信贷风险评级，构建涵盖企业治理、碳减排表现与财务稳健度的自动化打分模型。内置区块链存证流，实现信贷全流程防篡改审计。",
-        highlights: [
-          "多智能体调度中枢协同解算企业综合 ESG 指标与雷达图透视",
-          "碳资产估值灵敏度分析模型与区块链交易时序吞吐监控",
-          "标准九件套就绪：严格 60 页代码 + 0 占位符说明书 + 合作协议"
-        ]
-      },
-      {
-        id: "soft-02",
-        category: "softcopy",
-        image: "assets/images/touzi_img1.jpg",
-        title: "个人投资组合管理系统",
-        subtitle: "基于 .NET 8 与 Vue 的跨账户投资组合净值追踪与 AI 情绪研判",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 02",
-        metrics: "60页代码 · 23页说明书 · 17张高清图",
-        tech: [".NET 8", "C#", "Vue.js", "SQLite", "Monte Carlo"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/02_个人投资组合",
-        description: "为个人及小微投资机构提供跨市场资产多账户集中管理、资金流水核算、收益率基准对比，并结合外部宏观指标进行蒙特卡洛收益预测。",
-        highlights: [
-          "轻量高性能 B/S 架构，自研 Verifier 自动化数据对账控制台",
-          "支持股票、债券、基金多资产分类饼图与浮动盈亏时序走势",
-          "集成市场情绪分析与智能投资报告自动化生成引擎"
-        ]
-      },
-      {
-        id: "soft-03",
-        category: "softcopy",
-        image: "assets/images/videosearch_img1.jpg",
-        title: "视频画面内容智能检索平台",
-        subtitle: "两阶段多模态视频粗扫精扫、动态抽帧与毫秒级片段定位",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 03",
-        metrics: "60页代码 · 22页说明书 · 15张高清图",
-        tech: ["FastAPI", "FFmpeg", "pHash", "Docker", "FTS5 SQLite"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/03_视频画面检索",
-        description: "针对海量无结构化视频素材，采用 FFmpeg 关键帧抽取与 pHash 图像指纹过滤重复帧，支持粗扫定位时间窗口、精扫返回结构化分析字段。",
-        highlights: [
-          "两阶段状态流转机架构（粗扫→可疑片段→精扫识别）",
-          "以 video_assets 为中心的高并发异步任务调度队列",
-          "Docker Compose 容器化前后端解耦编排与数据卷持久化"
-        ]
-      },
-      {
-        id: "soft-06",
-        category: "softcopy",
-        image: "assets/images/netsec_img1.jpg",
-        title: "网络安全威胁分析系统",
-        subtitle: "Multi-Agent 多专家协同研判、混合推理与 ChromaDB 威胁情报检索",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 06 · 网安国三",
-        metrics: "60页代码 · 22页说明书 · 20张高清图",
-        tech: ["FastAPI", "Multi-Agent", "ChromaDB", "RAG", "PyTorch"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/06_网络安全威胁分析",
-        description: "华为杯网安大赛国三成果转化软件。将安全告警输入路由智能体，分发给 Web 攻击专家、漏洞利用专家及非法连接专家，通过加权融合给出定性结论。",
-        highlights: [
-          "基于 ChromaDB 向量数据库的威胁情报检索（RAG）",
-          "断路器机制与规则兜底研判，大模型离线时仍可百分百高可用运行",
-          "告警日志结构化特征抽取与攻击源态势感知可视化大屏"
-        ]
-      },
-      {
-        id: "soft-09",
-        category: "softcopy",
-        image: "assets/images/attention_img3.jpg",
-        title: "专注力多维认知训练与测评系统",
-        subtitle: "结合心理学舒尔特方格、N-Back 及 Stroop 冲突范式的脑力测评系统",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 09",
-        metrics: "60页代码 · 17页说明书 · 7张高清图",
-        tech: ["HTML5 Canvas", "JavaScript", "Tailwind CSS", "Web Audio API"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/09_注意力认知训练",
-        description: "基于经典认知心理学范式打造的专注力、工作记忆负荷与抗干扰反应速度实战测评平台。具备高帧率响应、多维成绩历史沉淀及触控适配。",
-        highlights: [
-          "5×5 舒尔特动态数字方格计时训练与瞬时视觉搜索追踪",
-          "2-Back / 3-Back 序列工作记忆负荷自适应刺激流转",
-          "Stroop 色字冲突高压决策反应时毫秒级解算引擎"
-        ]
-      },
-      {
-        id: "soft-05",
-        category: "softcopy",
-        image: "assets/images/chinese_xcx_img1.jpg",
-        title: "体育生语文智能学习系统（小程序版）",
-        subtitle: "随时随地碎片化刷题通关、AI 智能答疑与微信云开发底座",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 05",
-        metrics: "60页代码 · 21页说明书 · 20张高清图",
-        tech: ["Taro", "微信小程序", "Node.js", "微信云开发", "AI 对话"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/05_体育生语文_小程序版",
-        description: "基于 Taro 跨端技术打造的移动端学习小程序，结合微信云数据库与云函数，实现离线缓存答题、单题解析展开、AI 助教答疑及成就积分打卡。",
-        highlights: [
-          "弱网环境下本地数据兜底机制，保证离线刷题流畅不卡顿",
-          "移动端全真模拟考试实时倒计时答题流与错题消灭计划",
-          "云端多集合数据关联与教师端后台题库动态审核发布"
-        ]
-      },
-      {
-        id: "soft-04",
-        category: "softcopy",
-        image: "assets/images/esg_img3.jpg",
-        title: "体育生语文基础智能辅导系统（网页版）",
-        subtitle: "面向高考生基础学科薄弱项的个性化题库评测与学习自适应",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 04",
-        metrics: "60页代码 · 21页说明书 · 17张高清图",
-        tech: ["Vue 3", "TypeScript", "Vite", "Pinia", "Tailwind CSS"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/04_体育生语文_网页版",
-        description: "结合体育特长生文化课复习时间碎片化痛点，研发包含高考真题模拟、错题自动归纳、拼音/成语/古诗词分级通关的网页辅导平台。",
-        highlights: [
-          "个性化能力雷达评估模型与错题本自适应推荐复习模式",
-          "真题模拟交卷后全自动生成薄弱知识点得分透视分析报告",
-          "内嵌体坛励志人物案例库与作文错别字智能纠错引擎"
-        ]
-      },
-      {
-        id: "soft-07",
-        category: "softcopy",
-        image: "assets/images/videosearch_img2.jpg",
-        title: "语音内容智能检索系统",
-        subtitle: "基于音轨抽取、ASR 离线转写与拼音/语义三层召回的音频检索系统",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 07",
-        metrics: "60页代码 · 20页说明书 · 14张高清图",
-        tech: ["FastAPI", "Sidecar ASR", "FFmpeg", "ElasticSearch", "Python"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/07_语音内容检索",
-        description: "支持批量音视频导入、后台自动化音频特征抽取与语音转写。用户输入关键词后，系统通过精确匹配、拼音模糊与语义向量三层链路秒级定位时间轴。",
-        highlights: [
-          "Sidecar 架构转写文件解耦存储与音频波形关键词高亮播放",
-          "语义兜底算法支持跨词汇语义相关性片段快速召回",
-          "垂直领域专业词库管理，支持热词动态权重加成"
-        ]
-      },
-      {
-        id: "soft-08",
-        category: "softcopy",
-        image: "assets/images/esg_img4.jpg",
-        title: "智能金融产品推荐系统",
-        subtitle: "两步式漏斗推荐引擎（粗筛分类+精排打分）与客户多维画像透视",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 08",
-        metrics: "60页代码 · 17页说明书 · 12张高清图",
-        tech: ["Node.js", "Express", "Scikit-learn", "Pandas", "Chart.js"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/08_智能金融推荐",
-        description: "针对银行信贷与理财营销场景，基于客户风险偏好与历史资产行为构建精准画像。采用两步推荐方案大幅降低不平衡样本对推荐精度的干扰。",
-        highlights: [
-          "单步 vs 两步推荐离线对比评测，AUC 与多样性显著提升",
-          "实时交互式「喜欢/跳过」反馈，动态驱动下次推荐列表重排",
-          "内嵌新用户与新理财产品的冷启动应对与探索-利用机制"
-        ]
-      },
-      {
-        id: "soft-13",
-        category: "softcopy",
-        image: "assets/images/opshub_08_macOS_launchd常驻守护与自动化数据同步流程图.png",
-        title: "基于多智能体协同的AI技术知识库自动化管理系统",
-        subtitle: "LangGraph 九节点执行拓扑、Token 审计与五维技术质量代码审查",
-        role: "第一著作权人 (70%)",
-        status: "✅ 100%可申报",
-        statusColor: "emerald",
-        badge: "软著 13 · LangGraph",
-        metrics: "60页代码 · 14页说明书 · 10张高清图",
-        tech: ["LangGraph", "Python 3.10", "Multi-Agent", "MCP 协议", "CI/CD"],
-        path: "/Users/insistgang/Desktop/andy/软著_提交材料汇总/13_多智能体协同AI技术知识库_AI-KnowledgeBase",
-        description: "构建技术知识库端到端自动化更新闭环。智能体集群协同完成前沿技术抓取、代码质量审查、文档脱敏及向量检索问答，大幅提升个人数字资产留存率。",
-        highlights: [
-          "LangGraph 九节点工业级状态机拓扑与动态回退自愈机制",
-          "多模型动态路由与 Token 预算实时审计控制引擎",
-          "遵循标准 MCP 协议，支持向外部 IDE 及 Agent 暴露检索接口"
-        ]
-      }
-    ];
+  {
+    "id": "soft-01",
+    "category": "softcopy",
+    "image": "assets/images/esg_img2.jpg",
+    "title": "农村金融ESG智能评价与碳金融服务系统",
+    "subtitle": "Multi-Agent 驱动的企业绿色信贷多维评价与碳减排区块链存证",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 01",
+    "metrics": "60页代码 · 18页说明书 · 15张高清图",
+    "tech": [
+      "Python",
+      "Flask",
+      "Multi-Agent",
+      "Blockchain",
+      "RESTful"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/01_农村金融ESG",
+    "description": "面向农村金融机构信贷风险评级，构建涵盖企业治理、碳减排表现与财务稳健度的自动化打分模型。内置区块链存证流，实现信贷全流程防篡改审计。",
+    "highlights": [
+      "多智能体调度中枢协同解算企业综合 ESG 指标与雷达图透视",
+      "碳资产估值灵敏度分析模型与区块链交易时序吞吐监控",
+      "标准九件套就绪：严格 60 页代码 + 0 占位符说明书 + 合作协议"
+    ]
+  },
+  {
+    "id": "soft-02",
+    "category": "softcopy",
+    "image": "assets/images/touzi_img1.jpg",
+    "title": "个人投资组合管理系统",
+    "subtitle": "基于 .NET 8 与 Vue 的跨账户投资组合净值追踪与 AI 情绪研判",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 02",
+    "metrics": "60页代码 · 23页说明书 · 17张高清图",
+    "tech": [
+      ".NET 8",
+      "C#",
+      "Vue.js",
+      "SQLite",
+      "Monte Carlo"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/02_个人投资组合",
+    "description": "为个人及小微投资机构提供跨市场资产多账户集中管理、资金流水核算、收益率基准对比，并结合外部宏观指标进行蒙特卡洛收益预测。",
+    "highlights": [
+      "轻量高性能 B/S 架构，自研 Verifier 自动化数据对账控制台",
+      "支持股票、债券、基金多资产分类饼图与浮动盈亏时序走势",
+      "集成市场情绪分析与智能投资报告自动化生成引擎"
+    ]
+  },
+  {
+    "id": "soft-03",
+    "category": "softcopy",
+    "image": "assets/images/videosearch_img1.jpg",
+    "title": "视频画面内容智能检索平台",
+    "subtitle": "两阶段多模态视频粗扫精扫、动态抽帧与毫秒级片段定位",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 03",
+    "metrics": "60页代码 · 22页说明书 · 15张高清图",
+    "tech": [
+      "FastAPI",
+      "FFmpeg",
+      "pHash",
+      "Docker",
+      "FTS5 SQLite"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/03_视频画面检索",
+    "description": "针对海量无结构化视频素材，采用 FFmpeg 关键帧抽取与 pHash 图像指纹过滤重复帧，支持粗扫定位时间窗口、精扫返回结构化分析字段。",
+    "highlights": [
+      "两阶段状态流转机架构（粗扫→可疑片段→精扫识别）",
+      "以 video_assets 为中心的高并发异步任务调度队列",
+      "Docker Compose 容器化前后端解耦编排与数据卷持久化"
+    ]
+  },
+  {
+    "id": "soft-04",
+    "category": "softcopy",
+    "image": "assets/images/esg_img3.jpg",
+    "title": "体育生语文基础智能辅导系统（网页版）",
+    "subtitle": "面向高考生基础学科薄弱项的个性化题库评测与学习自适应",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 04",
+    "metrics": "60页代码 · 21页说明书 · 17张高清图",
+    "tech": [
+      "Vue 3",
+      "TypeScript",
+      "Vite",
+      "Pinia",
+      "Tailwind CSS"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/04_体育生语文_网页版",
+    "description": "结合体育特长生文化课复习时间碎片化痛点，研发包含高考真题模拟、错题自动归纳、拼音/成语/古诗词分级通关的网页辅导平台。",
+    "highlights": [
+      "个性化能力雷达评估模型与错题本自适应推荐复习模式",
+      "真题模拟交卷后全自动生成薄弱知识点得分透视分析报告",
+      "内嵌体坛励志人物案例库与作文错别字智能纠错引擎"
+    ]
+  },
+  {
+    "id": "soft-05",
+    "category": "softcopy",
+    "image": "assets/images/chinese_xcx_img1.jpg",
+    "title": "体育生语文智能学习系统（小程序版）",
+    "subtitle": "随时随地碎片化刷题通关、AI 智能答疑与微信云开发底座",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 05",
+    "metrics": "60页代码 · 21页说明书 · 20张高清图",
+    "tech": [
+      "Taro",
+      "微信小程序",
+      "Node.js",
+      "微信云开发",
+      "AI 对话"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/05_体育生语文_小程序版",
+    "description": "基于 Taro 跨端技术打造的移动端学习小程序，结合微信云数据库与云函数，实现离线缓存答题、单题解析展开、AI 助教答疑及成就积分打卡。",
+    "highlights": [
+      "弱网环境下本地数据兜底机制，保证离线刷题流畅不卡顿",
+      "移动端全真模拟考试实时倒计时答题流与错题消灭计划",
+      "云端多集合数据关联与教师端后台题库动态审核发布"
+    ]
+  },
+  {
+    "id": "soft-06",
+    "category": "softcopy",
+    "image": "assets/images/netsec_img1.jpg",
+    "title": "网络安全威胁分析系统",
+    "subtitle": "Multi-Agent 多专家协同研判、混合推理与 ChromaDB 威胁情报检索",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 06 · 网安国三",
+    "metrics": "60页代码 · 22页说明书 · 20张高清图",
+    "tech": [
+      "FastAPI",
+      "Multi-Agent",
+      "ChromaDB",
+      "RAG",
+      "PyTorch"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/06_网络安全威胁分析",
+    "description": "华为杯网安大赛国三成果转化软件。将安全告警输入路由智能体，分发给 Web 攻击专家、漏洞利用专家及非法连接专家，通过加权融合给出定性结论。",
+    "highlights": [
+      "基于 ChromaDB 向量数据库的威胁情报检索（RAG）",
+      "断路器机制与规则兜底研判，大模型离线时仍可百分百高可用运行",
+      "告警日志结构化特征抽取与攻击源态势感知可视化大屏"
+    ]
+  },
+  {
+    "id": "soft-07",
+    "category": "softcopy",
+    "image": "assets/images/videosearch_img2.jpg",
+    "title": "语音内容智能检索系统",
+    "subtitle": "基于音轨抽取、ASR 离线转写与拼音/语义三层召回的音频检索系统",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 07",
+    "metrics": "60页代码 · 20页说明书 · 14张高清图",
+    "tech": [
+      "FastAPI",
+      "Sidecar ASR",
+      "FFmpeg",
+      "ElasticSearch",
+      "Python"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/07_语音内容检索",
+    "description": "支持批量音视频导入、后台自动化音频特征抽取与语音转写。用户输入关键词后，系统通过精确匹配、拼音模糊与语义向量三层链路秒级定位时间轴。",
+    "highlights": [
+      "Sidecar 架构转写文件解耦存储与音频波形关键词高亮播放",
+      "语义兜底算法支持跨词汇语义相关性片段快速召回",
+      "垂直领域专业词库管理，支持热词动态权重加成"
+    ]
+  },
+  {
+    "id": "soft-08",
+    "category": "softcopy",
+    "image": "assets/images/esg_img4.jpg",
+    "title": "智能金融产品推荐系统",
+    "subtitle": "两步式漏斗推荐引擎（粗筛分类+精排打分）与客户多维画像透视",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 08",
+    "metrics": "60页代码 · 17页说明书 · 12张高清图",
+    "tech": [
+      "Node.js",
+      "Express",
+      "Scikit-learn",
+      "Pandas",
+      "Chart.js"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/08_智能金融推荐",
+    "description": "针对银行信贷与理财营销场景，基于客户风险偏好与历史资产行为构建精准画像。采用两步推荐方案大幅降低不平衡样本对推荐精度的干扰。",
+    "highlights": [
+      "单步 vs 两步推荐离线对比评测，AUC 与多样性显著提升",
+      "实时交互式「喜欢/跳过」反馈，动态驱动下次推荐列表重排",
+      "内嵌新用户与新理财产品的冷启动应对与探索-利用机制"
+    ]
+  },
+  {
+    "id": "soft-09",
+    "category": "softcopy",
+    "image": "assets/images/attention_img3.jpg",
+    "title": "专注力多维认知训练与测评系统",
+    "subtitle": "结合心理学舒尔特方格、N-Back 及 Stroop 冲突范式的脑力测评系统",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 09",
+    "metrics": "60页代码 · 17页说明书 · 7张高清图",
+    "tech": [
+      "HTML5 Canvas",
+      "JavaScript",
+      "Tailwind CSS",
+      "Web Audio API"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/09_注意力认知训练",
+    "description": "基于经典认知心理学范式打造的专注力、工作记忆负荷与抗干扰反应速度实战测评平台。具备高帧率响应、多维成绩历史沉淀及触控适配。",
+    "highlights": [
+      "5×5 舒尔特动态数字方格计时训练与瞬时视觉搜索追踪",
+      "2-Back / 3-Back 序列工作记忆负荷自适应刺激流转",
+      "Stroop 色字冲突高压决策反应时毫秒级解算引擎"
+    ]
+  },
+  {
+    "id": "soft-10",
+    "category": "softcopy",
+    "image": "assets/images/linklab_img1.jpg",
+    "title": "面向视障群体的无障碍互助与智能导行服务系统",
+    "subtitle": "研电赛省二等奖依托软著 (LinkAble) · 多模态 AI 导行与一键 SOS 调度",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 10 · 研电赛",
+    "metrics": "60页代码 · 17页说明书 · 14张高清图",
+    "tech": [
+      "微信小程序",
+      "多模态视觉",
+      "WebRTC",
+      "GIS 地理计算",
+      "无障碍辅助"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/10_无障碍导行互助_LinkLab",
+    "description": "专为盲人及低视力群体打造的数字化无障碍产品。结合端侧视觉感知识别障碍物与药品，遇到复杂险情时支持平滑无缝切入就近志愿者音视频通话协助。",
+    "highlights": [
+      "大字高对比无障碍界面，支持全局读屏软件完全兼容适配",
+      "基于地理距离与技能标签的志愿者极速抢单匹配算法",
+      "防误触倒计时取消机制与全流程端云加密隐私脱敏传输"
+    ]
+  },
+  {
+    "id": "soft-11",
+    "category": "softcopy",
+    "image": "assets/images/edgesafe_img3.jpg",
+    "title": "工业边缘动态环境智能监测系统 (EdgeSafe)",
+    "subtitle": "西门子杯国二依托软著 · NVIDIA Jetson 现场级实时视觉预警",
+    "role": "系统架构师 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 11 · CIMC",
+    "metrics": "60页代码 · 16页说明书 · 9张高清图",
+    "tech": [
+      "NVIDIA Jetson",
+      "TensorRT",
+      "C++",
+      "Python",
+      "声学驱动",
+      "工业大屏"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/11_工业边缘动态监测_CIMC-EdgeSafe",
+    "description": "部署于全国智能制造赛事实物样机上的边缘端安全总控系统。以 Jetson 边缘计算模组为中枢，完成产线动态 ROI 空间标定、人员违规入侵毫秒级声光预警。",
+    "highlights": [
+      "自研边缘端多状态流转机与事件生命周期管理架构",
+      "现场工业级低延迟音频输出与声学驱动功放模组联动",
+      "云端多节点数据中枢与工业态势分析综合大屏实时回传"
+    ]
+  },
+  {
+    "id": "soft-12",
+    "category": "softcopy",
+    "image": "assets/images/quota_02_算力额度监控总控大屏.jpg",
+    "title": "大语言模型多源算力额度监控与自动化分析系统 (QuotaMonitor)",
+    "subtitle": "零 Token 开销穿透采集、跨周期归一化与四级梯度预警状态机",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 12 · 算力治理",
+    "metrics": "60页代码 · 15页说明书 · 11张高清图",
+    "tech": [
+      "Python 标准库",
+      "launchd 守护",
+      "HTML5",
+      "CSS Grid",
+      "Pytest"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/12_大模型多源算力额度监控_AI-QuotaMonitor",
+    "description": "解决研发团队多云异构大模型（OpenAI, Claude, DeepSeek等）配额口径割裂与突发超额停机痛点。通过只读状态探针穿透采集，毫秒级捕获余量。",
+    "highlights": [
+      "自然周、5小时滑动窗口及固定月额度的跨平台统一折算引擎",
+      "四级预警状态机（Normal ➔ Watch ➔ Warning ➔ Tripped）",
+      "结合 macOS launchd 守护进程穿越 TCC 沙箱实现自动化免密发布"
+    ]
+  },
+  {
+    "id": "soft-13",
+    "category": "softcopy",
+    "image": "assets/images/opshub_08_macOS_launchd常驻守护与自动化数据同步流程图.png",
+    "title": "基于多智能体协同的AI技术知识库自动化管理系统",
+    "subtitle": "LangGraph 九节点执行拓扑、Token 审计与五维技术质量代码审查",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 13 · LangGraph",
+    "metrics": "60页代码 · 14页说明书 · 10张高清图",
+    "tech": [
+      "LangGraph",
+      "Python 3.10",
+      "Multi-Agent",
+      "MCP 协议",
+      "CI/CD"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/13_多智能体协同AI技术知识库_AI-KnowledgeBase",
+    "description": "构建技术知识库端到端自动化更新闭环。智能体集群协同完成前沿技术抓取、代码质量审查、文档脱敏及向量检索问答，大幅提升个人数字资产留存率。",
+    "highlights": [
+      "LangGraph 九节点工业级状态机拓扑与动态回退自愈机制",
+      "多模型动态路由与 Token 预算实时审计控制引擎",
+      "遵循标准 MCP 协议，支持向外部 IDE 及 Agent 暴露检索接口"
+    ]
+  },
+  {
+    "id": "soft-14",
+    "category": "softcopy",
+    "image": "assets/images/opshub_02_数字化运维工作总台主控仪表盘.png",
+    "title": "异构多端算力协同与数字化运维工作总台系统 (Ops-Hub)",
+    "subtitle": "三端算力专属分工 (Mac/Win4070S/Jetson) · 任务分流矩阵与自动化总台",
+    "role": "第一著作权人 (70%)",
+    "status": "✅ 100%可申报",
+    "statusColor": "emerald",
+    "badge": "软著 14 · 开源总台",
+    "metrics": "60页代码 · 10页说明书 · 10张高清图",
+    "tech": [
+      "Python",
+      "Tailscale Mesh",
+      "CLI ops",
+      "Tailwind CSS",
+      "LaunchAgent"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/14_异构多端算力协同运维总台_Ops-Hub",
+    "description": "贯通 Mac 移动控制中枢、Windows 4070S 深度计算后端及 Jetson 边缘感知节点。具备算力任务分流推导、外部交付管道跟踪及早晚自动巡检发布能力。",
+    "highlights": [
+      "基于任务语义特征的决策矩阵算法，秒级指引执行终端并亮起安全红线",
+      "Tailscale 虚拟专网探针低开销毫秒级 RTT 延迟与负载度量",
+      "严格 60 页自研代码鉴别材料与 0 占位符高保真说明书交付"
+    ]
+  },
+  {
+    "id": "comp-01",
+    "category": "competition",
+    "title": "中国研究生电子设计竞赛 (研电赛 2026) —— 省级二等奖",
+    "subtitle": "面向视障群体的多模态智能导行与共感无障碍互助系统 (LinkAble)",
+    "role": "团队负责人 / 系统架构与算法核心",
+    "status": "🏆 省级二等奖",
+    "statusColor": "amber",
+    "badge": "研电赛",
+    "metrics": "二等奖证书 · 现场答辩 · 软著支撑",
+    "tech": [
+      "边缘多模态",
+      "实时音视频",
+      "微信小程序",
+      "GIS 空间调度"
+    ],
+    "path": "/Users/insistgang/Desktop/yds/archive/研电赛_二等奖_LinkAble_2026",
+    "description": "第 21 届研电赛重点参赛项目。通过深度结合计算机视觉与社会化互助网络，构建视障群体的全天候伴随式智慧助行系统，获上海赛区评审专家高度评价。",
+    "highlights": [
+      "实现端侧目标检测与障碍物语音实时多模态播报",
+      "自研低延迟音视频呼叫与地理围栏就近志愿者调度算法",
+      "软著《面向视障群体的无障碍互助与智能导行服务系统》前置技术支撑"
+    ],
+    "image": "assets/images/comp_yds_poster.jpg"
+  },
+  {
+    "id": "comp-02",
+    "category": "competition",
+    "title": "第十九届“西门子杯”中国智能制造挑战赛 (CIMC 2026) —— 全国二等奖",
+    "subtitle": "工业边缘动态环境智能监测与多模态预警系统 (EdgeSafe)",
+    "role": "系统架构师 / 核心算法第一完成人",
+    "status": "🏆 全国二等奖",
+    "statusColor": "amber",
+    "badge": "西门子杯",
+    "metrics": "答辩 82 分 · 实物样机 · 软著支撑",
+    "tech": [
+      "NVIDIA Jetson",
+      "TensorRT",
+      "C++",
+      "声学驱动",
+      "工控网络"
+    ],
+    "path": "/Users/insistgang/Desktop/yds/docs/siemens_2026/HANDOFF_2026-07-23.md",
+    "description": "在教育部认可的顶尖智能制造国赛中，设计并部署基于 Jetson 嵌入式板卡的端侧视觉分析预警系统，成功完成全实物工业场景的高压严苛答辩。",
+    "highlights": [
+      "全栈自主研发边缘多状态流转机，事件响应延迟低于 50ms",
+      "现场大屏工业态势感知与声学驱动软硬件一体化联动",
+      "沉淀核心软著《工业边缘动态环境智能监测与多模态预警系统》"
+    ],
+    "image": "assets/images/edgesafe_img3.jpg"
+  },
+  {
+    "id": "comp-03",
+    "category": "competition",
+    "title": "第二十二届“华为杯”中国研究生数学建模竞赛 —— 全国二等奖",
+    "subtitle": "大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)",
+    "role": "建模主笔 / 算法推导与仿真第一完成人",
+    "status": "🏆 国家二等奖",
+    "statusColor": "amber",
+    "badge": "华为杯数模",
+    "metrics": "国二证书 · 数万行仿真数据 · 完整报告",
+    "tech": [
+      "Python",
+      "MATLAB",
+      "非线性规划",
+      "蒙特卡洛",
+      "时序预测"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/“华为杯”第二十二届中国研究生数学建模竞赛",
+    "description": "在全国数万支研究生顶尖队伍同台竞技中，主导完成高维物理场耦合建模、离散状态空间搜索与全局多目标鲁棒优化，斩获高含金量国家级二等奖。",
+    "highlights": [
+      "攻克高阶微分方程离散求解与复杂约束边界收敛难题",
+      "纯自主编程实现算法仿真拟合，误差指标优于基线 18%",
+      "获奖材料已全量归档并作为研究生国家奖学金核心申报成果"
+    ],
+    "image": "assets/images/comp_math_model.jpg"
+  },
+  {
+    "id": "comp-04",
+    "category": "competition",
+    "title": "第七届“华为杯”中国研究生人工智能创新大赛 —— 全国三等奖",
+    "subtitle": "基于大模型多智能体协同的特定人群智能自适应助学辅导系统",
+    "role": "全栈架构设计 / 核心微服务研发",
+    "status": "🏆 国家三等奖",
+    "statusColor": "amber",
+    "badge": "AI 创新大赛",
+    "metrics": "国三证书 · 完整实施方案 · 可运行工程",
+    "tech": [
+      "Vue 3",
+      "Python FastAPI",
+      "LLM Fine-tuning",
+      "知识图谱"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/“华为杯”第七届中国研究生人工智能创新大赛",
+    "description": "聚焦人工智能在垂直教育场景的普惠化落地，融合自适应题库、知识图谱推演与多智能体问答，获大赛全国评审组三等奖表彰。",
+    "highlights": [
+      "设计教育多智能体协同编排引擎与分级答题自适应算法",
+      "产出高完整度项目实施方案及跨平台 Web/小程序交互工程",
+      "对应转化两项软著（体育生语文网页版与小程序版）"
+    ],
+    "image": "assets/images/comp_ai_huawei.jpg"
+  },
+  {
+    "id": "comp-05",
+    "category": "competition",
+    "title": "第四届“华为杯”中国研究生网络安全创新大赛 —— 全国三等奖",
+    "subtitle": "基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台",
+    "role": "智能推理算法与 RAG 架构设计",
+    "status": "🏆 国家三等奖",
+    "statusColor": "amber",
+    "badge": "网安创新大赛",
+    "metrics": "国三证书 · 专家评委答辩 Q&A",
+    "tech": [
+      "Multi-Agent",
+      "ChromaDB",
+      "网络安全",
+      "FastAPI"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/华为杯网络安全创新大赛",
+    "description": "针对高级持续性威胁 (APT) 研判效率低、跨领域线索割裂痛点，首创三专家智能体与动态 RAG 检索的融合推理范式，夺得全国三等奖。",
+    "highlights": [
+      "从真实千万级攻击日志中精准归因 SQL 注入与 CVE 漏洞利用链",
+      "顺利通过评审专家关于断路降级与大模型幻觉防范的现场答辩",
+      "成果已顺利转化为软著《网络安全威胁分析系统》"
+    ],
+    "image": "assets/images/netsec_img1.jpg"
+  },
+  {
+    "id": "comp-06",
+    "category": "competition",
+    "title": "创“芯”大赛·中国研究生 EDA 精英挑战赛 —— 全国三等奖",
+    "subtitle": "复杂集成电路系统原理图框图自动识别与拓扑网表重构算法",
+    "role": "计算机视觉与拓扑解算核心研发",
+    "status": "🏆 国家三等奖",
+    "statusColor": "amber",
+    "badge": "EDA 精英赛",
+    "metrics": "国三证书 · 答辩问答题库 · 算法代码",
+    "tech": [
+      "OpenCV",
+      "图神经网络",
+      "目标检测",
+      "电路网表解析"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/创芯大赛EDA",
+    "description": "攻克集成电路设计自动化 (EDA) 领域原理图纸识别难题，实现文本符号、引脚连线与逻辑门组件的毫米级检测与有向图网表自动导出。",
+    "highlights": [
+      "融合形态学图像滤波与深度检测模型，密集引脚识别召回率达 96.5%",
+      "构建电路拓扑图结构解析算法，实现图像到 SPICE 网表的自动化映射",
+      "斩获半导体与芯片设计软件领域全国高含金量奖项"
+    ],
+    "image": "assets/images/comp_eda_results.png"
+  },
+  {
+    "id": "comp-07",
+    "category": "competition",
+    "title": "第十一届中国研究生智慧城市技术与创意设计大赛 —— 省级三等奖",
+    "subtitle": "基于空地协同遥感多尺度图像的违法建筑全自动智能检测系统",
+    "role": "核心视觉检测算法主导开发",
+    "status": "🏆 省级三等奖",
+    "statusColor": "amber",
+    "badge": "智慧城市大赛",
+    "metrics": "省三证书 · 完整违建检测系统报告",
+    "tech": [
+      "YOLO 目标检测",
+      "多尺度遥感",
+      "无人机遥感",
+      "PyTorch"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/第十一届中国研究生智慧城市技术与创意设计大赛",
+    "description": "依托上海工程技术大学与智慧城市科研项目，针对违建识别时效低、多尺度目标漏检问题，研发端到端检测系统，获赛区三等奖。",
+    "highlights": [
+      "自建空地一体化高分辨率违建样本库与标注规范",
+      "提出兼顾小目标彩钢棚与大面积违建厂房的多尺度检测网络",
+      "为硕士毕业大论文研究奠定关键前期算法与实验基础"
+    ],
+    "image": "assets/images/comp_smart_city.jpg"
+  },
+  {
+    "id": "comp-08",
+    "category": "competition",
+    "title": "上海市大学生行业分析大赛 —— 连续两届斩获银奖 / 省级三等奖",
+    "subtitle": "科技创新赛道与高端智能制造产业生态深度实证调研",
+    "role": "行业调研主笔人 / 数据分析负责人",
+    "status": "🏆 银奖 / 省三",
+    "statusColor": "amber",
+    "badge": "行业分析大赛",
+    "metrics": "银奖证书 · 省三证书 · 万字行业报告",
+    "tech": [
+      "行业研究",
+      "计量经济学",
+      "数据可视化",
+      "战略规划"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/上海市大学生行业分析大赛",
+    "description": "连续两届参赛均获奖，深入研判智能装备、工业软件及新能源产业链，撰写数十页详尽行业调研报告，展现了宏观产业理解力与严谨逻辑。",
+    "highlights": [
+      "建立多维行业估值与竞争格局度量指标体系",
+      "多方专家评审答辩中获极高评价，展现极佳技术商业洞察力"
+    ],
+    "image": "assets/images/comp_industry_analysis.png"
+  },
+  {
+    "id": "res-01",
+    "category": "research",
+    "title": "硕士毕业论文主线：《面向违法建筑识别的多尺度图像检测方法研究》",
+    "subtitle": "上海工程技术大学 硕士学位论文 · 产学研重大科研课题",
+    "role": "独立完成人 (硕士学位论文)",
+    "status": "🔬 T-011 修标阶段",
+    "statusColor": "purple",
+    "badge": "毕业论文",
+    "metrics": "12段严选数据集 · 236个Holdout单元 · P0关门",
+    "tech": [
+      "YOLOv11",
+      "SAM",
+      "多尺度特征融合",
+      "遥感图像处理",
+      "PyTorch"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/02-Thesis/大论文-违建识别",
+    "description": "研究高分辨率空地多视角遥感图像下的复杂建筑目标检测，攻克背景高混淆、建筑尺度跳跃及伪变化干扰难题。已建立严格的闭环复核体系。",
+    "highlights": [
+      "P0 级别（39张475框）复核顺利关门，133 项测试全量通过",
+      "236 个 Holdout 单元人工精密复核与 12 段数据 Detector 训练并行",
+      "引入 GPT-6 与多模态技术对数据进行预筛清洗，保障标注真值绝对可靠"
+    ],
+    "image": "assets/images/res_weijian_vis.png"
+  },
+  {
+    "id": "res-02",
+    "category": "research",
+    "title": "小论文代表作：《MS-LightCD: 一种面向高分辨率遥感图像的轻量级变化检测网络》",
+    "subtitle": "拟投中文核心期刊《计算机工程》· 全套实验数据与审阅版已就绪",
+    "role": "第一作者 (学生一作)",
+    "status": "📄 投审就绪",
+    "statusColor": "purple",
+    "badge": "期刊小论文",
+    "metrics": "万字正文 · 全套高清矢量实验图 · 修改说明书",
+    "tech": [
+      "Change Detection",
+      "Siamese Network",
+      "轻量化注意力",
+      "遥感影像"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/02-Thesis/小论文-计算机工程-MS-LightCD",
+    "description": "针对现有遥感变化检测模型参数量过大、边缘轮廓模糊及伪变化敏感问题，提出轻量级双分支特征解耦网络，在保证精度的同时大幅压缩计算量。",
+    "highlights": [
+      "全套配图于 9 月中旬完成专业学术级重绘，彻底消除 AI 化痕迹",
+      "已交付含改动标注的审阅版及 8 条导师意见逐条修改说明书",
+      "全套代码、消融实验与基线对比产物完全备齐，随时可投"
+    ],
+    "image": "assets/images/res_ms_lightcd_diff.png"
+  },
+  {
+    "id": "res-03",
+    "category": "research",
+    "title": "边缘感知论文成果：《E-PAS: 端侧低延迟车位感知与多模态目标检测》",
+    "subtitle": "面向智慧停车边缘端计算的鲁棒性感知网络研究",
+    "role": "核心作者",
+    "status": "📄 转投准备中",
+    "statusColor": "purple",
+    "badge": "学术论文",
+    "metrics": "Sensors 投稿基线 · 完整实验代码库",
+    "tech": [
+      "Edge AI",
+      "停车检测",
+      "实时推理",
+      "目标跟踪"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/02-Thesis/E-PAS",
+    "description": "针对停车场弱光照、大面积车身遮挡及多视角畸变，研发部署在端侧边缘芯片的高吞吐检测模型，实现毫秒级空闲车位判别。",
+    "highlights": [
+      "沉淀大规模高真实感智慧停车检测测试集与评测指标",
+      "为卓繁公司智慧停车项目提供底层算法底层理论支持"
+    ],
+    "image": "assets/images/edgesafe_img4.jpg"
+  },
+  {
+    "id": "res-04",
+    "category": "research",
+    "title": "跨学科顶级期刊修订：《数字时代网络文化空间的集体行动与话语重构》",
+    "subtitle": "拟投 SSCI 顶刊《Media, Culture & Society》· 跨学科合作研究",
+    "role": "计算方法与数据分析作者",
+    "status": "📄 已交付终审",
+    "statusColor": "purple",
+    "badge": "SSCI 合作论文",
+    "metrics": "6574 词全英文规范稿 · 概念图 · 交付说明",
+    "tech": [
+      "计算传播学",
+      "网络民族志",
+      "NLP 情感分析",
+      "文本挖掘"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/03-Projects/teacher_m",
+    "description": "与马老师团队深度合作的计算社会学前沿成果。利用自研文本抓取与情感计量分析模型，对网络亚文化社群的数万条言论进行实证量化推演。",
+    "highlights": [
+      "9月17日已交付 6,574 词匿名精修版、学术概念流图及交付说明",
+      "展现了理工科计算机技术赋能人文社科定量研究的跨学科跨界实力"
+    ],
+    "image": "assets/images/attention_img1.jpg"
+  },
+  {
+    "id": "ind-01",
+    "category": "industry",
+    "title": "上海卓繁信息技术股份有限公司 —— 后端研发 / AI 应用落地工程",
+    "subtitle": "徐汇滨江·西岸智塔 AI Tower 11 楼 · 核心业务主导推进",
+    "role": "后端开发 / AI 算法落地实习生",
+    "status": "🚀 生产在线运行",
+    "statusColor": "sky",
+    "badge": "产业实习",
+    "metrics": "9/23成功涨薪 · 金山小学现场验收通过",
+    "tech": [
+      "Java",
+      "Spring Boot",
+      "Python AI Agent",
+      "MySQL",
+      "Docker"
+    ],
+    "path": "/Users/insistgang/Desktop/parking-management-java",
+    "description": "2026年9月正式入职，承担智慧政务与教育领域核心技术攻坚。完成金山小学智能化演示系统现场联调、排课系统回滚演示及全面 Java 高可用重构。",
+    "highlights": [
+      "9/21 金山小学现场实地联调与业务演示，一次性高标准通过验收",
+      "9/24 业务 DDL 全面按期保质交付（停车系统与双学期排课引擎）",
+      "主导推进新一代 AI Agent 智能体产品需求落地（杨忠伟线）"
+    ],
+    "image": "assets/images/opshub_06_外部协同任务与项目推进管道看板.png"
+  },
+  {
+    "id": "ind-02",
+    "category": "industry",
+    "title": "中国电子科技集团第50研究所 —— 智慧城市图像检测科研结项",
+    "subtitle": "军工级重大科研协同项目 · 违章建筑识别技术交付",
+    "role": "产学研技术负责人",
+    "status": "✅ 彻底结项闭环",
+    "statusColor": "emerald",
+    "badge": "军工院所交付",
+    "metrics": "全套算法代码交付 · 结项文档 · 顺利验收",
+    "tech": [
+      "目标检测",
+      "遥感工程化",
+      "C++ 推理引擎",
+      "Linux"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/03-Projects/中电科50所.md",
+    "description": "代表高校联合研发团队主导与中电科50所的科研技术交接。交付面向复杂地理地貌的高精度识别算法包及整套工程测试基准，圆满结项。",
+    "highlights": [
+      "全栈技术规范严格符合军工科研所保密与工程化交付标准",
+      "顺利通过验收评审，成果直接回哺硕士毕业论文核心技术体系"
+    ],
+    "image": "assets/images/ind_50suo_remote_cd.png"
+  },
+  {
+    "id": "ind-03",
+    "category": "industry",
+    "title": "Andy 具身智能硬件与小智机器人协作开发",
+    "subtitle": "面向下一代具身实体 AI 的语义控制、端侧视觉感知与交互中枢",
+    "role": "全栈与算法核心协作",
+    "status": "🚀 线下交付就绪",
+    "statusColor": "sky",
+    "badge": "具身智能",
+    "metrics": "全套代码就绪 · 10/1线下碰面交付",
+    "tech": [
+      "Python",
+      "嵌入式通信",
+      "多模态大模型",
+      "ROS"
+    ],
+    "path": "/Users/insistgang/Desktop/andy",
+    "description": "与业界伙伴 Andy 深度协作的具身实体 AI 控制项目。负责构建机器人大脑控制逻辑、语音/视觉多模态指令解析及端侧低延迟反馈链路。",
+    "highlights": [
+      "代码已完整就位于桌面 andy 协同目录，全流程测试通过",
+      "软著全套申报包与小智控制核心无缝协同，具备完整知识产权壁垒"
+    ],
+    "image": "assets/images/edgesafe_img2.jpg"
+  },
+  {
+    "id": "ind-04",
+    "category": "industry",
+    "title": "电商中台微服务与供应链管理系统",
+    "subtitle": "高并发电商订单履约、商品聚合抽取与分销对账中台系统",
+    "role": "全栈架构与开发负责人",
+    "status": "✅ 稳定运行中",
+    "statusColor": "emerald",
+    "badge": "商业系统",
+    "metrics": "桌面 jiefu 仓库 · 稳定运行",
+    "tech": [
+      "Node.js",
+      "Python 数据管道",
+      "MySQL",
+      "Redis",
+      "Vue"
+    ],
+    "path": "/Users/insistgang/Desktop/jiefu",
+    "description": "针对电商供应链多渠道订单分散与数据同步滞后问题，自研轻量级数据抽取与商品中台微服务，支持多平台库存同步与对账清算。",
+    "highlights": [
+      "自研稳健的异步重试与网络超时保护机制，保障订单 0 漏单",
+      "已在实际商业业务流中持续平稳运转，验证了工业级代码的可靠性"
+    ],
+    "image": "assets/images/esg_img2.jpg"
+  },
+  {
+    "id": "prod-01",
+    "category": "products",
+    "title": "Ops-Hub · 个人数字化运营工作总台",
+    "subtitle": "让流程和环境帮我做决定！三端算力专属分工与极简生活秩序总台",
+    "role": "独立设计师 & 全栈工程师",
+    "status": "🚀 生产自用中",
+    "statusColor": "sky",
+    "badge": "开源自研产品",
+    "metrics": "已封装为软著14 · CLI ops · launchd守护",
+    "tech": [
+      "Tailscale Mesh",
+      "Python CLI",
+      "Tailwind CSS",
+      "Zero-Build"
+    ],
+    "path": "/Users/insistgang/Desktop/ops-hub",
+    "description": "将 Mac 移动中枢、Windows 4070S 深度计算后端与 Jetson 边缘感知节点完全贯通。支持任务分流决策推导、外部交付管道跟踪及早晚自动巡检发布。",
+    "highlights": [
+      "CLI `ops status` 与 `ops dispatch` 命令行秒级调度",
+      "早晚 09:00 与 21:00 原生 launchd 守护进程无人值守静默探测",
+      "完全脱敏整合为标准软著《异构多端算力协同与数字化运维工作总台系统》"
+    ],
+    "image": "assets/images/opshub_02_数字化运维工作总台主控仪表盘.png"
+  },
+  {
+    "id": "prod-02",
+    "category": "products",
+    "title": "AI-QuotaMonitor · 大语言模型多源算力额度监控大屏",
+    "subtitle": "多云异构大模型 Token 额度实时采集、滑动窗口平滑与四级预警看板",
+    "role": "独立全栈开发者",
+    "status": "🚀 持续运行中",
+    "statusColor": "sky",
+    "badge": "效能监控工具",
+    "metrics": "已封装为软著12 · 零Token损耗",
+    "tech": [
+      "Python 标准库",
+      "HTML5",
+      "CSS Grid",
+      "GitHub Pages"
+    ],
+    "path": "/Users/insistgang/Desktop/andy/软著_提交材料汇总/12_大模型多源算力额度监控_AI-QuotaMonitor",
+    "description": "解决多模型（Claude, OpenAI, DeepSeek等）额度分散与突发超额痛点，基于只读状态探针穿透采集，毫秒级捕获算力余量并发布至在线总控看板。",
+    "highlights": [
+      "轻量标准库极简实现，常驻内存仅数十 MB，零额外调用开销",
+      "对应转化软著《大语言模型多源算力额度监控与自动化分析系统》"
+    ],
+    "image": "assets/images/quota_02_算力额度监控总控大屏.jpg"
+  },
+  {
+    "id": "prod-03",
+    "category": "products",
+    "title": "基于多智能体协同的 AI 技术知识库管理系统",
+    "subtitle": "技术知识库端到端自动化抓取、质量审查、脱敏与向量语义检索中枢",
+    "role": "系统架构师",
+    "status": "🚀 生产自用中",
+    "statusColor": "sky",
+    "badge": "AI 智能体系统",
+    "metrics": "已封装为软著13 · LangGraph 9节点",
+    "tech": [
+      "LangGraph",
+      "Python 3.10",
+      "MCP 协议",
+      "向量数据库"
+    ],
+    "path": "/Users/insistgang/Desktop/ai-knowledge-base",
+    "description": "个人与团队技术知识沉淀的 AI 驱动中枢。利用 LangGraph 编排多智能体集群完成技术博客、论文阅读感悟的自动化解析与多维质量评估。",
+    "highlights": [
+      "遵循标准 MCP 协议，支持与主流 IDE 及 AI Agent 实时问答集成",
+      "对应转化软著《基于多智能体协同的AI技术知识库自动化管理系统》"
+    ],
+    "image": "assets/images/opshub_01_系统总体三端异构协同架构图.png"
+  },
+  {
+    "id": "prod-04",
+    "category": "products",
+    "title": "得到大脑日记工作流 & MCP 日记自动化服务器",
+    "subtitle": "官方 Getnote API 幂等归档、智能语音提炼与知识库双端同步引擎",
+    "role": "架构与开发者",
+    "status": "✅ 稳定在线",
+    "statusColor": "emerald",
+    "badge": "知识管理产品",
+    "metrics": "已入库 42 个 Skills · 私有部署",
+    "tech": [
+      "MCP Server",
+      "Python",
+      "Getnote API",
+      "Markdown AST"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/01-Daily/Tools/mcp-server-diary",
+    "description": "打通得到大脑随手语音记录与本地 Obsidian 知识库。按 note_id 幂等去重归档，提炼日记时间线并全自动完成 Hexo 博客脱敏稿双端写入。",
+    "highlights": [
+      "作为官方标准 MCP 服务器常驻运行，实现自然语言一键智能日记整理",
+      "个人日记与周/月复盘自动化流水线核心支撑引擎"
+    ],
+    "image": "assets/images/quota_03_历史额度消耗时序走势大屏.jpg"
+  },
+  {
+    "id": "prod-05",
+    "category": "products",
+    "title": "Weight-Tracker · 秋季 38 天效能健康度打卡大盘",
+    "subtitle": "三人协同作战 · 实时响应式在线仪表盘 · 科学指标收敛监控",
+    "role": "前端独立开发 & 运维",
+    "status": "🚀 在线公网运行",
+    "statusColor": "sky",
+    "badge": "在线 Web 应用",
+    "metrics": "insistgang.top 在线部署 · 持续打卡中",
+    "tech": [
+      "Vue 3",
+      "Tailwind CSS",
+      "GitHub Pages",
+      "JSON 数据流"
+    ],
+    "path": "/Users/insistgang/Desktop/weight-tracker",
+    "description": "面向健康秩序管理的轻量 Web 工具。支持刘钢、张庭磊、卢轩三人每日体重与体脂数据上报、时序变化折线图绘制及 38 天战役进度倒计时。",
+    "highlights": [
+      "上线运行于 https://insistgang.top/weight-tracker/，免部署高可用",
+      "沉淀了微型协作 Web 工具极致轻量化直出的工程典范"
+    ],
+    "image": "assets/images/quota_10_订阅式大模型算力成本与使用率分析看板.png"
+  },
+  {
+    "id": "prod-06",
+    "category": "products",
+    "title": "格码工坊 (GeMa-Studio) · 创意交互设计组件库",
+    "subtitle": "动态二维码美化、互动决策转盘、传统签诗解签与电子印章生成器",
+    "role": "独立开发者",
+    "status": "✅ 原型归档",
+    "statusColor": "emerald",
+    "badge": "创意组件库",
+    "metrics": "完整可运行源码 · 归档于知识库",
+    "tech": [
+      "JavaScript",
+      "HTML5 Canvas",
+      "SVG 渲染",
+      "Vue"
+    ],
+    "path": "/Users/insistgang/Documents/knowledge/03-Projects/零散成品/Grok零散成品/格码工坊",
+    "description": "自研趣味交互与实用图形生成套件，包含参数化二维码纹理合成、物理惯性抽奖转盘及古典毛笔印章渲染，已收录于知识库精品零散成品库。",
+    "highlights": [
+      "纯客户端 Canvas 高保真矢量绘制，无需任何后端服务即可独立运行",
+      "展示了在前端创意交互与图形学算法层面的扎实功底"
+    ],
+    "image": "assets/images/opshub_07_关键里程碑交付倒计时与健康预警看板.png"
+  }
+];
 
     let currentCategory = "all";
     let searchQuery = "";
