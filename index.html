@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>刘钢 Leo · 软件工程与研究作品集</title>
   <meta name="description" content="刘钢（Leo）的软件工程与研究作品集：计算机视觉、边缘计算、多智能体应用、14 项已提交软著申请及个人开发工具。">
-  <meta name="theme-color" content="#090d16">
+  <meta name="theme-color" content="#141719">
   <meta property="og:title" content="刘钢 Leo · 软件工程与研究作品集">
   <meta property="og:description" content="刘钢的软件项目、计算机视觉研究与开发记录。浏览实际作品，也可以到 Leo 的笔记本读技术文章。">
   <meta property="og:type" content="website">
@@ -13,6 +13,16 @@
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/vendor/lucide.min.js"></script>
   <style>
+    :root {
+      color-scheme: dark;
+      --page: 20 23 25;
+      --surface: 27 31 33;
+      --surface-raised: 36 41 44;
+      --line: 52 58 61;
+      --copy: 238 234 224;
+      --muted: 168 171 174;
+      --accent: 186 208 218;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     }
@@ -25,26 +35,25 @@
       height: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #090d16;
+      background: rgb(var(--page));
     }
     ::-webkit-scrollbar-thumb {
-      background: #1e293b;
+      background: rgb(var(--surface-raised));
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
+      background: #42484b;
     }
     .portfolio-card {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgb(var(--surface));
+      border: 1px solid rgb(var(--line));
+      border-radius: 6px;
+      transition: border-color 0.18s ease;
     }
     .portfolio-card:hover {
-      border-color: rgba(56, 189, 248, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      border-color: #647278;
     }
-    .site-header { position: fixed; inset: 0 0 auto; z-index: 40; background: #141719; border-bottom: 1px solid #303336; }
+    .site-header { position: fixed; inset: 0 0 auto; z-index: 40; background: rgb(var(--page)); border-bottom: 1px solid rgb(var(--line)); }
     .site-header-inner, .intro-inner { width: min(100% - 64px, 1216px); margin: 0 auto; }
     .site-header-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .site-brand { color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; }
@@ -54,7 +63,7 @@
     .site-header-actions { gap: 22px; }
     .site-blog-link { color: #eeeae0; border-bottom: 1px solid #71787b; padding: 5px 0; }
     .site-contact { border: 1px solid #4a4f52; border-radius: 4px; padding: 7px 13px; }
-    .intro { background: #141719; color: #eeeae0; padding: 130px 0 64px; border-bottom: 1px solid #303336; }
+    .intro { background: rgb(var(--page)); color: rgb(var(--copy)); padding: 130px 0 64px; }
     .intro-inner { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; }
     .intro-copy { min-width: 0; }
     .intro-eyebrow { margin: 0 0 24px; font-size: 12px; color: #a8abae; letter-spacing: .08em; }
@@ -104,16 +113,21 @@
       .intro-actions { gap: 22px; margin-top: 26px; }
       .intro-caption { font-size: 11px; gap: 12px; }
     }
-    section[id] { scroll-margin-top: 5rem; }
-    :focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
-    .status-submitted { background: #422006; color: #fde68a; border-color: #92400e; }
+    section[id] { scroll-margin-top: 5rem; border-color: rgb(var(--line)); }
+    .section-kicker { color: rgb(var(--muted)); font-weight: 400; letter-spacing: .08em; }
+    .section-heading { font-weight: 500; letter-spacing: -.025em; }
+    .cat-btn { border-radius: 4px; }
+    .cat-btn.active { background: rgb(var(--copy)); color: rgb(var(--page)); }
+    .cat-btn.active > span:last-child { background: rgb(var(--page) / .08); }
+    :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
+    .status-submitted { background: #2d291f; color: #d5c69e; border-color: #716345; }
     .modal-open { overflow: hidden; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
     }
   </style>
 </head>
-<body class="bg-[#090d16] text-slate-100 min-h-screen antialiased selection:bg-sky-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-sky-500 selection:text-white">
 
   <header class="site-header">
     <nav class="site-header-inner" aria-label="主导航">
@@ -165,8 +179,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
         <div>
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Case Studies</span>
-          <h2 class="text-3xl font-bold text-white mt-1">几个代表项目</h2>
+          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Case Studies</span>
+          <h2 class="section-heading text-3xl font-bold text-white mt-1">几个代表项目</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
           从设备联调到日常工具，记录项目的功能、实现与验证。
@@ -190,13 +204,14 @@
           </div>
           <div class="lg:col-span-5 p-8 flex flex-col justify-between">
             <div>
-              <div class="flex items-center gap-2 mb-3">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 西门子杯 · 华东一赛区二等奖</span>
+                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 研电赛 · 上海赛区二等奖</span>
                 <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 11</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">工业边缘动态环境智能监测与多模态预警系统 (EdgeSafe)</h3>
+              <h3 class="text-2xl font-bold text-white mb-2">边缘视觉设备 · 工业预警与辅助通行</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                2026 年“西门子杯”全国初赛华东一赛区二等奖项目。围绕工业现场的区域入侵与风险事件，在 Jetson 边缘设备上连接视频检测、区域规则和本地告警。
+                同一套 Jetson 边缘计算盒子，用于 2026 年西门子杯与研电赛的不同场景展示：工业现场视觉预警，以及无障碍辅助通行感知。两项比赛均获相应赛区二等奖。
               </p>
               <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
                 <div class="flex items-center gap-2">
@@ -223,35 +238,35 @@
           </div>
         </div>
 
-        <!-- Case 2: LinkAble (研电赛省二) -->
+        <!-- Case 2: LinkAble · 台湾交流 / 逢甲赛 -->
         <div class="portfolio-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-slate-800">
           <div class="lg:col-span-5 p-8 flex flex-col justify-between order-2 lg:order-1">
             <div>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 研电赛 · 上海赛区二等奖</span>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">台湾交流 · 逢甲赛</span>
                 <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 10</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">面向视障群体的无障碍互助与智能导行服务系统 (LinkAble)</h3>
+              <h3 class="text-2xl font-bold text-white mb-2">共感 LinkAble · 无障碍互助应用</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                2026 年第二十一届研电赛上海分赛区团队二等奖项目。围绕视障群体需求，使用 Flutter / Dart 组织无障碍交互、AI 助手、SOS 求助与志愿者协助流程。
+                共感 LinkAble 是面向视障者及临时出行困难者的无障碍互助应用原型，将 AI 多模态助手、志愿者协助与 SOS 求助组织在同一交互流程中。项目用于 2026 两岸大学生创客大赛逢甲赛区与台湾交流展示，侧重产品方案与交互演示。
               </p>
               <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>高对比界面、大字展示与无障碍操作入口</span>
+                  <span>面向求助者与志愿者的双角色交互</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>AI 助手与志愿者协助入口</span>
+                  <span>AI 多模态助手、志愿者协助与 SOS 流程演示</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>SOS 求助发起、状态反馈与协助流程</span>
+                  <span>逢甲赛区交流作品 · 产品方案与交互原型</span>
                 </div>
               </div>
             </div>
             <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-slate-400">角色: 团队队长 / 全栈架构</span>
+              <span class="text-xs font-mono text-slate-400">项目负责人 · 产品方案与交互演示</span>
               <button onclick="openModal('soft-10')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
                 <span>查看软件项目</span>
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
@@ -261,11 +276,11 @@
           <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6 order-1 lg:order-2">
             <img 
               src="assets/images/soft/submitted-10.png" loading="lazy" decoding="async"
-              alt="LinkAble 视障互助系统与AI识别演示" 
+              alt="共感 LinkAble 竞赛交互原型"
               class="rounded-xl w-full h-full object-contain max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>LinkAble · 求助与志愿者入口</span>
+              <span>LinkAble · 求助与志愿者入口（演示）</span>
               <span class="text-sky-400 font-bold">界面示例</span>
             </div>
           </div>
@@ -329,8 +344,8 @@
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">All Project Archive</span>
-          <h2 class="text-3xl font-bold text-white mt-1">作品与工程实践 <span class="text-slate-400 text-xl">（<span data-count="all">40</span> 条）</span></h2>
+          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-sky-400">All Project Archive</span>
+          <h2 class="section-heading text-3xl font-bold text-white mt-1">作品与工程实践 <span class="text-slate-400 text-xl">（<span data-count="all">40</span> 条）</span></h2>
           <p class="text-xs text-slate-400 mt-3">按软件、竞赛、研究、产业与工具分类展示；同一项目的不同成果可能分别收录。</p>
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-10-04">2026 年 10 月 4 日</time> · 14 项软著申请已提交，登记结果待确认。</p>
         </div>
@@ -356,23 +371,23 @@
           <span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]" id="count-all">40</span>
         </button>
         <button onclick="setCategory('softcopy')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="softcopy">
-          <span>📜 软著申请</span>
+          <span>软著申请</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">14</span>
         </button>
         <button onclick="setCategory('competition')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="competition">
-          <span>🏆 竞赛记录</span>
+          <span>竞赛记录</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">10</span>
         </button>
         <button onclick="setCategory('research')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="research">
-          <span>🔬 研究工作</span>
+          <span>研究工作</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">4</span>
         </button>
         <button onclick="setCategory('industry')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="industry">
-          <span>🏢 产业实践</span>
+          <span>产业实践</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">4</span>
         </button>
         <button onclick="setCategory('products')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="products">
-          <span>🛠️ 个人工具</span>
+          <span>个人工具</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">8</span>
         </button>
       </div>
@@ -396,15 +411,15 @@
     <!-- Section 3: Honors & Awards Wall (竞赛荣誉与奖状原件墙) -->
   <section id="awards" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">Honors & Official Certificates</span>
-        <h2 class="text-3xl font-bold text-white mt-1">竞赛经历与证书</h2>
+      <div class="max-w-2xl mb-12">
+        <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-amber-400">Honors & Official Certificates</span>
+        <h2 class="section-heading text-3xl font-bold text-white mt-1">竞赛经历与证书</h2>
         <p class="text-sm text-slate-400 mt-2">
           按证书核对赛事、年份、赛区与获奖等级，点击查看完整证书。
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
           <button onclick="openModal('comp-09')" aria-label="查看证书与项目：第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
@@ -434,13 +449,13 @@
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
           <button onclick="openModal('comp-10')" aria-label="查看证书与项目：第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
-            <img loading="lazy" decoding="async" src="assets/images/certs/gedc-2026-linkable.png" alt="2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。" class="w-full h-full object-contain" />
+            <img loading="lazy" decoding="async" src="assets/images/certs/gedc-2026-edge-device.png" alt="2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖</h3>
             <p class="text-xs text-amber-300 mb-2">🏆 上海赛区团队二等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于边缘智能的无障碍辅助通行感知系统设计与实现</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 · 上海分赛区团队二等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">边缘计算设备 · 基于边缘智能的无障碍辅助通行感知系统设计与实现</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">同一边缘设备平台 · 上海分赛区团队二等奖</p>
             <button onclick="openModal('comp-10')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
         </article>
@@ -544,8 +559,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
         <div>
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-400">Research & Papers</span>
-          <h2 class="text-3xl font-bold text-white mt-1">学术科研与论文矩阵</h2>
+          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-purple-400">Research & Papers</span>
+          <h2 class="section-heading text-3xl font-bold text-white mt-1">学术科研与论文矩阵</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
           立足严谨的实验设计与数学推导，以真问题驱动学术探索与算法创新。
@@ -598,8 +613,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-6">
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Philosophy & Mindset</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6">
+          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Philosophy & Mindset</span>
+          <h2 class="section-heading text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6">
             “一个地方，一种模式。<br />
             让流程和环境帮我做决定，<br />
             不靠意志力硬撑。”
@@ -939,24 +954,25 @@
     "category": "softcopy",
     "image": "assets/images/soft/submitted-10.png",
     "title": "面向视障群体的无障碍互助与智能导行服务系统",
-    "subtitle": "无障碍交互、AI 助手与 SOS 求助流程",
-    "role": "软件设计与开发",
+    "subtitle": "共感 LinkAble · 2026 两岸大学生创客大赛逢甲赛区交流项目",
+    "role": "项目负责人",
     "status": "已提交申请",
     "statusColor": "amber",
-    "badge": "软著申请 10",
-    "metrics": "V1.0 · 申请材料已提交",
+    "badge": "软著申请 10 · 台湾交流",
+    "metrics": "逢甲赛区交流展示 · V1.0 软著申请已提交",
     "tech": [
       "Flutter",
       "Dart",
       "Riverpod",
-      "无障碍交互"
+      "交互原型"
     ],
-    "description": "围绕视障群体的使用需求设计无障碍交互，连接 AI 助手、SOS 求助状态与志愿者协助流程。",
+    "description": "共感 LinkAble 是面向视障者及临时出行困难者的无障碍互助应用原型，将 AI 多模态助手、志愿者协助与 SOS 求助组织在同一交互流程中。项目用于 2026 两岸大学生创客大赛逢甲赛区与台湾交流展示，侧重产品方案与交互演示。",
     "highlights": [
-      "提供高对比界面与无障碍操作入口",
-      "组织求助发起、状态反馈与协助流程"
+      "围绕求助者与志愿者设计双角色入口",
+      "演示 AI 助手、志愿者匹配和 SOS 求助流程",
+      "交流展示项目，未获奖；当前收录产品方案与交互原型"
     ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "imageCaption": "共感 LinkAble 竞赛演示界面；志愿者匹配、SOS 等流程包含本地模拟，不代表已运营的援助服务。",
     "url": "https://github.com/insistgang/LinkLab",
     "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
@@ -982,7 +998,8 @@
     "description": "在边缘设备上处理视频检测任务，结合 ROI 区域过滤和事件去抖触发本地告警，并汇总事件信息。",
     "highlights": [
       "结合目标检测与区域规则识别风险事件",
-      "连接本地声光告警与云端事件汇总"
+      "连接本地声光告警与云端事件汇总",
+      "同一硬件平台亦用于 2026 年研电赛的辅助通行感知项目"
     ],
     "imageCaption": "V1.0 提交材料中的边缘设备与联调环境。"
   },
@@ -1104,7 +1121,7 @@
       "Jetson",
       "Linux"
     ],
-    "description": "围绕工业现场安全监测，参与 Jetson 边缘设备上的视觉检测、区域规则与告警联调，并完成赛事展示。",
+    "description": "围绕工业现场安全监测，使用 Jetson 边缘计算盒子实现视觉检测、区域规则与告警联调，获 2026 年西门子杯全国初赛华东一赛区二等奖。这套硬件也用于同年的研电赛辅助通行项目。",
     "highlights": [
       "结合目标检测与区域规则识别风险事件",
       "连接本地声光告警与云端事件汇总",
@@ -1291,25 +1308,27 @@
     "id": "comp-10",
     "category": "competition",
     "title": "第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖",
-    "subtitle": "基于边缘智能的无障碍辅助通行感知系统设计与实现",
+    "subtitle": "边缘计算设备 · 基于边缘智能的无障碍辅助通行感知系统设计与实现",
     "role": "参赛队员",
     "status": "🏆 上海赛区团队二等奖",
     "statusColor": "amber",
     "badge": "研电赛 2026",
-    "metrics": "2026 年 · 上海分赛区团队二等奖",
+    "metrics": "同一边缘设备平台 · 上海分赛区团队二等奖",
     "tech": [
-      "边缘智能",
-      "无障碍辅助通行",
-      "感知系统"
+      "Jetson",
+      "边缘计算",
+      "计算机视觉",
+      "辅助通行感知"
     ],
-    "description": "参赛作品为“基于边缘智能的无障碍辅助通行感知系统设计与实现”，获第二十一届中国研究生电子设计竞赛上海分赛区团队二等奖。",
+    "description": "使用与 2026 年西门子杯相同的边缘计算盒子，以“基于边缘智能的无障碍辅助通行感知系统设计与实现”参加第二十一届中国研究生电子设计竞赛，获上海分赛区团队二等奖。",
     "highlights": [
-      "参赛单位为上海工程技术大学，证书载明刘钢为参赛队员",
-      "保留原始 PDF 证书，并提供完整页面预览"
+      "以边缘计算设备承载视觉感知与辅助通行功能",
+      "与同年的西门子杯项目共用硬件平台，分别面向不同场景展示",
+      "证书载明刘钢为参赛队员，原始 PDF 可查看"
     ],
-    "image": "assets/images/certs/gedc-2026-linkable.png",
+    "image": "assets/images/certs/gedc-2026-edge-device.png",
     "imageCaption": "2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。",
-    "url": "assets/certificates/gedc-2026-linkable.pdf",
+    "url": "assets/certificates/gedc-2026-edge-device.pdf",
     "urlLabel": "查看原始证书 PDF"
   },
   {

@@ -14,6 +14,8 @@ GitHub Pages 原始地址会跳转到该域名。部署来源为本仓库 `main`
 
 竞赛证书已补齐 2025 年西门子杯华北二赛区一等奖、2026 年西门子杯华东一赛区二等奖，以及 2026 年第二十一届研电赛上海分赛区团队二等奖。学生证书与教师证书、不同年度和不同赛区分别记录，不将初赛赛区奖项标为全国总决赛奖项。
 
+共感 LinkAble 为 2026 两岸大学生创客大赛逢甲赛区／台湾交流项目，未获奖，以产品方案与交互原型收录。2026 年研电赛对应另一套边缘计算盒子，与同年西门子杯共用设备，分别面向辅助通行感知和工业预警场景。
+
 内容依据和修订边界见 [CONTENT_NOTES.md](CONTENT_NOTES.md)，当前进度与待补信息见 [ROADMAP.md](ROADMAP.md)。
 
 ## 使用
@@ -27,6 +29,8 @@ python3 -m http.server 8766 --bind 127.0.0.1
 浏览器访问 `http://127.0.0.1:8766/`。支持五类作品筛选、名称/说明/技术栈/状态搜索、结果计数、键盘打开卡片与详情弹窗。
 
 首屏采用左对齐个人介绍与 EdgeSafe 设备联调照片，项目数量和申请状态在作品库中展示。顶部导航及个人介绍下方均提供 [Leo 的笔记本](https://insistgang.top/) 博客入口，桌面与手机布局都可直接访问。
+
+整页采用同一套炭灰背景、暖白文字、中性卡片与低饱和强调色。主题颜色由 `index.html` 中的 CSS 变量与 `tailwind.config.cjs` 的调色板统一维护，避免首屏、作品库、证书墙和弹窗出现不同底色。
 
 ## 维护与验证
 
@@ -43,7 +47,7 @@ npm run check
 - `index.html`：页面、项目数据与交互。
 - `assets/images/`：项目配图；`soft/submitted-*.png` 为本次从提交材料提取的图。
 - `assets/images/certs/cimc-2025-liugang.png`、`cimc-2026-liugang.png`：两届西门子杯原始学生证书图片。
-- `assets/certificates/gedc-2026-linkable.pdf`：研电赛原始 PDF；页面配图由该 PDF 渲染。
+- `assets/certificates/gedc-2026-edge-device.pdf`：研电赛原始 PDF；页面配图由该 PDF 渲染。
 - `styles/input.css`、`tailwind.config.cjs`：样式构建入口。
 - `scripts/vendor.mjs`：复制固定版本图标库及许可。
 - `scripts/check.mjs`：校验项目 ID、申请状态、资源、详情入口、脚本语法和公开内容边界。
