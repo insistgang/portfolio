@@ -3,36 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leo (刘钢) · 数字化工程与科研作品集 (Digital Engineering & Research Portfolio)</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <title>刘钢 Leo · 软件工程与研究作品集</title>
+  <meta name="description" content="刘钢（Leo）的软件工程与研究作品集：计算机视觉、边缘计算、多智能体应用、14 项已提交软著申请及个人开发工具。">
+  <meta name="theme-color" content="#090d16">
+  <meta property="og:title" content="刘钢 Leo · 软件工程与研究作品集">
+  <meta property="og:description" content="刘钢的软件项目、计算机视觉研究与开发记录。浏览实际作品，也可以到 Leo 的笔记本读技术文章。">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://insistgang.top/portfolio/">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/vendor/lucide.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     }
     .font-mono {
-      font-family: 'Fira Code', monospace;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
     }
     /* Custom scrollbar */
     ::-webkit-scrollbar {
@@ -49,11 +34,6 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #334155;
     }
-    .glass-nav {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
     .portfolio-card {
       background: #0f172a;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -64,106 +44,132 @@
       transform: translateY(-4px);
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
     }
-    .hero-glow {
-      background: radial-gradient(circle at 50% 30%, rgba(14, 165, 233, 0.15), transparent 70%);
+    .site-header { position: fixed; inset: 0 0 auto; z-index: 40; background: #141719; border-bottom: 1px solid #303336; }
+    .site-header-inner, .intro-inner { width: min(100% - 64px, 1216px); margin: 0 auto; }
+    .site-header-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .site-brand { color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; }
+    .site-brand span { margin-left: 7px; color: #a8abae; font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+    .site-nav-links, .site-header-actions { display: flex; align-items: center; gap: 28px; font-size: 13px; color: #b9bcbf; }
+    .site-header a:hover { color: #fff; }
+    .site-header-actions { gap: 22px; }
+    .site-blog-link { color: #eeeae0; border-bottom: 1px solid #71787b; padding: 5px 0; }
+    .site-contact { border: 1px solid #4a4f52; border-radius: 4px; padding: 7px 13px; }
+    .intro { background: #141719; color: #eeeae0; padding: 130px 0 64px; border-bottom: 1px solid #303336; }
+    .intro-inner { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; }
+    .intro-copy { min-width: 0; }
+    .intro-eyebrow { margin: 0 0 24px; font-size: 12px; color: #a8abae; letter-spacing: .08em; }
+    .intro-name { margin: 0; font-size: 60px; line-height: 1.15; letter-spacing: -.035em; font-weight: 600; }
+    .intro-name span { margin-left: 22px; font-family: Georgia, serif; font-size: 42px; font-weight: 400; font-style: italic; color: #a8abae; letter-spacing: -.02em; }
+    .intro-role { margin-top: 20px; font-size: 21px; line-height: 1.5; font-weight: 400; }
+    .intro-description { max-width: 470px; margin-top: 18px; color: #b9bcbf; font-size: 15px; line-height: 1.9; }
+    .intro-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 30px; font-size: 14px; }
+    .intro-primary { display: inline-flex; align-items: center; gap: 28px; background: #eeeae0; color: #1b1e20; border: 1px solid #eeeae0; border-radius: 4px; padding: 12px 18px; font-weight: 500; }
+    .intro-primary:hover { background: #fff; border-color: #fff; }
+    .intro-blog { color: #bad0da; padding: 5px 0; border-bottom: 1px solid #667d87; }
+    .intro-blog:hover { color: #fff; border-color: #fff; }
+    .intro-contact { display: flex; gap: 23px; margin-top: 24px; font-size: 12px; color: #a8abae; }
+    .intro-contact a:hover { color: #eeeae0; text-decoration: underline; text-underline-offset: 4px; }
+    .intro-figure { width: 100%; max-width: 440px; margin: 0; justify-self: end; }
+    .intro-photo { display: block; width: 100%; cursor: pointer; border-radius: 3px; overflow: hidden; border: 1px solid #404447; background: #202427; }
+    .intro-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+    .intro-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 14px; font-size: 12px; color: #a8abae; }
+    .intro-caption strong { font-weight: 500; color: #d8d8d3; }
+    .intro-caption button { white-space: nowrap; color: #bad0da; }
+    .intro-caption button:hover { text-decoration: underline; text-underline-offset: 4px; }
+    @media (max-width: 1000px) {
+      .site-nav-links { gap: 18px; }
+      .intro-inner { gap: 42px; }
+      .intro-name { font-size: 52px; }
+      .intro-name span { font-size: 36px; }
+      .intro-role { font-size: 19px; }
+    }
+    @media (max-width: 850px) {
+      .site-nav-links { display: none; }
+      .intro { padding: 110px 0 48px; }
+      .intro-inner { grid-template-columns: 1fr; gap: 36px; }
+      .intro-description { max-width: 560px; }
+      .intro-figure { max-width: 560px; justify-self: start; }
+    }
+    @media (max-width: 480px) {
+      .site-header-inner, .intro-inner { width: calc(100% - 40px); }
+      .site-header-inner { height: 64px; gap: 16px; }
+      .site-header-actions { gap: 16px; font-size: 12px; }
+      .site-contact { padding: 6px 10px; }
+      .intro { padding-top: 102px; }
+      .intro-eyebrow { margin-bottom: 20px; font-size: 11px; }
+      .intro-name { font-size: 46px; }
+      .intro-name span { margin-left: 17px; font-size: 31px; }
+      .intro-role { margin-top: 16px; font-size: 18px; }
+      .intro-description { font-size: 14px; line-height: 1.9; }
+      .intro-actions { gap: 22px; margin-top: 26px; }
+      .intro-caption { font-size: 11px; gap: 12px; }
+    }
+    section[id] { scroll-margin-top: 5rem; }
+    :focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+    .status-submitted { background: #422006; color: #fde68a; border-color: #92400e; }
+    .modal-open { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body class="bg-[#090d16] text-slate-100 min-h-screen antialiased selection:bg-sky-500 selection:text-white">
 
-  <!-- Top Sticky Navigation Bar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center font-bold text-white shadow-lg shadow-sky-500/30 group-hover:scale-105 transition-transform">
-          L
-        </div>
-        <div class="flex flex-col">
-          <span class="text-sm font-bold tracking-tight text-white group-hover:text-sky-400 transition-colors">Leo (刘钢)</span>
-          <span class="text-[10px] font-mono text-slate-400">Digital Portfolio</span>
-        </div>
-      </a>
-
-      <!-- Desktop Links -->
-      <div class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300">
-        <a href="#featured" class="hover:text-sky-400 transition-colors">精选案例</a>
-        <a href="#gallery" class="hover:text-sky-400 transition-colors">全量作品</a>
-        <a href="#awards" class="hover:text-sky-400 transition-colors">竞赛荣誉</a>
-        <a href="#research" class="hover:text-sky-400 transition-colors">学术科研</a>
-        <a href="#about" class="hover:text-sky-400 transition-colors">关于与哲学</a>
+  <header class="site-header">
+    <nav class="site-header-inner" aria-label="主导航">
+      <a href="#intro" class="site-brand">刘钢 <span>/ Leo</span></a>
+      <div class="site-nav-links">
+        <a href="#featured">精选项目</a>
+        <a href="#gallery">作品库</a>
+        <a href="#awards">竞赛</a>
+        <a href="#research">研究</a>
+        <a href="#about">关于</a>
       </div>
-
-      <!-- Quick Action -->
-      <div class="flex items-center gap-3">
-        <a href="mailto:insistgang@163.com" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-white transition-all shadow-md shadow-sky-500/20 flex items-center gap-1.5">
-          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-          <span>联系交流</span>
-        </a>
+      <div class="site-header-actions">
+        <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer" class="site-blog-link" aria-label="博客：Leo 的笔记本（新窗口）">博客 ↗</a>
+        <a href="mailto:insistgang@163.com" class="site-contact">联系我</a>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden hero-glow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-6">
-        <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-        <span>硕士在读 · 计算机视觉 / 多智能体系统 / 边缘计算研发者</span>
-      </div>
-
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight mb-6">
-        突破端云算力边界，<br class="hidden sm:inline" />
-        构建具备深层工业价值的 <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-400">智能实体与系统</span>。
-      </h1>
-
-      <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-        我是刘钢 (Leo)。致力于将前沿<strong>深度学习模型</strong>、<strong>端侧边缘感知模组</strong>与<strong>多智能体协作架构</strong>转化为坚固可靠的工程交付。
-        已沉淀 <strong>14 项自主软件著作权</strong>、<strong>8 项国家与省部级竞赛大奖</strong>及多项企业级高并发系统落地经验。
-      </p>
-
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#featured" class="px-6 py-3 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-slate-200 transition-all shadow-xl flex items-center gap-2">
-          <span>浏览精选代表作</span>
-          <i data-lucide="arrow-down" class="w-4 h-4"></i>
-        </a>
-        <a href="#gallery" class="px-6 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-semibold text-sm hover:border-slate-700 hover:text-white transition-all flex items-center gap-2">
-          <i data-lucide="grid" class="w-4 h-4 text-sky-400"></i>
-          <span>检索全量 36 项作品资产</span>
-        </a>
-      </div>
-
-      <!-- Quick Trust Indicators -->
-      <div class="mt-16 pt-10 border-t border-slate-800/60 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
-        <div>
-          <div class="text-3xl font-extrabold text-white">14 <span class="text-sm font-normal text-sky-400">项</span></div>
-          <div class="text-xs text-slate-400 mt-1">自主软著 (191张图/0占位)</div>
+  <section id="intro" class="intro" aria-labelledby="intro-title">
+    <div class="intro-inner">
+      <div class="intro-copy">
+        <p class="intro-eyebrow">上海 · 硕士在读</p>
+        <h1 id="intro-title" class="intro-name">刘钢<span>Leo</span></h1>
+        <p class="intro-role">软件开发与计算机视觉研究</p>
+        <p class="intro-description">做过边缘端视觉预警、无障碍互助应用，也在维护一些自己日常使用的工具。开发中的尝试和踩坑，会整理在博客里。</p>
+        <div class="intro-actions">
+          <a href="#featured" class="intro-primary">查看作品 <span aria-hidden="true">↓</span></a>
+          <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer" class="intro-blog" aria-label="读博客：Leo 的笔记本（新窗口）">读我的博客 ↗</a>
         </div>
-        <div>
-          <div class="text-3xl font-extrabold text-white">8 <span class="text-sm font-normal text-amber-400">项</span></div>
-          <div class="text-xs text-slate-400 mt-1">国家级/省部级竞赛大奖</div>
-        </div>
-        <div>
-          <div class="text-3xl font-extrabold text-white">4 <span class="text-sm font-normal text-purple-400">篇</span></div>
-          <div class="text-xs text-slate-400 mt-1">学术期刊与大论文成果</div>
-        </div>
-        <div>
-          <div class="text-3xl font-extrabold text-white">2 <span class="text-sm font-normal text-emerald-400">所</span></div>
-          <div class="text-xs text-slate-400 mt-1">军工所/高科技名企产业交付</div>
+        <div class="intro-contact">
+          <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:insistgang@163.com">insistgang@163.com</a>
         </div>
       </div>
+      <figure class="intro-figure">
+        <button type="button" class="intro-photo" onclick="openModal('soft-11')" aria-label="查看 EdgeSafe 边缘视觉预警项目详情">
+          <img src="assets/images/soft/submitted-11.png" width="1200" height="900" fetchpriority="high" decoding="async" alt="EdgeSafe 项目的 Jetson 边缘设备与笔记本联调现场">
+        </button>
+        <figcaption class="intro-caption">
+          <span><strong>EdgeSafe</strong> / 设备联调现场</span>
+          <button type="button" onclick="openModal('soft-11')">项目详情 ↗</button>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- Section 1: Featured Case Studies (明星项目大图展示区) -->
-  <section id="featured" class="py-20 border-t border-slate-800/80 bg-slate-950/50">
+  <section id="featured" class="py-16 border-t border-slate-800/80 bg-slate-950/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Case Studies</span>
-          <h2 class="text-3xl font-bold text-white mt-1">精选核心代表作 · 深度案例</h2>
+          <h2 class="text-3xl font-bold text-white mt-1">几个代表项目</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
-          深度剖析从学术理论、算法推演到现场实物部署的代表性工程全案。
+          从设备联调到日常工具，记录项目的功能、实现与验证。
         </p>
       </div>
 
@@ -173,44 +179,44 @@
         <div class="portfolio-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-slate-800">
           <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6">
             <img 
-              src="assets/images/edgesafe_featured.jpg" 
-              alt="CIMC EdgeSafe Cloud Dashboard" 
+              src="assets/images/soft/submitted-11.png" loading="lazy" decoding="async"
+              alt="EdgeSafe 边缘设备与现场联调"
               class="rounded-xl w-full h-full object-cover max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>EdgeSafe 工业现场云端事件治理与数据大屏</span>
-              <span class="text-emerald-400 font-bold">2.8K 实时监测总控</span>
+              <span>EdgeSafe 边缘设备与联调环境</span>
+              <span class="text-emerald-400 font-bold">项目实物</span>
             </div>
           </div>
           <div class="lg:col-span-5 p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-2 mb-3">
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">省级二等奖</span>
-                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著 11</span>
+                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 西门子杯 · 华东一赛区二等奖</span>
+                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 11</span>
               </div>
               <h3 class="text-2xl font-bold text-white mb-2">工业边缘动态环境智能监测与多模态预警系统 (EdgeSafe)</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                第十九届“西门子杯”中国智能制造挑战赛省级二等奖成果（答辩 82 分）。针对工业制造现场违规作业与危险入侵，研发部署于 NVIDIA Jetson 的现场级边缘视觉预警系统。
+                2026 年“西门子杯”全国初赛华东一赛区二等奖项目。围绕工业现场的区域入侵与风险事件，在 Jetson 边缘设备上连接视频检测、区域规则和本地告警。
               </p>
               <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>NVIDIA Jetson 端侧 TensorRT 推理加速，延迟低于 50ms</span>
+                  <span>Python / OpenCV 检测流程与 ONNX Runtime 推理</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>现场工业级声学驱动功放与声光预警模组软硬件联动</span>
+                  <span>本地声光告警与设备联调</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>自研边缘端状态流转机与多边形 ROI 空间几何动态标定</span>
+                  <span>ROI 区域过滤、事件去抖与云端汇总</span>
                 </div>
               </div>
             </div>
             <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
               <span class="text-xs font-mono text-slate-400">角色: 系统架构师 / 算法核心</span>
               <button onclick="openModal('soft-11')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
-                <span>查看软著与图录</span>
+                <span>查看软件项目</span>
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               </button>
             </div>
@@ -222,45 +228,45 @@
           <div class="lg:col-span-5 p-8 flex flex-col justify-between order-2 lg:order-1">
             <div>
               <div class="flex items-center gap-2 mb-3">
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">研电赛省二等奖</span>
-                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著 10</span>
+                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 研电赛 · 上海赛区二等奖</span>
+                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 10</span>
               </div>
               <h3 class="text-2xl font-bold text-white mb-2">面向视障群体的无障碍互助与智能导行服务系统 (LinkAble)</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                中国研究生电子设计竞赛省级二等奖项目。专为盲人及低视力群体研发的普惠性辅助出行平台。结合端侧视觉感知多模态问答与就近地理位置的社会化志愿者极速抢单互助。
+                2026 年第二十一届研电赛上海分赛区团队二等奖项目。围绕视障群体需求，使用 Flutter / Dart 组织无障碍交互、AI 助手、SOS 求助与志愿者协助流程。
               </p>
               <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>自研大字高对比 UI 与系统级全读屏无障碍交互规范适配</span>
+                  <span>高对比界面、大字展示与无障碍操作入口</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>AI 视觉识别置信度不足时，一键无缝平滑切入音视频人工协助</span>
+                  <span>AI 助手与志愿者协助入口</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>紧急 SOS 误触声学震动倒计时与端到端隐私脱敏传输</span>
+                  <span>SOS 求助发起、状态反馈与协助流程</span>
                 </div>
               </div>
             </div>
             <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
               <span class="text-xs font-mono text-slate-400">角色: 团队队长 / 全栈架构</span>
               <button onclick="openModal('soft-10')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
-                <span>查看软著与图录</span>
+                <span>查看软件项目</span>
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               </button>
             </div>
           </div>
           <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6 order-1 lg:order-2">
             <img 
-              src="assets/images/linklab_featured.png" 
+              src="assets/images/soft/submitted-10.png" loading="lazy" decoding="async"
               alt="LinkAble 视障互助系统与AI识别演示" 
-              class="rounded-xl w-full h-full object-cover max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
+              class="rounded-xl w-full h-full object-contain max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>LinkAble 视障互助生态 · 首页求助 & 多模态识物问答</span>
-              <span class="text-sky-400 font-bold">双机演示</span>
+              <span>LinkAble · 求助与志愿者入口</span>
+              <span class="text-sky-400 font-bold">界面示例</span>
             </div>
           </div>
         </div>
@@ -269,44 +275,44 @@
         <div class="portfolio-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-slate-800">
           <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6">
             <img 
-              src="assets/images/opshub_02_数字化运维工作总台主控仪表盘.png" 
-              alt="Ops-Hub Dashboard" 
+              src="assets/images/soft/submitted-14.png" loading="lazy" decoding="async"
+              alt="Ops-Hub 多端协作架构示意"
               class="rounded-xl w-full h-full object-cover max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>Ops-Hub 响应式单页总控总台实时监控大屏</span>
-              <span class="text-sky-400 font-bold">三端在线</span>
+              <span>Ops-Hub 多端协作架构</span>
+              <span class="text-sky-400 font-bold">流程示意</span>
             </div>
           </div>
           <div class="lg:col-span-5 p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-2 mb-3">
                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20">开源自研中枢</span>
-                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著 14</span>
+                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 14</span>
               </div>
               <h3 class="text-2xl font-bold text-white mb-2">异构多端算力协同与数字化运维工作总台系统 (Ops-Hub)</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                “让流程和环境帮我做决定，不靠意志力硬撑”。贯通 Mac 移动中枢、Windows 4070S 深度计算后端与 Jetson 边缘感知节点，实现自动化任务分流决策推导与早晚静默自动同步。
+                将设备状态、任务分流和工程进度放在一个工作总台中，通过 Python CLI、静态看板与定时同步减少重复的状态检查。
               </p>
               <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>Tailscale Mesh 虚拟专网探针毫秒级连通性与 RTT 时延采样</span>
+                  <span>设备探针采集连通性与 RTT 时延，汇总到状态看板</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>CLI 调度引擎 (ops dispatch) 智能匹配算力矩阵与安全红线</span>
+                  <span>命令行按任务需求给出执行端建议</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>macOS 原生 launchd 守护进程早晚 09:00 与 21:00 免密自动巡检</span>
+                  <span>launchd 定时巡检与数据同步</span>
                 </div>
               </div>
             </div>
             <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
               <span class="text-xs font-mono text-slate-400">角色: 独立架构师 & 全栈研发</span>
               <button onclick="openModal('soft-14')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
-                <span>查看软著与图录</span>
+                <span>查看软件项目</span>
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               </button>
             </div>
@@ -324,7 +330,9 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">All Project Archive</span>
-          <h2 class="text-3xl font-bold text-white mt-1">全量数字工程与资产图录 (36 项)</h2>
+          <h2 class="text-3xl font-bold text-white mt-1">作品与工程实践 <span class="text-slate-400 text-xl">（<span data-count="all">40</span> 条）</span></h2>
+          <p class="text-xs text-slate-400 mt-3">按软件、竞赛、研究、产业与工具分类展示；同一项目的不同成果可能分别收录。</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-10-04">2026 年 10 月 4 日</time> · 14 项软著申请已提交，登记结果待确认。</p>
         </div>
         
         <!-- Search bar inside gallery -->
@@ -333,7 +341,8 @@
           <input 
             type="text" 
             id="search-input" 
-            placeholder="搜索项目全称、技术栈、对应软著..." 
+            placeholder="搜索项目、技术栈或申请状态…"
+            aria-label="搜索作品"
             class="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
             oninput="handleSearch()"
           />
@@ -344,30 +353,32 @@
       <div class="flex flex-wrap items-center gap-2 mb-10 pb-2 border-b border-slate-800/60" id="category-tabs">
         <button onclick="setCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-white flex items-center gap-2" data-cat="all">
           <span>全部作品</span>
-          <span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]" id="count-all">36</span>
+          <span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]" id="count-all">40</span>
         </button>
         <button onclick="setCategory('softcopy')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="softcopy">
-          <span>📜 14 项软件著作权</span>
+          <span>📜 软著申请</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">14</span>
         </button>
         <button onclick="setCategory('competition')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="competition">
-          <span>🏆 8 项竞赛大奖</span>
-          <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">8</span>
+          <span>🏆 竞赛记录</span>
+          <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">10</span>
         </button>
         <button onclick="setCategory('research')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="research">
-          <span>🔬 4 篇论文科研</span>
+          <span>🔬 研究工作</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">4</span>
         </button>
         <button onclick="setCategory('industry')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="industry">
-          <span>🏢 4 大产业交付</span>
+          <span>🏢 产业实践</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">4</span>
         </button>
         <button onclick="setCategory('products')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="products">
-          <span>🛠️ 6 项独立产品</span>
-          <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">6</span>
+          <span>🛠️ 个人工具</span>
+          <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">8</span>
         </button>
       </div>
 
+      <p id="results-count" class="text-xs text-slate-400 mb-4" role="status" aria-live="polite"></p>
+      <noscript><p class="text-slate-300 mb-6">开启 JavaScript 可筛选作品和查看项目详情；页面下方仍可浏览代表作、竞赛荣誉与研究简介。</p></noscript>
       <!-- Works Grid -->
       <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Rendered by JS -->
@@ -387,198 +398,143 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">Honors & Official Certificates</span>
-        <h2 class="text-3xl font-bold text-white mt-1">国家级与省部级高含金量竞赛荣誉（奖状原件）</h2>
+        <h2 class="text-3xl font-bold text-white mt-1">竞赛经历与证书</h2>
         <p class="text-sm text-slate-400 mt-2">
-          在全国研究生顶尖权威赛事与行业挑战赛中持续斩获佳绩，官方红章证书全量真迹收录。
+          按证书核对赛事、年份、赛区与获奖等级，点击查看完整证书。
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
         
-        <!-- Award 1: 数模国二 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-03')">
-            <img src="assets/images/certs/cert_shumo.jpg" alt="数学建模全国二等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-09')" aria-label="查看证书与项目：第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cimc-2025-liugang.png" alt="刘钢学生获奖证书：2025 年第十九届 CIMC 全国初赛华北二赛区一等奖。证书编号 CIMC-GYAS-202538368。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">中国研究生数学建模竞赛（第22届）</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">全国二等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">大规模高维非线性时空大数据拟合、离散状态空间搜索与全局多目标优化</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>教育部学位中心认证</span>
-              <button onclick="openModal('comp-03')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 华北二赛区一等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 全国初赛华北二赛区一等奖</p>
+            <button onclick="openModal('comp-09')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 2: 西门子杯省二 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-02')">
-            <img src="assets/images/certs/cert_ximengzi.jpg" alt="西门子杯省级二等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-02')" aria-label="查看证书与项目：第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cimc-2026-liugang.png" alt="刘钢学生获奖证书：2026 年第二十届 CIMC 全国初赛华东一赛区二等奖。证书编号 CIMC-ZNAS-202680118。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">“西门子杯”中国智能制造挑战赛 (2026)</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">省级二等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">工业边缘动态环境智能监测与多模态预警系统 (EdgeSafe) · 答辩 82 分实物验证</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>CIMC 官方组委会认证</span>
-              <button onclick="openModal('comp-02')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 华东一赛区二等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">全国初赛 · 智能制造创新研发类赛项：自由探索方向</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 · 全国初赛华东一赛区二等奖</p>
+            <button onclick="openModal('comp-02')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 3: 研电赛省二 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-01')">
-            <img src="assets/images/certs/cert_yandian.jpg" alt="研电赛省级二等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-10')" aria-label="查看证书与项目：第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/gedc-2026-linkable.png" alt="2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">中国研究生电子设计竞赛 (研电赛 2026)</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">省级二等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">面向视障群体的多模态智能导行与共感无障碍互助系统 (LinkAble) · 队长</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>中国电子学会主办认证</span>
-              <button onclick="openModal('comp-01')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 上海赛区团队二等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于边缘智能的无障碍辅助通行感知系统设计与实现</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 · 上海分赛区团队二等奖</p>
+            <button onclick="openModal('comp-10')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 4: AI 创新大赛国三 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-04')">
-            <img src="assets/images/certs/cert_ai.jpg" alt="华为杯人工智能创新大赛全国三等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-03')" aria-label="查看证书与项目：第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_shumo.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">中国研究生人工智能创新大赛（第7届）</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">全国三等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于大模型多智能体协同的特定人群智能自适应助学辅导系统 · 全栈架构</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>教育部学位中心认证</span>
-              <button onclick="openModal('comp-04')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 国家二等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">国二证书 · 数万行仿真数据 · 完整报告</p>
+            <button onclick="openModal('comp-03')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 5: 网安创新大赛国三 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-05')">
-            <img src="assets/images/certs/cert_wangan.jpg" alt="华为杯网络安全创新大赛全国三等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-01')" aria-label="查看证书与项目：第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_yandian.jpg" alt="2025 年第二十届研电赛上海赛区团队三等奖证书；对应输电线路监测装置，与 LinkAble 为不同项目。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">中国研究生网络安全创新大赛（第4届）</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">全国三等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">专家混合推理与威胁情报检索驱动的多智能体安全态势研判平台 · RAG算法研发</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>教育部学位中心认证</span>
-              <button onclick="openModal('comp-05')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 上海赛区团队三等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">智能追光式输电线路在线监测装置</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 上海分赛区团队三等奖</p>
+            <button onclick="openModal('comp-01')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 6: EDA 创芯大赛国三 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-06')">
-            <img src="assets/images/certs/cert_eda.jpg" alt="中国研究生EDA创芯大赛全国三等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-04')" aria-label="查看证书与项目：第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_ai.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">创“芯”大赛·中国研究生 EDA 精英赛</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">全国三等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">复杂集成电路原理图框图自动识别与拓扑网表重构 · 图论与目标检测融合</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>中国科协与EDA专项赛认证</span>
-              <button onclick="openModal('comp-06')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 国家三等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于大模型多智能体协同的特定人群智能自适应助学辅导系统</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 完整实施方案 · 可运行工程</p>
+            <button onclick="openModal('comp-04')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 7: 智慧城市大赛省三 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-07')">
-            <img src="assets/images/certs/cert_zhihuichengshi.jpg" alt="智慧城市大赛省级三等奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-05')" aria-label="查看证书与项目：第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_wangan.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">中国研究生智慧城市技术与创意大赛（第11届）</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">省级三等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">智慧空间感知计算与三维数字孪生城市协同交互平台 · 核心算法设计</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>智慧城市大赛组委会认证</span>
-              <button onclick="openModal('comp-07')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 国家三等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 专家评委答辩 Q&amp;A</p>
+            <button onclick="openModal('comp-05')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
-        <!-- Award 8: 行业分析大赛银奖/省三 -->
-        <div class="portfolio-card p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-4 hover:border-amber-500/40 transition-all group">
-          <div class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 shadow-lg relative group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal('comp-08')">
-            <img src="assets/images/certs/cert_hangyefenxi.jpg" alt="行业分析大赛银奖证书" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
-            <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded text-[9px] font-mono bg-slate-950/90 text-amber-300 border border-amber-500/30">奖状原件</span>
-          </div>
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-06')" aria-label="查看证书与项目：创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_eda.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          </button>
           <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">上海市大学生行业分析大赛（第2/3届）</h4>
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300">银奖 / 省级三等奖</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">连续两届斩获佳绩，针对 AI 芯片与工业软件赛道产出 2 万字深度产业行研报告</p>
-            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>上海市教委/学联认证</span>
-              <button onclick="openModal('comp-08')" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-                <span>查看奖状大图</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <h3 class="text-base font-bold text-white mb-2">创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 国家三等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">复杂集成电路系统原理图框图自动识别与拓扑网表重构算法</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 答辩问答题库 · 算法代码</p>
+            <button onclick="openModal('comp-06')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
           </div>
-        </div>
+        </article>
 
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-07')" aria-label="查看证书与项目：第七届上海市研究生智慧城市创意设计大赛 · 三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_zhihuichengshi.jpg" alt="2025 年第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛证书。" class="w-full h-full object-contain" />
+          </button>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-base font-bold text-white mb-2">第七届上海市研究生智慧城市创意设计大赛 · 三等奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 三等奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于多模态 AI 的违章建筑智能检测与管理系统</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">上海市赛事 · 团队三等奖</p>
+            <button onclick="openModal('comp-07')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+          </div>
+        </article>
+
+        <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <button onclick="openModal('comp-08')" aria-label="查看证书与项目：第三届上海市大学生行业分析大赛 · 银奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_hangyefenxi.jpg" alt="第三届上海市大学生行业分析大赛高教组银奖证书，2025 年 10 月。" class="w-full h-full object-contain" />
+          </button>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-base font-bold text-white mb-2">第三届上海市大学生行业分析大赛 · 银奖</h3>
+            <p class="text-xs text-amber-300 mb-2">🏆 银奖</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">智航长三角：上海无人机低空配送行业分析及人才需求洞察</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">高教组银奖 · 行业分析报告</p>
+            <button onclick="openModal('comp-08')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -601,12 +557,12 @@
         <div class="portfolio-card p-6 rounded-2xl border border-slate-800">
           <div class="flex items-center gap-2 mb-3">
             <span class="px-2.5 py-1 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">硕士毕业大论文</span>
-            <span class="text-xs font-mono text-slate-400">T-011 修标阶段</span>
+            <span class="text-xs font-mono text-slate-400">数据复核与模型评估</span>
           </div>
           <h3 class="text-xl font-bold text-white mb-2">《面向违法建筑识别的多尺度图像检测方法研究》</h3>
           <p class="text-xs text-slate-400 mb-4">合作单位：上海工程技术大学 · 中国电信 · 中国电子科技集团第50研究所</p>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-            解决复杂空地多源遥感图像下建筑背景高混淆与多尺度漏检难题。构建严格的 236 个 Holdout 单元人工复核与 12 段严选数据集。引入 YOLOv11 与 SAM 进行多尺度特征融合，P0 级别（39张475框）复核关门。
+            围绕复杂背景下建筑识别与多尺度漏检问题，开展数据标注复核、独立测试集设计与模型评估，探索检测方法在实际场景中的适用范围。
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">YOLOv11</span>
@@ -619,12 +575,12 @@
         <div class="portfolio-card p-6 rounded-2xl border border-slate-800">
           <div class="flex items-center gap-2 mb-3">
             <span class="px-2.5 py-1 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">核心小论文</span>
-            <span class="text-xs font-mono text-slate-400">拟投《计算机工程》</span>
+            <span class="text-xs font-mono text-slate-400">论文与实验整理</span>
           </div>
           <h3 class="text-xl font-bold text-white mb-2">《MS-LightCD: 一种面向高分辨率遥感图像的轻量级变化检测网络》</h3>
-          <p class="text-xs text-slate-400 mb-4">角色：学生第一作者 · 导师刘老师指导</p>
+          <p class="text-xs text-slate-400 mb-4">研究方向：遥感影像变化检测与轻量化网络</p>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-            针对双时相遥感图像变化检测模型参数量过大、边缘轮廓模糊及伪变化敏感问题，提出轻量级双分支特征解耦网络。全套高清矢量学术配图与 8 条修改意见审阅版已全部就绪。
+            针对双时相遥感影像的变化检测，探索多尺度特征表达与轻量化网络设计，结合对比、消融实验及端侧模型推理评估分析方法的适用条件。
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">Change Detection</span>
@@ -650,7 +606,7 @@
           </h2>
           <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
             在软件工程与学术研究中，我始终坚信<strong>系统化与确定性的力量</strong>。
-            无论是设计多智能体状态机还是管理多端算力，我都坚持「WIP=1 聚焦交付」、「零 Mock 真实度量」与「严密契约化容灾」。
+            无论是设计多智能体状态机还是管理多端算力，我都重视可复现的验证、清晰的接口和可维护的实现。
           </p>
           <div class="grid grid-cols-2 gap-4 text-xs text-slate-400 font-mono">
             <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
@@ -667,7 +623,7 @@
         <div class="lg:col-span-6 p-8 rounded-2xl bg-slate-900/90 border border-slate-800">
           <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <i data-lucide="terminal" class="w-5 h-5 text-sky-400"></i>
-            <span>核心技术栈与工程兵器库</span>
+            <span>常用技术与工程方法</span>
           </h3>
 
           <div class="space-y-4 text-xs">
@@ -723,8 +679,8 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>Leo (刘钢) · 个人数字化全景作品集系统</div>
       <div class="flex items-center gap-4 text-slate-400">
-        <a href="https://github.com/insistgang" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-        <a href="https://insistgang.top" target="_blank" class="hover:text-white transition-colors">个人博客</a>
+        <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+        <a href="https://insistgang.top" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">个人博客</a>
         <a href="mailto:insistgang@163.com" class="hover:text-white transition-colors">电子邮箱</a>
       </div>
       <div>Designed with Pride & Precision · 2026</div>
@@ -732,9 +688,9 @@
   </footer>
 
   <!-- Detail Modal -->
-  <div id="detail-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+  <div id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-all">
+      <button id="modal-close" onclick="closeModal()" aria-label="关闭项目详情" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 hover:bg-slate-800 transition-all">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
@@ -750,424 +706,419 @@
   {
     "id": "soft-01",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_01.png",
+    "image": "assets/images/soft/submitted-01.png",
     "title": "农村金融ESG智能评价与碳金融服务系统",
-    "subtitle": "Multi-Agent 驱动的企业绿色信贷多维评价与碳减排区块链存证",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 01",
-    "metrics": "60页代码 · 18页说明书 · 15张高清图",
+    "subtitle": "ESG 指标评价与碳金融业务辅助",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 01",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
       "Python",
       "Flask",
-      "Multi-Agent",
-      "Blockchain",
-      "RESTful"
+      "JavaScript",
+      "HTML"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/01_农村金融ESG",
-    "description": "面向农村金融机构信贷风险评级，构建涵盖企业治理、碳减排表现与财务稳健度的自动化打分模型。内置区块链存证流，实现信贷全流程防篡改审计。",
+    "description": "汇总企业 ESG 指标，辅助开展评价、碳资产估值、绿色金融匹配及风险信息整理。",
     "highlights": [
-      "多智能体调度中枢协同解算企业综合 ESG 指标与雷达图透视",
-      "碳资产估值灵敏度分析模型与区块链交易时序吞吐监控",
-      "标准九件套就绪：严格 60 页代码 + 0 占位符说明书 + 合作协议"
-    ]
+      "组织多维指标、评价结果与可视化报告",
+      "提供碳金融业务相关的匹配与风险信息"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
   },
   {
     "id": "soft-02",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_02.png",
+    "image": "assets/images/soft/submitted-02.png",
     "title": "个人投资组合管理系统",
-    "subtitle": "基于 .NET 8 与 Vue 的跨账户投资组合净值追踪与 AI 情绪研判",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 02",
-    "metrics": "60页代码 · 23页说明书 · 17张高清图",
+    "subtitle": "多账户持仓、交易与资产快照管理",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 02",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
       ".NET 8",
       "C#",
-      "Vue.js",
+      "Vue 3",
+      "TypeScript",
       "SQLite",
-      "Monte Carlo"
+      "ECharts"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/02_个人投资组合",
-    "description": "为个人及小微投资机构提供跨市场资产多账户集中管理、资金流水核算、收益率基准对比，并结合外部宏观指标进行蒙特卡洛收益预测。",
+    "description": "集中管理账户、持仓与交易记录，通过资产快照和图表查看组合变化，并提供 AI 分析辅助入口。",
     "highlights": [
-      "轻量高性能 B/S 架构，自研 Verifier 自动化数据对账控制台",
-      "支持股票、债券、基金多资产分类饼图与浮动盈亏时序走势",
-      "集成市场情绪分析与智能投资报告自动化生成引擎"
-    ]
+      "维护交易流水、持仓与资产快照",
+      "展示资产分布和净值变化，辅助整理投资信息"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/personal_touzi",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-03",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_03.png",
+    "image": "assets/images/soft/submitted-03.png",
     "title": "视频画面内容智能检索平台",
-    "subtitle": "两阶段多模态视频粗扫精扫、动态抽帧与毫秒级片段定位",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 03",
-    "metrics": "60页代码 · 22页说明书 · 15张高清图",
+    "subtitle": "视频抽帧、OCR 预筛与多模态精扫",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 03",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
+      "Python",
       "FastAPI",
+      "React",
+      "SQLite FTS5",
       "FFmpeg",
-      "pHash",
-      "Docker",
-      "FTS5 SQLite"
+      "RapidOCR"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/03_视频画面检索",
-    "description": "针对海量无结构化视频素材，采用 FFmpeg 关键帧抽取与 pHash 图像指纹过滤重复帧，支持粗扫定位时间窗口、精扫返回结构化分析字段。",
+    "description": "对导入的视频进行抽帧与去重，结合本地 OCR 预筛及多模态精扫建立可检索的片段信息。",
     "highlights": [
-      "两阶段状态流转机架构（粗扫→可疑片段→精扫识别）",
-      "以 video_assets 为中心的高并发异步任务调度队列",
-      "Docker Compose 容器化前后端解耦编排与数据卷持久化"
-    ]
+      "通过 pHash 减少重复帧处理",
+      "使用 SQLite FTS5 查询片段并定位视频时间段"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
   },
   {
     "id": "soft-04",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_04.png",
+    "image": "assets/images/soft/submitted-04.png",
     "title": "体育生语文基础智能辅导系统（网页版）",
-    "subtitle": "面向高考生基础学科薄弱项的个性化题库评测与学习自适应",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 04",
-    "metrics": "60页代码 · 21页说明书 · 17张高清图",
+    "subtitle": "面向碎片化复习的语文练习与学习记录",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 04",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "Vue 3",
-      "TypeScript",
-      "Vite",
-      "Pinia",
-      "Tailwind CSS"
+      "React 18",
+      "Ant Design",
+      "JavaScript",
+      "浏览器本地存储"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/04_体育生语文_网页版",
-    "description": "结合体育特长生文化课复习时间碎片化痛点，研发包含高考真题模拟、错题自动归纳、拼音/成语/古诗词分级通关的网页辅导平台。",
+    "description": "围绕诗词、文言文、成语和模拟考试组织语文练习，在浏览器中保存学习记录并展示薄弱点。",
     "highlights": [
-      "个性化能力雷达评估模型与错题本自适应推荐复习模式",
-      "真题模拟交卷后全自动生成薄弱知识点得分透视分析报告",
-      "内嵌体坛励志人物案例库与作文错别字智能纠错引擎"
-    ]
+      "覆盖专项练习与模拟考试流程",
+      "结合练习结果组织学习记录和薄弱点分析"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
   },
   {
     "id": "soft-05",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_05.png",
+    "image": "assets/images/soft/submitted-05.png",
     "title": "体育生语文智能学习系统（小程序版）",
-    "subtitle": "随时随地碎片化刷题通关、AI 智能答疑与微信云开发底座",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 05",
-    "metrics": "60页代码 · 21页说明书 · 20张高清图",
+    "subtitle": "专项练习、模拟考试与学习管理",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 05",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "Taro",
-      "微信小程序",
-      "Node.js",
-      "微信云开发",
-      "AI 对话"
+      "Taro 3.6",
+      "React 18",
+      "Less",
+      "微信云开发"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/05_体育生语文_小程序版",
-    "description": "基于 Taro 跨端技术打造的移动端学习小程序，结合微信云数据库与云函数，实现离线缓存答题、单题解析展开、AI 助教答疑及成就积分打卡。",
+    "description": "在微信小程序中组织语文专项练习、模拟考试、错题与收藏，提供答疑和学习管理入口。",
     "highlights": [
-      "弱网环境下本地数据兜底机制，保证离线刷题流畅不卡顿",
-      "移动端全真模拟考试实时倒计时答题流与错题消灭计划",
-      "云端多集合数据关联与教师端后台题库动态审核发布"
-    ]
+      "支持词汇成语、练习记录与教师管理流程",
+      "云端与模型功能需配置相应运行环境"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
   },
   {
     "id": "soft-06",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_06.png",
+    "image": "assets/images/soft/submitted-06.png",
     "title": "网络安全威胁分析系统",
-    "subtitle": "Multi-Agent 多专家协同研判、混合推理与 ChromaDB 威胁情报检索",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 06 · 网安国三",
-    "metrics": "60页代码 · 22页说明书 · 20张高清图",
+    "subtitle": "告警分析工作区与可配置的分析服务",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 06",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
+      "Python",
+      "Streamlit",
       "FastAPI",
-      "Multi-Agent",
       "ChromaDB",
-      "RAG",
       "PyTorch"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/06_网络安全威胁分析",
-    "description": "华为杯网安大赛国三成果转化软件。将安全告警输入路由智能体，分发给 Web 攻击专家、漏洞利用专家及非法连接专家，通过加权融合给出定性结论。",
+    "description": "提供安全告警分析工作区，组织单条与批量告警输入、统计和威胁情报查询。规则、专家分析与模型资源按环境配置接入。",
     "highlights": [
-      "基于 ChromaDB 向量数据库的威胁情报检索（RAG）",
-      "断路器机制与规则兜底研判，大模型离线时仍可百分百高可用运行",
-      "告警日志结构化特征抽取与攻击源态势感知可视化大屏"
-    ]
+      "Streamlit 界面组织告警分析与结果查看",
+      "当前展示为本地工作区；完整模型与实时流量场景尚待验证"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/multi-agent-security-analysis",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-07",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_07.png",
+    "image": "assets/images/soft/submitted-07.png",
     "title": "语音内容智能检索系统",
-    "subtitle": "基于音轨抽取、ASR 离线转写与拼音/语义三层召回的音频检索系统",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 07",
-    "metrics": "60页代码 · 20页说明书 · 14张高清图",
+    "subtitle": "本地媒体、转写文本与时间戳检索",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 07",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
+      "Python",
       "FastAPI",
-      "Sidecar ASR",
-      "FFmpeg",
-      "ElasticSearch",
-      "Python"
+      "SQLite",
+      "JavaScript",
+      "FFmpeg"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/07_语音内容检索",
-    "description": "支持批量音视频导入、后台自动化音频特征抽取与语音转写。用户输入关键词后，系统通过精确匹配、拼音模糊与语义向量三层链路秒级定位时间轴。",
+    "description": "将本地媒体与 sidecar 转写文本关联，支持关键词查询和时间戳定位，便于从音视频中查找内容。",
     "highlights": [
-      "Sidecar 架构转写文件解耦存储与音频波形关键词高亮播放",
-      "语义兜底算法支持跨词汇语义相关性片段快速召回",
-      "垂直领域专业词库管理，支持热词动态权重加成"
-    ]
+      "管理媒体导入、处理任务与失败重试",
+      "Whisper 转写为可选配置；当前检索以转写文本为基础"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/video-speech-search",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-08",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_08.png",
+    "image": "assets/images/soft/submitted-08.png",
     "title": "智能金融产品推荐系统",
-    "subtitle": "两步式漏斗推荐引擎（粗筛分类+精排打分）与客户多维画像透视",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 08",
-    "metrics": "60页代码 · 17页说明书 · 12张高清图",
+    "subtitle": "示例数据驱动的规则推荐演示",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 08",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
       "Node.js",
       "Express",
-      "Scikit-learn",
-      "Pandas",
-      "Chart.js"
+      "HTML",
+      "CSS",
+      "JavaScript"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/08_智能金融推荐",
-    "description": "针对银行信贷与理财营销场景，基于客户风险偏好与历史资产行为构建精准画像。采用两步推荐方案大幅降低不平衡样本对推荐精度的干扰。",
+    "description": "使用示例客户与产品数据展示金融产品规则推荐流程，支持反馈和后续推荐。",
     "highlights": [
-      "单步 vs 两步推荐离线对比评测，AUC 与多样性显著提升",
-      "实时交互式「喜欢/跳过」反馈，动态驱动下次推荐列表重排",
-      "内嵌新用户与新理财产品的冷启动应对与探索-利用机制"
-    ]
+      "根据客户属性和产品规则生成推荐列表",
+      "当前为本地演示，反馈保存在进程内存中"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
   },
   {
     "id": "soft-09",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_09.png",
+    "image": "assets/images/soft/submitted-09.png",
     "title": "专注力多维认知训练与测评系统",
-    "subtitle": "结合心理学舒尔特方格、N-Back 及 Stroop 冲突范式的脑力测评系统",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 09",
-    "metrics": "60页代码 · 17页说明书 · 7张高清图",
+    "subtitle": "舒尔特方格、N-Back 与 Stroop 训练",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 09",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "HTML5 Canvas",
-      "JavaScript",
-      "Tailwind CSS",
-      "Web Audio API"
+      "React 18",
+      "react-scripts",
+      "CSS",
+      "Web Audio"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/09_注意力认知训练",
-    "description": "基于经典认知心理学范式打造的专注力、工作记忆负荷与抗干扰反应速度实战测评平台。具备高帧率响应、多维成绩历史沉淀及触控适配。",
+    "description": "将视觉搜索、工作记忆和色字干扰任务组织为交互练习，记录本地训练历史和成绩。",
     "highlights": [
-      "5×5 舒尔特动态数字方格计时训练与瞬时视觉搜索追踪",
-      "2-Back / 3-Back 序列工作记忆负荷自适应刺激流转",
-      "Stroop 色字冲突高压决策反应时毫秒级解算引擎"
-    ]
+      "提供舒尔特方格、N-Back、Stroop 三类训练",
+      "展示练习计时与结果，不作临床诊断结论"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/attention-trainer",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-10",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_10.jpg",
+    "image": "assets/images/soft/submitted-10.png",
     "title": "面向视障群体的无障碍互助与智能导行服务系统",
-    "subtitle": "研电赛省二等奖依托软著 (LinkAble) · 多模态 AI 导行与一键 SOS 调度",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 10 · 研电赛",
-    "metrics": "60页代码 · 17页说明书 · 14张高清图",
+    "subtitle": "无障碍交互、AI 助手与 SOS 求助流程",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 10",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "微信小程序",
-      "多模态视觉",
-      "WebRTC",
-      "GIS 地理计算",
-      "无障碍辅助"
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "无障碍交互"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/10_无障碍导行互助_LinkLab",
-    "description": "专为盲人及低视力群体打造的数字化无障碍产品。结合端侧视觉感知识别障碍物与药品，遇到复杂险情时支持平滑无缝切入就近志愿者音视频通话协助。",
+    "description": "围绕视障群体的使用需求设计无障碍交互，连接 AI 助手、SOS 求助状态与志愿者协助流程。",
     "highlights": [
-      "大字高对比无障碍界面，支持全局读屏软件完全兼容适配",
-      "基于地理距离与技能标签的志愿者极速抢单匹配算法",
-      "防误触倒计时取消机制与全流程端云加密隐私脱敏传输"
-    ]
+      "提供高对比界面与无障碍操作入口",
+      "组织求助发起、状态反馈与协助流程"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/LinkLab",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-11",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_11.jpg",
-    "title": "工业边缘动态环境智能监测系统 (EdgeSafe)",
-    "subtitle": "西门子杯省二依托软著 · NVIDIA Jetson 现场级实时视觉预警",
-    "role": "系统架构师 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 11 · CIMC",
-    "metrics": "60页代码 · 16页说明书 · 9张高清图",
+    "image": "assets/images/soft/submitted-11.png",
+    "title": "工业边缘动态环境智能监测与多模态预警系统",
+    "subtitle": "边缘视觉检测、区域过滤与本地告警",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 11",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "NVIDIA Jetson",
-      "TensorRT",
-      "C++",
       "Python",
-      "声学驱动",
-      "工业大屏"
+      "PyTorch",
+      "OpenCV",
+      "ONNX Runtime",
+      "Jetson",
+      "Linux"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/11_工业边缘动态监测_CIMC-EdgeSafe",
-    "description": "部署于全国智能制造赛事实物样机上的边缘端安全总控系统。以 Jetson 边缘计算模组为中枢，完成产线动态 ROI 空间标定、人员违规入侵毫秒级声光预警。",
+    "description": "在边缘设备上处理视频检测任务，结合 ROI 区域过滤和事件去抖触发本地告警，并汇总事件信息。",
     "highlights": [
-      "自研边缘端多状态流转机与事件生命周期管理架构",
-      "现场工业级低延迟音频输出与声学驱动功放模组联动",
-      "云端多节点数据中枢与工业态势分析综合大屏实时回传"
-    ]
+      "结合目标检测与区域规则识别风险事件",
+      "连接本地声光告警与云端事件汇总"
+    ],
+    "imageCaption": "V1.0 提交材料中的边缘设备与联调环境。"
   },
   {
     "id": "soft-12",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_12.jpg",
-    "title": "大语言模型多源算力额度监控与自动化分析系统 (QuotaMonitor)",
-    "subtitle": "零 Token 开销穿透采集、跨周期归一化与四级梯度预警状态机",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 12 · 算力治理",
-    "metrics": "60页代码 · 15页说明书 · 11张高清图",
+    "image": "assets/images/soft/submitted-12.png",
+    "title": "大语言模型多源算力额度监控与自动化分析系统",
+    "subtitle": "多来源额度、历史趋势与阈值预警",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 12",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "Python 标准库",
-      "launchd 守护",
+      "Python",
       "HTML5",
-      "CSS Grid",
-      "Pytest"
+      "CSS3",
+      "launchd"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/12_大模型多源算力额度监控_AI-QuotaMonitor",
-    "description": "解决研发团队多云异构大模型（OpenAI, Claude, DeepSeek等）配额口径割裂与突发超额停机痛点。通过只读状态探针穿透采集，毫秒级捕获余量。",
+    "description": "汇总不同模型服务的额度与消耗状态，展示历史趋势和阈值预警，辅助安排模型使用计划。",
     "highlights": [
-      "自然周、5小时滑动窗口及固定月额度的跨平台统一折算引擎",
-      "四级预警状态机（Normal ➔ Watch ➔ Warning ➔ Tripped）",
-      "结合 macOS launchd 守护进程穿越 TCC 沙箱实现自动化免密发布"
-    ]
+      "提供多来源状态采集与统一展示",
+      "支持定时守护、数据整理及自动化发布"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/ai-quota-monitor",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-13",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_13.png",
+    "image": "assets/images/soft/submitted-13.png",
     "title": "基于多智能体协同的AI技术知识库自动化管理系统",
-    "subtitle": "LangGraph 九节点执行拓扑、Token 审计与五维技术质量代码审查",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 13 · LangGraph",
-    "metrics": "60页代码 · 14页说明书 · 10张高清图",
+    "subtitle": "技术资料采集、质量检查与知识归档",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 13",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "LangGraph",
-      "Python 3.10",
-      "Multi-Agent",
-      "MCP 协议",
-      "CI/CD"
+      "Python",
+      "MCP",
+      "质量检查",
+      "知识管理"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/13_多智能体协同AI技术知识库_AI-KnowledgeBase",
-    "description": "构建技术知识库端到端自动化更新闭环。智能体集群协同完成前沿技术抓取、代码质量审查、文档脱敏及向量检索问答，大幅提升个人数字资产留存率。",
+    "description": "将技术资料采集、结构化分析和质量检查组织为工作流，结合人工复核完成知识归档，并提供 MCP 查询接口。",
     "highlights": [
-      "LangGraph 九节点工业级状态机拓扑与动态回退自愈机制",
-      "多模型动态路由与 Token 预算实时审计控制引擎",
-      "遵循标准 MCP 协议，支持向外部 IDE 及 Agent 暴露检索接口"
-    ]
+      "组织多维质量检查与人工复核步骤",
+      "记录资料处理结果并支持知识查询"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/ai-knowledge-base",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "soft-14",
     "category": "softcopy",
-    "image": "assets/images/soft/soft_14.png",
-    "title": "异构多端算力协同与数字化运维工作总台系统 (Ops-Hub)",
-    "subtitle": "三端算力专属分工 (Mac/Win4070S/Jetson) · 任务分流矩阵与自动化总台",
-    "role": "第一著作权人 (70%)",
-    "status": "✅ 100%可申报",
-    "statusColor": "emerald",
-    "badge": "软著 14 · 开源总台",
-    "metrics": "60页代码 · 10页说明书 · 10张高清图",
+    "image": "assets/images/soft/submitted-14.png",
+    "title": "异构多端算力协同与数字化运维工作总台系统",
+    "subtitle": "设备探测、任务分流与工程进度看板",
+    "role": "软件设计与开发",
+    "status": "已提交申请",
+    "statusColor": "amber",
+    "badge": "软著申请 14",
+    "metrics": "V1.0 · 申请材料已提交",
     "tech": [
-      "Python",
-      "Tailscale Mesh",
-      "CLI ops",
+      "Python CLI",
+      "HTML5",
       "Tailwind CSS",
-      "LaunchAgent"
+      "launchd"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/14_异构多端算力协同运维总台_Ops-Hub",
-    "description": "贯通 Mac 移动控制中枢、Windows 4070S 深度计算后端及 Jetson 边缘感知节点。具备算力任务分流推导、外部交付管道跟踪及早晚自动巡检发布能力。",
+    "description": "汇总异构节点状态，提供任务分流建议、工程进度和交付风险看板，通过定时同步维护日常运维信息。",
     "highlights": [
-      "基于任务语义特征的决策矩阵算法，秒级指引执行终端并亮起安全红线",
-      "Tailscale 虚拟专网探针低开销毫秒级 RTT 延迟与负载度量",
-      "严格 60 页自研代码鉴别材料与 0 占位符高保真说明书交付"
-    ]
+      "连接设备探测、命令行操作与状态看板",
+      "围绕任务需求提供执行端建议和进度提示"
+    ],
+    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
+    "url": "https://github.com/insistgang/ops-hub",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "comp-01",
     "category": "competition",
-    "title": "中国研究生电子设计竞赛 (研电赛 2026) —— 省级二等奖",
-    "subtitle": "面向视障群体的多模态智能导行与共感无障碍互助系统 (LinkAble)",
-    "role": "团队负责人 / 系统架构与算法核心",
-    "status": "🏆 省级二等奖",
+    "title": "第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖",
+    "subtitle": "智能追光式输电线路在线监测装置",
+    "role": "团队成员",
+    "status": "🏆 上海赛区团队三等奖",
     "statusColor": "amber",
     "badge": "研电赛",
-    "metrics": "二等奖证书 · 现场答辩 · 软著支撑",
+    "metrics": "2025 年 · 上海分赛区团队三等奖",
     "tech": [
-      "边缘多模态",
-      "实时音视频",
-      "微信小程序",
-      "GIS 空间调度"
+      "输电线路监测",
+      "装置设计"
     ],
-    "path": "/Users/insistgang/Desktop/yds/archive/研电赛_二等奖_LinkAble_2026",
-    "description": "第 21 届研电赛重点参赛项目。通过深度结合计算机视觉与社会化互助网络，构建视障群体的全天候伴随式智慧助行系统，获上海赛区评审专家高度评价。",
+    "description": "参赛作品为智能追光式输电线路在线监测装置，获第二十届中国研究生电子设计竞赛上海分赛区团队三等奖。",
     "highlights": [
-      "实现端侧目标检测与障碍物语音实时多模态播报",
-      "自研低延迟音视频呼叫与地理围栏就近志愿者调度算法",
-      "软著《面向视障群体的无障碍互助与智能导行服务系统》前置技术支撑"
+      "证书载明刘钢为参赛队员",
+      "作品名称与奖项按 2025 年 7 月证书核对"
     ],
-    "image": "assets/images/certs/cert_yandian.jpg"
+    "image": "assets/images/certs/cert_yandian.jpg",
+    "imageCaption": "2025 年第二十届研电赛上海赛区团队三等奖证书；对应输电线路监测装置，与 LinkAble 为不同项目。"
   },
   {
     "id": "comp-02",
     "category": "competition",
-    "title": "第十九届“西门子杯”中国智能制造挑战赛 (CIMC 2026) —— 省级二等奖",
-    "subtitle": "工业边缘动态环境智能监测与多模态预警系统 (EdgeSafe)",
-    "role": "系统架构师 / 核心算法第一完成人",
-    "status": "🏆 省级二等奖",
+    "title": "第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖",
+    "subtitle": "全国初赛 · 智能制造创新研发类赛项：自由探索方向",
+    "role": "算法与系统实现",
+    "status": "🏆 华东一赛区二等奖",
     "statusColor": "amber",
     "badge": "西门子杯",
-    "metrics": "答辩 82 分 · 实物样机 · 软著支撑",
+    "metrics": "2026 年 · 全国初赛华东一赛区二等奖",
     "tech": [
-      "NVIDIA Jetson",
-      "TensorRT",
-      "C++",
-      "声学驱动",
-      "工控网络"
+      "Python",
+      "PyTorch",
+      "OpenCV",
+      "ONNX Runtime",
+      "Jetson",
+      "Linux"
     ],
-    "path": "/Users/insistgang/Desktop/yds/docs/siemens_2026/HANDOFF_2026-07-23.md",
-    "description": "在教育部认可的顶尖智能制造国赛中，设计并部署基于 Jetson 嵌入式板卡的端侧视觉分析预警系统，成功完成全实物工业场景的高压严苛答辩。",
+    "description": "围绕工业现场安全监测，参与 Jetson 边缘设备上的视觉检测、区域规则与告警联调，并完成赛事展示。",
     "highlights": [
-      "全栈自主研发边缘多状态流转机，事件响应延迟低于 50ms",
-      "现场大屏工业态势感知与声学驱动软硬件一体化联动",
-      "沉淀核心软著《工业边缘动态环境智能监测与多模态预警系统》"
+      "结合目标检测与区域规则识别风险事件",
+      "连接本地声光告警与云端事件汇总",
+      "相关软件：工业边缘动态环境智能监测与多模态预警系统（申请已提交）"
     ],
-    "image": "assets/images/certs/cert_ximengzi.jpg"
+    "image": "assets/images/certs/cimc-2026-liugang.png",
+    "imageCaption": "刘钢学生获奖证书：2026 年第二十届 CIMC 全国初赛华东一赛区二等奖。证书编号 CIMC-ZNAS-202680118。"
   },
   {
     "id": "comp-03",
     "category": "competition",
-    "title": "第二十二届“华为杯”中国研究生数学建模竞赛 —— 全国二等奖",
+    "title": "第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖",
     "subtitle": "大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)",
-    "role": "建模主笔 / 算法推导与仿真第一完成人",
+    "role": "建模与算法实现",
     "status": "🏆 国家二等奖",
     "statusColor": "amber",
     "badge": "华为杯数模",
@@ -1179,19 +1130,19 @@
       "蒙特卡洛",
       "时序预测"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/“华为杯”第二十二届中国研究生数学建模竞赛",
     "description": "在全国数万支研究生顶尖队伍同台竞技中，主导完成高维物理场耦合建模、离散状态空间搜索与全局多目标鲁棒优化，斩获高含金量国家级二等奖。",
     "highlights": [
       "攻克高阶微分方程离散求解与复杂约束边界收敛难题",
       "纯自主编程实现算法仿真拟合，误差指标优于基线 18%",
       "获奖材料已全量归档并作为研究生国家奖学金核心申报成果"
     ],
-    "image": "assets/images/certs/cert_shumo.jpg"
+    "image": "assets/images/certs/cert_shumo.jpg",
+    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。"
   },
   {
     "id": "comp-04",
     "category": "competition",
-    "title": "第七届“华为杯”中国研究生人工智能创新大赛 —— 全国三等奖",
+    "title": "第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖",
     "subtitle": "基于大模型多智能体协同的特定人群智能自适应助学辅导系统",
     "role": "全栈架构设计 / 核心微服务研发",
     "status": "🏆 国家三等奖",
@@ -1199,24 +1150,24 @@
     "badge": "AI 创新大赛",
     "metrics": "国三证书 · 完整实施方案 · 可运行工程",
     "tech": [
-      "Vue 3",
-      "Python FastAPI",
-      "LLM Fine-tuning",
-      "知识图谱"
+      "Taro 3.6",
+      "React 18",
+      "Less",
+      "微信云开发"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/“华为杯”第七届中国研究生人工智能创新大赛",
     "description": "聚焦人工智能在垂直教育场景的普惠化落地，融合自适应题库、知识图谱推演与多智能体问答，获大赛全国评审组三等奖表彰。",
     "highlights": [
-      "设计教育多智能体协同编排引擎与分级答题自适应算法",
-      "产出高完整度项目实施方案及跨平台 Web/小程序交互工程",
-      "对应转化两项软著（体育生语文网页版与小程序版）"
+      "支持词汇成语、练习记录与教师管理流程",
+      "云端与模型功能需配置相应运行环境",
+      "相关软件：体育生语文智能学习系统（小程序版）（申请已提交）"
     ],
-    "image": "assets/images/certs/cert_ai.jpg"
+    "image": "assets/images/certs/cert_ai.jpg",
+    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。"
   },
   {
     "id": "comp-05",
     "category": "competition",
-    "title": "第四届“华为杯”中国研究生网络安全创新大赛 —— 全国三等奖",
+    "title": "第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖",
     "subtitle": "基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台",
     "role": "智能推理算法与 RAG 架构设计",
     "status": "🏆 国家三等奖",
@@ -1224,26 +1175,27 @@
     "badge": "网安创新大赛",
     "metrics": "国三证书 · 专家评委答辩 Q&A",
     "tech": [
-      "Multi-Agent",
+      "Python",
+      "Streamlit",
+      "FastAPI",
       "ChromaDB",
-      "网络安全",
-      "FastAPI"
+      "PyTorch"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/华为杯网络安全创新大赛",
     "description": "针对高级持续性威胁 (APT) 研判效率低、跨领域线索割裂痛点，首创三专家智能体与动态 RAG 检索的融合推理范式，夺得全国三等奖。",
     "highlights": [
-      "从真实千万级攻击日志中精准归因 SQL 注入与 CVE 漏洞利用链",
-      "顺利通过评审专家关于断路降级与大模型幻觉防范的现场答辩",
-      "成果已顺利转化为软著《网络安全威胁分析系统》"
+      "Streamlit 界面组织告警分析与结果查看",
+      "当前展示为本地工作区；完整模型与实时流量场景尚待验证",
+      "相关软件：网络安全威胁分析系统（申请已提交）"
     ],
-    "image": "assets/images/certs/cert_wangan.jpg"
+    "image": "assets/images/certs/cert_wangan.jpg",
+    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。"
   },
   {
     "id": "comp-06",
     "category": "competition",
-    "title": "创“芯”大赛·中国研究生 EDA 精英挑战赛 —— 全国三等奖",
+    "title": "创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖",
     "subtitle": "复杂集成电路系统原理图框图自动识别与拓扑网表重构算法",
-    "role": "计算机视觉与拓扑解算核心研发",
+    "role": "算法开发",
     "status": "🏆 国家三等奖",
     "statusColor": "amber",
     "badge": "EDA 精英赛",
@@ -1254,63 +1206,111 @@
       "目标检测",
       "电路网表解析"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/创芯大赛EDA",
     "description": "攻克集成电路设计自动化 (EDA) 领域原理图纸识别难题，实现文本符号、引脚连线与逻辑门组件的毫米级检测与有向图网表自动导出。",
     "highlights": [
       "融合形态学图像滤波与深度检测模型，密集引脚识别召回率达 96.5%",
       "构建电路拓扑图结构解析算法，实现图像到 SPICE 网表的自动化映射",
       "斩获半导体与芯片设计软件领域全国高含金量奖项"
     ],
-    "image": "assets/images/certs/cert_eda.jpg"
+    "image": "assets/images/certs/cert_eda.jpg",
+    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。"
   },
   {
     "id": "comp-07",
     "category": "competition",
-    "title": "第十一届中国研究生智慧城市技术与创意设计大赛 —— 省级三等奖",
-    "subtitle": "基于空地协同遥感多尺度图像的违法建筑全自动智能检测系统",
-    "role": "核心视觉检测算法主导开发",
-    "status": "🏆 省级三等奖",
+    "title": "第七届上海市研究生智慧城市创意设计大赛 · 三等奖",
+    "subtitle": "基于多模态 AI 的违章建筑智能检测与管理系统",
+    "role": "视觉检测算法开发",
+    "status": "🏆 三等奖",
     "statusColor": "amber",
     "badge": "智慧城市大赛",
-    "metrics": "省三证书 · 完整违建检测系统报告",
+    "metrics": "上海市赛事 · 团队三等奖",
     "tech": [
       "YOLO 目标检测",
       "多尺度遥感",
       "无人机遥感",
       "PyTorch"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/第十一届中国研究生智慧城市技术与创意设计大赛",
     "description": "依托上海工程技术大学与智慧城市科研项目，针对违建识别时效低、多尺度目标漏检问题，研发端到端检测系统，获赛区三等奖。",
     "highlights": [
       "自建空地一体化高分辨率违建样本库与标注规范",
       "提出兼顾小目标彩钢棚与大面积违建厂房的多尺度检测网络",
       "为硕士毕业大论文研究奠定关键前期算法与实验基础"
     ],
-    "image": "assets/images/certs/cert_zhihuichengshi.jpg"
+    "image": "assets/images/certs/cert_zhihuichengshi.jpg",
+    "imageCaption": "2025 年第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛证书。"
   },
   {
     "id": "comp-08",
     "category": "competition",
-    "title": "上海市大学生行业分析大赛 —— 连续两届斩获银奖 / 省级三等奖",
-    "subtitle": "科技创新赛道与高端智能制造产业生态深度实证调研",
-    "role": "行业调研主笔人 / 数据分析负责人",
-    "status": "🏆 银奖 / 省三",
+    "title": "第三届上海市大学生行业分析大赛 · 银奖",
+    "subtitle": "智航长三角：上海无人机低空配送行业分析及人才需求洞察",
+    "role": "行业调研与数据分析",
+    "status": "🏆 银奖",
     "statusColor": "amber",
     "badge": "行业分析大赛",
-    "metrics": "银奖证书 · 省三证书 · 万字行业报告",
+    "metrics": "高教组银奖 · 行业分析报告",
     "tech": [
       "行业研究",
       "计量经济学",
       "数据可视化",
       "战略规划"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/04-Competitions/上海市大学生行业分析大赛",
-    "description": "连续两届参赛均获奖，深入研判智能装备、工业软件及新能源产业链，撰写数十页详尽行业调研报告，展现了宏观产业理解力与严谨逻辑。",
+    "description": "参与无人机低空配送行业分析与人才需求研究，整理行业资料、分析框架及报告，获第三届上海市大学生行业分析大赛高教组银奖。",
     "highlights": [
-      "建立多维行业估值与竞争格局度量指标体系",
-      "多方专家评审答辩中获极高评价，展现极佳技术商业洞察力"
+      "报告围绕长三角物流与低空配送场景展开",
+      "竞赛证书载明高教组银奖"
     ],
-    "image": "assets/images/certs/cert_hangyefenxi.jpg"
+    "image": "assets/images/certs/cert_hangyefenxi.jpg",
+    "imageCaption": "第三届上海市大学生行业分析大赛高教组银奖证书，2025 年 10 月。"
+  },
+  {
+    "id": "comp-09",
+    "category": "competition",
+    "title": "第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖",
+    "subtitle": "全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）",
+    "role": "参赛学生",
+    "status": "🏆 华北二赛区一等奖",
+    "statusColor": "amber",
+    "badge": "西门子杯 2025",
+    "metrics": "2025 年 · 全国初赛华北二赛区一等奖",
+    "tech": [
+      "工业网络",
+      "信息化网络化",
+      "智能制造"
+    ],
+    "description": "参加 2025 年第十九届 CIMC“西门子杯”中国智能制造挑战赛全国初赛，获华北二赛区智能制造工程设计与应用类赛项信息化网络化方向一等奖。",
+    "highlights": [
+      "本科及研究生组，赛项为信息化网络化方向",
+      "获奖学生姓名为刘钢，单位为上海工程技术大学"
+    ],
+    "image": "assets/images/certs/cimc-2025-liugang.png",
+    "imageCaption": "刘钢学生获奖证书：2025 年第十九届 CIMC 全国初赛华北二赛区一等奖。证书编号 CIMC-GYAS-202538368。"
+  },
+  {
+    "id": "comp-10",
+    "category": "competition",
+    "title": "第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖",
+    "subtitle": "基于边缘智能的无障碍辅助通行感知系统设计与实现",
+    "role": "参赛队员",
+    "status": "🏆 上海赛区团队二等奖",
+    "statusColor": "amber",
+    "badge": "研电赛 2026",
+    "metrics": "2026 年 · 上海分赛区团队二等奖",
+    "tech": [
+      "边缘智能",
+      "无障碍辅助通行",
+      "感知系统"
+    ],
+    "description": "参赛作品为“基于边缘智能的无障碍辅助通行感知系统设计与实现”，获第二十一届中国研究生电子设计竞赛上海分赛区团队二等奖。",
+    "highlights": [
+      "参赛单位为上海工程技术大学，证书载明刘钢为参赛队员",
+      "保留原始 PDF 证书，并提供完整页面预览"
+    ],
+    "image": "assets/images/certs/gedc-2026-linkable.png",
+    "imageCaption": "2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。",
+    "url": "assets/certificates/gedc-2026-linkable.pdf",
+    "urlLabel": "查看原始证书 PDF"
   },
   {
     "id": "res-01",
@@ -1318,10 +1318,10 @@
     "title": "硕士毕业论文主线：《面向违法建筑识别的多尺度图像检测方法研究》",
     "subtitle": "上海工程技术大学 硕士学位论文 · 产学研重大科研课题",
     "role": "独立完成人 (硕士学位论文)",
-    "status": "🔬 T-011 修标阶段",
+    "status": "研究进行中",
     "statusColor": "purple",
     "badge": "毕业论文",
-    "metrics": "12段严选数据集 · 236个Holdout单元 · P0关门",
+    "metrics": "多尺度检测 · 数据复核 · 工程验证",
     "tech": [
       "YOLOv11",
       "SAM",
@@ -1329,12 +1329,10 @@
       "遥感图像处理",
       "PyTorch"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/02-Thesis/大论文-违建识别",
-    "description": "研究高分辨率空地多视角遥感图像下的复杂建筑目标检测，攻克背景高混淆、建筑尺度跳跃及伪变化干扰难题。已建立严格的闭环复核体系。",
+    "description": "面向空地多源图像中的建筑识别问题，研究多尺度特征融合与目标检测方法，并开展数据标注复核和模型评估。",
     "highlights": [
-      "P0 级别（39张475框）复核顺利关门，133 项测试全量通过",
-      "236 个 Holdout 单元人工精密复核与 12 段数据 Detector 训练并行",
-      "引入 GPT-6 与多模态技术对数据进行预筛清洗，保障标注真值绝对可靠"
+      "研究复杂背景下的多尺度建筑目标检测",
+      "结合数据标注复核与独立测试集评估模型"
     ],
     "image": "assets/images/res_weijian_vis.png"
   },
@@ -1344,22 +1342,20 @@
     "title": "小论文代表作：《MS-LightCD: 一种面向高分辨率遥感图像的轻量级变化检测网络》",
     "subtitle": "拟投中文核心期刊《计算机工程》· 全套实验数据与审阅版已就绪",
     "role": "第一作者 (学生一作)",
-    "status": "📄 投审就绪",
+    "status": "论文与实验整理",
     "statusColor": "purple",
     "badge": "期刊小论文",
-    "metrics": "万字正文 · 全套高清矢量实验图 · 修改说明书",
+    "metrics": "轻量变化检测 · 对照实验 · 端侧评估",
     "tech": [
       "Change Detection",
       "Siamese Network",
       "轻量化注意力",
       "遥感影像"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/02-Thesis/小论文-计算机工程-MS-LightCD",
-    "description": "针对现有遥感变化检测模型参数量过大、边缘轮廓模糊及伪变化敏感问题，提出轻量级双分支特征解耦网络，在保证精度的同时大幅压缩计算量。",
+    "description": "面向高分辨率遥感影像的双时相变化检测研究，探索多尺度特征表达、特征融合与轻量化网络设计。",
     "highlights": [
-      "全套配图于 9 月中旬完成专业学术级重绘，彻底消除 AI 化痕迹",
-      "已交付含改动标注的审阅版及 8 条导师意见逐条修改说明书",
-      "全套代码、消融实验与基线对比产物完全备齐，随时可投"
+      "围绕双时相遥感影像开展轻量变化检测实验",
+      "整理对比、消融结果与端侧模型推理评估"
     ],
     "image": "assets/images/res_ms_lightcd_diff.png"
   },
@@ -1369,18 +1365,17 @@
     "title": "边缘感知论文成果：《E-PAS: 端侧低延迟车位感知与多模态目标检测》",
     "subtitle": "面向智慧停车边缘端计算的鲁棒性感知网络研究",
     "role": "核心作者",
-    "status": "📄 转投准备中",
+    "status": "研究与投稿准备",
     "statusColor": "purple",
     "badge": "学术论文",
-    "metrics": "Sensors 投稿基线 · 完整实验代码库",
+    "metrics": "边缘感知 · 实验代码 · 论文工作",
     "tech": [
       "Edge AI",
       "停车检测",
       "实时推理",
       "目标跟踪"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/02-Thesis/E-PAS",
-    "description": "针对停车场弱光照、大面积车身遮挡及多视角畸变，研发部署在端侧边缘芯片的高吞吐检测模型，实现毫秒级空闲车位判别。",
+    "description": "研究停车场边缘设备上的车位感知与目标检测，关注遮挡、光照变化及推理开销，整理模型实现与评估流程。",
     "highlights": [
       "沉淀大规模高真实感智慧停车检测测试集与评测指标",
       "为卓繁公司智慧停车项目提供底层算法底层理论支持"
@@ -1390,37 +1385,36 @@
   {
     "id": "res-04",
     "category": "research",
-    "title": "跨学科顶级期刊修订：《数字时代网络文化空间的集体行动与话语重构》",
-    "subtitle": "拟投 SSCI 顶刊《Media, Culture & Society》· 跨学科合作研究",
-    "role": "计算方法与数据分析作者",
-    "status": "📄 已交付终审",
+    "title": "跨学科合作研究：网络文化空间与集体行动",
+    "subtitle": "计算传播与网络文化研究中的数据分析实践",
+    "role": "数据分析与稿件协作",
+    "status": "合作研究与稿件修订",
     "statusColor": "purple",
-    "badge": "SSCI 合作论文",
-    "metrics": "6574 词全英文规范稿 · 概念图 · 交付说明",
+    "badge": "跨学科研究",
+    "metrics": "文本分析 · 研究图示 · 稿件协作",
     "tech": [
       "计算传播学",
       "网络民族志",
       "NLP 情感分析",
       "文本挖掘"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/03-Projects/teacher_m",
-    "description": "与马老师团队深度合作的计算社会学前沿成果。利用自研文本抓取与情感计量分析模型，对网络亚文化社群的数万条言论进行实证量化推演。",
+    "description": "参与网络文化社群研究，将文本处理与数据分析方法用于跨学科研究材料整理和稿件协作。",
     "highlights": [
-      "9月17日已交付 6,574 词匿名精修版、学术概念流图及交付说明",
-      "展现了理工科计算机技术赋能人文社科定量研究的跨学科跨界实力"
+      "围绕研究问题组织文本材料与分析流程",
+      "参与研究图示整理和学术稿件修订"
     ],
     "image": "assets/images/res_mcssci_governance.jpg"
   },
   {
     "id": "ind-01",
     "category": "industry",
-    "title": "上海卓繁信息技术股份有限公司 —— 后端研发 / AI 应用落地工程",
-    "subtitle": "徐汇滨江·西岸智塔 AI Tower 11 楼 · 核心业务主导推进",
+    "title": "上海卓繁信息技术股份有限公司 · 后端研发 / AI 应用落地工程",
+    "subtitle": "智慧政务、教育与停车场景的软件研发实践",
     "role": "后端开发 / AI 算法落地实习生",
-    "status": "🚀 生产在线运行",
+    "status": "工程实践",
     "statusColor": "sky",
     "badge": "产业实习",
-    "metrics": "9/23成功涨薪 · 金山小学现场验收通过",
+    "metrics": "后端研发 · 系统联调 · 业务演示",
     "tech": [
       "Java",
       "Spring Boot",
@@ -1428,24 +1422,23 @@
       "MySQL",
       "Docker"
     ],
-    "path": "/Users/insistgang/Desktop/个人工具/parking-management-java",
-    "description": "2026年9月正式入职，承担智慧政务与教育领域核心技术攻坚。完成金山小学智能化演示系统现场联调、排课系统回滚演示及全面 Java 高可用重构。",
+    "description": "参与智慧政务与教育场景的后端研发、系统联调和业务演示，结合 Java 服务与 AI 应用能力推进需求实现。",
     "highlights": [
-      "9/21 金山小学现场实地联调与业务演示，一次性高标准通过验收",
-      "9/24 业务 DDL 全面按期保质交付（停车系统与双学期排课引擎）",
-      "主导推进新一代 AI Agent 智能体产品需求落地（杨忠伟线）"
+      "参与教育场景演示系统与排课业务联调",
+      "推进停车管理系统和相关后端功能开发",
+      "参与 AI 应用需求分析与工程实现"
     ],
-    "image": "assets/images/opshub_06_外部协同任务与项目推进管道看板.png"
+    "image": "assets/images/ind_zhuofan_agent.png"
   },
   {
     "id": "ind-02",
     "category": "industry",
-    "title": "中国电子科技集团第50研究所 —— 智慧城市图像检测科研结项",
-    "subtitle": "军工级重大科研协同项目 · 违章建筑识别技术交付",
-    "role": "产学研技术负责人",
-    "status": "✅ 彻底结项闭环",
+    "title": "中国电子科技集团第50研究所 · 智慧城市图像检测科研结项",
+    "subtitle": "产学研合作中的图像检测与工程交接",
+    "role": "算法开发与技术交付",
+    "status": "项目交付",
     "statusColor": "emerald",
-    "badge": "军工院所交付",
+    "badge": "产学研合作",
     "metrics": "全套算法代码交付 · 结项文档 · 顺利验收",
     "tech": [
       "目标检测",
@@ -1453,35 +1446,33 @@
       "C++ 推理引擎",
       "Linux"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/03-Projects/中电科50所.md",
-    "description": "代表高校联合研发团队主导与中电科50所的科研技术交接。交付面向复杂地理地貌的高精度识别算法包及整套工程测试基准，圆满结项。",
+    "description": "参与高校与研究所合作的图像检测项目，整理算法代码、工程测试与结项材料，完成技术交接。",
     "highlights": [
-      "全栈技术规范严格符合军工科研所保密与工程化交付标准",
-      "顺利通过验收评审，成果直接回哺硕士毕业论文核心技术体系"
+      "交付图像检测算法代码与相关文档",
+      "将工程中的问题反馈到后续研究与评估"
     ],
     "image": "assets/images/ind_50suo_remote_cd.png"
   },
   {
     "id": "ind-03",
     "category": "industry",
-    "title": "Andy 具身智能硬件与小智机器人协作开发",
-    "subtitle": "面向下一代具身实体 AI 的语义控制、端侧视觉感知与交互中枢",
+    "title": "具身智能硬件与小智机器人协作开发",
+    "subtitle": "语音交互、设备控制与端侧软件集成",
     "role": "全栈与算法核心协作",
-    "status": "🚀 线下交付就绪",
+    "status": "协作开发",
     "statusColor": "sky",
     "badge": "具身智能",
-    "metrics": "全套代码就绪 · 10/1线下碰面交付",
+    "metrics": "设备控制 · 软硬件联调",
     "tech": [
       "Python",
       "嵌入式通信",
       "多模态大模型",
       "ROS"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy",
-    "description": "与业界伙伴 Andy 深度协作的具身实体 AI 控制项目。负责构建机器人大脑控制逻辑、语音/视觉多模态指令解析及端侧低延迟反馈链路。",
+    "description": "围绕小智机器人开展设备控制与交互功能协作，参与代码集成、运行环境配置和软硬件联调。",
     "highlights": [
-      "代码已完整就位于桌面 andy 协同目录，全流程测试通过",
-      "软著全套申报包与小智控制核心无缝协同，具备完整知识产权壁垒"
+      "集成设备交互与控制逻辑",
+      "整理部署流程与协作交付材料"
     ],
     "image": "assets/images/ind_andy_robot.png"
   },
@@ -1489,12 +1480,12 @@
     "id": "ind-04",
     "category": "industry",
     "title": "电商中台微服务与供应链管理系统",
-    "subtitle": "高并发电商订单履约、商品聚合抽取与分销对账中台系统",
+    "subtitle": "订单、商品数据与供应链业务整合",
     "role": "全栈架构与开发负责人",
-    "status": "✅ 稳定运行中",
+    "status": "工程实践",
     "statusColor": "emerald",
     "badge": "商业系统",
-    "metrics": "桌面 jiefu 仓库 · 稳定运行",
+    "metrics": "订单处理 · 数据同步 · 对账",
     "tech": [
       "Node.js",
       "Python 数据管道",
@@ -1502,11 +1493,10 @@
       "Redis",
       "Vue"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/jiefu",
     "description": "针对电商供应链多渠道订单分散与数据同步滞后问题，自研轻量级数据抽取与商品中台微服务，支持多平台库存同步与对账清算。",
     "highlights": [
-      "自研稳健的异步重试与网络超时保护机制，保障订单 0 漏单",
-      "已在实际商业业务流中持续平稳运转，验证了工业级代码的可靠性"
+      "设计异步重试与网络超时处理流程",
+      "连接商品数据、订单处理与对账业务"
     ],
     "image": "assets/images/ind_ecommerce_order.jpg"
   },
@@ -1514,74 +1504,76 @@
     "id": "prod-01",
     "category": "products",
     "title": "Ops-Hub · 个人数字化运营工作总台",
-    "subtitle": "让流程和环境帮我做决定！三端算力专属分工与极简生活秩序总台",
+    "subtitle": "多端设备状态、任务分流与日常运维总台",
     "role": "独立设计师 & 全栈工程师",
     "status": "🚀 生产自用中",
     "statusColor": "sky",
     "badge": "开源自研产品",
-    "metrics": "已封装为软著14 · CLI ops · launchd守护",
+    "metrics": "对应软著申请 14 · 命令行与看板",
     "tech": [
-      "Tailscale Mesh",
-      "Python CLI",
+      "Python",
+      "HTML5",
       "Tailwind CSS",
-      "Zero-Build"
+      "launchd"
     ],
-    "path": "/Users/insistgang/Desktop/个人工具/ops-hub",
-    "description": "将 Mac 移动中枢、Windows 4070S 深度计算后端与 Jetson 边缘感知节点完全贯通。支持任务分流决策推导、外部交付管道跟踪及早晚自动巡检发布。",
+    "description": "汇总异构节点状态，提供任务分流建议、工程进度和交付风险看板，通过定时同步维护日常运维信息。",
     "highlights": [
-      "CLI `ops status` 与 `ops dispatch` 命令行秒级调度",
-      "早晚 09:00 与 21:00 原生 launchd 守护进程无人值守静默探测",
-      "完全脱敏整合为标准软著《异构多端算力协同与数字化运维工作总台系统》"
+      "连接设备探测、命令行操作与状态看板",
+      "围绕任务需求提供执行端建议和进度提示"
     ],
-    "image": "assets/images/opshub_02_数字化运维工作总台主控仪表盘.png"
+    "image": "assets/images/soft/submitted-14.png",
+    "url": "https://github.com/insistgang/ops-hub",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "prod-02",
     "category": "products",
     "title": "AI-QuotaMonitor · 大语言模型多源算力额度监控大屏",
-    "subtitle": "多云异构大模型 Token 额度实时采集、滑动窗口平滑与四级预警看板",
+    "subtitle": "多来源额度、历史趋势与阈值预警",
     "role": "独立全栈开发者",
     "status": "🚀 持续运行中",
     "statusColor": "sky",
     "badge": "效能监控工具",
-    "metrics": "已封装为软著12 · 零Token损耗",
+    "metrics": "对应软著申请 12 · 额度监控与预警",
     "tech": [
       "Python 标准库",
       "HTML5",
       "CSS Grid",
       "GitHub Pages"
     ],
-    "path": "/Users/insistgang/Desktop/合作项目/andy/软著_提交材料汇总/12_大模型多源算力额度监控_AI-QuotaMonitor",
-    "description": "解决多模型（Claude, OpenAI, DeepSeek等）额度分散与突发超额痛点，基于只读状态探针穿透采集，毫秒级捕获算力余量并发布至在线总控看板。",
+    "description": "汇总不同模型服务的额度与消耗状态，展示历史趋势和阈值预警，辅助安排模型使用计划。",
     "highlights": [
-      "轻量标准库极简实现，常驻内存仅数十 MB，零额外调用开销",
-      "对应转化软著《大语言模型多源算力额度监控与自动化分析系统》"
+      "提供多来源状态采集与统一展示",
+      "支持定时守护、数据整理及自动化发布"
     ],
-    "image": "assets/images/quota_02_算力额度监控总控大屏.jpg"
+    "image": "assets/images/soft/submitted-12.png",
+    "url": "https://github.com/insistgang/ai-quota-monitor",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "prod-03",
     "category": "products",
     "title": "基于多智能体协同的 AI 技术知识库管理系统",
-    "subtitle": "技术知识库端到端自动化抓取、质量审查、脱敏与向量语义检索中枢",
+    "subtitle": "技术资料采集、质量检查与知识归档",
     "role": "系统架构师",
     "status": "🚀 生产自用中",
     "statusColor": "sky",
     "badge": "AI 智能体系统",
-    "metrics": "已封装为软著13 · LangGraph 9节点",
+    "metrics": "对应软著申请 13 · 知识管理",
     "tech": [
-      "LangGraph",
-      "Python 3.10",
-      "MCP 协议",
-      "向量数据库"
+      "Python",
+      "MCP",
+      "质量检查",
+      "知识管理"
     ],
-    "path": "/Users/insistgang/Desktop/个人工具/ai-knowledge-base",
-    "description": "个人与团队技术知识沉淀的 AI 驱动中枢。利用 LangGraph 编排多智能体集群完成技术博客、论文阅读感悟的自动化解析与多维质量评估。",
+    "description": "将技术资料采集、结构化分析和质量检查组织为工作流，结合人工复核完成知识归档，并提供 MCP 查询接口。",
     "highlights": [
-      "遵循标准 MCP 协议，支持与主流 IDE 及 AI Agent 实时问答集成",
-      "对应转化软著《基于多智能体协同的AI技术知识库自动化管理系统》"
+      "组织多维质量检查与人工复核步骤",
+      "记录资料处理结果并支持知识查询"
     ],
-    "image": "assets/images/opshub_01_系统总体三端异构协同架构图.png"
+    "image": "assets/images/soft/submitted-13.png",
+    "url": "https://github.com/insistgang/ai-knowledge-base",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "prod-04",
@@ -1592,44 +1584,44 @@
     "status": "✅ 稳定在线",
     "statusColor": "emerald",
     "badge": "知识管理产品",
-    "metrics": "已入库 42 个 Skills · 私有部署",
+    "metrics": "笔记归档 · MCP 接口 · Markdown",
     "tech": [
       "MCP Server",
       "Python",
       "Getnote API",
       "Markdown AST"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/01-Daily/Tools/mcp-server-diary",
     "description": "打通得到大脑随手语音记录与本地 Obsidian 知识库。按 note_id 幂等去重归档，提炼日记时间线并全自动完成 Hexo 博客脱敏稿双端写入。",
     "highlights": [
-      "作为官方标准 MCP 服务器常驻运行，实现自然语言一键智能日记整理",
-      "个人日记与周/月复盘自动化流水线核心支撑引擎"
+      "通过 MCP 接口连接笔记读取与本地归档",
+      "按笔记标识去重，整理日记与复盘素材"
     ],
     "image": "assets/images/prod_getnote_mcp.jpg"
   },
   {
     "id": "prod-05",
     "category": "products",
-    "title": "Weight-Tracker · 秋季 38 天效能健康度打卡大盘",
-    "subtitle": "三人协同作战 · 实时响应式在线仪表盘 · 科学指标收敛监控",
+    "title": "Weight-Tracker · 协作健康打卡看板",
+    "subtitle": "每日记录、变化趋势与阶段目标跟踪",
     "role": "前端独立开发 & 运维",
     "status": "🚀 在线公网运行",
     "statusColor": "sky",
     "badge": "在线 Web 应用",
-    "metrics": "insistgang.top 在线部署 · 持续打卡中",
+    "metrics": "响应式页面 · 趋势图 · 协作打卡",
     "tech": [
       "Vue 3",
       "Tailwind CSS",
       "GitHub Pages",
       "JSON 数据流"
     ],
-    "path": "/Users/insistgang/Desktop/个人工具/weight-tracker",
-    "description": "面向健康秩序管理的轻量 Web 工具。支持刘钢、张庭磊、卢轩三人每日体重与体脂数据上报、时序变化折线图绘制及 38 天战役进度倒计时。",
+    "description": "面向小组协作的轻量健康打卡工具，用时间序列图展示记录变化和阶段进度。",
     "highlights": [
-      "上线运行于 https://insistgang.top/weight-tracker/，免部署高可用",
-      "沉淀了微型协作 Web 工具极致轻量化直出的工程典范"
+      "展示每日记录与变化趋势",
+      "适配手机查看和小组协作场景"
     ],
-    "image": "assets/images/prod_weight_tracker.png"
+    "image": "assets/images/prod_weight_tracker.png",
+    "url": "https://github.com/insistgang/weight-tracker",
+    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）"
   },
   {
     "id": "prod-06",
@@ -1647,18 +1639,76 @@
       "SVG 渲染",
       "Vue"
     ],
-    "path": "/Users/insistgang/Documents/knowledge/03-Projects/零散成品/Grok零散成品/格码工坊",
     "description": "自研趣味交互与实用图形生成套件，包含参数化二维码纹理合成、物理惯性抽奖转盘及古典毛笔印章渲染，已收录于知识库精品零散成品库。",
     "highlights": [
-      "纯客户端 Canvas 高保真矢量绘制，无需任何后端服务即可独立运行",
-      "展示了在前端创意交互与图形学算法层面的扎实功底"
+      "在浏览器端生成二维码与图形素材",
+      "整合创意交互组件，便于独立运行与复用"
     ],
     "image": "assets/images/prod_gema_studio.png"
+  },
+  {
+    "id": "prod-07",
+    "category": "products",
+    "title": "Career-Copilot · 求职与简历工作流",
+    "subtitle": "从经历证据、岗位匹配到简历生成与投递跟踪",
+    "role": "设计与开发",
+    "status": "本地使用",
+    "badge": "个人工作流",
+    "metrics": "经历主库 · 岗位匹配 · 简历生成",
+    "tech": [
+      "Python",
+      "Typst",
+      "HTML",
+      "MCP"
+    ],
+    "description": "连接个人经历主库与岗位需求，组织项目证据、定制简历并跟踪投递进展。支持企业求职与学术申请两类工作流。",
+    "highlights": [
+      "用主张与证据账本约束经历描述",
+      "支持 Typst 单页 PDF 与 HTML 简历生成",
+      "结合本地仪表盘组织岗位、简历与后续进展"
+    ],
+    "image": "assets/images/career-copilot-overview.svg",
+    "imageCaption": "功能流程示意；不包含个人经历主库或邮件内容。"
+  },
+  {
+    "id": "prod-08",
+    "category": "products",
+    "title": "PaperStudio · 论文投前诊断工作流",
+    "subtitle": "问题定义、审稿压力测试与改稿决策",
+    "role": "工作流设计",
+    "status": "本地使用",
+    "badge": "科研工作流",
+    "metrics": "稿件解剖 · 压力测试 · 改稿判决",
+    "tech": [
+      "Markdown",
+      "Shell",
+      "结构化模板",
+      "Agent 工作流"
+    ],
+    "description": "将论文中的问题、方法和证据组织成可检查的档案，通过压力测试识别证据缺口，再形成改稿计划与期刊匹配判断。",
+    "highlights": [
+      "按动机、设计、实验验证组织研究主张",
+      "用 A 解剖、B 压力测试、C 判决记录评估",
+      "将防守补丁、语体校准与投稿前检查串联"
+    ],
+    "image": "assets/images/paperstudio-overview.svg",
+    "imageCaption": "工作流示意；不代表论文已录用或发表。"
   }
 ];
 
     let currentCategory = "all";
     let searchQuery = "";
+    let previousFocus = null;
+
+    function updateCounts() {
+      document.querySelectorAll('[data-count]').forEach(el => {
+        el.textContent = el.dataset.count === 'all' ? projects.length : projects.filter(p => p.category === el.dataset.count).length;
+      });
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.lastElementChild.textContent = btn.dataset.cat === 'all' ? projects.length : projects.filter(p => p.category === btn.dataset.cat).length;
+        btn.setAttribute('aria-pressed', String(btn.dataset.cat === currentCategory));
+      });
+    }
 
     function renderProjects() {
       const grid = document.getElementById("projects-grid");
@@ -1668,14 +1718,11 @@
       const filtered = projects.filter(p => {
         const matchCat = currentCategory === "all" || p.category === currentCategory;
         const q = searchQuery.toLowerCase().trim();
-        const matchSearch = !q || 
-          p.title.toLowerCase().includes(q) || 
-          p.subtitle.toLowerCase().includes(q) || 
-          p.tech.some(t => t.toLowerCase().includes(q)) ||
-          p.badge.toLowerCase().includes(q) ||
-          p.role.toLowerCase().includes(q);
+        const matchSearch = !q || [p.title, p.subtitle, p.description, p.status, p.badge, p.role, ...p.tech]
+          .join(' ').toLowerCase().includes(q);
         return matchCat && matchSearch;
       });
+      document.getElementById('results-count').textContent = `显示 ${filtered.length} / ${projects.length} 条作品记录`;
 
       if (filtered.length === 0) {
         emptyState.classList.remove("hidden");
@@ -1686,7 +1733,13 @@
       filtered.forEach(p => {
         const card = document.createElement("div");
         card.className = "portfolio-card rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group";
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `查看 ${p.title} 的详情`);
         card.onclick = () => openModal(p.id);
+        card.onkeydown = event => {
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openModal(p.id); }
+        };
 
         const techHtml = p.tech.slice(0, 3).map(t => 
           `<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-800">${t}</span>`
@@ -1698,8 +1751,9 @@
               <img 
                 src="${p.image}" 
                 alt="${p.title}" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                onerror="this.src='assets/images/opshub_01_系统总体三端异构协同架构图.png'"
+                loading="lazy" decoding="async"
+                class="w-full h-full ${p.category === 'softcopy' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-300"
+                onerror="this.onerror=null; this.style.visibility='hidden'"
               />
               <div class="absolute top-3 left-3">
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-950/80 backdrop-blur-md text-sky-400 border border-slate-800">
@@ -1707,7 +1761,7 @@
                 </span>
               </div>
               <div class="absolute top-3 right-3">
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-950/90 text-slate-200 border border-slate-700 backdrop-blur-md ${p.category === 'softcopy' ? 'status-submitted' : ''}">
                   ${p.status}
                 </span>
               </div>
@@ -1748,6 +1802,7 @@
     function setCategory(cat) {
       currentCategory = cat;
       document.querySelectorAll(".cat-btn").forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.cat === cat));
         if (btn.dataset.cat === cat) {
           btn.className = "cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-white flex items-center gap-2";
         } else {
@@ -1765,6 +1820,7 @@
     function openModal(id) {
       const p = projects.find(item => item.id === id);
       if (!p) return;
+      if (document.getElementById('detail-modal').classList.contains('hidden')) previousFocus = document.activeElement;
 
       const content = document.getElementById("modal-content");
       const techBadges = p.tech.map(t => 
@@ -1778,23 +1834,24 @@
       content.innerHTML = `
         <div class="mb-4 rounded-xl overflow-hidden max-h-[460px] bg-slate-950 border border-slate-800 flex items-center justify-center relative group">
           <img src="${p.image}" alt="${p.title}" class="w-full max-h-[440px] object-contain" />
-          <a href="${p.image}" target="_blank" class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/90 hover:bg-sky-600 text-slate-200 hover:text-white border border-slate-700 shadow-lg flex items-center gap-1.5 backdrop-blur transition-all">
+          <a href="${p.image}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/90 hover:bg-sky-600 text-slate-200 hover:text-white border border-slate-700 shadow-lg flex items-center gap-1.5 backdrop-blur transition-all">
             <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
             <span>查看高清原图</span>
           </a>
         </div>
 
-        <div class="flex items-center gap-2 mb-2">
+        <p class="text-xs text-slate-400 mb-4">${p.imageCaption || '项目展示资料'}</p>
+        <div class="flex flex-wrap items-center gap-2 mb-2">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">${p.badge}</span>
           <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">${p.role}</span>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300">${p.status}</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-200 ${p.category === 'softcopy' ? 'status-submitted' : ''}">${p.status}</span>
         </div>
 
-        <h2 class="text-xl sm:text-2xl font-extrabold text-white mb-1">${p.title}</h2>
+        <h2 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white mb-1">${p.title}</h2>
         <p class="text-xs sm:text-sm text-slate-400 font-medium mb-4">${p.subtitle}</p>
 
         <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 mb-5">
-          <div class="text-xs text-slate-400 font-mono mb-1">📊 交付规格与度量指标：</div>
+          <div class="text-xs text-slate-400 font-mono mb-1">项目要点</div>
           <div class="text-sm font-semibold text-sky-400">${p.metrics}</div>
         </div>
 
@@ -1817,20 +1874,22 @@
           </div>
         </div>
 
-        <div class="pt-4 border-t border-slate-800">
-          <div class="text-xs text-slate-400 font-mono mb-1">📂 资产存放本地物理路径：</div>
-          <div class="p-2.5 rounded-lg bg-black/50 border border-slate-800 font-mono text-[11px] text-slate-300 break-all select-all">
-            ${p.path}
-          </div>
+        ${p.category === 'softcopy' ? '<p class="text-xs leading-relaxed text-amber-200 border-t border-slate-800 pt-4 mb-4">V1.0 · 申请材料已更新并提交。当前展示的是申请项目，登记结果待确认。</p>' : ''}
+        <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+          ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="text-sky-400 underline">${p.urlLabel || '查看公开项目'}</a>` : '<a href="mailto:insistgang@163.com" class="text-sky-400 underline">联系我，了解项目</a>'}
         </div>
       `;
 
       document.getElementById("detail-modal").classList.remove("hidden");
+      document.body.classList.add('modal-open');
       lucide.createIcons();
+      document.getElementById('modal-close').focus();
     }
 
     function closeModal() {
       document.getElementById("detail-modal").classList.add("hidden");
+      document.body.classList.remove('modal-open');
+      if (previousFocus && previousFocus.isConnected) previousFocus.focus();
     }
 
     document.getElementById("detail-modal").addEventListener("click", function(e) {
@@ -1838,9 +1897,18 @@
     });
 
     document.addEventListener("keydown", function(e) {
+      const modal = document.getElementById('detail-modal');
+      if (modal.classList.contains('hidden')) return;
       if (e.key === "Escape") closeModal();
+      if (e.key === 'Tab') {
+        const focusable = [...modal.querySelectorAll('button, a[href], [tabindex="0"]')];
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
 
+    updateCounts();
     renderProjects();
   </script>
 </body>

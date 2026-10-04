@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Career-Copilot 功能流程</title><desc id="desc">从经历证据到岗位匹配，再生成简历并跟踪进展。</desc>
+  <rect width="960" height="540" fill="#0b1723"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="80" fill="#7dd3fc" font-size="18" letter-spacing="3">PERSONAL WORKFLOW / 07</text>
+    <text x="64" y="152" fill="#f8fafc" font-size="44" font-weight="700">Career-Copilot</text>
+    <text x="64" y="196" fill="#94a3b8" font-size="24">让每一份简历，都有经历与证据支撑。</text>
+    <path d="M300 330H344M598 330H642" stroke="#38bdf8" stroke-width="3"/>
+    <g fill="#122b3a" stroke="#25546b"><rect x="64" y="262" width="236" height="150" rx="14"/><rect x="344" y="262" width="254" height="150" rx="14"/><rect x="642" y="262" width="254" height="150" rx="14"/></g>
+    <g fill="#7dd3fc" font-size="17"><text x="88" y="296">01 / EVIDENCE</text><text x="368" y="296">02 / MATCH</text><text x="666" y="296">03 / OUTPUT</text></g>
+    <g fill="#f1f5f9" font-size="27" font-weight="600"><text x="88" y="344">经历主库</text><text x="368" y="344">岗位匹配</text><text x="666" y="344">简历与跟踪</text></g>
+    <g fill="#94a3b8" font-size="17"><text x="88" y="383">项目 · 角色 · 结果</text><text x="368" y="383">需求 · 能力 · 差距</text><text x="666" y="383">Typst / HTML / PDF</text></g>
+    <text x="64" y="478" fill="#64748b" font-size="18">功能流程示意 · 本地工作流</text>
+  </g>
+</svg>
