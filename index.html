@@ -10,6 +10,10 @@
   <meta property="og:description" content="刘钢的软件项目、计算机视觉研究与开发记录。浏览实际作品，也可以到 Leo 的笔记本读技术文章。">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://insistgang.top/portfolio/">
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/leo-mark.svg" sizes="any">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/vendor/lucide.min.js"></script>
   <style>
@@ -56,7 +60,8 @@
     .site-header { position: fixed; inset: 0 0 auto; z-index: 40; background: rgb(var(--page)); border-bottom: 1px solid rgb(var(--line)); }
     .site-header-inner, .intro-inner { width: min(100% - 64px, 1216px); margin: 0 auto; }
     .site-header-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .site-brand { color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; }
+    .site-brand { display: inline-flex; align-items: center; color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; }
+    .site-mark { width: 28px; height: 28px; flex: none; margin-right: 10px; }
     .site-brand span { margin-left: 7px; color: #a8abae; font-family: Georgia, serif; font-style: italic; font-weight: 400; }
     .site-nav-links, .site-header-actions { display: flex; align-items: center; gap: 28px; font-size: 13px; color: #b9bcbf; }
     .site-header a:hover { color: #fff; }
@@ -131,7 +136,7 @@
 
   <header class="site-header">
     <nav class="site-header-inner" aria-label="主导航">
-      <a href="#intro" class="site-brand">刘钢 <span>/ Leo</span></a>
+      <a href="#intro" class="site-brand"><img src="assets/brand/leo-mark.svg" class="site-mark" width="28" height="28" alt="">刘钢 <span>/ Leo</span></a>
       <div class="site-nav-links">
         <a href="#featured">精选项目</a>
         <a href="#gallery">作品库</a>

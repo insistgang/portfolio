@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Leo · 刘钢</title>
+  <desc id="desc">暖白方形上的炭灰 L 字母与灰蓝斜线。</desc>
+  <rect width="64" height="64" rx="12" fill="#eeeae0"/>
+  <path d="M16 12h12v28h20v12H16Z" fill="#141719"/>
+  <path d="M44 12h12L44 32H32Z" fill="#5d747d"/>
+</svg>

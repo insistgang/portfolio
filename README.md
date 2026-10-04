@@ -32,6 +32,8 @@ python3 -m http.server 8766 --bind 127.0.0.1
 
 整页采用同一套炭灰背景、暖白文字、中性卡片与低饱和强调色。主题颜色由 `index.html` 中的 CSS 变量与 `tailwind.config.cjs` 的调色板统一维护，避免首屏、作品库、证书墙和弹窗出现不同底色。
 
+个人标识采用「L＋斜线」几何图形，与网站共用炭灰、暖白及灰蓝色。SVG 母版与 512px PNG 位于 `assets/brand/`，导航、浏览器标签页及手机收藏图标共用这一标识。
+
 ## 维护与验证
 
 样式和图标已随站点保存，不依赖运行时 CDN 或在线字体。使用现有 Tailwind 3 样式体系；锁定版本仅用于构建。
@@ -46,6 +48,7 @@ npm run check
 
 - `index.html`：页面、项目数据与交互。
 - `assets/images/`：项目配图；`soft/submitted-*.png` 为本次从提交材料提取的图。
+- `assets/brand/`：`leo-mark.svg` 为图标母版；同时提供 512px PNG、32px PNG、16/32/48px ICO 和 180px Apple 收藏图标。修改母版后需同步导出各尺寸。
 - `assets/images/certs/cimc-2025-liugang.png`、`cimc-2026-liugang.png`：两届西门子杯原始学生证书图片。
 - `assets/certificates/gedc-2026-edge-device.pdf`：研电赛原始 PDF；页面配图由该 PDF 渲染。
 - `styles/input.css`、`tailwind.config.cjs`：样式构建入口。
