@@ -3,3 +3,6 @@
 .tmp/
 node_modules/
 deliverables/
+
+# 生成产物：作品集 PDF/PPTX 输出目录（体积大、可随时重建）
+output/
