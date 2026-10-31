@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">论文阅读笔记</title><desc id="desc">公开的阅读与思考记录。</desc>
+  <rect width="960" height="540" fill="#101c1a"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="80" fill="#5eead4" font-size="18" letter-spacing="3">READING NOTES</text>
+    <text x="64" y="152" fill="#f8fafc" font-size="44" font-weight="700">论文阅读笔记</text>
+    <text x="64" y="196" fill="#94a3b8" font-size="24">公开仓库里的阅读和思考。</text>
+    <text x="64" y="478" fill="#64748b" font-size="18">不含未发表稿和评审意见</text>
+  </g>
+</svg>

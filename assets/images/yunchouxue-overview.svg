@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">运筹学入门</title><desc id="desc">交互式运筹学教程。</desc>
+  <rect width="960" height="540" fill="#101c1a"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="80" fill="#5eead4" font-size="18" letter-spacing="3">OPERATIONS RESEARCH</text>
+    <text x="64" y="152" fill="#f8fafc" font-size="44" font-weight="700">运筹学入门站</text>
+    <text x="64" y="196" fill="#94a3b8" font-size="24">交互式可视化教程，纯前端。</text>
+    <text x="64" y="360" fill="#f1f5f9" font-size="28">Astro · Preact · KaTeX</text>
+    <text x="64" y="478" fill="#64748b" font-size="18">公开仓库，暂无独立线上站点</text>
+  </g>
+</svg>
