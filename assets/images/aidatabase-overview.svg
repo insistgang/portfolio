@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">数海航标</title><desc id="desc">数据库学习闯关应用。</desc>
+  <rect width="960" height="540" fill="#101c1a"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="80" fill="#5eead4" font-size="18" letter-spacing="3">AIDATABASE / 12</text>
+    <text x="64" y="152" fill="#f8fafc" font-size="44" font-weight="700">数海航标</text>
+    <text x="64" y="196" fill="#94a3b8" font-size="24">用闯关把数据库知识走通。</text>
+    <g fill="#162624" stroke="#2c4a45"><rect x="64" y="262" width="250" height="150" rx="14"/><rect x="354" y="262" width="250" height="150" rx="14"/><rect x="644" y="262" width="250" height="150" rx="14"/></g>
+    <g fill="#5eead4" font-size="17"><text x="88" y="296">LEVELS</text><text x="378" y="296">SQL</text><text x="668" y="296">DEPLOY</text></g>
+    <g fill="#f1f5f9" font-size="27" font-weight="600"><text x="88" y="344">九关航线</text><text x="378" y="344">查询练习</text><text x="668" y="344">静态与自建</text></g>
+    <g fill="#94a3b8" font-size="17"><text x="88" y="383">从概念到事务</text><text x="378" y="383">关卡内作答</text><text x="668" y="383">Pages 与阿里云</text></g>
+    <text x="64" y="478" fill="#64748b" font-size="18">公开学习应用 · 不含私人数据</text>
+  </g>
+</svg>
