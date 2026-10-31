@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">路遥 Luyao AI 情感陪伴</title><desc id="desc">长期记忆、多智能体协作与情绪化语音。</desc>
+  <rect width="960" height="540" fill="#17130f"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="80" fill="#d97842" font-size="18" letter-spacing="3">MEMORY COMPANION / 09</text>
+    <text x="64" y="152" fill="#f5eee5" font-size="44" font-weight="700">路遥 Luyao AI</text>
+    <text x="64" y="196" fill="#b9aa9a" font-size="24">记得那些被时间放凉的小事。</text>
+    <path d="M300 330H344M598 330H642" stroke="#d97842" stroke-width="3"/>
+    <g fill="#241c16" stroke="#4a382a"><rect x="64" y="262" width="236" height="150" rx="14"/><rect x="344" y="262" width="254" height="150" rx="14"/><rect x="642" y="262" width="254" height="150" rx="14"/></g>
+    <g fill="#d97842" font-size="17"><text x="88" y="296">MEMORY</text><text x="368" y="296">AGENTS</text><text x="666" y="296">VOICE</text></g>
+    <g fill="#f5eee5" font-size="27" font-weight="600"><text x="88" y="344">长期记忆</text><text x="368" y="344">多智能体</text><text x="666" y="344">情绪化语音</text></g>
+    <g fill="#b9aa9a" font-size="17"><text x="88" y="383">RAG · 记忆抽取</text><text x="368" y="383">协作 · 人设校验</text><text x="666" y="383">流式 · 多段同步</text></g>
+    <text x="64" y="478" fill="#8a7a6a" font-size="18">基于 MiniMax 全栈 API · 部署于自有服务器</text>
+  </g>
+</svg>

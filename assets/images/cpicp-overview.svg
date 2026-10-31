@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">竞赛战绩可视化</title><desc id="desc">参赛项目、获奖分布与技术领域覆盖。</desc>
+  <rect width="960" height="540" fill="#121a26"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="80" fill="#7dd3fc" font-size="18" letter-spacing="3">COMPETITION DASHBOARD / 10</text>
+    <text x="64" y="152" fill="#f8fafc" font-size="44" font-weight="700">竞赛战绩可视化</text>
+    <text x="64" y="196" fill="#94a3b8" font-size="24">把分散的获奖记录，看成一张图。</text>
+    <path d="M300 330H344M598 330H642" stroke="#38bdf8" stroke-width="3"/>
+    <g fill="#1a2636" stroke="#31465e"><rect x="64" y="262" width="236" height="150" rx="14"/><rect x="344" y="262" width="254" height="150" rx="14"/><rect x="642" y="262" width="254" height="150" rx="14"/></g>
+    <g fill="#7dd3fc" font-size="17"><text x="88" y="296">RECORDS</text><text x="368" y="296">AWARDS</text><text x="666" y="296">DOMAINS</text></g>
+    <g fill="#f1f5f9" font-size="27" font-weight="600"><text x="88" y="344">参赛项目</text><text x="368" y="344">获奖分布</text><text x="666" y="344">领域覆盖</text></g>
+    <g fill="#94a3b8" font-size="17"><text x="88" y="383">届次 · 赛题 · 团队</text><text x="368" y="383">等级 · 比例 · 总览</text><text x="666" y="383">建模 · 安全 · 硬件</text></g>
+    <text x="64" y="478" fill="#64748b" font-size="18">数据来自本人竞赛记录 · 静态可视化展示</text>
+  </g>
+</svg>
