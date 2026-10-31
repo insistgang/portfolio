@@ -22,6 +22,18 @@ for (const asset of assets) assert.ok(existsSync(asset), `资源缺失：${asset
 for (const match of html.matchAll(/openModal\('([^']+)'\)/g)) {
   assert.ok(projects.some(p => p.id === match[1]), `详情入口不存在：${match[1]}`);
 }
+for (const project of projects) {
+  const links = project.links ?? (project.url ? [{ href: project.url, label: project.urlLabel }] : []);
+  for (const link of links) {
+    assert.ok(link.href && link.label, `链接缺少 href 或 label：${project.id}`);
+    assert.ok(/^(https?:\/\/|mailto:|assets\/)/.test(link.href), `链接协议非法：${project.id} → ${link.href}`);
+    if (link.href.startsWith('assets/')) assert.ok(existsSync(link.href), `链接资源缺失：${project.id} → ${link.href}`);
+  }
+  if (project.privateNote) {
+    assert.ok(!links.length, `私人使用范畴项目不应挂外链：${project.id}`);
+    assert.ok(/私人使用范畴/.test(project.privateNote), `私人说明需标注「私人使用范畴」：${project.id}`);
+  }
+}
 assert.ok(!/<script[^>]+src="https?:|@import url\('https?:/.test(html), '运行时脚本与字体不得依赖外部 CDN');
 assert.ok(html.includes('aria-label="搜索作品"'));
 assert.ok(html.includes('role="dialog"'));
