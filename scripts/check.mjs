@@ -10,7 +10,7 @@ for (const project of projects.filter(p => p.category === 'competition')) {
   assert.ok(awards.includes(project.image), `证书墙与项目配图不一致：${project.id}`);
 }
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length, '项目 ID 必须唯一');
-assert.equal(projects.filter(p => p.category === 'softcopy').length, 14);
+assert.equal(projects.filter(p => p.category === 'softcopy').length, 13);
 assert.ok(projects.filter(p => p.category === 'softcopy').every(p => p.status === '已提交申请'), '提交不等于登记获证');
 assert.ok(!/\/Users\/|100%可申报|191张图|成功涨薪|线下碰面/.test(html), '公开页面不得包含内部路径或过时过程信息');
 for (const script of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)) {
@@ -37,4 +37,4 @@ for (const project of projects) {
 assert.ok(!/<script[^>]+src="https?:|@import url\('https?:/.test(html), '运行时脚本与字体不得依赖外部 CDN');
 assert.ok(html.includes('aria-label="搜索作品"'));
 assert.ok(html.includes('role="dialog"'));
-console.log(`通过：${projects.length} 条展示记录、14 项申请状态、${assets.size} 个资源、脚本语法与公开内容检查。`);
+console.log(`通过：${projects.length} 条展示记录、13 项申请状态、${assets.size} 个资源、脚本语法与公开内容检查。`);
