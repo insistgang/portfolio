@@ -31,6 +31,8 @@
 
 ## 最近完成
 
+- 2026-11-02 02:09：停车管理项目补齐在线展示页 https://insistgang.top/community-parking-system/ ，并在作品卡增加「查看界面与机制展示」入口；展示页截图取自本地运行的真实界面，全部为虚构演示数据。
+
 - 2026-11-02 02:01：新增「慧停管家 · 老旧小区停车位管理」作品卡（产物分类），链接到刚转为公开的 `insistgang/community-parking-system`；新增功能示意图 `assets/images/parking-overview.svg`，文案明确为离线全栈演示，不宣称线上运行或生产可用。
 
 - 2026-11-02 00:12：按用户要求把「CNC 刀路小样」卡片从作品库撤下（项目仍在进行中，暂不公开收录），展示记录由 49 条调整为 48 条；`assets/images/cnc-overview.svg` 暂时保留待复用。
@@ -53,6 +55,8 @@
 - 2026-10-04 17:50：保留静态架构，样式与图标本地化，改善搜索计数、键盘操作、焦点管理及移动端显示；生成约 10.6 MB 静态包。
 
 ## 最近验证
+
+- 2026-11-02 02:09：停车管理展示页与三张界面图均返回 200；作品集构建与 `check` 通过（49 条记录、53 个资源）；本地演示服务截图后已停止。
 
 - 2026-11-01 23:56：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；生成页含「能力认证」分区并显示「CCF 大模型能力认证（LMCC-A）成人组一级认证（2026-09-19） · 中国计算机学会（CCF）」；两份简历下载 PDF 均为单页 A4 且文本含认证条目；GitHub Pages 构建成功（提交 `5e5f932`），线上 https://insistgang.top/portfolio/career/ 与 `/portfolio/assets/career/resume_zh.pdf`、`resume_en.pdf` 均返回 200 且 MIME 为 `application/pdf`。
 - 2026-11-01 23:50：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；生成页 42KB，含 15 张项目卡、29 条投递记录、30 行表格；本地预览 `/career/` 与两份简历 PDF 均返回 200；GitHub Pages 构建成功（提交 `9eb2cf9`）；线上 https://insistgang.top/portfolio/career/ 返回 200，`/portfolio/assets/career/resume_zh.pdf`（405,604B）与 `resume_en.pdf`（105,918B）均返回 `application/pdf`；页面中 `/Users/`、`applications.json`、`master_profile` 出现次数均为 0。
