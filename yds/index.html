@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LinkAble 共感：基于边缘智能的无障碍辅助通行感知系统，本地视觉感知、事件确认、辅助提示与结构化记录。">
+  <title>LinkAble 共感 · 无障碍辅助通行感知</title>
+  <style>
+    :root { color-scheme: dark; --bg:#141719; --card:#1b1f21; --line:#42484b; --text:#eeeae0; --muted:#a8abae; --accent:#bad0da; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.75; }
+    .wrap { width:min(100% - 40px,1080px); margin:0 auto; }
+    header { padding:64px 0 34px; border-bottom:1px solid var(--line); }
+    .eyebrow { color:var(--muted); font-size:12px; letter-spacing:.16em; }
+    h1 { margin:14px 0 16px; font-size:clamp(30px,5vw,46px); letter-spacing:-.03em; }
+    .lead { max-width:760px; margin:0; color:var(--muted); font-size:16px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .tag { border:1px solid var(--line); color:var(--accent); border-radius:999px; padding:6px 12px; font-size:12px; }
+    section { padding:38px 0 0; }
+    h2 { margin:0 0 18px; font-size:24px; }
+    .hero { width:100%; border:1px solid var(--line); border-radius:16px; display:block; }
+    .caption { margin-top:10px; color:var(--muted); font-size:12px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+    .card h3 { margin:0 0 8px; font-size:17px; }
+    .card p { margin:0; color:var(--muted); font-size:14px; }
+    .notice { border-left:2px solid var(--accent); padding:18px 20px; background:var(--card); color:var(--muted); font-size:14px; border-radius:0 12px 12px 0; }
+    .links { display:flex; flex-wrap:wrap; gap:14px; margin-top:22px; }
+    .btn { display:inline-block; padding:10px 16px; background:var(--text); color:#171b1e; border-radius:8px; text-decoration:none; font-size:14px; font-weight:600; }
+    .btn.secondary { background:transparent; color:var(--accent); border:1px solid var(--line); }
+    footer { margin:44px 0 28px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="eyebrow">EDGE INTELLIGENCE · ACCESSIBLE NAVIGATION</div>
+    <h1>LinkAble · 共感</h1>
+    <p class="lead">基于边缘智能的无障碍辅助通行感知原型：在本地处理视觉输入，把通道中的潜在风险转成稳定事件、简短提示和可复核的结构化记录。</p>
+    <div class="tags"><span class="tag">本地感知</span><span class="tag">Jetson 边缘部署</span><span class="tag">按需提示</span><span class="tag">隐私优先</span></div>
+    <div class="links"><a class="btn secondary" href="../">← 返回作品集</a></div>
+  </header>
+
+  <section>
+    <img class="hero" src="../assets/images/yds-overview.svg" alt="本地感知、事件确认、辅助提示与结构化记录的流程示意图">
+    <p class="caption">功能结构示意；不代表真实场景中的检测精度、帧率或现场成功率。</p>
+  </section>
+
+  <section>
+    <h2>系统链路</h2>
+    <div class="grid">
+      <article class="card"><h3>本地视觉感知</h3><p>摄像头、图片或视频在边缘设备上处理，关注盲道占用、台阶、坡道与道路障碍等事件。</p></article>
+      <article class="card"><h3>事件确认</h3><p>通过区域、时间窗口和状态过滤减少抖动与重复提示，区分瞬时变化和持续风险。</p></article>
+      <article class="card"><h3>辅助提示</h3><p>按需要提供简短语音或文字信息，帮助理解周围环境；提示不替代盲杖、路标或个人判断。</p></article>
+      <article class="card"><h3>结构化记录</h3><p>保存事件时间、类型、置信度与处置状态，为校园和社区的无障碍设施复核提供依据。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>工程与隐私边界</h2>
+    <div class="grid">
+      <article class="card"><h3>边缘优先</h3><p>核心感知在本地执行，云端只用于事后报告增强，不参与实时安全提示。</p></article>
+      <article class="card"><h3>最小化数据</h3><p>不默认保存原始画面，不上传连续视频流；可选上报只包含结构化事件。</p></article>
+      <article class="card"><h3>不识别身份</h3><p>不通过外观、人脸或行为推断用户是否残障，显式触发面向所有有需要的人。</p></article>
+      <article class="card"><h3>不夸大验证</h3><p>论文中的要素识别与产品的占用检测是不同任务；历史指标不能直接作为当前产品结论。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="notice">
+      本页只展示项目的公开设计思路。源代码、团队材料、获奖档案、论文与实测数据不在此公开；当前没有面向公众开放的在线感知服务。
+    </div>
+  </section>
+
+  <footer>LinkAble · 共感 · 无障碍辅助通行感知原型</footer>
+</main>
+</body>
+</html>

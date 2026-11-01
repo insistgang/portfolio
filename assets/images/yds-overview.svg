@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">LinkAble 无障碍辅助通行感知系统示意</title>
+  <desc id="desc">本地视觉感知、事件确认、语音提示和结构化记录的流程示意图</desc>
+  <rect width="1200" height="675" fill="#171c20"/>
+  <rect x="64" y="54" width="1072" height="78" rx="12" fill="#20272c" stroke="#42484b"/>
+  <text x="96" y="105" fill="#eeeae0" font-family="Arial, 'PingFang SC', sans-serif" font-size="30" font-weight="600">LinkAble · 共感</text>
+  <text x="856" y="103" fill="#a8abae" font-family="Arial, 'PingFang SC', sans-serif" font-size="17">边缘智能 · 无障碍通行</text>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="64" y="174" width="240" height="300" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="92" y="218" fill="#eeeae0" font-size="22" font-weight="600">本地感知</text>
+    <rect x="96" y="250" width="176" height="116" rx="10" fill="#263137" stroke="#526974"/>
+    <path d="M112 338l42-44 38 24 38-38 30 34" fill="none" stroke="#bad0da" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="142" cy="280" r="8" fill="#bad0da"/>
+    <text x="96" y="420" fill="#a8abae" font-size="17">摄像头 / 图片 / 视频</text>
+    <text x="96" y="450" fill="#727c82" font-size="15">本地推理，不上传连续视频流</text>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="352" y="174" width="240" height="300" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="380" y="218" fill="#eeeae0" font-size="22" font-weight="600">事件确认</text>
+    <g fill="none" stroke="#bad0da" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M390 286l30 30 62-66"/>
+      <path d="M390 364l30 30 62-66"/>
+    </g>
+    <text x="380" y="420" fill="#a8abae" font-size="17">状态过滤 · 时间窗口 · ROI</text>
+    <text x="380" y="450" fill="#727c82" font-size="15">减少重复提示和抖动</text>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="640" y="174" width="240" height="300" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="668" y="218" fill="#eeeae0" font-size="22" font-weight="600">辅助提示</text>
+    <path d="M700 278h34l42-28v116l-42-28h-34z" fill="#526974"/>
+    <path d="M794 280c22 22 22 60 0 82M812 260c36 36 36 86 0 122" fill="none" stroke="#bad0da" stroke-width="5" stroke-linecap="round"/>
+    <text x="668" y="420" fill="#a8abae" font-size="17">按需语音 / 文字提示</text>
+    <text x="668" y="450" fill="#727c82" font-size="15">辅助信息，不替代盲杖与判断</text>
+  </g>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="928" y="174" width="208" height="300" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="956" y="218" fill="#eeeae0" font-size="22" font-weight="600">结构化记录</text>
+    <g fill="#526974">
+      <rect x="956" y="250" width="152" height="16" rx="4"/>
+      <rect x="956" y="284" width="124" height="16" rx="4"/>
+      <rect x="956" y="318" width="140" height="16" rx="4"/>
+      <rect x="956" y="352" width="110" height="16" rx="4"/>
+    </g>
+    <text x="956" y="420" fill="#a8abae" font-size="17">时间 · 类型 · 置信度</text>
+    <text x="956" y="450" fill="#727c82" font-size="15">支撑管理复核</text>
+  </g>
+  <text x="64" y="604" fill="#727c82" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">功能结构示意；不代表真实场景中的检测精度或现场成功率</text>
+</svg>

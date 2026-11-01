@@ -80,3 +80,5 @@ Career-Copilot、PaperStudio 的 SVG 是功能流程示意，功能依据为两�
 - 《共感LinkAble_展示海報_A0_DEMO.pdf》第 1 页标注刘钢为项目负责人；方案功能包括 AI 多模态助手、志愿者匹配与 SOS 求助。
 - PRD 和现有截图包含 MVP 规划、本地 Demo 匹配及 Mock SOS 流程，故以应用原型、产品方案和演示功能表述，不声称实际志愿者网络、紧急救援服务或未经核验的服务效果。
 - 保留现有不含成员信息的应用启动页配图，不公开整份企划书或海报。
+
+LinkAble 共感卡片与 `yds/index.html` 依据 `yds/README.md`、`LinkAble_项目总览.md` 与 `agents.md` 的公开设计口径编写，配图 `assets/images/yds-overview.svg` 为自绘功能示意，未使用团队照片、姓名、学校信息或实测数字；独立 yds 仓库保持私有。
