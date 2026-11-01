@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>求职工作流 Career-Copilot · 刘钢 Leo</title>
-  <meta name="description" content="Career-Copilot 求职工作流：把经历证据、岗位需求、简历生成、投递跟踪与邮件回执连成一条链路的个人系统设计说明。">
+  <title>刘钢 Leo · 求职工作流与经历主库</title>
+  <meta name="description" content="刘钢的求职工作流与经历主库：AI 算法工程师 / 前置部署工程师 (FDE) / 大模型与边缘端落地，含 15 个核心项目、奖项、实习与目标岗位投递进展。">
   <meta name="theme-color" content="#141719">
   <link rel="canonical" href="https://insistgang.top/portfolio/career/">
   <link rel="icon" href="../assets/brand/favicon.ico" sizes="16x16 32x32 48x48">
@@ -37,16 +37,24 @@
     .hero { padding: 76px 0 44px; }
     .hero-kicker { margin: 0 0 18px; font-size: 12px; color: #a8abae; letter-spacing: .16em; }
     .hero-title { margin: 0; font-size: 40px; line-height: 1.2; letter-spacing: -.03em; font-weight: 600; color: rgb(var(--copy)); }
-    .hero-lead { max-width: 660px; margin-top: 18px; color: #b9bcbf; font-size: 15px; line-height: 1.95; }
+    .hero-en { margin-left: 16px; font-family: Georgia, serif; font-style: italic; font-weight: 400; color: #a8abae; }
+    .hero-lead { max-width: 760px; margin-top: 18px; color: #b9bcbf; font-size: 15px; line-height: 1.95; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 28px; margin: 30px 0 0; }
+    .contact-grid dt { font-size: 11px; color: #a8abae; letter-spacing: .08em; }
+    .contact-grid dd { margin: 4px 0 0; font-size: 14px; color: rgb(var(--copy)); word-break: break-all; }
+    .section-title { font-size: 1.7rem; font-weight: 500; letter-spacing: -.025em; margin-bottom: 22px; }
+    .sub-title { font-size: 12px; letter-spacing: .16em; color: #a8abae; margin: 26px 0 12px; }
     .panel { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 16px; }
-    .notice { border-left: 2px solid rgb(var(--accent)); }
-    .chain-step { position: relative; padding-left: 26px; }
-    .chain-step::before { content: ""; position: absolute; left: 0; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--accent)); }
-    .chain-step::after { content: ""; position: absolute; left: 4px; top: 20px; bottom: -18px; width: 1px; background: rgb(var(--line)); }
-    .chain-step:last-child::after { display: none; }
     .tag { border: 1px solid rgb(var(--line)); color: #c5c7c4; border-radius: 999px; }
-    .skill-card { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 16px; }
-    .skill-code { color: #bad0da; }
+    .award-list { list-style: none; padding: 0; }
+    .award-list li { padding: 10px 0; border-bottom: 1px solid rgb(var(--line)); font-size: 14px; color: #d8d8d3; }
+    .award-level { color: #d5c69e; }
+    table { border-collapse: collapse; }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgb(var(--line)); vertical-align: top; }
+    th { font-size: 11px; letter-spacing: .08em; color: #a8abae; font-weight: 400; }
+    td { font-size: 13px; color: #c5c7c4; }
+    .download-btn { display: inline-flex; align-items: center; gap: 10px; background: #eeeae0; color: #1b1e20; border: 1px solid #eeeae0; border-radius: 4px; padding: 11px 18px; font-size: 14px; }
+    .download-btn:hover { background: #fff; border-color: #fff; }
     a { color: inherit; }
     .link-accent { color: #bad0da; border-bottom: 1px solid #667d87; }
     .link-accent:hover { color: #fff; }
@@ -60,7 +68,6 @@
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
-
   <header class="site-header">
     <nav class="site-header-inner" aria-label="主导航">
       <a href="../" class="site-brand"><img src="../assets/brand/leo-mark.svg" class="site-mark" width="28" height="28" alt="">刘钢 <span>/ Leo</span></a>
@@ -70,137 +77,616 @@
       </div>
     </nav>
   </header>
-
-  <main>
-    <section class="hero">
-      <div class="page-wrap">
-        <p class="hero-kicker">CAREER WORKFLOW</p>
-        <h1 class="hero-title">求职工作流 Career-Copilot</h1>
-        <p class="hero-lead">
-          把「我做过什么」「岗位要什么」「怎么讲」「投到哪一步」拆成四类可维护的数据，再用一条固定链路把它们连起来：
-          经历证据 → 岗位匹配 → 简历生成 → 投递跟踪 → 邮件回执。系统面向企业求职与学术申请两种场景，
-          强调每条表述都能追溯到真实证据，而不是写得更漂亮。
-        </p>
+<main>
+<section class="hero">
+  <div class="page-wrap">
+    <p class="hero-kicker">CAREER WORKFLOW · AI 算法工程师 / 前置部署工程师 (FDE) / 大模型与边缘端落地</p>
+    <h1 class="hero-title">刘钢 <span class="hero-en">Leo</span></h1>
+    <p class="hero-lead">具备“模型训练/微调 → 极致量化 (INT4/剪枝) → 端侧/边缘 (Jetson/TensorRT) 部署”端到端全栈工程能力与央企研究所落地实战经验；拥有国家级竞赛奖项 4 项 (3项任队长)、省部级 7 项；深度实践 AI-Native 研发范式。</p>
+    <dl class="contact-grid">
+      <div><dt>电话</dt><dd>+86 159-9519-7640</dd></div>
+      <div><dt>邮箱</dt><dd><a href="mailto:insistgang@163.com">insistgang@163.com</a></dd></div>
+      <div><dt>微信</dt><dd>insistgang</dd></div>
+      <div><dt>城市</dt><dd>上海</dd></div>
+      <div><dt>GitHub</dt><dd><a class="link-accent" href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer">https://github.com/insistgang</a></dd></div>
+      <div><dt>博客</dt><dd><a class="link-accent" href="https://insistgang.top" target="_blank" rel="noopener noreferrer">https://insistgang.top</a></dd></div>
+      <div><dt>作品集</dt><dd><a class="link-accent" href="https://insistgang.top/portfolio/" target="_blank" rel="noopener noreferrer">https://insistgang.top/portfolio/</a></dd></div>
+    </dl>
+  </div>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="edu-title">
+  <h2 id="edu-title" class="section-title">教育背景</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <article class="panel p-6">
+      <h3 class="font-medium mb-1">上海工程技术大学 · 电子电气工程学院</h3>
+      <p class="text-sm text-slate-400 mb-2">硕士 (电子信息 - 人工智能方向) · 2024.09 - 2027.06</p>
+      <p class="text-sm text-slate-400 mb-2">GPA 3.36 / 4.0</p>
+      <p class="text-sm text-slate-400 mb-2">导师：刘翔 教授</p>
+      <p class="text-sm text-slate-400 mb-3">论文：《面向违法建筑识别的多尺度图像检测方法研究》</p>
+      <p class="text-sm text-slate-300 leading-6">· 硕士研究生学业一等奖学金</p>
+      <p class="text-sm text-slate-300 leading-6">· 优秀共产党员 / 党员之星</p>
+      <p class="text-sm text-slate-300 leading-6">· 三好学生 / 优秀共青团员 / 优秀团干部</p>
+      <p class="text-sm text-slate-300 leading-6">· 团干部示范典型 / 活力团支部班长/团支书</p>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-1">扬州大学广陵学院 · 信息工程学院</h3>
+      <p class="text-sm text-slate-400 mb-2">学士 (信息与计算科学) · 2017.09 - 2021.06</p>
+      <p class="text-sm text-slate-400 mb-2">GPA 3.23 / 4.0</p>
+      <p class="text-sm text-slate-300 leading-6">· 校级优秀毕业设计</p>
+      <p class="text-sm text-slate-300 leading-6">· 中共党员 (2021)</p>
+    </article>
+  </div>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="skills-title">
+  <h2 id="skills-title" class="section-title">核心能力</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">AI-Native 研发与 Agent 生态</h3>
+      <p class="text-sm leading-7 text-slate-400 mb-4">深度实践 AI-Native 研发范式，精通 Claude Code、Codex、Google Antigravity (agy)、Grok、MiniMax、GLM 及 Kimi 等前沿 AI Agent 工具链与 MCP 协议；具备极强的多智能体编排与系统级落地能力，独立/主导完成视频多模态检索 (understand_mov_v2)、网络安全研判、行动工作台等多个复杂系统的端到端敏捷交付。</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag px-3 py-1 text-xs">Claude Code</span>
+        <span class="tag px-3 py-1 text-xs">Codex</span>
+        <span class="tag px-3 py-1 text-xs">Antigravity (agy)</span>
+        <span class="tag px-3 py-1 text-xs">Grok</span>
+        <span class="tag px-3 py-1 text-xs">MiniMax</span>
+        <span class="tag px-3 py-1 text-xs">智谱 GLM</span>
+        <span class="tag px-3 py-1 text-xs">Kimi Code</span>
+        <span class="tag px-3 py-1 text-xs">Multi-Agent 编排</span>
+        <span class="tag px-3 py-1 text-xs">MCP 协议</span>
+        <span class="tag px-3 py-1 text-xs">端到端敏捷开发</span>
       </div>
-    </section>
-
-    <section class="page-wrap pb-16" aria-labelledby="boundary-title">
-      <div class="panel notice p-6">
-        <h2 id="boundary-title" class="text-lg font-medium mb-3">公开范围说明</h2>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">推理优化与端侧部署</h3>
+      <p class="text-sm leading-7 text-slate-400 mb-4">主攻 LLM INT4 权重量化（Qwen2-7B 显存 14GB 压缩至 5.8GB，单卡 42 tokens/s）、QLoRA 微调、vLLM/TensorRT FP16/INT8 算子融合与 NVIDIA Jetson Orin Nano 边缘端部署调优，具备工业级单卡离线推理实战经验。</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag px-3 py-1 text-xs">LLM INT4量化</span>
+        <span class="tag px-3 py-1 text-xs">QLoRA</span>
+        <span class="tag px-3 py-1 text-xs">vLLM</span>
+        <span class="tag px-3 py-1 text-xs">TensorRT</span>
+        <span class="tag px-3 py-1 text-xs">ONNX Runtime</span>
+        <span class="tag px-3 py-1 text-xs">Jetson Orin Nano</span>
+        <span class="tag px-3 py-1 text-xs">单卡离线推理</span>
+        <span class="tag px-3 py-1 text-xs">模型剪枝</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">大模型与多模态 (LLM/VLM)</h3>
+      <p class="text-sm leading-7 text-slate-400 mb-4">精通 Qwen2 / Qwen2.5-VL 多模态微调、RAG 检索增强架构 (ChromaDB 8万+条目向量检索与重排)、Prompt 工程及 4 层多智能体协同架构设计。</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag px-3 py-1 text-xs">Qwen2</span>
+        <span class="tag px-3 py-1 text-xs">Qwen2.5-VL</span>
+        <span class="tag px-3 py-1 text-xs">多模态微调</span>
+        <span class="tag px-3 py-1 text-xs">RAG 架构</span>
+        <span class="tag px-3 py-1 text-xs">ChromaDB</span>
+        <span class="tag px-3 py-1 text-xs">Multi-Agent 协同</span>
+        <span class="tag px-3 py-1 text-xs">Prompt 工程</span>
+        <span class="tag px-3 py-1 text-xs">LangChain</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">计算机视觉与深度学习</h3>
+      <p class="text-sm leading-7 text-slate-400 mb-4">熟练掌握 YOLO 系列（P2 高分辨率金字塔、AMSFF 自适应多尺度融合、DCH 解耦头、YOLO-seg 实例分割）、ReID 消除重复计数、单目几何测距与 OpenCV 视觉处理。</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag px-3 py-1 text-xs">PyTorch</span>
+        <span class="tag px-3 py-1 text-xs">YOLOv8</span>
+        <span class="tag px-3 py-1 text-xs">YOLOv11</span>
+        <span class="tag px-3 py-1 text-xs">小目标检测</span>
+        <span class="tag px-3 py-1 text-xs">实例分割</span>
+        <span class="tag px-3 py-1 text-xs">旋转框 OBB</span>
+        <span class="tag px-3 py-1 text-xs">单目测距</span>
+        <span class="tag px-3 py-1 text-xs">ReID目标追踪</span>
+        <span class="tag px-3 py-1 text-xs">OpenCV</span>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section-title">核心项目（15）</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 01：上海五零盛同 · 道路智能检测与单目测距系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.10 – 2026.07 · 算法研发实习生 · 中国电科五十所 · 算法实习</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">面向智慧城市车道级巡检与路灯杆塔智能化监测需求，需要在车辆行进的剧烈颠簸与复杂逆光遮挡环境下，实时检测分类路灯杆体并精准测定距离，输出告警信号。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">计算机视觉</span>
+        <span class="tag px-2 py-0.5 text-[11px]">YOLOv8</span>
+        <span class="tag px-2 py-0.5 text-[11px]">单目测距</span>
+        <span class="tag px-2 py-0.5 text-[11px]">工业落地</span>
+        <span class="tag px-2 py-0.5 text-[11px]">目标检测</span>
+        <span class="tag px-2 py-0.5 text-[11px]">边缘部署</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 02：硕士课题 · 遥感违建检测与 Jetson 边缘推理部署</h3>
+      <p class="text-xs text-slate-500 mb-3">2024.10 – 至今 · 项目负责人 / 硕士课题核心研究 · 上海工程技术大学（导师：刘翔 教授） · 上海市研究生智慧城市技术与创意设计大赛 **省级三等奖**</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">无人机航拍巡检违法建筑（违章加盖、私搭棚架、占用耕地）面临目标尺度极小（百米高空仅数十像素）、拍摄角度倾斜多变、复杂地形背景虚警率高以及边缘端算力受限（须实时巡检）四大核心挑战。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">无人机航拍</span>
+        <span class="tag px-2 py-0.5 text-[11px]">遥感图像</span>
+        <span class="tag px-2 py-0.5 text-[11px]">YOLOv11s-seg</span>
+        <span class="tag px-2 py-0.5 text-[11px]">实例分割</span>
+        <span class="tag px-2 py-0.5 text-[11px]">Jetson Orin Nano</span>
+        <span class="tag px-2 py-0.5 text-[11px]">边缘计算</span>
+        <span class="tag px-2 py-0.5 text-[11px]">TensorRT</span>
+        <span class="tag px-2 py-0.5 text-[11px]">领域自适应</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 03：智慧城市井盖细粒度状态检测系统与小目标优化</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.01 – 2026.04 · 论文第一作者 / 核心算法设计</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">城市路面井盖状态复杂（破损、缺失、移位、凹陷、遮挡等），在车载或路侧相机画面中占比往往小于 1%（极小目标），且不同破损形态类内差异大、易受路面水渍和阴影强干扰。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">计算机视觉</span>
+        <span class="tag px-2 py-0.5 text-[11px]">YOLOv11</span>
+        <span class="tag px-2 py-0.5 text-[11px]">小目标检测</span>
+        <span class="tag px-2 py-0.5 text-[11px]">特征金字塔P2</span>
+        <span class="tag px-2 py-0.5 text-[11px]">AMSFF</span>
+        <span class="tag px-2 py-0.5 text-[11px]">细粒度分类</span>
+        <span class="tag px-2 py-0.5 text-[11px]">智慧城市</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 04：多智能体协同网络安全威胁智能分析系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.07 – 2025.10 · 队长 / 全栈架构与大模型研发 · “华为杯”全国研究生网络安全专项赛 · **国家三等奖** (国三)</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">海量网络攻击日志与复杂 APT 攻击链分析对专业安全人员依赖高，传统大模型参数庞大无法在轻量级消费级服务器单卡离线部署，且存在专业安全知识幻觉严重、多阶段研判缺乏长程推理能力的问题。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">大语言模型</span>
+        <span class="tag px-2 py-0.5 text-[11px]">Qwen2-7B</span>
+        <span class="tag px-2 py-0.5 text-[11px]">INT4极限压测与量化</span>
+        <span class="tag px-2 py-0.5 text-[11px]">QLoRA微调</span>
+        <span class="tag px-2 py-0.5 text-[11px]">Multi-Agent协同</span>
+        <span class="tag px-2 py-0.5 text-[11px]">RAG检索增强</span>
+        <span class="tag px-2 py-0.5 text-[11px]">ChromaDB</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 05：电路系统框图多模态智能识别与逻辑解析系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.09 – 2025.11 · 核心成员 / 多模态视觉语言模型研发 · 全国大学生集成电路 EDA 精英创新赛 · **国家三等奖** (国三)</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">集成电路原理图与系统框图包含高密度的电气元件符号（电阻、电容、逻辑门等）、细微连线与复杂网络标号，传统 OCR 与纯视觉检测难以理解电气连接逻辑与信号流拓扑关系。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">多模态大模型</span>
+        <span class="tag px-2 py-0.5 text-[11px]">VLM</span>
+        <span class="tag px-2 py-0.5 text-[11px]">Qwen2.5-VL</span>
+        <span class="tag px-2 py-0.5 text-[11px]">LoRA微调</span>
+        <span class="tag px-2 py-0.5 text-[11px]">YOLOv8</span>
+        <span class="tag px-2 py-0.5 text-[11px]">目标检测</span>
+        <span class="tag px-2 py-0.5 text-[11px]">拓扑解析</span>
+        <span class="tag px-2 py-0.5 text-[11px]">EDA工具</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 06：多域特征融合与跨工况轴承故障迁移诊断研究</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.09 · 队长 / 建模与算法设计 · 全国大学生数学建模竞赛 · **国家二等奖** (国二)</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">旋转机械在不同转速、载荷和工况下振动信号分布漂移严重（Covariate Shift），训练集（源域）标记样本充足而在复杂未知实际工况（目标域）无标记数据，导致传统机器学习模型严重失效。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">数学建模</span>
+        <span class="tag px-2 py-0.5 text-[11px]">迁移学习</span>
+        <span class="tag px-2 py-0.5 text-[11px]">信号处理</span>
+        <span class="tag px-2 py-0.5 text-[11px]">特征工程</span>
+        <span class="tag px-2 py-0.5 text-[11px]">域适应</span>
+        <span class="tag px-2 py-0.5 text-[11px]">XGBoost</span>
+        <span class="tag px-2 py-0.5 text-[11px]">故障诊断</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 07：understand_mov_v2 多模态视频内容智能检索与理解平台</h3>
+      <p class="text-xs text-slate-500 mb-3">2026.04 – 2026.06 · 独立全栈设计与开发</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">海量长视频（监控录像、会议录屏、课堂切片）缺乏结构化索引，传统文件名/关键词搜索无法定位视频画面具体帧内的人物、动作、物体与文字事件，迫切需要本地轻量化的自然语言“以文搜视频”能力。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">多模态检索</span>
+        <span class="tag px-2 py-0.5 text-[11px]">FastAPI</span>
+        <span class="tag px-2 py-0.5 text-[11px]">React</span>
+        <span class="tag px-2 py-0.5 text-[11px]">SQLite FTS5</span>
+        <span class="tag px-2 py-0.5 text-[11px]">视频理解</span>
+        <span class="tag px-2 py-0.5 text-[11px]">CLIP</span>
+        <span class="tag px-2 py-0.5 text-[11px]">全栈工程</span>
+        <span class="tag px-2 py-0.5 text-[11px]">本地化部署</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 08：农村商业银行客户金融服务多步智能推荐系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.04 – 2025.07 · 核心算法开发（多步智算队） · 第四届中国研究生金融科技创新大赛</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">面向无锡农商行真实业务场景中的客户金融产品匹配需求，面对正负样本比例极度悬殊（正样本不足 2%）、高维稀疏结构化表格数据以及客户需求随生命周期动态变化的挑战。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">金融AI</span>
+        <span class="tag px-2 py-0.5 text-[11px]">推荐系统</span>
+        <span class="tag px-2 py-0.5 text-[11px]">SMOTE过采样</span>
+        <span class="tag px-2 py-0.5 text-[11px]">数据极度不平衡</span>
+        <span class="tag px-2 py-0.5 text-[11px]">特征工程</span>
+        <span class="tag px-2 py-0.5 text-[11px]">集成学习</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 09：企业双碳创新平台与 ESG 评价智能决策系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.06 – 2025.09 · 系统研发（智碳赋新队） · 第四届中国研究生“双碳”创新与创意大赛</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">结合真实企业运营数据，构建多维度的企业碳足迹采集、ESG 评级指标计算体系，以及面向绿色金融信贷的政策智能匹配与决策推荐。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">双碳战略</span>
+        <span class="tag px-2 py-0.5 text-[11px]">ESG评价</span>
+        <span class="tag px-2 py-0.5 text-[11px]">跨学科融合</span>
+        <span class="tag px-2 py-0.5 text-[11px]">规则推理</span>
+        <span class="tag px-2 py-0.5 text-[11px]">智能推荐</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 10：LinkAble 共感 · 智能交互与软硬件协同嵌入式系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2026.03 – 2026.07 · 核心研发 · 第二十届中国研究生电子设计竞赛 (研电赛) · **省级二等奖** (省二)</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">面向人机共感与多模态情感交互场景，设计微型低功耗嵌入式感知终端，实现多源生物传感信号与环境特征的毫秒级端侧采集、边缘融合与实时交互反馈。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">研电赛</span>
+        <span class="tag px-2 py-0.5 text-[11px]">嵌入式开发</span>
+        <span class="tag px-2 py-0.5 text-[11px]">软硬件协同</span>
+        <span class="tag px-2 py-0.5 text-[11px]">传感器数据融合</span>
+        <span class="tag px-2 py-0.5 text-[11px]">智能交互</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 11：道路路面病害智能检测与 A4 纸参照物面积精确测算技术</h3>
+      <p class="text-xs text-slate-500 mb-3">2024.11 – 2025.04 · 核心算法与论文第一作者</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">道路巡检中坑槽、裂缝等病害的实际物理受损面积难以单凭二维图像直接度量，传统人工测量耗时危险，缺少低成本、高精度的快速现场量化评估手段。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">计算机视觉</span>
+        <span class="tag px-2 py-0.5 text-[11px]">道路病害</span>
+        <span class="tag px-2 py-0.5 text-[11px]">面积标定</span>
+        <span class="tag px-2 py-0.5 text-[11px]">YOLO</span>
+        <span class="tag px-2 py-0.5 text-[11px]">图像处理</span>
+        <span class="tag px-2 py-0.5 text-[11px]">智慧城市</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 12：研发费用智能核算与报表自动化 RPA 软件 V1.0</h3>
+      <p class="text-xs text-slate-500 mb-3">2024.03 – 2024.08 · 独立全栈研发 / 软件著作权人</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">高新技术企业研发费用账目复杂（涉及工时分配、凭证核对、多科目分摊），手工核算极易出错且耗费大量财务人力。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">RPA</span>
+        <span class="tag px-2 py-0.5 text-[11px]">Python</span>
+        <span class="tag px-2 py-0.5 text-[11px]">自动化报表</span>
+        <span class="tag px-2 py-0.5 text-[11px]">规则引擎</span>
+        <span class="tag px-2 py-0.5 text-[11px]">数据清洗</span>
+        <span class="tag px-2 py-0.5 text-[11px]">独立研发</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">K12 个性化自适应学习与智能辅导系统</h3>
+      <p class="text-xs text-slate-500 mb-3">2025.07 – 2025.09 · 队长 / 架构与大模型全栈研发 (智研四象) · “华为杯”第七届中国研究生人工智能创新大赛 · **国家三等奖** (队长)</p>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 14：AI 技术知识库（LangChain / LangGraph）</h3>
+      <p class="text-xs text-slate-500 mb-3">2026.04 – 2026.08 · 独立设计与开发</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">需要把 GitHub / HN / arXiv / RSS 上的 AI 与 Agent 动态自动采集、审核并归档成可查询的本地知识条目，而不是手工收藏链接。</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">LangChain</span>
+        <span class="tag px-2 py-0.5 text-[11px]">LangGraph</span>
+        <span class="tag px-2 py-0.5 text-[11px]">RAG</span>
+        <span class="tag px-2 py-0.5 text-[11px]">MCP</span>
+        <span class="tag px-2 py-0.5 text-[11px]">多 Agent</span>
+        <span class="tag px-2 py-0.5 text-[11px]">知识库</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-2">项目 15：上海卓繁信息 · 政企智能 Agent 与 RAG 系统研发</h3>
+      <p class="text-xs text-slate-500 mb-3">2026.09 – 至今 · 后端开发工程师 (AI 应用开发实习) · 行业市场部 · AI 应用开发实习</p>
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="tag px-2 py-0.5 text-[11px]">AI Agent</span>
+        <span class="tag px-2 py-0.5 text-[11px]">RAG 检索增强</span>
+        <span class="tag px-2 py-0.5 text-[11px]">FastAPI</span>
+        <span class="tag px-2 py-0.5 text-[11px]">多智能体编排</span>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="intern-title">
+  <h2 id="intern-title" class="section-title">实习与工作</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <article class="panel p-6">
+      <h3 class="font-medium mb-1">上海卓繁信息技术股份有限公司</h3>
+      <p class="text-sm text-slate-400 mb-2">后端开发工程师 (AI 应用开发实习) · 2026.09 - 至今</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">面向政企数字化服务，参与智能 Agent 核心逻辑、多智能体协同工作流与政务 RAG 知识检索增强研发；基于 FastAPI 封装流式输出、会话管理、超时重试与格式校验。</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag px-2 py-0.5 text-[11px]">AI Agent</span>
+        <span class="tag px-2 py-0.5 text-[11px]">RAG 检索增强</span>
+        <span class="tag px-2 py-0.5 text-[11px]">FastAPI</span>
+        <span class="tag px-2 py-0.5 text-[11px]">工作流编排</span>
+        <span class="tag px-2 py-0.5 text-[11px]">政企大模型</span>
+      </div>
+    </article>
+    <article class="panel p-6">
+      <h3 class="font-medium mb-1">上海五零盛同信息科技有限公司 (中国电科五十所)</h3>
+      <p class="text-sm text-slate-400 mb-2">算法研发实习生 · 2025.10 - 2026.07</p>
+      <p class="text-sm leading-7 text-slate-400 mb-3">主导车道级巡检中路灯目标检测与轻量化单目测距算法研发，5~50m 相对误差 &lt;5%，引入卡尔曼时域滤波防抖并在实车工控机生产上线。</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag px-2 py-0.5 text-[11px]">计算机视觉</span>
+        <span class="tag px-2 py-0.5 text-[11px]">YOLOv8</span>
+        <span class="tag px-2 py-0.5 text-[11px]">单目测距</span>
+        <span class="tag px-2 py-0.5 text-[11px]">工控机部署</span>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="awards-title">
+  <h2 id="awards-title" class="section-title">竞赛与荣誉</h2>
+    <h3 class="sub-title">国家级</h3>
+    <ul class="award-list">
+      <li><span class="award-level">国家二等奖</span> 全国大学生数学建模竞赛（华为杯·第22届）（队长） · 2025</li>
+      <li><span class="award-level">国家三等奖</span> “华为杯”第四届中国研究生网络安全创新大赛（队长 (AI盾卫队)） · 2025</li>
+      <li><span class="award-level">国家三等奖</span> “华为杯”第七届中国研究生人工智能创新大赛（队长 (智研四象)） · 2025</li>
+      <li><span class="award-level">国家三等奖</span> 全国大学生集成电路 EDA 精英创新赛（核心成员 (码上代码队)） · 2025</li>
+    </ul>
+    <h3 class="sub-title">省部级</h3>
+    <ul class="award-list">
+      <li><span class="award-level">省级一等奖</span> 2025 第十九届 CIMC“西门子杯”中国智能制造挑战赛 (信息化网络化赛道) · 2025</li>
+      <li><span class="award-level">省级二等奖 (答辩 82 分)</span> 2026 第二十届 CIMC“西门子杯”中国智能制造挑战赛 · 2026</li>
+      <li><span class="award-level">省级二等奖</span> 第二十届中国研究生电子设计竞赛 (LinkAble 共感) · 2026</li>
+      <li><span class="award-level">省级三等奖</span> 第十九届中国研究生电子设计竞赛 · 2025</li>
+      <li><span class="award-level">省级三等奖</span> 第十一届中国研究生智慧城市技术与创意设计大赛（智城守护者团队） · 2025</li>
+      <li><span class="award-level">银奖 (省级二等奖)</span> 第二届上海市大学生行业分析大赛 · 2024</li>
+      <li><span class="award-level">省级三等奖</span> 第三届上海市大学生行业分析大赛 · 2025</li>
+    </ul>
+    <h3 class="sub-title">校级</h3>
+    <ul class="award-list">
+      <li><span class="award-level">校级二等奖</span> 上海工程技术大学“AI智能体”创新设计大赛 · 2025</li>
+      <li><span class="award-level">校级集体荣誉</span> 班级获评上海工程技术大学“活力团支部”（团支书） · 2025</li>
+    </ul>
+    <h3 class="sub-title">论文与软著</h3>
+    <ul class="award-list">
+      <li>面向无人机航拍的高分辨率违章建筑小目标检测与边缘部署研究（第一作者） · 硕士学位论文核心 / 在研 (第一作者)</li>
+      <li>研发费用智能核算与报表自动化 RPA 软件 V1.0（独立开发） · 登记完成 (软著)</li>
+    </ul>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="targets-title">
+  <h2 id="targets-title" class="section-title">目标岗位与投递进展</h2>
+  <p class="text-sm text-slate-400 mb-6">共 29 条记录：已投递 14 条，已接受实习 Offer 1 条，其余在准备中。</p>
+  <div class="panel overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead><tr><th>单位</th><th>岗位</th><th>阶段</th><th>渠道</th><th>截止</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>施耐德电气 (Schneider Electric)</td>
+          <td>AI 应用顾问 (2027新星计划)</td>
+          <td>准备投递</td>
+          <td>官方网申系统</td>
+          <td>2026-09-15</td>
+        </tr>
+        <tr>
+          <td>为恒智能科技股份有限公司</td>
+          <td>AI Agent 工程师</td>
+          <td>准备投递</td>
+          <td>HR 微信直聘</td>
+          <td>2026-09-05</td>
+        </tr>
+        <tr>
+          <td>振石控股集团有限公司</td>
+          <td>智能体研发工程师</td>
+          <td>准备投递</td>
+          <td>邮件直投</td>
+          <td>2026-09-10</td>
+        </tr>
+        <tr>
+          <td>上海芯圣电子股份有限公司</td>
+          <td>AI 系统开发工程师 (VibeCoding)</td>
+          <td>已投递</td>
+          <td>就业群直聘</td>
+          <td>2026-09-01</td>
+        </tr>
+        <tr>
+          <td>上海航天局第八研究院 (802所/804所)</td>
+          <td>武器装备现场调试 / 嵌入式软件</td>
+          <td>已投递</td>
+          <td>就业群直通</td>
+          <td>2026-09-05</td>
+        </tr>
+        <tr>
+          <td>南凌科技股份有限公司</td>
+          <td>SASE / SD-WAN 测试开发</td>
+          <td>已投递</td>
+          <td>就业信息群</td>
+          <td>2026-09-10</td>
+        </tr>
+        <tr>
+          <td>英特尔中国 (Intel)</td>
+          <td>2027 中国校招 · Agentic AI / 分布式 LLM 推理 / AI 框架</td>
+          <td>准备投递</td>
+          <td>官方网申</td>
+          <td>2026-10-16</td>
+        </tr>
+        <tr>
+          <td>海尔集团</td>
+          <td>AI 算法工程师（变频）</td>
+          <td>准备投递</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>吉利控股集团</td>
+          <td>G-TOP 计划 · 人工智能 / 智能驾驶等</td>
+          <td>准备投递</td>
+          <td>官方网申</td>
+          <td>2026-10-31</td>
+        </tr>
+        <tr>
+          <td>拼多多集团 (PDD)</td>
+          <td>AI Agent 研发工程师 / 云弧计划</td>
+          <td>准备投递</td>
+          <td>官方网申</td>
+          <td>2027-04-30</td>
+        </tr>
+        <tr>
+          <td>字节跳动 Seed</td>
+          <td>AI 搜索 Agent 算法工程师（2027 Seed 校招）</td>
+          <td>准备投递</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>神州信息 (000555.SZ)</td>
+          <td>27届提前批 AI Agent 工程师（上海）</td>
+          <td>准备投递</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>上海人工智能实验室</td>
+          <td>星启计划 / 日常实习（大模型部署、Agent 相关）</td>
+          <td>准备投递</td>
+          <td>官网或邮件</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>卓繁信息</td>
+          <td>后端开发 / AI 应用落地实习</td>
+          <td>已接受实习 Offer</td>
+          <td>微信 HR 濛檬</td>
+          <td>2026-09-07</td>
+        </tr>
+        <tr>
+          <td>思源电气股份有限公司</td>
+          <td>图像算法工程师 (2027届校招)</td>
+          <td>已投递</td>
+          <td>邮件直投</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>极洞科技 (HOPO)</td>
+          <td>感知算法工程师 (实习, 可转校招)</td>
+          <td>已投递</td>
+          <td>邮件直投</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>上海保隆汽车科技股份有限公司</td>
+          <td>信号处理算法初级工程师 (毫米波雷达, 2027届)</td>
+          <td>已投递</td>
+          <td>邮件直投</td>
+          <td>2027年7月到岗</td>
+        </tr>
+        <tr>
+          <td>上海东软载波微电子有限公司</td>
+          <td>AI 应用工程师 (见习/实习岗, 黄浦-松江结对)</td>
+          <td>已投递</td>
+          <td>邮件直投</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>上海吉祥航空股份有限公司</td>
+          <td>IT 信息技术岗 (AI开发/AI产品方向, 2027校招)</td>
+          <td>待网申</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>长鑫存储技术有限公司</td>
+          <td>IT服务AI开发 (J21014, 2027校招)</td>
+          <td>已投递，待招聘方反馈（本人确认）</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>J&amp;T极兔速递</td>
+          <td>【集团】视觉算法管培生 (2027校招)</td>
+          <td>已投递，待招聘方反馈（本人确认）</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>J&amp;T极兔速递</td>
+          <td>【集团】大模型算法管培生 (2027校招)</td>
+          <td>已投递，待招聘方反馈（本人确认）</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>中国石化·茂名石化</td>
+          <td>信息化管理储备岗 (2027校招, 硕士)</td>
+          <td>暂停：仅CET-4 447分，不满足该岗CET-6要求</td>
+          <td>官方网申</td>
+          <td>2026-10-28</td>
+        </tr>
+        <tr>
+          <td>上海集成电路研发中心有限公司（ICRD）</td>
+          <td>算法工程师 / 软件开发工程师 (2027校招, 待选岗)</td>
+          <td>待登录/资料确认</td>
+          <td>招聘公告/邮箱投递</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>海康机器人</td>
+          <td>技术工程师（视觉技术，2027届国内营销上海专场）</td>
+          <td>简历邮件已发送，待HR反馈</td>
+          <td>HR邮箱直投</td>
+          <td>2026-10-19</td>
+        </tr>
+        <tr>
+          <td>大华股份</td>
+          <td>【研发中心】2027届AI应用开发工程师(J24400)</td>
+          <td>本人已微信登录，必填资料待补</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>合合信息</td>
+          <td>Agent开发工程师（J14436，2027届校招）</td>
+          <td>简历筛选-初筛进行中</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>合合信息</td>
+          <td>AI全栈开发工程师（J14388，2027届校招）</td>
+          <td>简历筛选-初筛进行中</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>合合信息</td>
+          <td>FDE工程师（J14378，2027届校招）</td>
+          <td>简历筛选-初筛进行中</td>
+          <td>官方网申</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="page-wrap pb-16" aria-labelledby="resume-title">
+  <h2 id="resume-title" class="section-title">简历下载</h2>
+  <div class="flex flex-wrap gap-4">
+    <a class="download-btn" href="../assets/career/resume_zh.pdf" download>中文简历 ↓</a>
+    <a class="download-btn" href="../assets/career/resume_en.pdf" download>English Resume ↓</a>
+  </div>
+</section>
+  <section class="page-wrap pb-20" aria-labelledby="system-title">
+    <h2 id="system-title" class="section-title">这套页面背后的系统</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <article class="panel p-6">
+        <h3 class="font-medium mb-3">五段链路</h3>
         <p class="text-sm leading-7 text-slate-400">
-          本页只介绍系统的设计思路与功能结构。个人经历主库、投递记录与联系人、简历成品、邮箱内容与实时看板
-          均不公开：看板服务只在本机 <span class="font-mono">127.0.0.1</span> 启动，接口需要会话令牌校验，
-          邮件能力通过授权码在本地调用，不向公网暴露任何凭据。
+          经历证据 → 岗位匹配 → 简历生成 → 投递跟踪 → 邮件回执。同一份经历主库同时服务企业招聘与高校申请，
+          表述必须能追溯到真实证据，不编造指标与分工。
         </p>
-      </div>
-    </section>
-
-    <section class="page-wrap pb-16" aria-labelledby="chain-title">
-      <h2 id="chain-title" class="text-2xl font-medium tracking-tight mb-8">五段链路</h2>
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-        <div class="chain-step">
-          <h3 class="font-medium mb-2">经历主库</h3>
-          <p class="text-sm leading-6 text-slate-400">基础信息、项目卡片与主张—证据账本分开维护，每条强动词都要有支撑证据。</p>
-        </div>
-        <div class="chain-step">
-          <h3 class="font-medium mb-2">岗位匹配</h3>
-          <p class="text-sm leading-6 text-slate-400">解析岗位描述或导师方向，提取关键词，从项目卡片中挑选真正对口的经历。</p>
-        </div>
-        <div class="chain-step">
-          <h3 class="font-medium mb-2">简历生成</h3>
-          <p class="text-sm leading-6 text-slate-400">Typst 编译单页 A4 技术简历，另提供可在浏览器里微调的 HTML 版本。</p>
-        </div>
-        <div class="chain-step">
-          <h3 class="font-medium mb-2">投递跟踪</h3>
-          <p class="text-sm leading-6 text-slate-400">记录网申、笔试、测评、面试与 Offer 状态，并给出投递节奏建议。</p>
-        </div>
-        <div class="chain-step">
-          <h3 class="font-medium mb-2">邮件回执</h3>
-          <p class="text-sm leading-6 text-slate-400">本地邮箱读取与 MCP 接口，把面试与测评邀请同步回看板。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-wrap pb-16" aria-labelledby="design-title">
-      <h2 id="design-title" class="text-2xl font-medium tracking-tight mb-8">关键设计</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <article class="panel p-6">
-          <h3 class="font-medium mb-3">真实性优先</h3>
-          <p class="text-sm leading-7 text-slate-400">
-            简历改写只在证据完整的范围内使用「主导」「从 0 到 1」这类强动词；团队协作会写清边界与个人分工，
-            缺少可核验指标时改用定性描述，不编造百分比、吞吐量或跑分。
-          </p>
-        </article>
-        <article class="panel p-6">
-          <h3 class="font-medium mb-3">双模工作流</h3>
-          <p class="text-sm leading-7 text-slate-400">
-            同一套经历主库同时服务企业招聘与高校招生：前者强调岗位关键词与项目证据，后者强调研究方向、
-            方法贡献与实验依据，输出物不同但事实边界一致。
-          </p>
-        </article>
-        <article class="panel p-6">
-          <h3 class="font-medium mb-3">本地优先</h3>
-          <p class="text-sm leading-7 text-slate-400">
-            看板与邮件能力都在本机运行，静态资源走白名单目录，接口需要随机令牌，投递明细等私人状态文件不进入版本库。
-          </p>
-        </article>
-        <article class="panel p-6">
-          <h3 class="font-medium mb-3">双向反哺</h3>
-          <p class="text-sm leading-7 text-slate-400">
-            针对新岗位打磨出的项目描述会回写到经历主库，让下一次投递的证据更完整，而不是每份简历都从零开始。
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-wrap pb-16" aria-labelledby="skills-title">
-      <h2 id="skills-title" class="text-2xl font-medium tracking-tight mb-8">技能入口</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="skill-card p-5">
-          <h3 class="skill-code font-mono text-sm mb-2">/asu</h3>
-          <p class="text-sm leading-6 text-slate-400">按「动作 → 系统能力 → 业务价值 → 结果证据 → 个人边界」重构经历要点。</p>
-        </article>
-        <article class="skill-card p-5">
-          <h3 class="skill-code font-mono text-sm mb-2">/asu-resume</h3>
-          <p class="text-sm leading-6 text-slate-400">生成高密度单栏技术简历，可视化编辑后导出 PDF。</p>
-        </article>
-        <article class="skill-card p-5">
-          <h3 class="skill-code font-mono text-sm mb-2">/resume</h3>
-          <p class="text-sm leading-6 text-slate-400">在多套 HTML 模板中挑选并微调，输出可编辑简历。</p>
-        </article>
-        <article class="skill-card p-5">
-          <h3 class="skill-code font-mono text-sm mb-2">/interview</h3>
-          <p class="text-sm leading-6 text-slate-400">依据简历与目标岗位预测高频问题，做连环追问式模拟面试。</p>
-        </article>
-        <article class="skill-card p-5">
-          <h3 class="skill-code font-mono text-sm mb-2">/offer</h3>
-          <p class="text-sm leading-6 text-slate-400">记录投递、笔试、测评、面试与 Offer 状态并生成看板。</p>
-        </article>
-        <article class="skill-card p-5">
-          <h3 class="skill-code font-mono text-sm mb-2">/contributor</h3>
-          <p class="text-sm leading-6 text-slate-400">匹配岗位相关的开源项目，准备可用的贡献证据。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-wrap pb-20" aria-labelledby="stack-title">
-      <h2 id="stack-title" class="text-2xl font-medium tracking-tight mb-6">技术栈</h2>
-      <div class="flex flex-wrap gap-3">
-        <span class="tag px-3 py-1 text-xs">Python</span>
-        <span class="tag px-3 py-1 text-xs">Typst</span>
-        <span class="tag px-3 py-1 text-xs">HTML / CSS</span>
-        <span class="tag px-3 py-1 text-xs">MCP</span>
-        <span class="tag px-3 py-1 text-xs">IMAP</span>
-        <span class="tag px-3 py-1 text-xs">Markdown / YAML</span>
-      </div>
-    </section>
-  </main>
-
+      </article>
+      <article class="panel p-6">
+        <h3 class="font-medium mb-3">运行方式</h3>
+        <p class="text-sm leading-7 text-slate-400">
+          投递看板、邮箱读取与简历生成在本机运行，接口需要会话令牌；本页是主库的公开视图，
+          数据随主库更新重新生成。
+        </p>
+      </article>
+    </div>
+    <div class="flex flex-wrap gap-3 mt-6">
+      <span class="tag px-3 py-1 text-xs">Python</span>
+      <span class="tag px-3 py-1 text-xs">Typst</span>
+      <span class="tag px-3 py-1 text-xs">HTML / CSS</span>
+      <span class="tag px-3 py-1 text-xs">MCP</span>
+      <span class="tag px-3 py-1 text-xs">IMAP</span>
+      <span class="tag px-3 py-1 text-xs">Markdown / YAML</span>
+    </div>
+  </section>
+</main>
   <footer class="page-wrap py-8 text-sm flex flex-wrap items-center gap-x-8 gap-y-3">
     <a href="../" class="link-accent">← 返回作品集</a>
     <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer" class="link-accent">读我的博客 ↗</a>
     <a href="mailto:insistgang@163.com" class="link-accent">联系我</a>
   </footer>
-
 </body>
 </html>
