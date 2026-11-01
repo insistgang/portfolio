@@ -82,3 +82,5 @@ Career-Copilot、PaperStudio 的 SVG 是功能流程示意，功能依据为两�
 - 保留现有不含成员信息的应用启动页配图，不公开整份企划书或海报。
 
 LinkAble 共感卡片与 `yds/index.html` 依据 `yds/README.md`、`LinkAble_项目总览.md` 与 `agents.md` 的公开设计口径编写，配图 `assets/images/yds-overview.svg` 为自绘功能示意，未使用团队照片、姓名、学校信息或实测数字；独立 yds 仓库保持私有。
+
+LinkAble 公开入口后续按用户要求改用 `yds/edge_p0/runs/video_report/dashboard.html` 真实本地视频数据大屏，不再仅展示介绍页；已检查无个人身份或本地路径信息。
