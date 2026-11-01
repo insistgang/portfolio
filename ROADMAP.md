@@ -2,7 +2,7 @@
 
 ## 当前版本
 
-- 作品集包含 48 条展示记录，其中竞赛记录 10 条；整页统一主题、项目归属修订及个人图标均已通过 GitHub Pages 发布。当前版本以 `main` 分支与 Git 历史为准。
+- 作品集包含 49 条展示记录，其中竞赛记录 10 条；整页统一主题、项目归属修订及个人图标均已通过 GitHub Pages 发布。当前版本以 `main` 分支与 Git 历史为准。
 - CNC 刀路小样（`insistgang/cnc-toolpath-poc`）项目仍在进行中，暂不在作品集展示：已从作品库移除对应卡片，待项目定稿后再决定是否收录。
 - 求职工作流页 `career/index.html`（https://insistgang.top/portfolio/career/）按用户要求直接发布真实内容：联系方式、教育背景、四组核心能力、15 个项目卡片、实习、竞赛与荣誉、能力认证、29 条目标岗位投递进展，以及中英文简历下载；页面由 `scripts/build_career_page.py` 从经历主库与投递记录重新生成。
 - 本机预览：`http://127.0.0.1:8766/`；可直接打开 `index.html`。
@@ -30,6 +30,8 @@
 - 三份原文件已从用户指定的 `Documents/kimi` 迁入项目；核对原件、项目副本、静态包的 SHA-256 一致后，按用户指令删除源目录三份文件。
 
 ## 最近完成
+
+- 2026-11-02 02:01：新增「慧停管家 · 老旧小区停车位管理」作品卡（产物分类），链接到刚转为公开的 `insistgang/community-parking-system`；新增功能示意图 `assets/images/parking-overview.svg`，文案明确为离线全栈演示，不宣称线上运行或生产可用。
 
 - 2026-11-02 00:12：按用户要求把「CNC 刀路小样」卡片从作品库撤下（项目仍在进行中，暂不公开收录），展示记录由 49 条调整为 48 条；`assets/images/cnc-overview.svg` 暂时保留待复用。
 - 2026-11-01 23:56：求职工作流页新增「能力认证」分区（CCF 大模型能力认证 LMCC-A 成人组一级认证，2026-09-19），下载区换为含该认证的新版中英文简历（`assets/career/resume_zh.pdf`、`resume_en.pdf`）；新增 `.gitattributes` 声明 PDF 等二进制类型，避免 `git diff --check` 对二进制文件误报。

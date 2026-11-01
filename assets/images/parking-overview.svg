@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">慧停管家全栈演示功能示意</title>
+  <desc id="desc">车位资产看板、公平排位与区块链存证三个模块的示意图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#171c20"/>
+      <stop offset="1" stop-color="#242c31"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="64" y="54" width="1072" height="74" rx="12" fill="#20272c" stroke="#42484b"/>
+  <text x="96" y="101" fill="#eeeae0" font-family="Arial, 'PingFang SC', sans-serif" font-size="30" font-weight="600">慧停管家</text>
+  <text x="962" y="99" fill="#a8abae" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">全栈演示</text>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="64" y="158" width="500" height="404" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="96" y="204" fill="#eeeae0" font-size="22" font-weight="600">50 车位资产看板</text>
+    <g>
+      <rect x="96" y="238" width="82" height="58" rx="8" fill="#526974"/>
+      <rect x="194" y="238" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="292" y="238" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="390" y="238" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="96" y="316" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="194" y="316" width="82" height="58" rx="8" fill="#526974"/>
+      <rect x="292" y="316" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="390" y="316" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="96" y="394" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="194" y="394" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+      <rect x="292" y="394" width="82" height="58" rx="8" fill="#526974"/>
+      <rect x="390" y="394" width="82" height="58" rx="8" fill="#2f3b3f" stroke="#526974"/>
+    </g>
+    <text x="96" y="514" fill="#a8abae" font-size="17">维修 · 清退 · 签约 · 恢复</text>
+  </g>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="596" y="158" width="540" height="188" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="628" y="204" fill="#eeeae0" font-size="22" font-weight="600">公平排位</text>
+    <text x="628" y="244" fill="#bad0da" font-size="18">一车优先 · 同优先级按申请时间</text>
+    <rect x="628" y="272" width="440" height="10" rx="5" fill="#343b40"/>
+    <rect x="628" y="272" width="286" height="10" rx="5" fill="#bad0da"/>
+    <text x="628" y="316" fill="#a8abae" font-size="16">FIFO 自动分发，不提供手动指派</text>
+  </g>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <rect x="596" y="374" width="540" height="188" rx="16" fill="#1b1f21" stroke="#42484b"/>
+    <text x="628" y="420" fill="#eeeae0" font-size="22" font-weight="600">虚拟区块链存证</text>
+    <text x="628" y="462" fill="#a8abae" font-size="16">SHA-256 哈希链 · 业务快照 · 防伪验真</text>
+    <rect x="628" y="492" width="408" height="34" rx="6" fill="#242c31" stroke="#526974"/>
+    <text x="646" y="516" fill="#bad0da" font-family="monospace" font-size="16">8f3a…c91e</text>
+  </g>
+
+  <text x="64" y="622" fill="#727c82" font-family="Arial, 'PingFang SC', sans-serif" font-size="16">功能结构示意；不代表线上服务正在运行</text>
+</svg>
