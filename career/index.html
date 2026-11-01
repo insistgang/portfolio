@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>求职工作流 Career-Copilot · 刘钢 Leo</title>
+  <meta name="description" content="Career-Copilot 求职工作流：把经历证据、岗位需求、简历生成、投递跟踪与邮件回执连成一条链路的个人系统设计说明。">
+  <meta name="theme-color" content="#141719">
+  <link rel="canonical" href="https://insistgang.top/portfolio/career/">
+  <link rel="icon" href="../assets/brand/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/leo-mark.svg" sizes="any">
+  <link rel="stylesheet" href="../assets/site.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: 20 23 25;
+      --surface: 27 31 33;
+      --surface-raised: 36 41 44;
+      --line: 52 58 61;
+      --copy: 238 234 224;
+      --muted: 168 171 174;
+      --accent: 186 208 218;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgb(var(--page)); }
+    ::-webkit-scrollbar-thumb { background: rgb(var(--surface-raised)); border-radius: 4px; }
+    .site-header { position: sticky; top: 0; z-index: 40; background: rgb(var(--page)); border-bottom: 1px solid rgb(var(--line)); }
+    .site-header-inner { width: min(100% - 64px, 1080px); margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .site-brand { display: inline-flex; align-items: center; color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; }
+    .site-mark { width: 28px; height: 28px; flex: none; margin-right: 10px; }
+    .site-brand span { margin-left: 7px; color: #a8abae; font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+    .site-header a:hover { color: #fff; }
+    .site-links { display: flex; align-items: center; gap: 22px; font-size: 13px; color: #b9bcbf; }
+    .page-wrap { width: min(100% - 64px, 1080px); margin: 0 auto; }
+    .hero { padding: 76px 0 44px; }
+    .hero-kicker { margin: 0 0 18px; font-size: 12px; color: #a8abae; letter-spacing: .16em; }
+    .hero-title { margin: 0; font-size: 40px; line-height: 1.2; letter-spacing: -.03em; font-weight: 600; color: rgb(var(--copy)); }
+    .hero-lead { max-width: 660px; margin-top: 18px; color: #b9bcbf; font-size: 15px; line-height: 1.95; }
+    .panel { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 16px; }
+    .notice { border-left: 2px solid rgb(var(--accent)); }
+    .chain-step { position: relative; padding-left: 26px; }
+    .chain-step::before { content: ""; position: absolute; left: 0; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--accent)); }
+    .chain-step::after { content: ""; position: absolute; left: 4px; top: 20px; bottom: -18px; width: 1px; background: rgb(var(--line)); }
+    .chain-step:last-child::after { display: none; }
+    .tag { border: 1px solid rgb(var(--line)); color: #c5c7c4; border-radius: 999px; }
+    .skill-card { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 16px; }
+    .skill-code { color: #bad0da; }
+    a { color: inherit; }
+    .link-accent { color: #bad0da; border-bottom: 1px solid #667d87; }
+    .link-accent:hover { color: #fff; }
+    :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
+    footer { border-top: 1px solid rgb(var(--line)); color: #a8abae; }
+    @media (max-width: 640px) {
+      .site-header-inner, .page-wrap { width: calc(100% - 40px); }
+      .hero-title { font-size: 30px; }
+      .site-links { gap: 16px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+
+  <header class="site-header">
+    <nav class="site-header-inner" aria-label="主导航">
+      <a href="../" class="site-brand"><img src="../assets/brand/leo-mark.svg" class="site-mark" width="28" height="28" alt="">刘钢 <span>/ Leo</span></a>
+      <div class="site-links">
+        <a href="../">作品集</a>
+        <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer">博客 ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="page-wrap">
+        <p class="hero-kicker">CAREER WORKFLOW</p>
+        <h1 class="hero-title">求职工作流 Career-Copilot</h1>
+        <p class="hero-lead">
+          把「我做过什么」「岗位要什么」「怎么讲」「投到哪一步」拆成四类可维护的数据，再用一条固定链路把它们连起来：
+          经历证据 → 岗位匹配 → 简历生成 → 投递跟踪 → 邮件回执。系统面向企业求职与学术申请两种场景，
+          强调每条表述都能追溯到真实证据，而不是写得更漂亮。
+        </p>
+      </div>
+    </section>
+
+    <section class="page-wrap pb-16" aria-labelledby="boundary-title">
+      <div class="panel notice p-6">
+        <h2 id="boundary-title" class="text-lg font-medium mb-3">公开范围说明</h2>
+        <p class="text-sm leading-7 text-slate-400">
+          本页只介绍系统的设计思路与功能结构。个人经历主库、投递记录与联系人、简历成品、邮箱内容与实时看板
+          均不公开：看板服务只在本机 <span class="font-mono">127.0.0.1</span> 启动，接口需要会话令牌校验，
+          邮件能力通过授权码在本地调用，不向公网暴露任何凭据。
+        </p>
+      </div>
+    </section>
+
+    <section class="page-wrap pb-16" aria-labelledby="chain-title">
+      <h2 id="chain-title" class="text-2xl font-medium tracking-tight mb-8">五段链路</h2>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <div class="chain-step">
+          <h3 class="font-medium mb-2">经历主库</h3>
+          <p class="text-sm leading-6 text-slate-400">基础信息、项目卡片与主张—证据账本分开维护，每条强动词都要有支撑证据。</p>
+        </div>
+        <div class="chain-step">
+          <h3 class="font-medium mb-2">岗位匹配</h3>
+          <p class="text-sm leading-6 text-slate-400">解析岗位描述或导师方向，提取关键词，从项目卡片中挑选真正对口的经历。</p>
+        </div>
+        <div class="chain-step">
+          <h3 class="font-medium mb-2">简历生成</h3>
+          <p class="text-sm leading-6 text-slate-400">Typst 编译单页 A4 技术简历，另提供可在浏览器里微调的 HTML 版本。</p>
+        </div>
+        <div class="chain-step">
+          <h3 class="font-medium mb-2">投递跟踪</h3>
+          <p class="text-sm leading-6 text-slate-400">记录网申、笔试、测评、面试与 Offer 状态，并给出投递节奏建议。</p>
+        </div>
+        <div class="chain-step">
+          <h3 class="font-medium mb-2">邮件回执</h3>
+          <p class="text-sm leading-6 text-slate-400">本地邮箱读取与 MCP 接口，把面试与测评邀请同步回看板。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-wrap pb-16" aria-labelledby="design-title">
+      <h2 id="design-title" class="text-2xl font-medium tracking-tight mb-8">关键设计</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="panel p-6">
+          <h3 class="font-medium mb-3">真实性优先</h3>
+          <p class="text-sm leading-7 text-slate-400">
+            简历改写只在证据完整的范围内使用「主导」「从 0 到 1」这类强动词；团队协作会写清边界与个人分工，
+            缺少可核验指标时改用定性描述，不编造百分比、吞吐量或跑分。
+          </p>
+        </article>
+        <article class="panel p-6">
+          <h3 class="font-medium mb-3">双模工作流</h3>
+          <p class="text-sm leading-7 text-slate-400">
+            同一套经历主库同时服务企业招聘与高校招生：前者强调岗位关键词与项目证据，后者强调研究方向、
+            方法贡献与实验依据，输出物不同但事实边界一致。
+          </p>
+        </article>
+        <article class="panel p-6">
+          <h3 class="font-medium mb-3">本地优先</h3>
+          <p class="text-sm leading-7 text-slate-400">
+            看板与邮件能力都在本机运行，静态资源走白名单目录，接口需要随机令牌，投递明细等私人状态文件不进入版本库。
+          </p>
+        </article>
+        <article class="panel p-6">
+          <h3 class="font-medium mb-3">双向反哺</h3>
+          <p class="text-sm leading-7 text-slate-400">
+            针对新岗位打磨出的项目描述会回写到经历主库，让下一次投递的证据更完整，而不是每份简历都从零开始。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-wrap pb-16" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="text-2xl font-medium tracking-tight mb-8">技能入口</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="skill-card p-5">
+          <h3 class="skill-code font-mono text-sm mb-2">/asu</h3>
+          <p class="text-sm leading-6 text-slate-400">按「动作 → 系统能力 → 业务价值 → 结果证据 → 个人边界」重构经历要点。</p>
+        </article>
+        <article class="skill-card p-5">
+          <h3 class="skill-code font-mono text-sm mb-2">/asu-resume</h3>
+          <p class="text-sm leading-6 text-slate-400">生成高密度单栏技术简历，可视化编辑后导出 PDF。</p>
+        </article>
+        <article class="skill-card p-5">
+          <h3 class="skill-code font-mono text-sm mb-2">/resume</h3>
+          <p class="text-sm leading-6 text-slate-400">在多套 HTML 模板中挑选并微调，输出可编辑简历。</p>
+        </article>
+        <article class="skill-card p-5">
+          <h3 class="skill-code font-mono text-sm mb-2">/interview</h3>
+          <p class="text-sm leading-6 text-slate-400">依据简历与目标岗位预测高频问题，做连环追问式模拟面试。</p>
+        </article>
+        <article class="skill-card p-5">
+          <h3 class="skill-code font-mono text-sm mb-2">/offer</h3>
+          <p class="text-sm leading-6 text-slate-400">记录投递、笔试、测评、面试与 Offer 状态并生成看板。</p>
+        </article>
+        <article class="skill-card p-5">
+          <h3 class="skill-code font-mono text-sm mb-2">/contributor</h3>
+          <p class="text-sm leading-6 text-slate-400">匹配岗位相关的开源项目，准备可用的贡献证据。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-wrap pb-20" aria-labelledby="stack-title">
+      <h2 id="stack-title" class="text-2xl font-medium tracking-tight mb-6">技术栈</h2>
+      <div class="flex flex-wrap gap-3">
+        <span class="tag px-3 py-1 text-xs">Python</span>
+        <span class="tag px-3 py-1 text-xs">Typst</span>
+        <span class="tag px-3 py-1 text-xs">HTML / CSS</span>
+        <span class="tag px-3 py-1 text-xs">MCP</span>
+        <span class="tag px-3 py-1 text-xs">IMAP</span>
+        <span class="tag px-3 py-1 text-xs">Markdown / YAML</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-wrap py-8 text-sm flex flex-wrap items-center gap-x-8 gap-y-3">
+    <a href="../" class="link-accent">← 返回作品集</a>
+    <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer" class="link-accent">读我的博客 ↗</a>
+    <a href="mailto:insistgang@163.com" class="link-accent">联系我</a>
+  </footer>
+
+</body>
+</html>
