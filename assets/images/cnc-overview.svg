@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">CNC 刀路小样</title><desc id="desc">阶梯轴图纸、数控草稿和刀路图。</desc>
+  <rect width="960" height="540" fill="#1a1814"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="84" fill="#e0b15a" font-size="18" letter-spacing="3">TOOLPATH POC / 18</text>
+    <text x="64" y="156" fill="#f7f1e6" font-size="44" font-weight="700">CNC 刀路小样</text>
+    <text x="64" y="204" fill="#cbbfaa" font-size="24">图纸，草稿，刀路。</text>
+    <g fill="none" stroke="#e0b15a" stroke-width="8" stroke-linejoin="round">
+      <path d="M120 360 H280 V300 H460 V250 H700 V360 H820"/>
+    </g>
+    <text x="64" y="470" fill="#a89880" font-size="18">概念验证，不能直接加工</text>
+  </g>
+</svg>

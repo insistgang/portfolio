@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">VitaFlow</title><desc id="desc">四个账户的本地日程与精力记录。</desc>
+  <rect width="960" height="540" fill="#17130f"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="84" fill="#d97842" font-size="18" letter-spacing="3">LOCAL SCHEDULE / 15</text>
+    <text x="64" y="156" fill="#f5eee5" font-size="44" font-weight="700">VitaFlow</text>
+    <text x="64" y="204" fill="#b9aa9a" font-size="24">体能、情感、思维、意志。</text>
+    <g fill="#241c16" stroke="#4a382a">
+      <rect x="64" y="268" width="190" height="140" rx="14"/>
+      <rect x="278" y="268" width="190" height="140" rx="14"/>
+      <rect x="492" y="268" width="190" height="140" rx="14"/>
+      <rect x="706" y="268" width="190" height="140" rx="14"/>
+    </g>
+    <g fill="#f5eee5" font-size="28" font-weight="650">
+      <text x="96" y="348">体能</text><text x="310" y="348">情感</text><text x="524" y="348">思维</text><text x="738" y="348">意志</text>
+    </g>
+    <text x="64" y="470" fill="#8a7a6a" font-size="18">记录留在本机，没有公开入口</text>
+  </g>
+</svg>

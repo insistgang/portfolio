@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">食安崇明演示</title><desc id="desc">食品安全检查流程的前端样例。</desc>
+  <rect width="960" height="540" fill="#10211c"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="84" fill="#7dcea0" font-size="18" letter-spacing="3">FOOD SAFETY DEMO / 16</text>
+    <text x="64" y="156" fill="#f4fff8" font-size="44" font-weight="700">食安崇明</text>
+    <text x="64" y="204" fill="#b7d7c4" font-size="24">检查、记录、查阅。</text>
+    <g fill="#183028" stroke="#2f5c49">
+      <rect x="64" y="268" width="250" height="140" rx="14"/>
+      <rect x="354" y="268" width="250" height="140" rx="14"/>
+      <rect x="644" y="268" width="250" height="140" rx="14"/>
+    </g>
+    <g fill="#f4fff8" font-size="28" font-weight="650"><text x="96" y="348">检查</text><text x="386" y="348">记录</text><text x="676" y="348">查阅</text></g>
+    <text x="64" y="470" fill="#7dcea0" font-size="18">示例数据在浏览器里，不是监管系统</text>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">神盾 AEGIS</title><desc id="desc">工具调用先经过规则，再决定放行或阻断。</desc>
+  <rect width="960" height="540" fill="#12141a"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="64" y="84" fill="#8eb4ff" font-size="18" letter-spacing="3">AGENT GUARD / 17</text>
+    <text x="64" y="156" fill="#f4f7ff" font-size="44" font-weight="700">神盾 AEGIS</text>
+    <text x="64" y="204" fill="#b7c3da" font-size="24">检测，研判，阻断，留痕。</text>
+    <g fill="#1c2230" stroke="#31415f">
+      <rect x="64" y="268" width="190" height="140" rx="14"/>
+      <rect x="278" y="268" width="190" height="140" rx="14"/>
+      <rect x="492" y="268" width="190" height="140" rx="14"/>
+      <rect x="706" y="268" width="190" height="140" rx="14"/>
+    </g>
+    <g fill="#f4f7ff" font-size="26" font-weight="650">
+      <text x="96" y="348">检测</text><text x="310" y="348">研判</text><text x="524" y="348">阻断</text><text x="738" y="348">留痕</text>
+    </g>
+    <text x="64" y="470" fill="#8eb4ff" font-size="18">演练不连接真实密钥和外部网络</text>
+  </g>
+</svg>
