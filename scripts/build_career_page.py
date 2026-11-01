@@ -253,6 +253,23 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
             add('    </ul>')
         add('</section>')
 
+    certifications = data.get("certifications", []) or []
+    if certifications:
+        add('<section class="page-wrap pb-16" aria-labelledby="cert-title">')
+        add('  <h2 id="cert-title" class="section-title">能力认证</h2>')
+        add('  <ul class="award-list">')
+        for item in certifications:
+            line = "".join(esc(part) for part in (item.get("name", ""), item.get("level", "")) if part)
+            if item.get("date"):
+                line += f"（{esc(item['date'])}）"
+            if item.get("issuer"):
+                line += f" · {esc(item['issuer'])}"
+            if item.get("note"):
+                line += f' <span class="text-xs text-slate-500">{esc(item["note"])}</span>'
+            add(f"      <li>{line}</li>")
+        add('  </ul>')
+        add('</section>')
+
     if applications:
         applied = sum(1 for a in applications if a.get("status") == "applied")
         offers = sum(1 for a in applications if a.get("status") == "offer")

@@ -3,7 +3,7 @@
 ## 当前版本
 
 - 作品集包含 40 条展示记录，其中竞赛记录 10 条；整页统一主题、项目归属修订及个人图标均已通过 GitHub Pages 发布。当前版本以 `main` 分支与 Git 历史为准。
-- 求职工作流页 `career/index.html`（https://insistgang.top/portfolio/career/）按用户要求直接发布真实内容：联系方式、教育背景、四组核心能力、15 个项目卡片、实习、竞赛与荣誉、29 条目标岗位投递进展，以及中英文简历下载；页面由 `scripts/build_career_page.py` 从经历主库与投递记录重新生成。
+- 求职工作流页 `career/index.html`（https://insistgang.top/portfolio/career/）按用户要求直接发布真实内容：联系方式、教育背景、四组核心能力、15 个项目卡片、实习、竞赛与荣誉、能力认证、29 条目标岗位投递进展，以及中英文简历下载；页面由 `scripts/build_career_page.py` 从经历主库与投递记录重新生成。
 - 本机预览：`http://127.0.0.1:8766/`；可直接打开 `index.html`。
 - 静态交付包：`deliverables/portfolio-2026-10-04.zip`，只包含页面、实际引用的资源和第三方许可。
 - 首屏已改为个人介绍与真实项目照片；导航和首屏都有博客入口，申请状态说明移至作品库。
@@ -30,7 +30,8 @@
 
 ## 最近完成
 
-- 2026-11-02 00:05：按用户「不需要脱敏」的要求把求职工作流页改为发布真实内容：联系方式、教育背景、四组核心能力、15 个项目卡片、实习经历、竞赛与荣誉、29 条目标岗位投递进展，以及中英文简历下载。新增 `scripts/build_career_page.py`，从 Career-Copilot 经历主库与投递记录重新生成页面，YAML 经系统 Ruby 解析，无新增运行时依赖。
+- 2026-11-01 23:56：求职工作流页新增「能力认证」分区（CCF 大模型能力认证 LMCC-A 成人组一级认证，2026-09-19），下载区换为含该认证的新版中英文简历（`assets/career/resume_zh.pdf`、`resume_en.pdf`）；新增 `.gitattributes` 声明 PDF 等二进制类型，避免 `git diff --check` 对二进制文件误报。
+- 2026-11-01 23:50：按用户「不需要脱敏」的要求把求职工作流页改为发布真实内容：联系方式、教育背景、四组核心能力、15 个项目卡片、实习经历、竞赛与荣誉、29 条目标岗位投递进展，以及中英文简历下载。新增 `scripts/build_career_page.py`，从 Career-Copilot 经历主库与投递记录重新生成页面，YAML 经系统 Ruby 解析，无新增运行时依赖。
 - 2026-11-01 23:48：新增求职工作流公开介绍页 `career/index.html`，并在导航与 Career-Copilot 项目卡片中加入入口；页面只写系统设计与公开范围，经历主库、投递记录、简历成品与邮箱内容均不公开。prod-07 去掉「不提供在线访问」的私人说明，改为指向公开介绍页。
 - 2026-10-21 19:52：按用户要求整理桌面 LinkCity 决赛材料，16 份旧海报与答辩稿移入系统废纸篓。桌面保留最终海报 PPTX/PDF、最终答辩 PPTX/PDF 和配套演讲稿共 5 份，沿用现有文件名。原始海报模板归档至 [原始模板](deliverables/linkcity-source/决赛海报_原始模板.pptx)。
 - 2026-10-21 19:40：完成 LinkCity 决赛纯文字海报优化，保留原模板及完整单行作品名，突出端侧、本地语音、事件调度和实测数据，补齐人工处置、报价与续费范围。[可编辑海报](output/pptx/决赛海报_LinkCity_优势与商业闭环优化版_v3.pptx) 与 [打印 PDF](output/pdf/决赛海报_LinkCity_优势与商业闭环优化版_v3.pdf) 已在本地交付，桌面副本字节一致。
@@ -49,8 +50,8 @@
 
 ## 最近验证
 
-- 2026-11-02 00:05：`npm run build`、`npm run check` 与 `git diff --check` 通过（50 条记录、54 个资源）；生成页 42KB，含 15 张项目卡、29 条投递记录、30 行表格；本地预览 `/career/` 与两份简历 PDF 均返回 200；GitHub Pages 构建成功（提交 `9eb2cf9`）；线上 https://insistgang.top/portfolio/career/ 返回 200，`/portfolio/assets/career/resume_zh.pdf`（405,604B）与 `resume_en.pdf`（105,918B）均返回 `application/pdf`；页面中 `/Users/`、`applications.json`、`master_profile` 出现次数均为 0。
-- 2026-11-01 23:48：`npm run build`、`npm run check` 与 `git diff --check` 通过（50 条记录、54 个资源）；本地预览 `/index.html`、`/career/`、`/assets/site.css`、站点图标均返回 200；GitHub Pages 构建成功（提交 `3da7c69`）；线上 https://insistgang.top/portfolio/career/ 与首页返回 200，导航 `href="career/"` 与项目卡片链接均可解析，页面含「公开范围说明」与「五段链路」章节。
+- 2026-11-01 23:50：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；生成页 42KB，含 15 张项目卡、29 条投递记录、30 行表格；本地预览 `/career/` 与两份简历 PDF 均返回 200；GitHub Pages 构建成功（提交 `9eb2cf9`）；线上 https://insistgang.top/portfolio/career/ 返回 200，`/portfolio/assets/career/resume_zh.pdf`（405,604B）与 `resume_en.pdf`（105,918B）均返回 `application/pdf`；页面中 `/Users/`、`applications.json`、`master_profile` 出现次数均为 0。
+- 2026-11-01 23:48：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；本地预览 `/index.html`、`/career/`、`/assets/site.css`、站点图标均返回 200；GitHub Pages 构建成功（提交 `3da7c69`）；线上 https://insistgang.top/portfolio/career/ 与首页返回 200，导航 `href="career/"` 与项目卡片链接均可解析，页面含「公开范围说明」与「五段链路」章节。
 - 2026-10-21 19:52：清理前逐一核对最终文件与交付源的 SHA-256，清理后 5 份最终文件哈希均保持不变；16 份旧文件的废纸篓副本及原始模板归档内容核对一致，桌面相关文件清单仅剩 5 份最终材料。
 - 2026-10-21 19:40：海报 PPTX 包结构、字号与字体检查通过，31 个原生文本框，无新增内容图片，原模板背景图片 SHA-256 保持一致。PDF 为单页 60 × 80 cm，字体嵌入，标题、正文、实测和报价均已核对，渲染无文字溢出或遮挡。
 - 2026-10-04 19:12：[图标发布任务](https://github.com/insistgang/portfolio/actions/runs/37197843355) 成功；线上首页与 SVG、高清 PNG、32px PNG、ICO、Apple 图标均返回 200，MIME 类型正确且字节与本地一致。
