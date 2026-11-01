@@ -2015,11 +2015,15 @@
     "badge": "教学站点",
     "metrics": "Astro · Preact · KaTeX",
     "tech": ["Astro", "Preact", "KaTeX"],
-    "description": "一本可以在浏览器里翻的运筹学入门。仓库已公开，目前没有单独的线上站点。",
-    "highlights": ["纯前端教程", "公式用 KaTeX 渲染"],
+    "description": "一本可以在浏览器里翻的运筹学入门。线上是四个专题的阅读入口，交互演示源码在公开仓库里。",
+    "highlights": ["线上可打开专题入口", "公式和交互源码在公开仓库"],
     "image": "assets/images/yunchouxue-overview.svg",
     "imageCaption": "公开教学项目示意。",
     "links": [
+      {
+        "href": "https://insistgang.top/yunchouxue/",
+        "label": "在线阅读"
+      },
       {
         "href": "https://github.com/insistgang/yunchouxue",
         "label": "查看公开代码仓库"
@@ -2037,11 +2041,15 @@
     "badge": "阅读",
     "metrics": "公开笔记仓库",
     "tech": ["Markdown"],
-    "description": "已经公开的论文阅读和思考。未发表稿和评审意见不在这个仓库里。",
-    "highlights": ["只链到公开笔记仓库"],
+    "description": "已经公开的论文阅读和思考。未发表稿和评审意见不在这个仓库里。线上目录链到每一篇公开笔记。",
+    "highlights": ["线上目录可以按标题查找", "笔记原文在公开仓库"],
     "image": "assets/images/read-paper-overview.svg",
     "imageCaption": "公开笔记，不是投稿稿。",
     "links": [
+      {
+        "href": "https://insistgang.top/read_paper/",
+        "label": "在线目录"
+      },
       {
         "href": "https://github.com/insistgang/read_paper",
         "label": "查看公开代码仓库"
@@ -2120,6 +2128,11 @@
         const techHtml = p.tech.slice(0, 3).map(t => 
           `<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-800">${t}</span>`
         ).join("");
+        const openHref = (p.links && p.links[0] && p.links[0].href) || p.url || "";
+        const openLabel = (p.links && p.links[0] && p.links[0].label) || "打开作品";
+        const openHtml = (!p.privateNote && openHref)
+          ? `<a href="${openHref.replace(/"/g, "&quot;")}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-sky-400 underline">${openLabel}</a>`
+          : `<span>案例详情</span>`;
 
         card.innerHTML = `
           <div>
@@ -2163,7 +2176,7 @@
             <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono">
               <span>${p.metrics.split('·')[0]}</span>
               <span class="text-sky-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                <span>案例详情</span>
+                ${openHtml}
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
               </span>
             </div>
