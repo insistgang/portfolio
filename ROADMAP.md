@@ -50,6 +50,7 @@
 
 ## 最近验证
 
+- 2026-11-01 23:56：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；生成页含「能力认证」分区并显示「CCF 大模型能力认证（LMCC-A）成人组一级认证（2026-09-19） · 中国计算机学会（CCF）」；两份简历下载 PDF 均为单页 A4 且文本含认证条目；GitHub Pages 构建成功（提交 `5e5f932`），线上 https://insistgang.top/portfolio/career/ 与 `/portfolio/assets/career/resume_zh.pdf`、`resume_en.pdf` 均返回 200 且 MIME 为 `application/pdf`。
 - 2026-11-01 23:50：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；生成页 42KB，含 15 张项目卡、29 条投递记录、30 行表格；本地预览 `/career/` 与两份简历 PDF 均返回 200；GitHub Pages 构建成功（提交 `9eb2cf9`）；线上 https://insistgang.top/portfolio/career/ 返回 200，`/portfolio/assets/career/resume_zh.pdf`（405,604B）与 `resume_en.pdf`（105,918B）均返回 `application/pdf`；页面中 `/Users/`、`applications.json`、`master_profile` 出现次数均为 0。
 - 2026-11-01 23:48：`npm run build`、`npm run check` 与 `git diff --check` 通过（49 条记录、53 个资源）；本地预览 `/index.html`、`/career/`、`/assets/site.css`、站点图标均返回 200；GitHub Pages 构建成功（提交 `3da7c69`）；线上 https://insistgang.top/portfolio/career/ 与首页返回 200，导航 `href="career/"` 与项目卡片链接均可解析，页面含「公开范围说明」与「五段链路」章节。
 - 2026-10-21 19:52：清理前逐一核对最终文件与交付源的 SHA-256，清理后 5 份最终文件哈希均保持不变；16 份旧文件的废纸篓副本及原始模板归档内容核对一致，桌面相关文件清单仅剩 5 份最终材料。
