@@ -37,7 +37,7 @@
 
 界面、架构图与设备照片按各自性质标注；示例数字不作为性能证明。
 Career-Copilot、PaperStudio 的 SVG 是功能流程示意，功能依据为两项目 README 与规范文档；未复制私有看板或稿件正文。
-求职工作流公开页 `career/index.html` 依据 Career-Copilot 的 README、AGENTS.md 与项目简历中的系统描述编写，只描述链路、关键设计与技能入口；未写入经历主库内容、投递记录与联系人、简历成品、邮箱内容或任何本地路径。
+求职工作流页 `career/index.html` 的内容来自 Career-Copilot 经历主库（`profile.yaml` 与 `projects/*.md`）和 `data/applications.json`：联系方式、教育背景、技能分组、项目卡片、奖项、实习与投递状态按主库原文发布，简历 PDF 取自 `Career-Copilot/output`；未写入邮箱正文、第三方联系人明细或任何本地路径，页面由 `scripts/build_career_page.py` 可重复生成。
 
 ## 其他公开内容
 
