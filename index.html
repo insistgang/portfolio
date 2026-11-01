@@ -126,6 +126,24 @@
     .cat-btn.active > span:last-child { background: rgb(var(--page) / .08); }
     :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
     .status-submitted { background: #2d291f; color: #d5c69e; border-color: #716345; }
+    #featured, #gallery, #awards, #research, #about { padding: 72px 0; }
+    #featured .space-y-16 > :not([hidden]) ~ :not([hidden]) { margin-top: 28px; }
+    .section-kicker { font-size: 11px; letter-spacing: .16em; }
+    .section-heading { font-size: 1.7rem; }
+    #projects-grid { gap: 16px; }
+    #projects-grid .portfolio-card { border-radius: 16px; }
+    #projects-grid .h-44 { height: 156px; background: #171b1d; }
+    #projects-grid h3 { font-size: 15px; line-height: 1.45; letter-spacing: -.02em; }
+    #projects-grid .line-clamp-1 { -webkit-line-clamp: 2; }
+    .group:hover .group-hover\:scale-105 { transform: none; }
+    #category-tabs { border: 0; gap: 8px; margin-bottom: 22px; }
+    .cat-btn { border-radius: 999px; }
+    #awards .portfolio-card { border-radius: 16px; align-items: flex-start; }
+    #awards h3 { font-size: 15px; line-height: 1.45; font-weight: 620; }
+    #awards .text-amber-300 { color: #d5c69e; }
+    #research .portfolio-card, #about .rounded-2xl, #about .rounded-xl { border-radius: 16px; }
+    #detail-modal > div { border-radius: 18px; background: #1c2022; }
+    footer { font-family: inherit; letter-spacing: 0; }
     .modal-open { overflow: hidden; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
@@ -184,8 +202,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
         <div>
-          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Case Studies</span>
-          <h2 class="section-heading text-3xl font-bold text-white mt-1">几个代表项目</h2>
+          <span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">精选</span>
+          <h2 class="section-heading text-3xl text-white mt-1">几个代表项目</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
           从设备联调到日常工具，记录项目的功能、实现与验证。
@@ -349,10 +367,10 @@
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-sky-400">All Project Archive</span>
-          <h2 class="section-heading text-3xl font-bold text-white mt-1">作品与工程实践 <span class="text-slate-400 text-xl">（<span data-count="all">40</span> 条）</span></h2>
-          <p class="text-xs text-slate-400 mt-3">按软件、竞赛、研究、产业与工具分类展示；同一项目的不同成果可能分别收录。</p>
-          <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-10-04">2026 年 10 月 4 日</time> · 14 项软著申请已提交，登记结果待确认。</p>
+          <span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">目录</span>
+          <h2 class="section-heading text-3xl text-white mt-1">全部作品 <span class="text-slate-400 text-xl">（<span data-count="all">46</span>）</span></h2>
+          <p class="text-xs text-slate-400 mt-3">按软件、竞赛、研究、产业和工具分类。同一件事如果有不同成果，会分开收录。</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-11-01">2026 年 11 月 1 日</time>。14 项软著是已提交申请，还不是登记证书。</p>
         </div>
         
         <!-- Search bar inside gallery -->
@@ -417,8 +435,8 @@
   <section id="awards" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mb-12">
-        <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-amber-400">Honors & Official Certificates</span>
-        <h2 class="section-heading text-3xl font-bold text-white mt-1">竞赛经历与证书</h2>
+        <span class="section-kicker text-xs font-mono uppercase tracking-wider text-amber-400">竞赛</span>
+        <h2 class="section-heading text-3xl text-white mt-1">竞赛经历与证书</h2>
         <p class="text-sm text-slate-400 mt-2">
           按证书核对赛事、年份、赛区与获奖等级，点击查看完整证书。
         </p>
@@ -432,7 +450,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 华北二赛区一等奖</p>
+            <p class="text-xs text-amber-300 mb-2">华北二赛区一等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 全国初赛华北二赛区一等奖</p>
             <button onclick="openModal('comp-09')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -445,7 +463,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 华东一赛区二等奖</p>
+            <p class="text-xs text-amber-300 mb-2">华东一赛区二等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">全国初赛 · 智能制造创新研发类赛项：自由探索方向</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 · 全国初赛华东一赛区二等奖</p>
             <button onclick="openModal('comp-02')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -458,7 +476,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 上海赛区团队二等奖</p>
+            <p class="text-xs text-amber-300 mb-2">上海赛区团队二等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">边缘计算设备 · 基于边缘智能的无障碍辅助通行感知系统设计与实现</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">同一边缘设备平台 · 上海分赛区团队二等奖</p>
             <button onclick="openModal('comp-10')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -471,7 +489,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 国家二等奖</p>
+            <p class="text-xs text-amber-300 mb-2">国家二等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">国二证书 · 数万行仿真数据 · 完整报告</p>
             <button onclick="openModal('comp-03')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -484,7 +502,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 上海赛区团队三等奖</p>
+            <p class="text-xs text-amber-300 mb-2">上海赛区团队三等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">智能追光式输电线路在线监测装置</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 上海分赛区团队三等奖</p>
             <button onclick="openModal('comp-01')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -497,7 +515,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 国家三等奖</p>
+            <p class="text-xs text-amber-300 mb-2">国家三等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">基于大模型多智能体协同的特定人群智能自适应助学辅导系统</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 完整实施方案 · 可运行工程</p>
             <button onclick="openModal('comp-04')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -510,7 +528,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 国家三等奖</p>
+            <p class="text-xs text-amber-300 mb-2">国家三等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 专家评委答辩 Q&amp;A</p>
             <button onclick="openModal('comp-05')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -523,7 +541,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 国家三等奖</p>
+            <p class="text-xs text-amber-300 mb-2">国家三等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">复杂集成电路系统原理图框图自动识别与拓扑网表重构算法</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 答辩问答题库 · 算法代码</p>
             <button onclick="openModal('comp-06')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -536,7 +554,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第七届上海市研究生智慧城市创意设计大赛 · 三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 三等奖</p>
+            <p class="text-xs text-amber-300 mb-2">三等奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">基于多模态 AI 的违章建筑智能检测与管理系统</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">上海市赛事 · 团队三等奖</p>
             <button onclick="openModal('comp-07')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -549,7 +567,7 @@
           </button>
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-white mb-2">第三届上海市大学生行业分析大赛 · 银奖</h3>
-            <p class="text-xs text-amber-300 mb-2">🏆 银奖</p>
+            <p class="text-xs text-amber-300 mb-2">银奖</p>
             <p class="text-xs text-slate-300 leading-relaxed mb-3">智航长三角：上海无人机低空配送行业分析及人才需求洞察</p>
             <p class="text-xs text-slate-400 leading-relaxed mb-3">高教组银奖 · 行业分析报告</p>
             <button onclick="openModal('comp-08')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
@@ -564,8 +582,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
         <div>
-          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-purple-400">Research & Papers</span>
-          <h2 class="section-heading text-3xl font-bold text-white mt-1">学术科研与论文矩阵</h2>
+          <span class="section-kicker text-xs font-mono uppercase tracking-wider text-purple-400">研究</span>
+          <h2 class="section-heading text-3xl text-white mt-1">学术研究</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
           立足严谨的实验设计与数学推导，以真问题驱动学术探索与算法创新。
@@ -618,11 +636,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-6">
-          <span class="section-kicker text-xs font-mono font-bold uppercase tracking-wider text-sky-400">Philosophy & Mindset</span>
-          <h2 class="section-heading text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6">
-            “一个地方，一种模式。<br />
-            让流程和环境帮我做决定，<br />
-            不靠意志力硬撑。”
+          <span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">关于</span>
+          <h2 class="section-heading text-3xl text-white mt-2 mb-6">
+            一个地方，一种做法。<br />
+            让流程和环境帮忙，<br />
+            少靠临时硬撑。
           </h2>
           <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
             在软件工程与学术研究中，我始终坚信<strong>系统化与确定性的力量</strong>。
@@ -630,11 +648,11 @@
           </p>
           <div class="grid grid-cols-2 gap-4 text-xs text-slate-400 font-mono">
             <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="font-bold text-white mb-1">🏛️ 场景分工契约</div>
+              <div class="font-bold text-white mb-1">场景分开</div>
               <div>图书馆专注推演写作，实验室跑模型充电，宿舍关机休息恢复。</div>
             </div>
             <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="font-bold text-white mb-1">⚡ 极致轻量工程</div>
+              <div class="font-bold text-white mb-1">少做多余抽象</div>
               <div>拒绝无谓的过度抽象，优先采用标准库与纯净原生直出。</div>
             </div>
           </div>
@@ -697,13 +715,13 @@
   <!-- Footer -->
   <footer class="py-12 border-t border-slate-800/80 text-center text-xs text-slate-500 font-mono">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>Leo (刘钢) · 个人数字化全景作品集系统</div>
+      <div>刘钢 · 作品集</div>
       <div class="flex items-center gap-4 text-slate-400">
         <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
         <a href="https://insistgang.top" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">个人博客</a>
         <a href="mailto:insistgang@163.com" class="hover:text-white transition-colors">电子邮箱</a>
       </div>
-      <div>Designed with Pride & Precision · 2026</div>
+      <div>2026</div>
     </div>
   </footer>
 
@@ -1196,7 +1214,7 @@
     "title": "第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖",
     "subtitle": "智能追光式输电线路在线监测装置",
     "role": "团队成员",
-    "status": "🏆 上海赛区团队三等奖",
+    "status": "上海赛区团队三等奖",
     "statusColor": "amber",
     "badge": "研电赛",
     "metrics": "2025 年 · 上海分赛区团队三等奖",
@@ -1218,7 +1236,7 @@
     "title": "第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖",
     "subtitle": "全国初赛 · 智能制造创新研发类赛项：自由探索方向",
     "role": "算法与系统实现",
-    "status": "🏆 华东一赛区二等奖",
+    "status": "华东一赛区二等奖",
     "statusColor": "amber",
     "badge": "西门子杯",
     "metrics": "2026 年 · 全国初赛华东一赛区二等奖",
@@ -1245,7 +1263,7 @@
     "title": "第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖",
     "subtitle": "大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)",
     "role": "建模与算法实现",
-    "status": "🏆 国家二等奖",
+    "status": "国家二等奖",
     "statusColor": "amber",
     "badge": "华为杯数模",
     "metrics": "国二证书 · 数万行仿真数据 · 完整报告",
@@ -1271,7 +1289,7 @@
     "title": "第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖",
     "subtitle": "基于大模型多智能体协同的特定人群智能自适应助学辅导系统",
     "role": "全栈架构设计 / 核心微服务研发",
-    "status": "🏆 国家三等奖",
+    "status": "国家三等奖",
     "statusColor": "amber",
     "badge": "AI 创新大赛",
     "metrics": "国三证书 · 完整实施方案 · 可运行工程",
@@ -1296,7 +1314,7 @@
     "title": "第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖",
     "subtitle": "基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台",
     "role": "智能推理算法与 RAG 架构设计",
-    "status": "🏆 国家三等奖",
+    "status": "国家三等奖",
     "statusColor": "amber",
     "badge": "网安创新大赛",
     "metrics": "国三证书 · 专家评委答辩 Q&A",
@@ -1322,7 +1340,7 @@
     "title": "创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖",
     "subtitle": "复杂集成电路系统原理图框图自动识别与拓扑网表重构算法",
     "role": "算法开发",
-    "status": "🏆 国家三等奖",
+    "status": "国家三等奖",
     "statusColor": "amber",
     "badge": "EDA 精英赛",
     "metrics": "国三证书 · 答辩问答题库 · 算法代码",
@@ -1347,7 +1365,7 @@
     "title": "第七届上海市研究生智慧城市创意设计大赛 · 三等奖",
     "subtitle": "基于多模态 AI 的违章建筑智能检测与管理系统",
     "role": "视觉检测算法开发",
-    "status": "🏆 三等奖",
+    "status": "三等奖",
     "statusColor": "amber",
     "badge": "智慧城市大赛",
     "metrics": "上海市赛事 · 团队三等奖",
@@ -1372,7 +1390,7 @@
     "title": "第三届上海市大学生行业分析大赛 · 银奖",
     "subtitle": "智航长三角：上海无人机低空配送行业分析及人才需求洞察",
     "role": "行业调研与数据分析",
-    "status": "🏆 银奖",
+    "status": "银奖",
     "statusColor": "amber",
     "badge": "行业分析大赛",
     "metrics": "高教组银奖 · 行业分析报告",
@@ -1396,7 +1414,7 @@
     "title": "第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖",
     "subtitle": "全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）",
     "role": "参赛学生",
-    "status": "🏆 华北二赛区一等奖",
+    "status": "华北二赛区一等奖",
     "statusColor": "amber",
     "badge": "西门子杯 2025",
     "metrics": "2025 年 · 全国初赛华北二赛区一等奖",
@@ -1419,7 +1437,7 @@
     "title": "第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖",
     "subtitle": "边缘计算设备 · 基于边缘智能的无障碍辅助通行感知系统设计与实现",
     "role": "参赛队员",
-    "status": "🏆 上海赛区团队二等奖",
+    "status": "上海赛区团队二等奖",
     "statusColor": "amber",
     "badge": "研电赛 2026",
     "metrics": "同一边缘设备平台 · 上海分赛区团队二等奖",
