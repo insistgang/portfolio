@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>刘钢 Leo · 软件工程与研究作品集</title>
-  <meta name="description" content="刘钢（Leo）的软件工程与研究作品集：计算机视觉、边缘计算、多智能体应用、14 项已提交软著申请及个人开发工具。">
+  <meta name="description" content="刘钢（Leo）的软件工程与研究作品集：计算机视觉、边缘计算、多智能体应用与个人开发工具。">
   <meta name="theme-color" content="#141719">
   <meta property="og:title" content="刘钢 Leo · 软件工程与研究作品集">
   <meta property="og:description" content="刘钢的软件项目、计算机视觉研究与开发记录。浏览实际作品，也可以到 Leo 的笔记本读技术文章。">
@@ -84,7 +84,7 @@
     .intro-contact { display: flex; gap: 23px; margin-top: 24px; font-size: 12px; color: #a8abae; }
     .intro-contact a:hover { color: #eeeae0; text-decoration: underline; text-underline-offset: 4px; }
     .intro-figure { width: 100%; max-width: 440px; margin: 0; justify-self: end; }
-    .intro-photo { display: block; width: 100%; cursor: pointer; border-radius: 3px; overflow: hidden; border: 1px solid #404447; background: #202427; }
+    .intro-photo { display: block; width: 100%; border-radius: 3px; overflow: hidden; border: 1px solid #404447; background: #202427; }
     .intro-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
     .intro-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 14px; font-size: 12px; color: #a8abae; }
     .intro-caption strong { font-weight: 500; color: #d8d8d3; }
@@ -187,12 +187,11 @@
         </div>
       </div>
       <figure class="intro-figure">
-        <button type="button" class="intro-photo" onclick="openModal('soft-11')" aria-label="查看 EdgeSafe 边缘视觉预警项目详情">
+        <div class="intro-photo">
           <img src="assets/images/soft/submitted-11.png" width="1200" height="900" fetchpriority="high" decoding="async" alt="EdgeSafe 项目的 Jetson 边缘设备与笔记本联调现场">
-        </button>
+        </div>
         <figcaption class="intro-caption">
           <span><strong>EdgeSafe</strong> / 设备联调现场</span>
-          <button type="button" onclick="openModal('soft-11')">项目详情 ↗</button>
         </figcaption>
       </figure>
     </div>
@@ -231,7 +230,6 @@
               <div class="flex flex-wrap items-center gap-2 mb-3">
                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 西门子杯 · 华东一赛区二等奖</span>
                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 研电赛 · 上海赛区二等奖</span>
-                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 11</span>
               </div>
               <h3 class="text-2xl font-bold text-white mb-2">边缘视觉设备 · 工业预警与辅助通行</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
@@ -252,12 +250,8 @@
                 </div>
               </div>
             </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <div class="pt-4 border-t border-slate-800/80">
               <span class="text-xs font-mono text-slate-400">角色: 系统架构师 / 算法核心</span>
-              <button onclick="openModal('soft-11')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
-                <span>查看软件项目</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -268,7 +262,6 @@
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-3">
                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">台湾交流 · 逢甲赛</span>
-                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 10</span>
               </div>
               <h3 class="text-2xl font-bold text-white mb-2">共感 LinkAble · 无障碍互助应用</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
@@ -289,12 +282,8 @@
                 </div>
               </div>
             </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <div class="pt-4 border-t border-slate-800/80">
               <span class="text-xs font-mono text-slate-400">项目负责人 · 产品方案与交互演示</span>
-              <button onclick="openModal('soft-10')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
-                <span>查看软件项目</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
             </div>
           </div>
           <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6 order-1 lg:order-2">
@@ -327,9 +316,8 @@
             <div>
               <div class="flex items-center gap-2 mb-3">
                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20">开源自研中枢</span>
-                <span class="px-2.5 py-1 rounded text-xs font-mono text-slate-400 bg-slate-800">软著申请 14</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">异构多端算力协同与数字化运维工作总台系统 (Ops-Hub)</h3>
+              <h3 class="text-2xl font-bold text-white mb-2">Ops-Hub · 个人数字化运营工作总台</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-6">
                 将设备状态、任务分流和工程进度放在一个工作总台中，通过 Python CLI、静态看板与定时同步减少重复的状态检查。
               </p>
@@ -350,7 +338,7 @@
             </div>
             <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
               <span class="text-xs font-mono text-slate-400">角色: 独立架构师 & 全栈研发</span>
-              <button onclick="openModal('soft-14')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
+              <button onclick="openModal('prod-01')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
                 <span>查看软件项目</span>
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               </button>
@@ -370,8 +358,8 @@
         <div>
           <span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">目录</span>
           <h2 class="section-heading text-3xl text-white mt-1">全部作品 <span class="text-slate-400 text-xl">（<span data-count="all">46</span>）</span></h2>
-          <p class="text-xs text-slate-400 mt-3">按软件、竞赛、研究、产业和工具分类。同一件事如果有不同成果，会分开收录。</p>
-          <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-11-01">2026 年 11 月 1 日</time>。14 项软著是已提交申请，还不是登记证书。</p>
+          <p class="text-xs text-slate-400 mt-3">按竞赛、研究、产业和工具分类。同一件事如果有不同成果，会分开收录。</p>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-11-02">2026 年 11 月 2 日</time>。</p>
         </div>
         
         <!-- Search bar inside gallery -->
@@ -380,7 +368,7 @@
           <input 
             type="text" 
             id="search-input" 
-            placeholder="搜索项目、技术栈或申请状态…"
+            placeholder="搜索项目或技术栈…"
             aria-label="搜索作品"
             class="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
             oninput="handleSearch()"
@@ -393,10 +381,6 @@
         <button onclick="setCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-white flex items-center gap-2" data-cat="all">
           <span>全部作品</span>
           <span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]" id="count-all">40</span>
-        </button>
-        <button onclick="setCategory('softcopy')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="softcopy">
-          <span>软著申请</span>
-          <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">14</span>
         </button>
         <button onclick="setCategory('competition')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="competition">
           <span>竞赛记录</span>
@@ -742,435 +726,6 @@
   <!-- Portfolio Engine Script -->
   <script>
     const projects = [
-  {
-    "id": "soft-01",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-01.png",
-    "title": "农村金融ESG智能评价与碳金融服务系统",
-    "subtitle": "ESG 指标评价与碳金融业务辅助",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 01",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "Flask",
-      "JavaScript",
-      "HTML"
-    ],
-    "description": "汇总企业 ESG 指标，辅助开展评价、碳资产估值、绿色金融匹配及风险信息整理。",
-    "highlights": [
-      "组织多维指标、评价结果与可视化报告",
-      "提供碳金融业务相关的匹配与风险信息"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
-  },
-  {
-    "id": "soft-03",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-03.png",
-    "title": "视频画面内容智能检索平台",
-    "subtitle": "视频抽帧、OCR 预筛与多模态精扫",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 03",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "FastAPI",
-      "React",
-      "SQLite FTS5",
-      "FFmpeg",
-      "RapidOCR"
-    ],
-    "description": "对导入的视频进行抽帧与去重，结合本地 OCR 预筛及多模态精扫建立可检索的片段信息。",
-    "highlights": [
-      "通过 pHash 减少重复帧处理",
-      "使用 SQLite FTS5 查询片段并定位视频时间段"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://insistgang.top/video-speech-search/",
-    "urlLabel": "在线体验",
-    "links": [
-      {
-        "href": "https://insistgang.top/video-speech-search/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/video-speech-search",
-        "label": "查看公开代码仓库（版本可能与申请副本不同）"
-      }
-    ]
-  },
-  {
-    "id": "soft-04",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-04.png",
-    "title": "体育生语文基础智能辅导系统（网页版）",
-    "subtitle": "面向碎片化复习的语文练习与学习记录",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 04",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "React 18",
-      "Ant Design",
-      "JavaScript",
-      "浏览器本地存储"
-    ],
-    "description": "围绕诗词、文言文、成语和模拟考试组织语文练习，在浏览器中保存学习记录并展示薄弱点。",
-    "highlights": [
-      "覆盖专项练习与模拟考试流程",
-      "结合练习结果组织学习记录和薄弱点分析"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
-  },
-  {
-    "id": "soft-05",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-05.png",
-    "title": "体育生语文智能学习系统（小程序版）",
-    "subtitle": "专项练习、模拟考试与学习管理",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 05",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Taro 3.6",
-      "React 18",
-      "Less",
-      "微信云开发"
-    ],
-    "description": "在微信小程序中组织语文专项练习、模拟考试、错题与收藏，提供答疑和学习管理入口。小程序在微信内运行，网页上提供的是公开源码。",
-    "highlights": [
-      "支持词汇成语、练习记录与教师管理流程",
-      "云端与模型功能需配置相应运行环境"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://insistgang.top/xcx/",
-    "urlLabel": "在线体验",
-    "links": [
-      {
-        "href": "https://insistgang.top/xcx/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/xcx",
-        "label": "查看公开代码仓库"
-      }
-    ]
-  },
-  {
-    "id": "soft-06",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-06.png",
-    "title": "网络安全威胁分析系统",
-    "subtitle": "告警分析工作区与可配置的分析服务",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 06",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "Streamlit",
-      "FastAPI",
-      "ChromaDB",
-      "PyTorch"
-    ],
-    "description": "提供安全告警分析工作区，组织单条与批量告警输入、统计和威胁情报查询。规则、专家分析与模型资源按环境配置接入。",
-    "highlights": [
-      "Streamlit 界面组织告警分析与结果查看",
-      "当前展示为本地工作区；完整模型与实时流量场景尚待验证"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://insistgang.top/multi-agent-security-analysis/",
-    "urlLabel": "在线体验",
-    "links": [
-      {
-        "href": "https://insistgang.top/multi-agent-security-analysis/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/multi-agent-security-analysis",
-        "label": "查看公开代码仓库（版本可能与申请副本不同）"
-      }
-    ]
-  },
-  {
-    "id": "soft-07",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-07.png",
-    "title": "语音内容智能检索系统",
-    "subtitle": "本地媒体、转写文本与时间戳检索",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 07",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "FastAPI",
-      "SQLite",
-      "JavaScript",
-      "FFmpeg"
-    ],
-    "description": "将本地媒体与 sidecar 转写文本关联，支持关键词查询和时间戳定位，便于从音视频中查找内容。",
-    "highlights": [
-      "管理媒体导入、处理任务与失败重试",
-      "Whisper 转写为可选配置；当前检索以转写文本为基础"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://insistgang.top/speech-content-search/",
-    "urlLabel": "在线体验",
-    "links": [
-      {
-        "href": "https://insistgang.top/speech-content-search/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/speech-content-search",
-        "label": "查看公开代码仓库"
-      }
-    ]
-  },
-  {
-    "id": "soft-08",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-08.png",
-    "title": "智能金融产品推荐系统",
-    "subtitle": "示例数据驱动的规则推荐演示",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 08",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Node.js",
-      "Express",
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ],
-    "description": "使用示例客户与产品数据展示金融产品规则推荐流程，支持反馈和后续推荐。",
-    "highlights": [
-      "根据客户属性和产品规则生成推荐列表",
-      "当前为本地演示，反馈保存在进程内存中"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。"
-  },
-  {
-    "id": "soft-09",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-09.png",
-    "title": "专注力多维认知训练与测评系统",
-    "subtitle": "舒尔特方格、N-Back 与 Stroop 训练",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 09",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "React 18",
-      "react-scripts",
-      "CSS",
-      "Web Audio"
-    ],
-    "description": "将视觉搜索、工作记忆和色字干扰任务组织为交互练习，记录本地训练历史和成绩。",
-    "highlights": [
-      "提供舒尔特方格、N-Back、Stroop 三类训练",
-      "展示练习计时与结果，不作临床诊断结论"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://github.com/insistgang/attention-trainer",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
-    "links": [
-      {
-        "href": "https://insistgang.top/attention-trainer/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/attention-trainer",
-        "label": "查看公开代码仓库（版本可能与申请副本不同）"
-      }
-    ]
-  },
-  {
-    "id": "soft-10",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-10.png",
-    "title": "面向视障群体的无障碍互助与智能导行服务系统",
-    "subtitle": "共感 LinkAble · 2026 两岸大学生创客大赛逢甲赛区交流项目",
-    "role": "项目负责人",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 10 · 台湾交流",
-    "metrics": "逢甲赛区交流展示 · V1.0 软著申请已提交",
-    "tech": [
-      "Flutter",
-      "Dart",
-      "Riverpod",
-      "交互原型"
-    ],
-    "description": "共感 LinkAble 是面向视障者及临时出行困难者的无障碍互助应用原型，将 AI 多模态助手、志愿者协助与 SOS 求助组织在同一交互流程中。项目用于 2026 两岸大学生创客大赛逢甲赛区与台湾交流展示，侧重产品方案与交互演示。",
-    "highlights": [
-      "围绕求助者与志愿者设计双角色入口",
-      "演示 AI 助手、志愿者匹配和 SOS 求助流程",
-      "交流展示项目，未获奖；当前收录产品方案与交互原型"
-    ],
-    "imageCaption": "共感 LinkAble 竞赛演示界面；志愿者匹配、SOS 等流程包含本地模拟，不代表已运营的援助服务。",
-    "url": "https://github.com/insistgang/LinkLab",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
-    "links": [
-      {
-        "href": "https://insistgang.top/LinkLab/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/LinkLab",
-        "label": "查看公开代码仓库（版本可能与申请副本不同）"
-      }
-    ]
-  },
-  {
-    "id": "soft-11",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-11.png",
-    "title": "工业边缘动态环境智能监测与多模态预警系统",
-    "subtitle": "边缘视觉检测、区域过滤与本地告警",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 11",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "PyTorch",
-      "OpenCV",
-      "ONNX Runtime",
-      "Jetson",
-      "Linux"
-    ],
-    "description": "在边缘设备上处理视频检测任务，结合 ROI 区域过滤和事件去抖触发本地告警，并汇总事件信息。",
-    "highlights": [
-      "结合目标检测与区域规则识别风险事件",
-      "连接本地声光告警与云端事件汇总",
-      "同一硬件平台亦用于 2026 年研电赛的辅助通行感知项目"
-    ],
-    "imageCaption": "V1.0 提交材料中的边缘设备与联调环境。"
-  },
-  {
-    "id": "soft-12",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-12.png",
-    "title": "大语言模型多源算力额度监控与自动化分析系统",
-    "subtitle": "多来源额度、历史趋势与阈值预警",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 12",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "HTML5",
-      "CSS3",
-      "launchd"
-    ],
-    "description": "汇总不同模型服务的额度与消耗状态，展示历史趋势和阈值预警，辅助安排模型使用计划。",
-    "highlights": [
-      "提供多来源状态采集与统一展示",
-      "支持定时守护、数据整理及自动化发布"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://github.com/insistgang/ai-quota-monitor",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
-    "links": [
-      {
-        "href": "https://insistgang.top/ai-quota-monitor/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/ai-quota-monitor",
-        "label": "查看公开代码仓库"
-      }
-    ]
-  },
-  {
-    "id": "soft-13",
-    "category": "softcopy",
-    "image": "assets/images/soft/submitted-13.png",
-    "title": "基于多智能体协同的AI技术知识库自动化管理系统",
-    "subtitle": "技术资料采集、质量检查与知识归档",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 13",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python",
-      "MCP",
-      "质量检查",
-      "知识管理"
-    ],
-    "description": "将技术资料采集、结构化分析和质量检查组织为工作流，结合人工复核完成知识归档，并提供 MCP 查询接口。",
-    "highlights": [
-      "组织多维质量检查与人工复核步骤",
-      "记录资料处理结果并支持知识查询"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面或流程示例；示例数值不作为性能评测结果。",
-    "url": "https://github.com/insistgang/ai-knowledge-base",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
-    "links": [
-      {
-        "href": "https://insistgang.top/ai-knowledge-base/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/ai-knowledge-base",
-        "label": "查看公开代码仓库"
-      }
-    ]
-  },
-  {
-    "id": "soft-14",
-    "category": "softcopy",
-    "image": "assets/images/opshub-cover.png",
-    "title": "异构多端算力协同与数字化运维工作总台系统",
-    "subtitle": "Ops Hub 的软著申请名称，与在线总台是同一套系统",
-    "role": "软件设计与开发",
-    "status": "已提交申请",
-    "statusColor": "amber",
-    "badge": "软著申请 14",
-    "metrics": "V1.0 · 申请材料已提交",
-    "tech": [
-      "Python CLI",
-      "HTML5",
-      "Tailwind CSS",
-      "launchd"
-    ],
-    "description": "这是 Ops Hub 的软著申报名。个人工具里的「Ops-Hub · 个人数字化运营工作总台」和这里是同一个项目：同一套看板、同一套命令行、同一个仓库。",
-    "highlights": [
-      "软著名称和在线总台指向同一套代码",
-      "看板汇总设备状态、任务分流和工程进度"
-    ],
-    "imageCaption": "V1.0 提交材料中的界面示例。线上页面就是这套 Ops Hub。",
-    "url": "https://github.com/insistgang/ops-hub",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
-    "links": [
-      {
-        "href": "https://insistgang.top/ops-hub/",
-        "label": "在线体验"
-      },
-      {
-        "href": "https://github.com/insistgang/ops-hub",
-        "label": "查看公开代码仓库"
-      }
-    ]
-  },
   {
     "id": "comp-01",
     "category": "competition",
@@ -1619,22 +1174,22 @@
     "id": "prod-01",
     "category": "products",
     "title": "Ops-Hub · 个人数字化运营工作总台",
-    "subtitle": "与软著申请 14 是同一个项目",
+    "subtitle": "设备状态、任务分流和工程进度",
     "role": "独立设计师 & 全栈工程师",
     "status": "🚀 生产自用中",
     "statusColor": "sky",
     "badge": "开源自研产品",
-    "metrics": "对应软著申请 14 · 命令行与看板",
+    "metrics": "命令行与看板",
     "tech": [
       "Python",
       "HTML5",
       "Tailwind CSS",
       "launchd"
     ],
-    "description": "正在用的个人工作总台。软著申请里的名称是「异构多端算力协同与数字化运维工作总台系统」。两张卡片是同一套系统，打开的是同一个页面。",
+    "description": "正在用的个人工作总台。看板汇总设备状态、任务分流和工程进度，命令行按任务给出执行端建议。",
     "highlights": [
       "看设备状态、任务该放在哪台机器、项目进度",
-      "和软著申请 14 打开的是同一个页面"
+      "命令行、静态看板和定时同步是同一套系统"
     ],
     "image": "assets/images/opshub-cover.png",
     "url": "https://github.com/insistgang/ops-hub",
@@ -1659,7 +1214,7 @@
     "status": "🚀 持续运行中",
     "statusColor": "sky",
     "badge": "效能监控工具",
-    "metrics": "对应软著申请 12 · 额度监控与预警",
+    "metrics": "额度监控与预警",
     "tech": [
       "Python 标准库",
       "HTML5",
@@ -1673,7 +1228,7 @@
     ],
     "image": "assets/images/soft/submitted-12.png",
     "url": "https://github.com/insistgang/ai-quota-monitor",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
+    "urlLabel": "查看公开代码仓库",
     "links": [
       {
         "href": "https://insistgang.top/ai-quota-monitor/",
@@ -1694,7 +1249,7 @@
     "status": "🚀 生产自用中",
     "statusColor": "sky",
     "badge": "AI 智能体系统",
-    "metrics": "对应软著申请 13 · 知识管理",
+    "metrics": "知识采集、检查与归档",
     "tech": [
       "Python",
       "MCP",
@@ -1708,7 +1263,7 @@
     ],
     "image": "assets/images/soft/submitted-13.png",
     "url": "https://github.com/insistgang/ai-knowledge-base",
-    "urlLabel": "查看公开代码仓库（版本可能与申请副本不同）",
+    "urlLabel": "查看公开代码仓库",
     "links": [
       {
         "href": "https://insistgang.top/ai-knowledge-base/",
@@ -2000,9 +1555,14 @@
     "statusColor": "emerald",
     "badge": "阅读",
     "metrics": "公开笔记仓库",
-    "tech": ["Markdown"],
+    "tech": [
+      "Markdown"
+    ],
     "description": "已经公开的论文阅读和思考。未发表稿和评审意见不在这个仓库里。线上目录链到每一篇公开笔记。",
-    "highlights": ["线上目录可以按标题查找", "笔记原文在公开仓库"],
+    "highlights": [
+      "线上目录可以按标题查找",
+      "笔记原文在公开仓库"
+    ],
     "image": "assets/images/read-paper-overview.svg",
     "imageCaption": "公开笔记，不是投稿稿。",
     "links": [
@@ -2026,9 +1586,16 @@
     "statusColor": "sky",
     "badge": "本地应用",
     "metrics": "单文件页面 · 本地同步",
-    "tech": ["HTML", "JavaScript", "本地存储"],
+    "tech": [
+      "HTML",
+      "JavaScript",
+      "本地存储"
+    ],
     "description": "用体能、情感、思维、意志四个账户记录日程和精力。公开的是程序。个人日程文件没有放进仓库。",
-    "highlights": ["代码已公开", "日程记录不在仓库里"],
+    "highlights": [
+      "代码已公开",
+      "日程记录不在仓库里"
+    ],
     "image": "assets/images/vitaflow-overview.svg",
     "imageCaption": "程序公开，个人日程不在仓库里。",
     "links": [
@@ -2048,9 +1615,16 @@
     "statusColor": "sky",
     "badge": "演示",
     "metrics": "浏览器本地数据",
-    "tech": ["React", "TypeScript", "Vite"],
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite"
+    ],
     "description": "把检查、记录和查阅做成可点击的页面。示例数据写在浏览器里，不是已经上线的监管系统。",
-    "highlights": ["流程可以点通", "不连接真实检查记录"],
+    "highlights": [
+      "流程可以点通",
+      "不连接真实检查记录"
+    ],
     "image": "assets/images/food-safety-overview.svg",
     "imageCaption": "演示代码已公开。",
     "links": [
@@ -2074,9 +1648,16 @@
     "statusColor": "sky",
     "badge": "安全",
     "metrics": "检测 · 研判 · 阻断 · 留痕",
-    "tech": ["Python", "规则引擎", "审计记录"],
+    "tech": [
+      "Python",
+      "规则引擎",
+      "审计记录"
+    ],
     "description": "模型要读文件、执行命令或访问网络时，先由规则决定放行、询问或阻断，并把决定记下来。这和已经公开的威胁分析页面不是同一个项目。",
-    "highlights": ["工具调用先过规则", "演练不连接真实密钥和外部网络"],
+    "highlights": [
+      "工具调用先过规则",
+      "演练不连接真实密钥和外部网络"
+    ],
     "image": "assets/images/aegis-overview.svg",
     "imageCaption": "代码已公开。",
     "links": [
@@ -2096,7 +1677,12 @@
     "statusColor": "sky",
     "badge": "全栈演示",
     "metrics": "50 车位 · FIFO 排位 · 48h 确认",
-    "tech": ["Vue 3", "FastAPI", "SQLite", "Docker"],
+    "tech": [
+      "Vue 3",
+      "FastAPI",
+      "SQLite",
+      "Docker"
+    ],
     "description": "面向老旧小区车位分配的业主 H5 与物业管理中台。系统按一车优先、申请时间自动排队，支持车位维修、清退、签约和存证；属于可离线运行的业务演示，不是已投入物业使用的生产系统。",
     "highlights": [
       "物业无手动指派入口，车位由 FIFO 引擎分发",
@@ -2201,7 +1787,7 @@
                 src="${p.image}" 
                 alt="${p.title}" 
                 loading="lazy" decoding="async"
-                class="w-full h-full ${p.category === 'softcopy' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 onerror="this.onerror=null; this.style.visibility='hidden'"
               />
               <div class="absolute top-3 left-3">
@@ -2210,7 +1796,7 @@
                 </span>
               </div>
               <div class="absolute top-3 right-3">
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-950/90 text-slate-200 border border-slate-700 backdrop-blur-md ${p.category === 'softcopy' ? 'status-submitted' : ''}">
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-950/90 text-slate-200 border border-slate-700 backdrop-blur-md">
                   ${p.status}
                 </span>
               </div>
@@ -2293,7 +1879,7 @@
         <div class="flex flex-wrap items-center gap-2 mb-2">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">${p.badge}</span>
           <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">${p.role}</span>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-200 ${p.category === 'softcopy' ? 'status-submitted' : ''}">${p.status}</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-200">${p.status}</span>
         </div>
 
         <h2 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white mb-1">${p.title}</h2>
@@ -2323,7 +1909,6 @@
           </div>
         </div>
 
-        ${p.category === 'softcopy' ? '<p class="text-xs leading-relaxed text-amber-200 border-t border-slate-800 pt-4 mb-4">V1.0 · 申请材料已更新并提交。当前展示的是申请项目，登记结果待确认。</p>' : ''}
         ${renderProjectLinks(p)}
       `;
 
