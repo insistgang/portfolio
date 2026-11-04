@@ -342,10 +342,10 @@ note('res-02 · 当前以论文与实验工作收录，不据此表述为已录�
 end()
 
 # 14 | Research duo.
-page('RESEARCH / 03','边缘感知与跨学科研究')
+page('RESEARCH / 03','跨学科研究')
 eyebrow('RESEARCH COLLABORATIONS')
 heading('将研究方法带到不同场景')
-research=[('res-03','E-PAS / 边缘车位感知','关注停车场中的遮挡、光照变化和推理开销，整理端侧车位感知与目标检测的模型实现、评估流程。','核心作者 · 研究与投稿准备','assets/images/res_epas_tradeoff.png'),('res-04','网络文化空间与集体行动','将文本处理与数据分析用于网络文化社群研究，参与研究材料组织、图示整理与稿件修订。','数据分析与稿件协作 · 合作研究','assets/images/res_mcssci_governance.png')]
+research=[('res-04','网络文化空间与集体行动','将文本处理与数据分析用于网络文化社群研究，参与研究材料组织、图示整理与稿件修订。','数据分析与稿件协作 · 合作研究','assets/images/res_mcssci_governance.png')]
 for i,(pid,title,desc,status,path) in enumerate(research):
  xx=M+i*392
  img(path,xx,169,359,215,background=WHITE)

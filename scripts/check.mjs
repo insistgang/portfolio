@@ -10,6 +10,10 @@ for (const project of projects.filter(p => p.category === 'competition')) {
   assert.ok(awards.includes(project.image), `证书墙与项目配图不一致：${project.id}`);
 }
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length, '项目 ID 必须唯一');
+assert.equal(Number(html.match(/data-count="all">(\d+)/)[1]), projects.length, '初始展示记录数必须与项目数据一致');
+const productCount = html.match(/data-cat="products">\s*<span>[^<]+<\/span>\s*<span[^>]*>(\d+)<\/span>/);
+assert.equal(Number(productCount?.[1]), projects.filter(p => p.category === 'products').length, '软件作品初始数量必须与项目数据一致');
+for (const project of projects) assert.ok(['competition', 'research', 'industry', 'products'].includes(project.category), `未知分类：${project.id}`);
 assert.ok(!projects.some(p => p.category === 'softcopy'), '作品集不再展示软著申请');
 assert.ok(!/软著/.test(html), '公开页面不再出现软著');
 assert.ok(!/\/Users\/|100%可申报|191张图|成功涨薪|线下碰面/.test(html), '公开页面不得包含内部路径或过时过程信息');
