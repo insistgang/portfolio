@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./index.html', './career/**/*.html'],
+  content: ['./index.html', './career/**/*.html', './yds/**/*.html'],
   theme: {
     extend: {
       colors: {
@@ -21,7 +21,7 @@ module.exports = {
         purple: { 300: '#cbc7d7', 400: '#bbb4cf', 500: '#817793' },
         emerald: { 300: '#c1cdbf', 400: '#adbfae', 500: '#7a927c' }
       },
-      borderRadius: { lg: '6px', xl: '6px', '2xl': '8px' },
+      borderRadius: { lg: '8px', xl: '12px', '2xl': '16px' },
       boxShadow: { lg: 'none', xl: 'none', '2xl': '0 20px 60px rgb(0 0 0 / .3)' }
     }
   },

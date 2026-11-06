@@ -1,10 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
   <title id="title">论文阅读笔记</title><desc id="desc">公开的阅读与思考记录。</desc>
   <rect width="960" height="540" fill="#101c1a"/>
-  <g font-family="system-ui, sans-serif">
-    <text x="64" y="80" fill="#5eead4" font-size="18" letter-spacing="3">READING NOTES</text>
-    <text x="64" y="152" fill="#f8fafc" font-size="44" font-weight="700">论文阅读笔记</text>
-    <text x="64" y="196" fill="#94a3b8" font-size="24">公开仓库里的阅读和思考。</text>
-    <text x="64" y="478" fill="#64748b" font-size="18">不含未发表稿和评审意见</text>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', sans-serif">
+    <text x="64" y="80" fill="#5eead4" font-size="18" letter-spacing="3">READING NOTES / 14</text>
+    <text x="64" y="150" fill="#f8fafc" font-size="42" font-weight="700">论文阅读笔记</text>
+    <text x="64" y="196" fill="#94a3b8" font-size="23">547 篇结构化笔记，AI 首轮拆解与人工复核分层管理。</text>
+    <path d="M300 330H344M598 330H642" stroke="#2dd4bf" stroke-width="3"/>
+    <g fill="#162624" stroke="#2c4a45"><rect x="64" y="258" width="236" height="154" rx="14"/><rect x="344" y="258" width="254" height="154" rx="14"/><rect x="642" y="258" width="254" height="154" rx="14"/></g>
+    <g fill="#5eead4" font-size="16" letter-spacing="1.5"><text x="88" y="294">INDEX</text><text x="368" y="294">STRUCTURE</text><text x="666" y="294">BOUNDARY</text></g>
+    <g fill="#f1f5f9" font-size="26" font-weight="600"><text x="88" y="342">在线目录</text><text x="368" y="342">方法与复盘</text><text x="666" y="342">公开边界</text></g>
+    <g fill="#94a3b8" font-size="17"><text x="88" y="382">按主题与标题检索</text><text x="368" y="382">问题 · 结构 · 局限</text><text x="666" y="382">仅收录公开阅读记录</text></g>
+    <text x="64" y="476" fill="#64748b" font-size="17">公开笔记仓库 · 不含未发表稿件与审稿意见</text>
   </g>
 </svg>

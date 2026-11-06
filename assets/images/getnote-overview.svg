@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">得到大脑日记工作流与 MCP 同步</title><desc id="desc">随手语音记录读取、幂等去重归档与时间线提炼。</desc>
+  <rect width="960" height="540" fill="#13191d"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', sans-serif">
+    <text x="64" y="80" fill="#7dd3fc" font-size="18" letter-spacing="3">GETNOTE MCP WORKFLOW / 04</text>
+    <text x="64" y="150" fill="#f0eee8" font-size="42" font-weight="700">得到大脑 · 日记工作流</text>
+    <text x="64" y="196" fill="#a8abae" font-size="23">打通随手语音记录与本地 Obsidian 知识库。</text>
+    <path d="M300 330H344M598 330H642" stroke="#526974" stroke-width="3"/>
+    <g fill="#1b2226" stroke="#343f46"><rect x="64" y="258" width="236" height="154" rx="14"/><rect x="344" y="258" width="254" height="154" rx="14"/><rect x="642" y="258" width="254" height="154" rx="14"/></g>
+    <g fill="#bad0da" font-size="16" letter-spacing="1.5"><text x="88" y="294">01 / CAPTURE</text><text x="368" y="294">02 / DEDUPE</text><text x="666" y="294">03 / ARCHIVE</text></g>
+    <g fill="#f0eee8" font-size="26" font-weight="600"><text x="88" y="342">笔记读取</text><text x="368" y="342">幂等去重</text><text x="666" y="342">时间线归档</text></g>
+    <g fill="#a8abae" font-size="17"><text x="88" y="382">Getnote API · MCP</text><text x="368" y="382">按 note_id 校验</text><text x="666" y="382">Obsidian · 脱敏同步</text></g>
+    <text x="64" y="476" fill="#727c82" font-size="17">工作流示意 · 个人日记主库属私人使用范畴</text>
+  </g>
+</svg>

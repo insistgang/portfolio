@@ -43,17 +43,23 @@ def load_profile_yaml(path: Path) -> dict:
     return json.loads(result.stdout)
 
 
+def clean_md(value: str) -> str:
+    value = re.sub(r"\*\*(.+?)\*\*", r"\1", str(value))
+    value = re.sub(r"\s*/\s*软件著作权人", "", value)
+    return value.strip()
+
+
 def parse_project(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
     title = ""
     meta: dict[str, str] = {}
     for line in text.splitlines():
         if line.startswith("# ") and not title:
-            title = line[2:].strip()
+            title = clean_md(line[2:].strip())
             continue
         match = re.match(r"^-\s+\*\*(.+?)\*\*：(.+)$", line.strip())
         if match:
-            meta[match.group(1).strip()] = match.group(2).strip().strip("`")
+            meta[match.group(1).strip()] = clean_md(match.group(2).strip().strip("`"))
 
     tags = []
     raw_tags = meta.get("标签", "")
@@ -61,19 +67,19 @@ def parse_project(path: Path) -> dict:
         tags = [t.strip() for t in raw_tags.strip("[]").split(",") if t.strip()]
 
     challenge = ""
-    section = re.search(r"##\s*[^#\n]*背景与挑战\s*\n(.*?)(?:\n---|\n##\s)", text, re.S)
+    section = re.search(r"##\s*[^#\n]*背景与挑战\s*\n(.*?)(?:\n---|\n##\s+[^#])", text, re.S)
     if section:
         for paragraph in section.group(1).split("\n"):
-            paragraph = paragraph.strip()
+            paragraph = clean_md(paragraph.strip())
             if paragraph and not paragraph.startswith("#"):
                 challenge = paragraph
                 break
 
     highlights: list[str] = []
-    body = re.search(r"##\s*多维度描述[^\n]*\n(.*?)(?:\n##\s|\Z)", text, re.S)
+    body = re.search(r"##\s*多维度描述[^\n]*\n(.*?)(?:\n##\s+[^#]|\Z)", text, re.S)
     if body:
         for line in body.group(1).splitlines():
-            line = line.strip()
+            line = clean_md(line.strip())
             if line.startswith("- ") and len(line) > 12:
                 highlights.append(line[2:].strip())
             if len(highlights) == 2:
@@ -240,23 +246,19 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
                 add(f'      <li><span class="award-level">{esc(row.get("level", ""))}</span> {esc(row.get("name", ""))}{extra} · {esc(row.get("year", ""))}</li>')
             add('    </ul>')
         papers = ip.get("papers", []) or []
-        copyrights = ip.get("software_copyrights", []) or []
-        if papers or copyrights:
-            add('    <h3 class="sub-title">论文与软著</h3>')
+        if papers:
+            add('    <h3 class="sub-title">学位论文与代表性研究</h3>')
             add('    <ul class="award-list">')
             for paper in papers:
                 role = f'（{esc(paper["role"])}）' if paper.get("role") else ""
                 add(f'      <li>{esc(paper.get("title", ""))}{role} · {esc(paper.get("status", ""))}</li>')
-            for item in copyrights:
-                role = f'（{esc(item["role"])}）' if item.get("role") else ""
-                add(f'      <li>{esc(item.get("name", ""))}{role} · {esc(item.get("number", ""))}</li>')
             add('    </ul>')
         add('</section>')
 
     certifications = data.get("certifications", []) or []
     if certifications:
         add('<section class="page-wrap pb-16" aria-labelledby="cert-title">')
-        add('  <h2 id="cert-title" class="section-title">能力认证</h2>')
+        add('  <h2 id="cert-title" class="section-title">专业能力认证</h2>')
         add('  <ul class="award-list">')
         for item in certifications:
             line = "".join(esc(part) for part in (item.get("name", ""), item.get("level", "")) if part)
@@ -264,8 +266,6 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
                 line += f"（{esc(item['date'])}）"
             if item.get("issuer"):
                 line += f" · {esc(item['issuer'])}"
-            if item.get("note"):
-                line += f' <span class="text-xs text-slate-500">{esc(item["note"])}</span>'
             add(f"      <li>{line}</li>")
         add('  </ul>')
         add('</section>')

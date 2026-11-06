@@ -1,64 +1,76 @@
-# 刘钢 Leo · 软件工程与研究作品集
+# Leo's Portfolio · 刘钢个人作品集系统
 
-公开站点：[insistgang.top/portfolio](https://insistgang.top/portfolio/) 。
-GitHub Pages 原始地址会跳转到该域名。部署来源为本仓库 `main` 分支根目录。
+> **全栈工程师 · 边缘视觉算法研究者 · AI-Native 智能体架构师**
+> 上海工程技术大学 · 电子电气工程学院（人工智能方向）硕士研究生
 
-## 内容
+[![Live Portfolio](https://img.shields.io/badge/Live_Site-insistgang.top%2Fportfolio-38bdf8?style=flat-square)](https://insistgang.top/portfolio/)
+[![Career Workflow](https://img.shields.io/badge/Career_Workflow-insistgang.top%2Fportfolio%2Fcareer-10b981?style=flat-square)](https://insistgang.top/portfolio/career/)
+[![LinkAble Telemetry](https://img.shields.io/badge/LinkAble_Dashboard-insistgang.top%2Fportfolio%2Fyds-f59e0b?style=flat-square)](https://insistgang.top/portfolio/yds/)
 
-当前本地版本收录 **38 条展示记录**：10 条竞赛记录、3 项研究工作、4 项产业实践和 21 项软件作品。
-同一项目的竞赛成果和软件作品可能分别收录，38 不是去重后的独立项目数。线上版本以实际发布内容为准。
+---
 
-项目说明依据可用工程与公开页面校正；示例数值不作为实测指标。Career-Copilot 链接到此前经授权公开的求职工作流页面；PaperStudio 链接到公开功能介绍页与公开仓库；食安崇明演示的源码与在线页面按授权公开。
+## 1. 站点定位与页面结构
 
-竞赛证书已补齐 2025 年西门子杯华北二赛区一等奖、2026 年西门子杯华东一赛区二等奖，以及 2026 年第二十一届研电赛上海分赛区团队二等奖。学生证书与教师证书、不同年度和不同赛区分别记录，不将初赛赛区奖项标为全国总决赛奖项。
+本仓库为刘钢（Leo）的公开作品集系统，采用零运行时外部 CDN 依赖的静态架构（Tailwind CSS 预编译构建 + 本地化 Lucide 图标库），包含三个核心页面：
 
-共感 LinkAble 为 2026 两岸大学生创客大赛逢甲赛区／台湾交流项目，未获奖，以产品方案与交互原型收录。2026 年研电赛对应另一套边缘计算盒子，与同年西门子杯共用设备，分别面向辅助通行感知和工业预警场景。
+| 页面路径 | 页面定位 | 核心内容 |
+| :--- | :--- | :--- |
+| [`index.html`](./index.html) | **作品集主站** | 3 个代表性系统深度拆解、38 条全量项目索引（支持分类筛选、关键词即时检索、多视图详情弹窗与键盘切换）、10 张原始竞赛证书墙、3 项学术研究主线与技术栈全景 |
+| [`career/index.html`](./career/index.html) | **求职工作流与经历主库** | Career-Copilot 公开脱敏视图：教育背景、4 大核心能力域、15 项核心项目证据库、实习经历、核对后的竞赛荣誉、29 条目标岗位投递看板（支持按阶段筛选）及中英文 PDF 简历下载 |
+| [`yds/index.html`](./yds/index.html) | **LinkAble 本地视频数据大屏** | 2026 第二十一届研电赛上海赛区二等奖配套离线复核看板：8 段本地测试视频、5,494 帧 YOLO 检测、EventBuilder 多帧去抖与 604 条结构化事件交互检索（高分屏自适应 Canvas 图表） |
 
-内容依据和修订边界见 [CONTENT_NOTES.md](CONTENT_NOTES.md)，当前进度与待补信息见 [ROADMAP.md](ROADMAP.md)。
+---
 
-## 使用
+## 当前发布版本（2026-11-06）
 
-网站运行时只需静态文件，无服务器应用、数据库或 Node.js 进程。可直接打开 `index.html`，或启动本机预览：
+本站保留 38 条展示记录。内容校准后核对全站配图，14 个条目采用对应项目真实截图，6 个无可靠公开素材的条目明确留空。发布源为本仓库 `main` 分支根目录，GitHub Pages 入口为 https://insistgang.top/portfolio/ 。
+
+- 食安崇明按家宴备案、食药吹哨、政策指南与分级审核描述；示例记录真实性及脱敏完整性未核实。
+- AEGIS 使用确定性工具门禁与 SQLite 脱敏审计口径，不作不可篡改保证；视频检索不展示未验证的速度指标。
+- 体重卡片保留历史协作版截图，并与 Ops-Hub 通用本机版分开；论文库区分 AI 首轮阅读稿和人工复核。
+- 知识库补充 LangGraph 审核修订回路，VitaFlow 补充本地 JSON 同步与备份，每日词汇补充场景图和范围受限发布。
+- 第一阶段不新增财务、RAG-Lab、CNC 条目；第二阶段将首页精选调整为 AEGIS、AI 知识库、视频检索三个工程案例，按问题、个人职责、技术决策、可核验证据与能力边界组织，并同步详情弹窗。
+- 边缘视觉设备、LinkLab 互助应用与 Ops-Hub 保留在精选区的「更多方向」；LinkLab 与边缘设备不合并，也不将模拟 SOS 表述为真实救援。
+- 六个证据入口指向公开仓库源码或报告；它们供内容复核，不代表本轮已重新执行历史评测。未复制私人数据。内容依据和后续动作见 `CONTENT_NOTES.md` 与 `ROADMAP.md`。
+
+## 2. 展示记录分布（38 条展示记录）
+
+作品集按证据类型划分为 4 个维度（同一底层工程在竞赛与产品维度各有独立证据时分别收录，页面显著位置已说明条目口径）：
+
+- **软件与工具 (`products`, 21 项)**：涵盖个人数字化运营工作总台（`Ops-Hub`）、算力额度监控大屏（`AI-QuotaMonitor`）、多智能体 AI 技术知识库、求职工作流（`Career-Copilot`）、论文投前诊断工作流（`PaperStudio`）、情感陪伴应用（`路遥 Luyao AI`）、Agent 工具调用安全网关（`神盾 AEGIS`）、无障碍辅助通行系统（`LinkAble 共感`）、老旧小区停车管理（`慧停管家`）、视频画面内容检索平台等。
+- **竞赛获奖 (`competition`, 10 项)**：全部绑定官方获奖证书原件/高清扫描件及证书编号，涵盖中国研究生数学建模竞赛国家二等奖、中国研究生网络安全创新大赛国家三等奖、中国研究生人工智能创新大赛国家三等奖、中国研究生创“芯”大赛·EDA 精英挑战赛国家三等奖、2025/2026 两届西门子杯中国智能制造挑战赛、2025/2026 两届中国研究生电子设计竞赛、上海市研究生智慧城市创意设计大赛及上海市大学生行业分析大赛。
+- **研究工作 (`research`, 3 项)**：硕士学位论文主线《面向违法建筑识别的多尺度图像检测方法研究》、双时相高分辨率遥感影像轻量级变化检测网络 `MS-LightCD` 及计算传播跨学科合作研究。
+- **产业实践 (`industry`, 4 项)**：上海卓繁信息技术股份有限公司（政企 AI Agent / RAG 与后端服务实习）、中国电子科技集团第 50 研究所（智慧城市图像检测产学研算法交付）、具身智能小智机器人协作开发、电商中台微服务与供应链数据同步系统。
+
+---
+
+## 3. 本地开发、构建与质量检查
+
+### 环境依赖
+- Node.js `>= 18`
+- npm
+
+### 常用命令
 
 ```bash
-python3 -m http.server 8766 --bind 127.0.0.1
-```
-
-浏览器访问 `http://127.0.0.1:8766/`。支持四类作品筛选、名称/说明/技术栈/状态搜索、结果计数、键盘打开卡片与详情弹窗。
-
-首屏采用左对齐个人介绍与 EdgeSafe 设备联调照片，项目数量在作品库中展示。顶部导航及个人介绍下方均提供 [Leo 的笔记本](https://insistgang.top/) 博客入口，桌面与手机布局都可直接访问。
-
-整页采用同一套炭灰背景、暖白文字、中性卡片与低饱和强调色。主题颜色由 `index.html` 中的 CSS 变量与 `tailwind.config.cjs` 的调色板统一维护，避免首屏、作品库、证书墙和弹窗出现不同底色。
-
-个人标识采用「L＋斜线」几何图形，与网站共用炭灰、暖白及灰蓝色。SVG 母版与 512px PNG 位于 `assets/brand/`，导航、浏览器标签页及手机收藏图标共用这一标识。
-
-## 维护与验证
-
-样式和图标已随站点保存，不依赖运行时 CDN 或在线字体。使用现有 Tailwind 3 样式体系；锁定版本仅用于构建。
-
-```bash
-npm ci --ignore-scripts
+# 1. 编译压缩 Tailwind CSS 样式 (输出至 assets/site.css) 并同步本地图标脚本
 npm run build
+
+# 2. 运行全量内容、资源完整性、子页面与脚本语法校验
 npm run check
+
+# 3. 本地启动静态预览服务
+python3 -m http.server 8000
+# 浏览器访问:
+# - 主站: http://localhost:8000/
+# - 求职工作流: http://localhost:8000/career/
+# - 视频数据大屏: http://localhost:8000/yds/
 ```
 
-修改页面或动态模板中的 CSS 类后重新构建。发布时包含 `index.html` 和其引用的 `assets/` 文件；`assets/site.css` 和 `assets/vendor/` 是需要随站点保存的正式静态资源。
-
-- `index.html`：页面、项目数据与交互。
-- `assets/images/`：项目配图；`soft/submitted-*.png` 为本次从提交材料提取的图。
-- `assets/brand/`：`leo-mark.svg` 为图标母版；同时提供 512px PNG、32px PNG、16/32/48px ICO 和 180px Apple 收藏图标。修改母版后需同步导出各尺寸。
-- `assets/images/certs/cimc-2025-liugang.png`、`cimc-2026-liugang.png`：两届西门子杯原始学生证书图片。
-- `assets/certificates/gedc-2026-edge-device.pdf`：研电赛原始 PDF；页面配图由该 PDF 渲染。
-- `styles/input.css`、`tailwind.config.cjs`：样式构建入口。
-- `scripts/vendor.mjs`：复制固定版本图标库及许可。
-- `scripts/check.mjs`：校验项目 ID、资源、详情入口、脚本语法和公开内容边界。
-- `.tmp/`：本机预览与核验中间文件，不参与发布。
-
-## 发布方式
-
-本仓库已有 GitHub Pages 站点，可直接展示静态页面。若迁到阿里云，可用现有 Nginx 在 HTTPS 子域名下托管相同文件，无需新增应用端口。
-访问者无需 GitHub 账户即可浏览公开页面；公开仓库链接用于进一步了解源码。正文不会嵌入私有求职看板、申请表或邮件材料。
-
-## 第三方许可
-
-Tailwind CSS 使用 MIT 许可，Lucide 使用 ISC 许可；对应许可随 `assets/vendor/` 分发。项目证书、截图及第三方标识不因网页公开而改变原有权属。
+### 自动化门禁 (`scripts/check.mjs`)
+每次执行 `npm run check` 会自动验证：
+1. **证书墙与数据一致性**：所有 `competition` 类别条目的标题与证书配图必须与 `#awards` 证书墙完全一致。
+2. **配图来源与说明**：项目 `id` 和非空封面路径必须唯一；截图来源记录在 `assets/images/screenshots/sources.json`。没有可公开核验素材时使用 `image: null` 与明确原因，不再自绘界面或借用其他项目图片；画廊首图和说明必须与封面一致。
+3. **静态资源存在性**：校验 `index.html`、`career/index.html`、`yds/index.html` 引用的全部图片、SVG、PDF 证书与子页面路径真实存在。
+4. **内容红线与隐私合规**：确保公开页面不包含内部绝对路径（`/Users/`）、未解析的 Markdown 符号（`**`）或过时口径；私人使用范畴项目必须标注说明且不暴露私有链接。
+5. **零外部运行时依赖**：确保页面不依赖外部运行时 JS/字体 CDN，内联脚本与 JSON 数据块全部通过语法解析。

@@ -162,12 +162,12 @@ page('PROFILE & CONTENTS','个人简介与阅读导航',key='contents')
 eyebrow('01 / OVERVIEW')
 heading('把问题做成可以使用的工具')
 para('我关注软件与真实场景之间的连接：从图像检测和端侧部署，到产品交互与日常自动化。开发中的实践与复盘，也会整理在个人博客中。',M,155,326,12,20,max_h=85)
-for i,(big,lbl) in enumerate([('14','软著申请记录'),('10','竞赛记录'),('04','研究工作'),('08','个人工具')]):
+for i,(big,lbl) in enumerate([('21','软件与工具'),('10','竞赛记录'),('03','研究工作'),('04','产业实践')]):
  xx=M+(i%2)*173;yy=265+(i//2)*94
  txt(big,xx,yy,34,INK,'Latin');txt(lbl,xx,yy+47,10,MUTED)
-para('另收录 4 项产业实践，共 40 条展示记录。\n同一项目可能跨类别展示，条目数不等于独立项目数。',M,466,334,9.5,16,MUTED)
+para('共收录 38 条展示记录。\n同一项目可能跨类别展示，条目数不等于独立项目数。',M,466,334,9.5,16,MUTED)
 line(410,158,410,516)
-items=[('01','精选项目','边缘视觉、无障碍应用与 AI 工具',3,'edge'),('02','个人工具','研究、求职与日常工作流',10,'workflows'),('03','研究工作','多尺度检测、遥感变化检测与跨学科研究',12,'research'),('04','产业实践','后端服务、算法交付与软硬件协作',15,'industry'),('05','竞赛与成果目录','奖项证书与 14 项软件申请目录',16,'honors')]
+items=[('01','精选项目','边缘视觉、无障碍应用与 AI 工具',3,'edge'),('02','个人工具','研究、求职与日常工作流',10,'workflows'),('03','研究工作','多尺度检测、遥感变化检测与跨学科研究',12,'research'),('04','产业实践','后端服务、算法交付与软硬件协作',15,'industry'),('05','竞赛与作品目录','奖项证书与精选软件作品目录',16,'honors')]
 for i,(a,b,d,pn,k) in enumerate(items):
  yy=157+i*71
  txt(a,445,yy,10,BLUE,'Mono');txt(b,481,yy-3,17,INK,'Title')
@@ -182,44 +182,44 @@ page('SELECTED WORK / 01','边缘视觉设备',key='edge')
 eyebrow('EDGE AI / SYSTEM INTEGRATION')
 heading('边缘视觉设备', '工业预警与辅助通行感知 · 同一硬件平台，两类应用场景')
 img('assets/images/soft/submitted-11.png',M,188,443,303,fit='contain',background='#E3E4DF')
-para('Jetson 边缘设备与笔记本联调现场 · V1.0 提交材料实图',M,502,440,9,14,MUTED)
+para('Jetson 边缘设备与外设联调现场实拍',M,502,440,9,14,MUTED)
 x=510
 label_body('我的角色','软件设计与开发，参与算法与系统实现。',x,188,286)
 label_body('工程路径','在边缘端处理视频，结合 ROI 区域过滤、事件去抖与声光告警，并汇总事件信息。',x,274,286)
 tags(['Python','OpenCV','ONNX Runtime','Jetson'],x,366,288)
 line(x,420,800,420)
 para('2026 西门子杯 · 全国初赛华东一赛区二等奖\n2026 研电赛 · 上海分赛区团队二等奖',x,437,288,10,18,BLUE)
-note('关联：soft-11、comp-02、comp-10。软件 V1.0 申请已提交；辅助通行项目与工业预警项目分别参赛。')
+note('关联：comp-02、comp-10、prod-19。辅助通行项目与工业预警项目共用边缘硬件平台，分别参赛。')
 end()
 
 # 04 | LinkAble, maintain portrait screenshots without cropping.
 page('SELECTED WORK / 02','共感 LinkAble',key='linkable')
 eyebrow('ACCESSIBLE DESIGN / MOBILE PROTOTYPE')
-heading('共感 LinkAble','面向求助者与志愿者的无障碍互助应用原型')
-label_body('从需求到交互','围绕视障者及临时出行困难者，将 AI 多模态助手、志愿者协助与 SOS 求助组织在同一流程中。',M,191,265)
-label_body('我的角色','项目负责人，承担产品方案、双角色交互设计与交流演示。',M,300,265)
-tags(['Flutter','Dart','Riverpod'],M,387,270)
-para('2026 两岸大学生创客大赛 · 逢甲赛区\n台湾交流展示作品',M,436,270,10,17,BLUE)
-link('github.com/insistgang/LinkLab','https://github.com/insistgang/LinkLab',M,494,8.7)
+heading('共感 LinkAble','无障碍互助应用原型 · 2026 两岸大学生创客大赛逢甲赛区交流展示')
+label_body('从需求到交互','将 AI 多模态助手、志愿者协助与 SOS 演练组织在同一交互流程中。',M,191,265)
+label_body('我的角色','项目负责人，负责产品方案与无障碍交互原型。',M,300,265)
+tags(['Flutter','Dart','Riverpod','交互原型'],M,387,270)
+para('逢甲赛区交流展示 · 未获奖\n匹配与 SOS 为本地演示流程',M,436,270,10,17,BLUE)
+link('insistgang.top/LinkLab','https://insistgang.top/LinkLab/',M,494,8.7)
 for i,path in enumerate(['assets/images/soft/submitted-10.png','assets/images/linklab_img2.jpg','assets/images/linklab_img3.jpg']):
  xx=337+i*157
  img(path,xx,184,145,303,background='#E6E7DF')
- txt(['双角色入口','志愿者展示','交互流程示例'][i],xx+10,499,9,MUTED)
-note('soft-10 · 交流作品未获奖。匹配与 SOS 等流程含本地模拟，展示范围为产品方案与交互原型。')
+ txt(['双角色入口','互助完成反馈','无障碍偏好'][i],xx+10,499,9,MUTED)
+note('本页为互助 App 原型，非研电赛获奖边缘设备；不代表真实志愿者网络或救援服务。')
 end()
 
 # 05 | Ops hub.
 page('SELECTED WORK / 03','Ops-Hub 运维工作总台',key='ops')
 eyebrow('OPS-HUB / PERSONAL OPERATIONS')
 heading('把多端设备放进一个工作总台','设备状态、任务分流建议和工程进度，在同一处查看')
-img('assets/images/opshub_02_数字化运维工作总台主控仪表盘.png',M,184,477,248,background='#182232')
+img('assets/images/opshub-cover.png',M,184,477,248,background='#182232')
 label_body('问题','设备与任务分散时，重复检查状态会打断工作。',545,186,250)
 label_body('实现','通过 Python CLI、设备探针、静态看板与定时同步，整理连通性、任务建议和交付风险。',545,268,250)
 label_body('职责','独立设计与全栈开发。',545,380,250)
 flow([('探测','采集设备状态与连通性'),('建议','按任务需要提供执行端建议'),('跟踪','汇总工程进度与交付提示')],M,444,477)
 tags(['Python CLI','HTML5','launchd'],545,444,250)
 link('github.com/insistgang/ops-hub','https://github.com/insistgang/ops-hub',545,503,8.3)
-note('soft-14 / prod-01 · 看板与状态为材料示例，不据截图推断设备当前运行情况。')
+note('prod-01 · 看板与状态为材料示例，不据截图推断设备当前运行情况。')
 end()
 
 # 06 | Quota dark feature.
@@ -232,7 +232,7 @@ label_body('分析','展示历史趋势和阈值预警，辅助安排模型使�
 label_body('维护','通过定时守护、数据整理与自动化发布更新展示。',546,375,249,True)
 tags(['Python','HTML5','CSS Grid','launchd'],M,498,470,True)
 link('github.com/insistgang/ai-quota-monitor','https://github.com/insistgang/ai-quota-monitor',546,486,8.1,LIGHT)
-note('soft-12 / prod-02 · 界面来自提交材料，截图中的数值为示例，不作为性能或当前额度的证明。',dark=True)
+note('prod-02 · 界面来自项目存档，截图中的数值为示例，不作为性能或当前额度的证明。',dark=True)
 end()
 
 # 07 | knowledge base.
@@ -245,35 +245,35 @@ label_body('使用方式','记录处理结果，通过 MCP 接口查询已有知
 tags(['Python','MCP','知识管理'],546,406,249)
 link('github.com/insistgang/ai-knowledge-base','https://github.com/insistgang/ai-knowledge-base',546,481,7.9)
 flow([('采集','收集与整理技术资料'),('检查','结构化分析与质量检查'),('复核','人工复核后归档')],M,444,477)
-note('soft-13 / prod-03 · 提交材料中的界面示例；图中数值不作为性能评测结果。')
+note('prod-03 · 项目界面示例；图中数值不作为性能评测结果。')
 end()
 
 # 08 | Search and security, three compact editorial columns.
 page('SELECTED WORK / 06','检索与分析应用')
 eyebrow('SEARCH & ANALYSIS')
-heading('把非结构化内容变成可检索信息','视频画面、音频转写与安全告警，分别构建清晰的处理流程')
-cols=[('soft-03','画面检索','抽帧与 OCR 预筛，结合多模态精扫定位视频画面内容。',['Python','RapidOCR','SQLite FTS5']),('soft-07','语音检索','围绕本地转写和关键词检索组织视频语音内容，支持 sidecar 转写与可选 Whisper。',['FastAPI','SQLite','Whisper（可选）']),('soft-06','威胁分析','通过本地 Streamlit 工作区组织告警分析与结果查看，模型/API 需另行配置。',['Streamlit','FastAPI','ChromaDB'])]
+heading('把非结构化内容变成可检索信息','视频画面检索、安全告警分析与语文智能助学')
+cols=[(P['prod-20']['image'],'画面检索','结合 FFmpeg 抽帧、视觉描述与 SQLite FTS5 全文检索定位视频画面内容。',['FastAPI','React','SQLite FTS5']),(P['comp-05']['gallery'][1],'威胁分析','通过本地 Streamlit 工作区组织多源安全告警协同研判与情报检索。',['Streamlit','FastAPI','ChromaDB']),(P['comp-04']['gallery'][1],'智能助学','面向体育生语文基础薄弱点，构建词汇成语专项训练与学情追踪小程序。',['Taro 3.6','React 18','微信云开发'])]
 cw=236
-for i,(pid,title,desc,tech) in enumerate(cols):
+for i,(img_path,title,desc,tech) in enumerate(cols):
  xx=M+i*260
- img(P[pid]['image'],xx,192,cw,161,background=WHITE)
+ img(img_path,xx,192,cw,161,background=WHITE)
  txt(f'0{i+1}',xx,372,11,BLUE,'Mono');txt(title,xx+33,365,20,INK,'Title')
  para(desc,xx,405,cw,10.5,18,MUTED,max_h=77)
  tags(tech,xx,487,cw,size=8.1)
-note('均关联已提交的 V1.0 软件申请。界面按提交材料展示，完整模型配置与实际部署条件以相应工程为准。')
+note('均提供公开静态演示与 GitHub 代码仓库。完整模型配置与部署条件以相应工程说明为准。')
 end()
 
 # 09 | App visual gallery.
 page('SELECTED WORK / 07','更多软件实践')
 eyebrow('SOFTWARE EXPLORATIONS')
 heading('面向不同任务的应用实践','从业务数据管理到教育与专注训练，保留每个应用的具体使用场景')
-apps=[('soft-01','ESG 与碳金融','指标组织、评价与报告'),('soft-02','投资组合管理','账户、持仓与资产快照'),('soft-04','语文辅导网页版','专项练习与学习记录'),('soft-05','语文学习小程序','词汇、练习记录与教师管理'),('soft-08','金融产品推荐','规则推荐与反馈演示'),('soft-09','注意力训练','训练入口与记录查看')]
-for i,(pid,title,desc) in enumerate(apps):
+apps=[(P['prod-16']['image'],'食安崇明','家宴备案与公众共治原型'),(P['prod-18']['image'],'慧停管家','车位矩阵与业主排位演示'),(P['comp-04']['gallery'][1],'语文智能助学','专项练习与学情追踪'),(P['prod-20']['image'],'视频画面检索','画面检索静态示例'),(P['comp-05']['gallery'][1],'安全威胁研判','本地告警分析工作区'),(P['prod-22']['image'],'专注力训练','舒尔特方格、N-Back 与 Stroop')]
+for i,(img_path,title,desc) in enumerate(apps):
  xx=M+(i%3)*260;yy=184+(i//3)*175
- img(P[pid]['image'],xx,yy,236,113,background='#E6E7E2')
+ img(img_path,xx,yy,236,113,background='#E6E7E2')
  txt(title,xx,yy+121,14,INK,'Title')
  txt(desc,xx,yy+144,9.2,MUTED)
-note('提交材料实图 · 示例数值不作为评测结果。软件正式名称、技术栈与申请状态见第 18-19 页。')
+note('工程存档实图 · 示例数值不作为评测结果。')
 end()
 
 # 10 | Two workflows.
@@ -345,7 +345,7 @@ end()
 page('RESEARCH / 03','跨学科研究')
 eyebrow('RESEARCH COLLABORATIONS')
 heading('将研究方法带到不同场景')
-research=[('res-04','网络文化空间与集体行动','将文本处理与数据分析用于网络文化社群研究，参与研究材料组织、图示整理与稿件修订。','数据分析与稿件协作 · 合作研究','assets/images/res_mcssci_governance.png')]
+research=[('res-04','网络文化空间与集体行动','将文本处理与数据分析用于网络文化社群研究，参与研究材料组织、图示整理与稿件修订。','数据分析与稿件协作 · 合作研究','assets/images/res_mcssci_governance.jpg')]
 for i,(pid,title,desc,status,path) in enumerate(research):
  xx=M+i*392
  img(path,xx,169,359,215,background=WHITE)
@@ -392,26 +392,27 @@ for i,(date,title,award) in enumerate(awards):
  txt(title,105,yy,11,INK)
  txt(award,545,yy+1,9.3,BLUE)
  line(M,yy+25,800,yy+25)
-note('证书图片已收录于在线作品集。共感 LinkAble 为逢甲赛区交流作品，未获奖，不计入上述荣誉。')
+note('证书图片已收录于在线作品集。')
 end()
 
-# 18 & 19 | Complete software catalog, full exact titles, links.
+# 18 & 19 | Selected software & tool catalog, full exact titles, links.
+catalog_ids=['prod-01','prod-02','prod-03','prod-07','prod-08','prod-09','prod-11','prod-12','prod-14','prod-16','prod-17','prod-18','prod-19','prod-20']
 for chunk in range(2):
- page('SOFTWARE / APPLICATION CATALOG',f'软件目录 {chunk+1}',key=f'catalog{chunk+1}')
- eyebrow(f'14 APPLICATIONS / PART {chunk+1} OF 2')
- heading('软件作品目录', '14 项 V1.0 软著申请均已提交 · 状态由本人于 2026-10-04 确认，尚未展示为已获登记证书')
+ page('SOFTWARE / SELECTED CATALOG',f'软件与工具目录 {chunk+1}',key=f'catalog{chunk+1}')
+ eyebrow(f'14 SELECTED PRODUCTS / PART {chunk+1} OF 2')
+ heading('软件与工具目录', '涵盖个人数字化工作台、科研/求职工作流与公开在线应用')
  for j in range(7):
-  i=chunk*7+j+1;p=P[f'soft-{i:02}'];yy=184+j*46.8
+  i=chunk*7+j+1;p=P[catalog_ids[i-1]];yy=184+j*46.8
   txt(f'{i:02}',M,yy,12,BLUE,'Mono')
-  # longest Chinese titles fit at 11.3 pt within 647 pt.
   title=p['title']
   txt(title,79,yy-1,11.3,INK,'CJK')
   para(p['subtitle'],79,yy+20,415,8.9,12,MUTED,max_h=16)
-  ts='Python / OpenCV / ONNX Runtime' if i==11 else ' / '.join(p['tech'][:3])
+  ts=' / '.join(p['tech'][:3])
   para(ts,512,yy+20,286,8,12,BLUE,max_h=16)
   line(79,yy+39,800,yy+39)
-  if p.get('url'):c.linkURL(p['url'],(79,H-yy-15,799,H-yy+3),relative=0,thickness=0)
- note('图文来源：现有作品集及提交材料。公开代码仓库版本可能与申请副本不同。' if chunk==0 else '内容校准：2026-10-04 · PDF 编排：2026-10-20 · 研究、原型与软件申请分别按其当前记录状态展示。')
+  href=p.get('url') or (p.get('links') and p['links'][0]['href'])
+  if href and href.startswith('http'):c.linkURL(href,(79,H-yy-15,799,H-yy+3),relative=0,thickness=0)
+ note('图文来源：在线作品集。各项目的演示范围与运行条件见对应详情说明。')
  end()
 
 # 20 | End card with live links and vector QR.

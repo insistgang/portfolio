@@ -1,0 +1,86 @@
+{
+  "prod-07": {
+    "image": "assets/images/screenshots/career.jpg",
+    "source": "career/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-08": {
+    "image": "assets/images/screenshots/paperstudio.jpg",
+    "source": "https://insistgang.top/PaperStudio/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-09": {
+    "image": "assets/images/screenshots/luyao.jpg",
+    "source": "https://insistgang.top/luyao/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-11": {
+    "image": "assets/images/screenshots/dashboards.jpg",
+    "source": "https://insistgang.top/word_to_pic/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-12": {
+    "image": "assets/images/screenshots/aidatabase.jpg",
+    "source": "https://insistgang.top/aidatabase/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-14": {
+    "image": "assets/images/screenshots/read-paper.jpg",
+    "source": "https://insistgang.top/read_paper/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-15": {
+    "image": "assets/images/screenshots/vitaflow.jpg",
+    "source": "https://insistgang.top/ops-hub/vitaflow/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-16": {
+    "image": "assets/images/screenshots/food-safety.jpg",
+    "source": "https://insistgang.top/food-safety-chongming/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-17": {
+    "image": "assets/images/screenshots/aegis.jpg",
+    "source": "https://insistgang.top/aegis/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-19": {
+    "image": "assets/images/screenshots/yds.jpg",
+    "source": "yds/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-20": {
+    "image": "assets/images/screenshots/video-search.jpg",
+    "source": "https://insistgang.top/video-speech-search/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-21": {
+    "image": "assets/images/screenshots/liuji.jpg",
+    "source": "https://insistgang.top/liuji/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-22": {
+    "image": "assets/images/screenshots/attention.jpg",
+    "source": "https://insistgang.top/attention-trainer/",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  },
+  "prod-18": {
+    "image": "assets/images/screenshots/parking-property-dashboard.png",
+    "source": "https://insistgang.top/community-parking-system/screens/property-dashboard.png",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-06"
+  }
+}

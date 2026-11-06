@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">视频画面内容检索平台</title><desc id="desc">视频抽帧、OCR 与多模态分析、SQLite FTS5 全文检索。</desc>
+  <rect width="960" height="540" fill="#12181c"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', sans-serif">
+    <text x="64" y="80" fill="#7dd3fc" font-size="18" letter-spacing="3">MULTIMODAL VIDEO SEARCH / 20</text>
+    <text x="64" y="150" fill="#f0eee8" font-size="42" font-weight="700">视频画面内容检索平台</text>
+    <text x="64" y="196" fill="#a8abae" font-size="23">将长视频与录屏画面转化为可检索的时间点索引。</text>
+    <path d="M300 330H344M598 330H642" stroke="#38bdf8" stroke-width="3"/>
+    <g fill="#192329" stroke="#2d414d"><rect x="64" y="258" width="236" height="154" rx="14"/><rect x="344" y="258" width="254" height="154" rx="14"/><rect x="642" y="258" width="254" height="154" rx="14"/></g>
+    <g fill="#7dd3fc" font-size="16" letter-spacing="1.5"><text x="88" y="294">01 / EXTRACT</text><text x="368" y="294">02 / ANALYZE</text><text x="666" y="294">03 / SEARCH</text></g>
+    <g fill="#f0eee8" font-size="26" font-weight="600"><text x="88" y="342">抽帧与去重</text><text x="368" y="342">两阶段分析</text><text x="666" y="342">全文索引</text></g>
+    <g fill="#a8abae" font-size="17"><text x="88" y="382">FFmpeg · pHash</text><text x="368" y="382">OCR 粗扫 · 视觉精扫</text><text x="666" y="382">SQLite FTS5 · 帧定位</text></g>
+    <text x="64" y="476" fill="#727c82" font-size="17">功能流程示意 · 静态页用于展示检索界面与任务流程</text>
+  </g>
+</svg>

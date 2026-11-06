@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">六级备考与每日词汇</title><desc id="desc">按日期组织每日词表、间隔复习与浏览器本地学习进度。</desc>
+  <rect width="960" height="540" fill="#121c1a"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', sans-serif">
+    <text x="64" y="80" fill="#5eead4" font-size="18" letter-spacing="3">VOCABULARY WORKFLOW / 21</text>
+    <text x="64" y="150" fill="#f0eee8" font-size="42" font-weight="700">六级备考与每日词汇</text>
+    <text x="64" y="196" fill="#a8abae" font-size="23">把每日词表、复习标记和学习记录放进轻量工作流。</text>
+    <path d="M300 330H344M598 330H642" stroke="#2dd4bf" stroke-width="3"/>
+    <g fill="#182724" stroke="#2c4a45"><rect x="64" y="258" width="236" height="154" rx="14"/><rect x="344" y="258" width="254" height="154" rx="14"/><rect x="642" y="258" width="254" height="154" rx="14"/></g>
+    <g fill="#5eead4" font-size="16" letter-spacing="1.5"><text x="88" y="294">01 / DAILY LIST</text><text x="368" y="294">02 / REVIEW</text><text x="666" y="294">03 / PROGRESS</text></g>
+    <g fill="#f0eee8" font-size="26" font-weight="600"><text x="88" y="342">每日词表</text><text x="368" y="342">间隔复习</text><text x="666" y="342">本地进度</text></g>
+    <g fill="#a8abae" font-size="17"><text x="88" y="382">按日期拆分词库</text><text x="368" y="382">掌握度标记与回看</text><text x="666" y="382">浏览器本地持久化</text></g>
+    <text x="64" y="476" fill="#727c82" font-size="17">公开学习工具示意 · 静态版无需后端即可直接练习</text>
+  </g>
+</svg>

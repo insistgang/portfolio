@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">上海卓繁信息 后端研发与 AI 应用落地实践</title><desc id="desc">智慧政务、教育与停车场景的后端服务及智能体工作流研发。</desc>
+  <rect width="960" height="540" fill="#14181b"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', sans-serif">
+    <text x="64" y="80" fill="#bad0da" font-size="18" letter-spacing="3">INDUSTRY PRACTICE / ZHUOFAN INFO</text>
+    <text x="64" y="150" fill="#f0eee8" font-size="40" font-weight="700">政企后端研发与 AI 应用落地</text>
+    <text x="64" y="196" fill="#a8abae" font-size="23">上海卓繁信息技术股份有限公司 · 智慧政务与教育业务实践</text>
+    <path d="M300 330H344M598 330H642" stroke="#526974" stroke-width="3"/>
+    <g fill="#1c2226" stroke="#39444a"><rect x="64" y="258" width="236" height="154" rx="14"/><rect x="344" y="258" width="254" height="154" rx="14"/><rect x="642" y="258" width="254" height="154" rx="14"/></g>
+    <g fill="#bad0da" font-size="16" letter-spacing="1.5"><text x="88" y="294">BACKEND</text><text x="368" y="294">AI WORKFLOW</text><text x="666" y="294">INTEGRATION</text></g>
+    <g fill="#f0eee8" font-size="26" font-weight="600"><text x="88" y="342">业务后端服务</text><text x="368" y="342">智能体与检索</text><text x="666" y="342">系统联调演示</text></g>
+    <g fill="#a8abae" font-size="17"><text x="88" y="382">Java · Spring Boot</text><text x="368" y="382">FastAPI · Agent / RAG</text><text x="666" y="382">排课 · 停车 · 政务</text></g>
+    <text x="64" y="476" fill="#727c82" font-size="17">产业实践工程结构示意 · 不包含企业内部业务数据</text>
+  </g>
+</svg>

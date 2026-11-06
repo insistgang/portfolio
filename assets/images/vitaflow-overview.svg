@@ -14,6 +14,6 @@
     <g fill="#f5eee5" font-size="28" font-weight="650">
       <text x="96" y="348">体能</text><text x="310" y="348">情感</text><text x="524" y="348">思维</text><text x="738" y="348">意志</text>
     </g>
-    <text x="64" y="470" fill="#8a7a6a" font-size="18">记录留在本机，没有公开入口</text>
+    <text x="64" y="470" fill="#8a7a6a" font-size="18">浏览器记录 + 本地 JSON 同步 · 口令校验 · 轮换备份</text>
   </g>
 </svg>

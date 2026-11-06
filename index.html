@@ -33,7 +33,6 @@
     .font-mono {
       font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
     }
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
       height: 8px;
@@ -51,97 +50,311 @@
     .portfolio-card {
       background: rgb(var(--surface));
       border: 1px solid rgb(var(--line));
-      border-radius: 6px;
-      transition: border-color 0.18s ease;
+      border-radius: 16px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
     }
     .portfolio-card:hover {
-      border-color: #647278;
+      border-color: #6c7a80;
     }
-    .site-header { position: fixed; inset: 0 0 auto; z-index: 40; background: rgb(var(--page)); border-bottom: 1px solid rgb(var(--line)); }
-    .site-header-inner, .intro-inner { width: min(100% - 64px, 1216px); margin: 0 auto; }
-    .site-header-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .site-brand { display: inline-flex; align-items: center; color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; }
-    .site-mark { width: 28px; height: 28px; flex: none; margin-right: 10px; }
-    .site-brand span { margin-left: 7px; color: #a8abae; font-family: Georgia, serif; font-style: italic; font-weight: 400; }
-    .site-nav-links, .site-header-actions { display: flex; align-items: center; gap: 28px; font-size: 13px; color: #b9bcbf; }
-    .site-header a:hover { color: #fff; }
-    .site-header-actions { gap: 22px; }
-    .site-blog-link { color: #eeeae0; border-bottom: 1px solid #71787b; padding: 5px 0; }
-    .site-contact { border: 1px solid #4a4f52; border-radius: 4px; padding: 7px 13px; }
-    .intro { background: rgb(var(--page)); color: rgb(var(--copy)); padding: 130px 0 64px; }
-    .intro-inner { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; }
-    .intro-copy { min-width: 0; }
-    .intro-eyebrow { margin: 0 0 24px; font-size: 12px; color: #a8abae; letter-spacing: .08em; }
-    .intro-name { margin: 0; font-size: 60px; line-height: 1.15; letter-spacing: -.035em; font-weight: 600; }
-    .intro-name span { margin-left: 22px; font-family: Georgia, serif; font-size: 42px; font-weight: 400; font-style: italic; color: #a8abae; letter-spacing: -.02em; }
-    .intro-role { margin-top: 20px; font-size: 21px; line-height: 1.5; font-weight: 400; }
-    .intro-description { max-width: 470px; margin-top: 18px; color: #b9bcbf; font-size: 15px; line-height: 1.9; }
-    .intro-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 30px; font-size: 14px; }
-    .intro-primary { display: inline-flex; align-items: center; gap: 28px; background: #eeeae0; color: #1b1e20; border: 1px solid #eeeae0; border-radius: 4px; padding: 12px 18px; font-weight: 500; }
-    .intro-primary:hover { background: #fff; border-color: #fff; }
-    .intro-blog { color: #bad0da; padding: 5px 0; border-bottom: 1px solid #667d87; }
-    .intro-blog:hover { color: #fff; border-color: #fff; }
-    .intro-contact { display: flex; gap: 23px; margin-top: 24px; font-size: 12px; color: #a8abae; }
-    .intro-contact a:hover { color: #eeeae0; text-decoration: underline; text-underline-offset: 4px; }
-    .intro-figure { width: 100%; max-width: 440px; margin: 0; justify-self: end; }
-    .intro-photo { display: block; width: 100%; border-radius: 3px; overflow: hidden; border: 1px solid #404447; background: #202427; }
-    .intro-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
-    .intro-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 14px; font-size: 12px; color: #a8abae; }
-    .intro-caption strong { font-weight: 500; color: #d8d8d3; }
-    .intro-caption button { white-space: nowrap; color: #bad0da; }
-    .intro-caption button:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 40;
+      background: rgb(var(--page) / 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgb(var(--line));
+    }
+    .site-header-inner, .intro-inner {
+      width: min(100% - 64px, 1216px);
+      margin: 0 auto;
+    }
+    .site-header-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      color: #f0eee8;
+      font-size: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .site-mark {
+      width: 28px;
+      height: 28px;
+      flex: none;
+      margin-right: 10px;
+    }
+    .site-brand span {
+      margin-left: 7px;
+      color: #a8abae;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .site-nav-links, .site-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13px;
+      color: #b9bcbf;
+    }
+    .site-nav-links a {
+      padding: 6px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+    .site-nav-links a[aria-current="true"] {
+      color: #f0eee8;
+      font-weight: 500;
+      border-bottom-color: rgb(var(--accent));
+    }
+    .site-header a:hover {
+      color: #fff;
+    }
+    .site-header-actions {
+      gap: 18px;
+      white-space: nowrap;
+    }
+    .site-blog-link {
+      color: #eeeae0;
+      border-bottom: 1px solid #71787b;
+      padding: 4px 0;
+    }
+    .site-contact {
+      border: 1px solid #4a4f52;
+      border-radius: 6px;
+      padding: 6px 13px;
+      color: #eeeae0;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .site-contact:hover {
+      background: rgb(var(--surface-raised));
+      border-color: #6c7a80;
+    }
+    .intro {
+      background: rgb(var(--page));
+      color: rgb(var(--copy));
+      padding: 132px 0 68px;
+    }
+    .intro-inner {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+      gap: 72px;
+    }
+    .intro-copy {
+      min-width: 0;
+    }
+    .intro-eyebrow {
+      margin: 0 0 20px;
+      font-size: 12px;
+      color: #a8abae;
+      letter-spacing: 0.08em;
+    }
+    .intro-name {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.14;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+    }
+    .intro-name span {
+      margin-left: 20px;
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: 400;
+      font-style: italic;
+      color: #a8abae;
+      letter-spacing: -0.02em;
+    }
+    .intro-role {
+      margin-top: 18px;
+      font-size: 21px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: #e4e1d8;
+    }
+    .intro-description {
+      max-width: 510px;
+      margin-top: 16px;
+      color: #b9bcbf;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+    .intro-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px 24px;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+    .intro-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      background: #eeeae0;
+      color: #1b1e20;
+      border: 1px solid #eeeae0;
+      border-radius: 6px;
+      padding: 11px 18px;
+      font-weight: 500;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .intro-primary:hover {
+      background: #fff;
+      border-color: #fff;
+    }
+    .intro-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgb(var(--line));
+      background: rgb(var(--surface));
+      color: #eeeae0;
+      border-radius: 6px;
+      padding: 11px 16px;
+      font-weight: 400;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .intro-secondary:hover {
+      border-color: #6c7a80;
+      background: rgb(var(--surface-raised));
+    }
+    .intro-blog {
+      color: #bad0da;
+      padding: 5px 0;
+      border-bottom: 1px solid #667d87;
+    }
+    .intro-blog:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+    .intro-contact {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 20px;
+      margin-top: 24px;
+      font-size: 12px;
+      color: #a8abae;
+    }
+    .intro-contact a:hover {
+      color: #eeeae0;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .intro-figure {
+      width: 100%;
+      max-width: 450px;
+      margin: 0;
+      justify-self: end;
+    }
+    .intro-photo {
+      display: block;
+      width: 100%;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #404447;
+      background: #202427;
+      transition: border-color 0.2s ease;
+    }
+    .intro-photo:hover {
+      border-color: #6c7a80;
+    }
+    .intro-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .intro-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding-top: 12px;
+      font-size: 12px;
+      color: #a8abae;
+    }
+    .intro-caption strong {
+      font-weight: 500;
+      color: #d8d8d3;
+    }
+    .intro-caption button {
+      white-space: nowrap;
+      color: #bad0da;
+    }
+    .intro-caption button:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
     @media (max-width: 1000px) {
       .site-nav-links { gap: 18px; }
       .intro-inner { gap: 42px; }
-      .intro-name { font-size: 52px; }
-      .intro-name span { font-size: 36px; }
+      .intro-name { font-size: 50px; }
+      .intro-name span { font-size: 35px; }
       .intro-role { font-size: 19px; }
     }
     @media (max-width: 850px) {
-      .site-nav-links { display: none; }
-      .intro { padding: 110px 0 48px; }
+      .site-header-inner {
+        flex-wrap: wrap;
+        padding: 10px 0 0;
+        gap: 8px 16px;
+      }
+      .site-nav-links {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+        gap: 20px;
+        padding: 8px 0 10px;
+        border-top: 1px solid rgb(var(--line) / 0.65);
+        font-size: 12px;
+      }
+      .site-nav-links::-webkit-scrollbar { display: none; }
+      .intro { padding: 138px 0 48px; }
       .intro-inner { grid-template-columns: 1fr; gap: 36px; }
-      .intro-description { max-width: 560px; }
+      .intro-description { max-width: 580px; }
       .intro-figure { max-width: 560px; justify-self: start; }
     }
     @media (max-width: 480px) {
-      .site-header-inner, .intro-inner { width: calc(100% - 40px); }
-      .site-header-inner { height: 64px; gap: 16px; }
-      .site-header-actions { gap: 16px; font-size: 12px; }
-      .site-contact { padding: 6px 10px; }
-      .intro { padding-top: 102px; }
-      .intro-eyebrow { margin-bottom: 20px; font-size: 11px; }
-      .intro-name { font-size: 46px; }
-      .intro-name span { margin-left: 17px; font-size: 31px; }
-      .intro-role { margin-top: 16px; font-size: 18px; }
-      .intro-description { font-size: 14px; line-height: 1.9; }
-      .intro-actions { gap: 22px; margin-top: 26px; }
+      .site-header-inner, .intro-inner { width: calc(100% - 36px); }
+      .site-header-actions { gap: 12px; font-size: 12px; }
+      .site-contact { padding: 5px 10px; }
+      .intro { padding-top: 130px; }
+      .intro-eyebrow { margin-bottom: 16px; font-size: 11px; }
+      .intro-name { font-size: 42px; }
+      .intro-name span { margin-left: 14px; font-size: 29px; }
+      .intro-role { margin-top: 14px; font-size: 18px; }
+      .intro-description { font-size: 14px; line-height: 1.85; }
+      .intro-actions { gap: 14px 18px; margin-top: 24px; }
       .intro-caption { font-size: 11px; gap: 12px; }
     }
-    section[id] { scroll-margin-top: 5rem; border-color: rgb(var(--line)); }
-    .section-kicker { color: rgb(var(--muted)); font-weight: 400; letter-spacing: .08em; }
-    .section-heading { font-weight: 500; letter-spacing: -.025em; }
-    .cat-btn { border-radius: 4px; }
-    .cat-btn.active { background: rgb(var(--copy)); color: rgb(var(--page)); }
-    .cat-btn.active > span:last-child { background: rgb(var(--page) / .08); }
+    section[id] { scroll-margin-top: 6.5rem; border-color: rgb(var(--line)); }
+    .section-kicker { color: rgb(var(--muted)); font-weight: 400; font-size: 11px; letter-spacing: 0.16em; }
+    .section-heading { font-weight: 500; font-size: 1.75rem; letter-spacing: -0.025em; }
+    .cat-btn { border-radius: 999px; }
+    .cat-btn.active { background: rgb(var(--copy)); color: rgb(var(--page)); border-color: rgb(var(--copy)); }
+    .cat-btn.active > span:last-child { background: rgb(var(--page) / 0.12); color: rgb(var(--page)); }
     :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
-    .status-submitted { background: #2d291f; color: #d5c69e; border-color: #716345; }
     #featured, #gallery, #awards, #research, #about { padding: 72px 0; }
     #featured .space-y-16 > :not([hidden]) ~ :not([hidden]) { margin-top: 28px; }
-    .section-kicker { font-size: 11px; letter-spacing: .16em; }
-    .section-heading { font-size: 1.7rem; }
-    #projects-grid { gap: 16px; }
-    #projects-grid .portfolio-card { border-radius: 16px; }
-    #projects-grid .h-44 { height: 156px; background: #171b1d; }
-    #projects-grid h3 { font-size: 15px; line-height: 1.45; letter-spacing: -.02em; }
-    #projects-grid .line-clamp-1 { -webkit-line-clamp: 2; }
-    .group:hover .group-hover\:scale-105 { transform: none; }
+    #projects-grid { gap: 18px; }
+    #projects-grid h3 { font-size: 15px; line-height: 1.45; letter-spacing: -0.015em; }
     #category-tabs { border: 0; gap: 8px; margin-bottom: 22px; }
-    .cat-btn { border-radius: 999px; }
-    #awards .portfolio-card { border-radius: 16px; align-items: flex-start; }
-    #awards h3 { font-size: 15px; line-height: 1.45; font-weight: 620; }
+    #awards .portfolio-card { align-items: flex-start; }
+    #awards h3 { font-size: 15px; line-height: 1.45; font-weight: 600; }
     #awards .text-amber-300 { color: #d5c69e; }
-    #research .portfolio-card, #about .rounded-2xl, #about .rounded-xl { border-radius: 16px; }
     #detail-modal > div { border-radius: 18px; background: #1c2022; }
     footer { font-family: inherit; letter-spacing: 0; }
     .modal-open { overflow: hidden; }
@@ -155,7 +368,7 @@
   <header class="site-header">
     <nav class="site-header-inner" aria-label="主导航">
       <a href="#intro" class="site-brand"><img src="assets/brand/leo-mark.svg" class="site-mark" width="28" height="28" alt="">刘钢 <span>/ Leo</span></a>
-      <div class="site-nav-links">
+      <div class="site-nav-links" id="site-nav-links">
         <a href="#featured">精选项目</a>
         <a href="#gallery">作品库</a>
         <a href="#awards">竞赛</a>
@@ -173,181 +386,122 @@
   <section id="intro" class="intro" aria-labelledby="intro-title">
     <div class="intro-inner">
       <div class="intro-copy">
-        <p class="intro-eyebrow">上海 · 硕士在读</p>
+        <p class="intro-eyebrow">上海工程技术大学 · 硕士在读（人工智能方向）</p>
         <h1 id="intro-title" class="intro-name">刘钢<span>Leo</span></h1>
-        <p class="intro-role">软件开发与计算机视觉研究</p>
-        <p class="intro-description">做过边缘端视觉预警、无障碍互助应用，也在维护一些自己日常使用的工具。开发中的尝试和踩坑，会整理在博客里。</p>
+        <p class="intro-role">软件工程、边缘视觉与多智能体应用开发</p>
+        <p class="intro-description">围绕真实场景构建可验证的系统：从无人机遥感检测、Jetson 边缘视觉预警与无障碍感知终端，到多智能体工作流与日常工程效率工具。开发中的推演与复盘同步整理在个人博客中。</p>
         <div class="intro-actions">
           <a href="#featured" class="intro-primary">查看作品 <span aria-hidden="true">↓</span></a>
+          <a href="career/" class="intro-secondary">求职工作流与简历 <span aria-hidden="true">→</span></a>
           <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer" class="intro-blog" aria-label="读博客：Leo 的笔记本（新窗口）">读我的博客 ↗</a>
         </div>
         <div class="intro-contact">
-          <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer">GitHub @insistgang</a>
+          <span aria-hidden="true">·</span>
           <a href="mailto:insistgang@163.com">insistgang@163.com</a>
+          <span aria-hidden="true">·</span>
+          <span>CCF LMCC-A 一级认证</span>
         </div>
       </div>
       <figure class="intro-figure">
-        <div class="intro-photo">
+        <button type="button" class="intro-photo" onclick="openModal('comp-02')" aria-label="查看边缘视觉设备项目详情">
           <img src="assets/images/soft/submitted-11.png" width="1200" height="900" fetchpriority="high" decoding="async" alt="EdgeSafe 项目的 Jetson 边缘设备与笔记本联调现场">
-        </div>
+        </button>
         <figcaption class="intro-caption">
-          <span><strong>EdgeSafe</strong> / 设备联调现场</span>
+          <span><strong>EdgeSafe</strong> / Jetson 边缘设备联调现场</span>
+          <button type="button" onclick="openModal('comp-02')">查看项目详情 ↗</button>
         </figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- Section 1: Featured Case Studies (明星项目大图展示区) -->
   <section id="featured" class="py-16 border-t border-slate-800/80 bg-slate-950/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-        <div>
-          <span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">精选</span>
-          <h2 class="section-heading text-3xl text-white mt-1">几个代表项目</h2>
-        </div>
-        <p class="text-sm text-slate-400 max-w-md">
-          从设备联调到日常工具，记录项目的功能、实现与验证。
-        </p>
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div><span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">精选</span><h2 class="section-heading text-3xl text-white mt-1">从问题到证据的三个工程案例</h2></div>
+        <p class="text-sm text-slate-400 max-w-md">工具调用安全、知识工作流与多模态检索。每个案例说明个人职责、关键取舍、可检查的证据和当前能力边界。</p>
       </div>
-
+      <p class="text-xs text-slate-400 leading-relaxed mb-6">以下为已有实现与归档材料的案例整理；链接指向当前仓库主线，历史评测不代表本轮重测结果。</p>
       <div class="space-y-16">
+        <article id="case-prod-17" data-featured-project="prod-17" aria-labelledby="case-title-prod-17" class="portfolio-card rounded-2xl overflow-hidden border border-slate-800">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <figure class="lg:col-span-5 bg-slate-950 p-5 flex flex-col justify-center">
+              <img src="assets/images/screenshots/aegis.jpg" loading="lazy" decoding="async" alt="神盾 AEGIS · Agent 工具调用安全网关展示界面" class="w-full aspect-video object-contain rounded-xl border border-slate-800" />
+              <figcaption class="text-xs text-slate-400 leading-relaxed mt-3">神盾 AEGIS 公开静态演示界面截图；不代表本轮调用真实模型或执行安全测试。</figcaption>
+            </figure>
+            <div class="lg:col-span-7 p-6 sm:p-8">
+              <p class="text-xs font-mono text-sky-400 mb-2">CASE 01 / Agent 安全</p>
+              <h3 id="case-title-prod-17" class="text-xl sm:text-2xl font-bold text-white">神盾 AEGIS · Agent 工具调用安全网关</h3>
+              <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+                <div data-case-field="problem"><dt class="font-semibold text-slate-100">问题</dt><dd class="mt-1 text-slate-300">外部文档或工具描述可能把 Agent 从原始任务引向敏感文件、命令执行与数据外发，仅靠模型自我约束不足以控制工具副作用。</dd></div>
+                <div data-case-field="responsibility"><dt class="font-semibold text-slate-100">个人职责</dt><dd class="mt-1 text-slate-300">规则引擎与审计设计；聚焦工具执行前的三态判定、来源关联和脱敏留痕，不把整个安全系统的协作成果归为个人独立交付。</dd></div>
+                <div data-case-field="decisions"><dt class="font-semibold text-slate-100">技术决策</dt><dd><ul class="mt-1 space-y-2 text-slate-300 list-disc pl-5"><li>由确定性规则执行放行、询问或阻断，模型输出不直接取得执行权限。</li><li>多上游 MCP 按来源隔离；SQLite 保存策略编号、证据下标与影响链路。</li></ul></dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-8 border-t border-slate-800">
+            <div data-case-field="evidence"><h4 class="text-sm font-semibold text-slate-100 mb-3">可核验证据</h4><ul class="space-y-3"><li><a href="https://github.com/insistgang/aegis/blob/main/docs/攻防对照实验报告.md" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">受控工具攻防对照报告 ↗</a><p class="mt-1 text-xs text-slate-400 leading-relaxed">包含协议、固定轨迹、真实模型结果及原始记录索引；固定轨迹效果不能当作自主攻击成功率。</p></li><li><a href="https://github.com/insistgang/aegis/blob/main/src/aegis/audit.py" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">SQLite 审计实现 ↗</a><p class="mt-1 text-xs text-slate-400 leading-relaxed">可检查写入前脱敏、会话与审计记录存储、JSON 导出的具体实现。</p></li></ul></div>
+            <div data-case-field="boundary"><h4 class="text-sm font-semibold text-slate-100 mb-3">能力边界</h4><p class="text-sm text-slate-400 leading-relaxed">公开演示为归档案例回放；受控沙箱不等于企业部署。历史评测未在本轮重跑，不作全面安全或审计不可修改保证。</p>
+              <div class="flex flex-wrap gap-4 items-center mt-5"><button type="button" onclick="openModal('prod-17')" class="inline-flex items-center px-3 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700">查看项目详情</button><a href="https://insistgang.top/aegis/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">查看演示看板 ↗</a></div>
+            </div>
+          </div>
+        </article>
 
-        <!-- Case 1: CIMC EdgeSafe (西门子杯省二) -->
-        <div class="portfolio-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-slate-800">
-          <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6">
-            <img 
-              src="assets/images/soft/submitted-11.png" loading="lazy" decoding="async"
-              alt="EdgeSafe 边缘设备与现场联调"
-              class="rounded-xl w-full h-full object-cover max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
-            />
-            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>EdgeSafe 边缘设备与联调环境</span>
-              <span class="text-emerald-400 font-bold">项目实物</span>
+        <article id="case-prod-03" data-featured-project="prod-03" aria-labelledby="case-title-prod-03" class="portfolio-card rounded-2xl overflow-hidden border border-slate-800">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <figure class="lg:col-span-5 bg-slate-950 p-5 flex flex-col justify-center">
+              <img src="assets/images/soft/submitted-13.png" loading="lazy" decoding="async" alt="基于多智能体协同的 AI 技术知识库管理系统展示界面" class="w-full aspect-video object-contain rounded-xl border border-slate-800" />
+              <figcaption class="text-xs text-slate-400 leading-relaxed mt-3">AI 技术知识库管理系统看板与质量统计界面。</figcaption>
+            </figure>
+            <div class="lg:col-span-7 p-6 sm:p-8">
+              <p class="text-xs font-mono text-sky-400 mb-2">CASE 02 / AI 智能体系统</p>
+              <h3 id="case-title-prod-03" class="text-xl sm:text-2xl font-bold text-white">基于多智能体协同的 AI 技术知识库管理系统</h3>
+              <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+                <div data-case-field="problem"><dt class="font-semibold text-slate-100">问题</dt><dd class="mt-1 text-slate-300">收藏的技术链接难以持续整理，模型生成的摘要也不能未经审核直接当作可靠知识入库。</dd></div>
+                <div data-case-field="responsibility"><dt class="font-semibold text-slate-100">个人职责</dt><dd class="mt-1 text-slate-300">独立设计与开发个人 AI 技术知识库，组织采集、分析、审核与归档，并提供 MCP 查询；不与竞赛威胁情报库混写。</dd></div>
+                <div data-case-field="decisions"><dt class="font-semibold text-slate-100">技术决策</dt><dd><ul class="mt-1 space-y-2 text-slate-300 list-disc pl-5"><li>以九节点 LangGraph 状态图表达流程；审核不通过进入有界修订，超限转人工标记。</li><li>五维审核分数由代码加权计算，归档保留来源；MCP 将查询能力与采集链路分开。</li></ul></dd></div>
+              </dl>
             </div>
           </div>
-          <div class="lg:col-span-5 p-8 flex flex-col justify-between">
-            <div>
-              <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 西门子杯 · 华东一赛区二等奖</span>
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">2026 研电赛 · 上海赛区二等奖</span>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">边缘视觉设备 · 工业预警与辅助通行</h3>
-              <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                同一套 Jetson 边缘计算盒子，用于 2026 年西门子杯与研电赛的不同场景展示：工业现场视觉预警，以及无障碍辅助通行感知。两项比赛均获相应赛区二等奖。
-              </p>
-              <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>Python / OpenCV 检测流程与 ONNX Runtime 推理</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>本地声光告警与设备联调</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>ROI 区域过滤、事件去抖与云端汇总</span>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80">
-              <span class="text-xs font-mono text-slate-400">角色: 系统架构师 / 算法核心</span>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-8 border-t border-slate-800">
+            <div data-case-field="evidence"><h4 class="text-sm font-semibold text-slate-100 mb-3">可核验证据</h4><ul class="space-y-3"><li><a href="https://github.com/insistgang/ai-knowledge-base/blob/main/pipeline/workflow_graph.py" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">九节点状态图与分支实现 ↗</a><p class="mt-1 text-xs text-slate-400 leading-relaxed">检查 review → organize / revise / human_flag 的分支与修订回路。</p></li><li><a href="https://github.com/insistgang/ai-knowledge-base/blob/main/workflows/reviewer.py" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">审核评分与门禁实现 ↗</a><p class="mt-1 text-xs text-slate-400 leading-relaxed">检查五维权重、通过阈值与评分处理，而非仅凭架构图判断能力。</p></li></ul></div>
+            <div data-case-field="boundary"><h4 class="text-sm font-semibold text-slate-100 mb-3">能力边界</h4><p class="text-sm text-slate-400 leading-relaxed">当前自动采集主线是 GitHub；HN、arXiv、RSS 不写成已交付数据源。公开 Dashboard 展示归档结果，不代表浏览器可在线启动采集或所有条目已人工复核。</p>
+              <div class="flex flex-wrap gap-4 items-center mt-5"><button type="button" onclick="openModal('prod-03')" class="inline-flex items-center px-3 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700">查看项目详情</button><a href="https://insistgang.top/ai-knowledge-base/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">在线体验 ↗</a></div>
             </div>
           </div>
+        </article>
+
+        <article id="case-prod-20" data-featured-project="prod-20" aria-labelledby="case-title-prod-20" class="portfolio-card rounded-2xl overflow-hidden border border-slate-800">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <figure class="lg:col-span-5 bg-slate-950 p-5 flex flex-col justify-center">
+              <img src="assets/images/screenshots/video-search.jpg" loading="lazy" decoding="async" alt="视频画面内容检索平台展示界面" class="w-full aspect-video object-contain rounded-xl border border-slate-800" />
+              <figcaption class="text-xs text-slate-400 leading-relaxed mt-3">视频画面检索公开静态示例的检索中心实图；不含在线视频处理后端。</figcaption>
+            </figure>
+            <div class="lg:col-span-7 p-6 sm:p-8">
+              <p class="text-xs font-mono text-sky-400 mb-2">CASE 03 / 多模态检索</p>
+              <h3 id="case-title-prod-20" class="text-xl sm:text-2xl font-bold text-white">视频画面内容检索平台</h3>
+              <dl class="mt-5 space-y-4 text-sm leading-relaxed">
+                <div data-case-field="problem"><dt class="font-semibold text-slate-100">问题</dt><dd class="mt-1 text-slate-300">无声录屏缺少可搜索的内容索引，人工回看成本高；长时间分析任务还需要在失败和进程重启后保留处理状态。</dd></div>
+                <div data-case-field="responsibility"><dt class="font-semibold text-slate-100">个人职责</dt><dd class="mt-1 text-slate-300">视频检索平台设计与开发，围绕 FastAPI 后端、React 检索界面和任务处理链路组织实现；不将源码能力或历史描述升级为未经验证的性能成绩。</dd></div>
+                <div data-case-field="decisions"><dt class="font-semibold text-slate-100">技术决策</dt><dd><ul class="mt-1 space-y-2 text-slate-300 list-disc pl-5"><li>FFmpeg 抽帧与去重，按 quick / two_stage / deep 分阶段处理，再将分析文本写入 SQLite FTS5。</li><li>任务状态落入 SQLite；启动时恢复待处理任务，失败任务通过接口重试，不只依赖进程内队列。</li></ul></dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 sm:p-8 border-t border-slate-800">
+            <div data-case-field="evidence"><h4 class="text-sm font-semibold text-slate-100 mb-3">可核验证据</h4><ul class="space-y-3"><li><a href="https://github.com/insistgang/video-speech-search/blob/main/backend/services/task_queue.py" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">持久化队列与恢复实现 ↗</a><p class="mt-1 text-xs text-slate-400 leading-relaxed">可检查任务入库、状态更新、启动恢复与 worker 调度。</p></li><li><a href="https://github.com/insistgang/video-speech-search/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">项目运行与配置说明 ↗</a><p class="mt-1 text-xs text-slate-400 leading-relaxed">列出前后端、FFmpeg、模型模式与鉴权配置，区分真实处理和 UI 调试。</p></li></ul></div>
+            <div data-case-field="boundary"><h4 class="text-sm font-semibold text-slate-100 mb-3">能力边界</h4><p class="text-sm text-slate-400 leading-relaxed">公开站点仅为静态演示。真实处理需启动后端、安装 FFmpeg 并配置模型服务；FTS5 是全文检索，不宣称任意语义召回、毫秒级性能或多卡吞吐。</p>
+              <div class="flex flex-wrap gap-4 items-center mt-5"><button type="button" onclick="openModal('prod-20')" class="inline-flex items-center px-3 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700">查看项目详情</button><a href="https://insistgang.top/video-speech-search/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">查看静态演示 ↗</a></div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-800" aria-label="更多方向">
+        <h3 class="text-base font-semibold text-white mb-4">更多方向：边缘硬件、无障碍交互与日常工具</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <article class="portfolio-card p-5 rounded-xl"><h4 class="text-sm font-semibold text-white">边缘视觉设备</h4><p class="mt-2 text-xs text-slate-400 leading-relaxed">同一硬件平台用于 2026 西门子杯与研电赛不同场景；获奖证据与当前真机能力分开判断。</p><div class="mt-4 flex flex-wrap gap-3"><button type="button" onclick="openModal('comp-02')" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">西门子杯证据</button><button type="button" onclick="openModal('comp-10')" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">研电赛证据</button><a href="yds/" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">视频数据大屏 ↗</a></div></article>
+          <article class="portfolio-card p-5 rounded-xl"><h4 class="text-sm font-semibold text-white">共感 LinkAble · 互助应用</h4><p class="mt-2 text-xs text-slate-400 leading-relaxed">逢甲赛区与台湾交流展示的 Flutter 原型；匹配、通话与 SOS 为本地演示流程，不代表真实救援服务，与边缘设备不是同一工程。</p><div class="mt-4 flex flex-wrap gap-3"><a href="https://insistgang.top/LinkLab/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">体验互助 Demo ↗</a><a href="https://github.com/insistgang/LinkLab" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">查看代码 ↗</a></div></article>
+          <article class="portfolio-card p-5 rounded-xl"><h4 class="text-sm font-semibold text-white">Ops-Hub · 个人工作总台</h4><p class="mt-2 text-xs text-slate-400 leading-relaxed">设备探针、任务分流建议与定时同步，串联日常使用场景；不把派发建议表述为已自动执行的远端任务。</p><div class="mt-4 flex flex-wrap gap-3"><button type="button" onclick="openModal('prod-01')" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">查看项目详情</button><a href="https://insistgang.top/ops-hub/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-white underline underline-offset-4">打开总台 ↗</a></div></article>
         </div>
-
-        <!-- Case 2: LinkAble · 台湾交流 / 逢甲赛 -->
-        <div class="portfolio-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-slate-800">
-          <div class="lg:col-span-5 p-8 flex flex-col justify-between order-2 lg:order-1">
-            <div>
-              <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">台湾交流 · 逢甲赛</span>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">共感 LinkAble · 无障碍互助应用</h3>
-              <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                共感 LinkAble 是面向视障者及临时出行困难者的无障碍互助应用原型，将 AI 多模态助手、志愿者协助与 SOS 求助组织在同一交互流程中。项目用于 2026 两岸大学生创客大赛逢甲赛区与台湾交流展示，侧重产品方案与交互演示。
-              </p>
-              <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>面向求助者与志愿者的双角色交互</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>AI 多模态助手、志愿者协助与 SOS 流程演示</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>逢甲赛区交流作品 · 产品方案与交互原型</span>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80">
-              <span class="text-xs font-mono text-slate-400">项目负责人 · 产品方案与交互演示</span>
-              <div class="mt-3 flex flex-wrap gap-4 text-xs"><a class="text-sky-400 underline" href="https://insistgang.top/LinkLab/" target="_blank" rel="noopener noreferrer">体验互助应用 Demo</a><a class="text-sky-400 underline" href="https://github.com/insistgang/LinkLab" target="_blank" rel="noopener noreferrer">查看项目代码</a></div>
-              <p class="mt-2 text-xs text-slate-400">匹配、通话与 SOS 为演示流程，不代表真实救援服务。</p>
-            </div>
-          </div>
-          <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6 order-1 lg:order-2">
-            <img 
-              src="assets/images/soft/submitted-10.png" loading="lazy" decoding="async"
-              alt="共感 LinkAble 竞赛交互原型"
-              class="rounded-xl w-full h-full object-contain max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
-            />
-            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>LinkAble · 求助与志愿者入口（演示）</span>
-              <span class="text-sky-400 font-bold">界面示例</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case 3: Ops-Hub & AI-QuotaMonitor (算力治理与数字化总台) -->
-        <div class="portfolio-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-slate-800">
-          <div class="lg:col-span-7 bg-slate-900 relative overflow-hidden group min-h-[320px] flex items-center justify-center p-6">
-            <img 
-              src="assets/images/opshub-cover.png" loading="lazy" decoding="async"
-              alt="Ops Hub 个人工作总台"
-              class="rounded-xl w-full h-full object-cover max-h-[420px] shadow-2xl group-hover:scale-105 transition-transform duration-500"
-            />
-            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[11px] font-mono text-slate-300 flex items-center justify-between">
-              <span>Ops Hub 工作总台</span>
-              <span class="text-sky-400 font-bold">当前页面</span>
-            </div>
-          </div>
-          <div class="lg:col-span-5 p-8 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="px-2.5 py-1 rounded text-xs font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20">开源自研中枢</span>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">Ops-Hub · 个人数字化运营工作总台</h3>
-              <p class="text-sm text-slate-300 leading-relaxed mb-6">
-                将设备状态、任务分流和工程进度放在一个工作总台中，通过 Python CLI、静态看板与定时同步减少重复的状态检查。
-              </p>
-              <div class="space-y-2.5 text-xs text-slate-300 mb-6 font-mono">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>设备探针采集连通性与 RTT 时延，汇总到状态看板</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>命令行按任务需求给出执行端建议</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                  <span>launchd 定时巡检与数据同步</span>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-slate-400">角色: 独立架构师 & 全栈研发</span>
-              <button onclick="openModal('prod-01')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white transition-all flex items-center gap-1.5">
-                <span>查看软件项目</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -356,53 +510,62 @@
   <section id="gallery" class="py-20 border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
           <span class="section-kicker text-xs font-mono uppercase tracking-wider text-sky-400">目录</span>
           <h2 class="section-heading text-3xl text-white mt-1">作品与经历 <span class="text-slate-400 text-xl">（<span data-count="all">38</span> 条记录）</span></h2>
-          <p class="text-xs text-slate-400 mt-3">按竞赛荣誉、研究工作、产业实践和软件作品分类。同一项目可能关联多条成果，不等同于独立项目数。</p>
-          <p class="text-xs text-slate-400 mt-2 leading-relaxed">更新于 <time datetime="2026-11-05">2026 年 11 月 5 日</time>。</p>
+          <p class="text-xs text-slate-400 mt-3">按竞赛记录、研究工作、产业实践和软件作品分类。同一项目可能关联多条成果，不等同于独立项目数。</p>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">更新于 <time datetime="2026-11-06">2026 年 11 月 6 日</time> · 支持按名称、技术栈、角色或状态检索。</p>
         </div>
         
         <!-- Search bar inside gallery -->
         <div class="relative min-w-[280px] sm:min-w-[340px]">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
           <input 
             type="text" 
             id="search-input" 
-            placeholder="搜索项目或技术栈…"
+            placeholder="搜索项目、奖项或技术栈…"
             aria-label="搜索作品"
-            class="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
+            class="w-full pl-10 pr-9 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
             oninput="handleSearch()"
           />
+          <button
+            type="button"
+            id="search-clear"
+            onclick="clearSearch()"
+            aria-label="清空搜索关键词"
+            class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white rounded-md"
+          >
+            <i data-lucide="x" class="w-3.5 h-3.5"></i>
+          </button>
         </div>
       </div>
 
       <!-- Category Filter Tabs -->
-      <div class="flex flex-wrap items-center gap-2 mb-10 pb-2 border-b border-slate-800/60" id="category-tabs">
-        <button onclick="setCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-white flex items-center gap-2" data-cat="all">
+      <div class="flex flex-wrap items-center gap-2 mb-6 pb-2" id="category-tabs">
+        <button onclick="setCategory('all')" class="cat-btn active px-4 py-2 rounded-full text-xs font-bold transition-all border border-slate-800 flex items-center gap-2" data-cat="all">
           <span>全部记录</span>
-          <span class="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]" id="count-all">38</span>
+          <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]" id="count-all">38</span>
         </button>
-        <button onclick="setCategory('competition')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="competition">
+        <button onclick="setCategory('competition')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="competition">
           <span>竞赛记录</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">10</span>
         </button>
-        <button onclick="setCategory('research')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="research">
+        <button onclick="setCategory('research')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="research">
           <span>研究工作</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">3</span>
         </button>
-        <button onclick="setCategory('industry')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="industry">
+        <button onclick="setCategory('industry')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="industry">
           <span>产业实践</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">4</span>
         </button>
-        <button onclick="setCategory('products')" class="cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="products">
+        <button onclick="setCategory('products')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2" data-cat="products">
           <span>软件作品</span>
           <span class="px-1.5 py-0.5 rounded-full bg-slate-800 text-[10px]">21</span>
         </button>
       </div>
 
-      <p id="results-count" class="text-xs text-slate-400 mb-4" role="status" aria-live="polite"></p>
+      <p id="results-count" class="text-xs text-slate-400 mb-5" role="status" aria-live="polite"></p>
       <noscript><p class="text-slate-300 mb-6">开启 JavaScript 可筛选作品和查看项目详情；页面下方仍可浏览代表作、竞赛荣誉与研究简介。</p></noscript>
       <!-- Works Grid -->
       <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -410,154 +573,187 @@
       </div>
 
       <!-- Empty State -->
-      <div id="empty-state" class="hidden text-center py-20">
-        <i data-lucide="search-x" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
-        <p class="text-sm font-medium text-slate-400">未找到符合搜索条件的项目</p>
+      <div id="empty-state" class="hidden text-center py-16 portfolio-card p-8">
+        <i data-lucide="search-x" class="w-10 h-10 text-slate-500 mx-auto mb-3"></i>
+        <p class="text-sm font-medium text-slate-300 mb-4">未找到符合当前筛选或搜索条件的项目</p>
+        <button type="button" onclick="resetFilters()" class="px-4 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors">
+          重置筛选条件
+        </button>
       </div>
 
     </div>
   </section>
 
-    <!-- Section 3: Honors & Awards Wall (竞赛荣誉与奖状原件墙) -->
+  <!-- Section 3: Honors & Awards Wall (竞赛荣誉与奖状原件墙) -->
   <section id="awards" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mb-12">
         <span class="section-kicker text-xs font-mono uppercase tracking-wider text-amber-400">竞赛</span>
-        <h2 class="section-heading text-3xl text-white mt-1">竞赛经历与证书</h2>
+        <h2 class="section-heading text-3xl text-white mt-1">竞赛经历与证书原件</h2>
         <p class="text-sm text-slate-400 mt-2">
-          按证书核对赛事、年份、赛区与获奖等级，点击查看完整证书。
+          按证书原件核对赛事届次、年份、赛区与获奖等级，点击任一卡片可查看高清证书与项目详情。
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-09')" aria-label="查看证书与项目：第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+          <button onclick="openModal('comp-09')" aria-label="查看证书与项目：第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
             <img loading="lazy" decoding="async" src="assets/images/certs/cimc-2025-liugang.png" alt="刘钢学生获奖证书：2025 年第十九届 CIMC 全国初赛华北二赛区一等奖。证书编号 CIMC-GYAS-202538368。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">华北二赛区一等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 全国初赛华北二赛区一等奖</p>
-            <button onclick="openModal('comp-09')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">华北二赛区一等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">CIMC-GYAS-202538368</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 学生个人获奖证书</p>
+            <button onclick="openModal('comp-09')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-02')" aria-label="查看证书与项目：第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+          <button onclick="openModal('comp-02')" aria-label="查看证书与项目：第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
             <img loading="lazy" decoding="async" src="assets/images/certs/cimc-2026-liugang.png" alt="刘钢学生获奖证书：2026 年第二十届 CIMC 全国初赛华东一赛区二等奖。证书编号 CIMC-ZNAS-202680118。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">华东一赛区二等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">全国初赛 · 智能制造创新研发类赛项：自由探索方向</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 · 全国初赛华东一赛区二等奖</p>
-            <button onclick="openModal('comp-02')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">华东一赛区二等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">CIMC-ZNAS-202680118</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">全国初赛 · 智能制造创新研发类赛项：自由探索方向（工业边缘视觉监测）</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 · 学生证书与边缘设备实拍</p>
+            <button onclick="openModal('comp-02')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-10')" aria-label="查看证书与项目：第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+          <button onclick="openModal('comp-10')" aria-label="查看证书与项目：第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
             <img loading="lazy" decoding="async" src="assets/images/certs/gedc-2026-edge-device.png" alt="2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">上海赛区团队二等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">边缘计算设备 · 基于边缘智能的无障碍辅助通行感知系统设计与实现</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">同一边缘设备平台 · 上海分赛区团队二等奖</p>
-            <button onclick="openModal('comp-10')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">上海赛区团队二等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">GEDC-02260600144</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">参赛作品：《基于边缘智能的无障碍辅助通行感知系统设计与实现》</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2026 年 7 月 · 含原始证书 PDF 与硬件实拍</p>
+            <button onclick="openModal('comp-10')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-03')" aria-label="查看证书与项目：第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
-            <img loading="lazy" decoding="async" src="assets/images/certs/cert_shumo.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          <button onclick="openModal('comp-03')" aria-label="查看证书与项目：第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_shumo.jpg" alt="刘钢获奖证书：2025 年“华为杯”第二十二届中国研究生数学建模竞赛全国二等奖（编号 E2025205007）。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">国家二等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">国二证书 · 数万行仿真数据 · 完整报告</p>
-            <button onclick="openModal('comp-03')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">国家二等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">E2025205007</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">复杂系统多域特征建模、参数辨识与迁移诊断求解</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 12 月 · 国家级二等奖证书</p>
+            <button onclick="openModal('comp-03')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-01')" aria-label="查看证书与项目：第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+          <button onclick="openModal('comp-01')" aria-label="查看证书与项目：第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
             <img loading="lazy" decoding="async" src="assets/images/certs/cert_yandian.jpg" alt="2025 年第二十届研电赛上海赛区团队三等奖证书；对应输电线路监测装置，与 LinkAble 为不同项目。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">上海赛区团队三等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">智能追光式输电线路在线监测装置</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 · 上海分赛区团队三等奖</p>
-            <button onclick="openModal('comp-01')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">上海赛区团队三等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">GEDC-02250600270</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">参赛作品：《智能追光式输电线路在线监测装置》</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 7 月 · 上海分赛区团队三等奖</p>
+            <button onclick="openModal('comp-01')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-04')" aria-label="查看证书与项目：第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
-            <img loading="lazy" decoding="async" src="assets/images/certs/cert_ai.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          <button onclick="openModal('comp-04')" aria-label="查看证书与项目：第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_ai.jpg" alt="获奖证书（编号 0625A30704）：第七届“华为杯”中国研究生人工智能创新大赛全国三等奖，作品《体育生语文基础智能辅导系统》。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">国家三等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于大模型多智能体协同的特定人群智能自适应助学辅导系统</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 完整实施方案 · 可运行工程</p>
-            <button onclick="openModal('comp-04')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">国家三等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">0625A30704</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">参赛作品：《体育生语文基础智能辅导系统》</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 10 月 · 含证书、小程序截图与开源代码</p>
+            <button onclick="openModal('comp-04')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-05')" aria-label="查看证书与项目：第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
-            <img loading="lazy" decoding="async" src="assets/images/certs/cert_wangan.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          <button onclick="openModal('comp-05')" aria-label="查看证书与项目：第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_wangan.jpg" alt="获奖证书（编号 1625A30007）：第四届“华为杯”中国研究生网络安全创新大赛全国三等奖。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">国家三等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 专家评委答辩 Q&amp;A</p>
-            <button onclick="openModal('comp-05')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">国家三等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">1625A30007</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">参赛作品：《基于多智能体协同的网络安全威胁智能分析系统》</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 11 月 · 含证书、静态演示与开源代码</p>
+            <button onclick="openModal('comp-05')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-06')" aria-label="查看证书与项目：创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
-            <img loading="lazy" decoding="async" src="assets/images/certs/cert_eda.jpg" alt="竞赛证书与项目资料；团队荣誉与个人职责分别展示。" class="w-full h-full object-contain" />
+          <button onclick="openModal('comp-06')" aria-label="查看证书与项目：创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
+            <img loading="lazy" decoding="async" src="assets/images/certs/cert_eda.jpg" alt="获奖证书（编号 2825A30075）：2025 中国研究生创“芯”大赛·EDA 精英挑战赛全国三等奖。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">国家三等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">复杂集成电路系统原理图框图自动识别与拓扑网表重构算法</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">国三证书 · 答辩问答题库 · 算法代码</p>
-            <button onclick="openModal('comp-06')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">国家三等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">2825A30075</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">复杂集成电路系统原理图框图自动识别与拓扑网表重构算法</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 11 月 · 国家级三等奖证书</p>
+            <button onclick="openModal('comp-06')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-07')" aria-label="查看证书与项目：第七届上海市研究生智慧城市创意设计大赛 · 三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+          <button onclick="openModal('comp-07')" aria-label="查看证书与项目：第七届上海市研究生智慧城市创意设计大赛 · 三等奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
             <img loading="lazy" decoding="async" src="assets/images/certs/cert_zhihuichengshi.jpg" alt="2025 年第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛证书。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第七届上海市研究生智慧城市创意设计大赛 · 三等奖</h3>
-            <p class="text-xs text-amber-300 mb-2">三等奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">基于多模态 AI 的违章建筑智能检测与管理系统</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">上海市赛事 · 团队三等奖</p>
-            <button onclick="openModal('comp-07')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">三等奖</span>
+              <span class="text-[11px] font-mono text-slate-400">第五届长三角赛事</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第七届上海市研究生智慧城市创意设计大赛 · 三等奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">参赛作品：《基于多模态 AI 的违章建筑智能检测与管理系统》</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">2025 年 11 月 · 上海市暨长三角研究生赛事</p>
+            <button onclick="openModal('comp-07')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
 
         <article class="portfolio-card p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start gap-4">
-          <button onclick="openModal('comp-08')" aria-label="查看证书与项目：第三届上海市大学生行业分析大赛 · 银奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30">
+          <button onclick="openModal('comp-08')" aria-label="查看证书与项目：第三届上海市大学生行业分析大赛 · 银奖" class="w-24 sm:w-28 h-32 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-slate-950 border border-amber-500/30 p-1">
             <img loading="lazy" decoding="async" src="assets/images/certs/cert_hangyefenxi.jpg" alt="第三届上海市大学生行业分析大赛高教组银奖证书，2025 年 10 月。" class="w-full h-full object-contain" />
           </button>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-white mb-2">第三届上海市大学生行业分析大赛 · 银奖</h3>
-            <p class="text-xs text-amber-300 mb-2">银奖</p>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">智航长三角：上海无人机低空配送行业分析及人才需求洞察</p>
-            <p class="text-xs text-slate-400 leading-relaxed mb-3">高教组银奖 · 行业分析报告</p>
-            <button onclick="openModal('comp-08')" class="text-xs text-amber-400 hover:text-amber-300 underline">查看证书与项目</button>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">高教组银奖</span>
+              <span class="text-[11px] font-mono text-slate-400">2025 年 10 月</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1.5">第三届上海市大学生行业分析大赛 · 银奖</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-2">报告：《智航长三角：上海无人机低空配送行业分析及人才需求洞察》</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">高教组银奖 · 含证书与分析看板图</p>
+            <button onclick="openModal('comp-08')" class="text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4">查看证书与项目 →</button>
           </div>
         </article>
       </div>
@@ -567,52 +763,102 @@
   <!-- Section 4: Academic Research (学术科研与论文) -->
   <section id="research" class="py-20 border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
           <span class="section-kicker text-xs font-mono uppercase tracking-wider text-purple-400">研究</span>
-          <h2 class="section-heading text-3xl text-white mt-1">学术研究</h2>
+          <h2 class="section-heading text-3xl text-white mt-1">学术研究工作</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
-          立足严谨的实验设计与数学推导，以真问题驱动学术探索与算法创新。
+          围绕遥感图像目标检测、双时相变化检测与跨学科文本分析开展实验设计与方法验证。
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        <div class="portfolio-card p-6 rounded-2xl border border-slate-800">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="px-2.5 py-1 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">硕士毕业大论文</span>
-            <span class="text-xs font-mono text-slate-400">数据复核与模型评估</span>
+        <article class="portfolio-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <button type="button" onclick="openModal('res-01')" aria-label="查看硕士毕业论文详情" class="w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 mb-5 block">
+              <img src="assets/images/res_weijian_vis.png" loading="lazy" decoding="async" alt="多尺度建筑目标检测与分割示例" class="w-full h-full object-cover" />
+            </button>
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">硕士毕业论文</span>
+              <span class="text-xs font-mono text-slate-400">研究进行中</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">《面向违法建筑识别的多尺度图像检测方法研究》</h3>
+            <p class="text-xs text-slate-400 mb-3">上海工程技术大学 · 产学研合作课题</p>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+              围绕复杂背景下建筑识别与多尺度目标漏检问题，开展数据标注复核、多尺度特征融合设计与独立测试集评估。
+            </p>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">《面向违法建筑识别的多尺度图像检测方法研究》</h3>
-          <p class="text-xs text-slate-400 mb-4">合作单位：上海工程技术大学 · 中国电信 · 中国电子科技集团第50研究所</p>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-            围绕复杂背景下建筑识别与多尺度漏检问题，开展数据标注复核、独立测试集设计与模型评估，探索检测方法在实际场景中的适用范围。
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">YOLOv11</span>
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">SAM</span>
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">多尺度特征融合</span>
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">遥感影像</span>
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">YOLOv11</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">SAM</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">多尺度特征融合</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">遥感影像</span>
+            </div>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="font-mono text-slate-400">独立完成人</span>
+              <button type="button" onclick="openModal('res-01')" class="text-sky-400 hover:text-white underline underline-offset-4">查看研究详情 →</button>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <div class="portfolio-card p-6 rounded-2xl border border-slate-800">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="px-2.5 py-1 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">核心小论文</span>
-            <span class="text-xs font-mono text-slate-400">论文与实验整理</span>
+        <article class="portfolio-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <button type="button" onclick="openModal('res-02')" aria-label="查看 MS-LightCD 研究详情" class="w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 mb-5 block">
+              <img src="assets/images/res_ms_lightcd_diff.png" loading="lazy" decoding="async" alt="MS-LightCD 双时相遥感变化检测结果对比" class="w-full h-full object-cover" />
+            </button>
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">学术小论文</span>
+              <span class="text-xs font-mono text-slate-400">论文与实验整理</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">《MS-LightCD: 一种面向高分辨率遥感图像的轻量级变化检测网络》</h3>
+            <p class="text-xs text-slate-400 mb-3">研究方向：双时相遥感变化检测与轻量化网络</p>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+              针对双时相遥感影像变化检测，探索多尺度特征表达与轻量化网络结构设计，结合对比实验、消融分析与端侧推理评估方法适用边界。
+            </p>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">《MS-LightCD: 一种面向高分辨率遥感图像的轻量级变化检测网络》</h3>
-          <p class="text-xs text-slate-400 mb-4">研究方向：遥感影像变化检测与轻量化网络</p>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-            针对双时相遥感影像的变化检测，探索多尺度特征表达与轻量化网络设计，结合对比、消融实验及端侧模型推理评估分析方法的适用条件。
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">Change Detection</span>
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">Siamese Network</span>
-            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">轻量化注意力</span>
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">Change Detection</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">Siamese Network</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">轻量化注意力</span>
+            </div>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="font-mono text-slate-400">学生第一作者</span>
+              <button type="button" onclick="openModal('res-02')" class="text-sky-400 hover:text-white underline underline-offset-4">查看研究详情 →</button>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="portfolio-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <button type="button" onclick="openModal('res-04')" aria-label="查看跨学科合作研究详情" class="w-full aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 mb-5 block">
+              <img src="assets/images/res_mcssci_governance.jpg" loading="lazy" decoding="async" alt="网络文化空间治理与行动演化框架" class="w-full h-full object-contain p-1" />
+            </button>
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">跨学科研究</span>
+              <span class="text-xs font-mono text-slate-400">合作研究与稿件修订</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">跨学科合作研究：网络文化空间与集体行动</h3>
+            <p class="text-xs text-slate-400 mb-3">研究方向：计算传播学与文本挖掘实践</p>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+              参与网络文化社群跨学科研究，将文本清洗、情感分析与结构化特征提炼用于语料整理、演化图示绘制与学术稿件协作修订。
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">计算传播学</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">NLP 情感分析</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 text-slate-300">文本挖掘</span>
+            </div>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="font-mono text-slate-400">数据分析与稿件协作</span>
+              <button type="button" onclick="openModal('res-04')" class="text-sky-400 hover:text-white underline underline-offset-4">查看研究详情 →</button>
+            </div>
+          </div>
+        </article>
 
       </div>
     </div>
@@ -630,69 +876,68 @@
             少靠临时硬撑。
           </h2>
           <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-            在软件工程与学术研究中，我始终坚信<strong>系统化与确定性的力量</strong>。
-            无论是设计多智能体状态机还是管理多端算力，我都重视可复现的验证、清晰的接口和可维护的实现。
+            在软件工程与学术研究中，我看重<strong>可复现的验证、清晰的边界与可维护的实现</strong>。
+            无论是训练轻量化视觉模型、联调 Jetson 边缘终端，还是编写自动化工作流，都力求把重复劳动收敛成确定性的脚本与工具。
           </p>
-          <div class="grid grid-cols-2 gap-4 text-xs text-slate-400 font-mono">
-            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="font-bold text-white mb-1">场景分开</div>
-              <div>图书馆专注推演写作，实验室跑模型充电，宿舍关机休息恢复。</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-400 font-mono">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="font-bold text-white mb-1.5">场景与算力分工</div>
+              <div class="leading-relaxed">随身笔记本负责架构推演与文档写作，工作站承担模型训练与量化，边缘盒子专注现场联调。</div>
             </div>
-            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="font-bold text-white mb-1">少做多余抽象</div>
-              <div>拒绝无谓的过度抽象，优先采用标准库与纯净原生直出。</div>
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="font-bold text-white mb-1.5">少做多余抽象</div>
+              <div class="leading-relaxed">优先采用标准库、静态构建与清晰的数据契约，让每一条结论和指标都能追溯到真实证据。</div>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-6 p-8 rounded-2xl bg-slate-900/90 border border-slate-800">
-          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <div class="lg:col-span-6 p-7 sm:p-8 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-2">
             <i data-lucide="terminal" class="w-5 h-5 text-sky-400"></i>
-            <span>常用技术与工程方法</span>
+            <span>常用技术栈与工程能力</span>
           </h3>
 
           <div class="space-y-4 text-xs">
             <div>
-              <div class="text-slate-400 mb-2 font-mono">深度学习与计算机视觉 (CV & Deep Learning)</div>
+              <div class="text-slate-400 mb-2 font-mono">计算机视觉与端侧推理 (CV &amp; Edge Deployment)</div>
               <div class="flex flex-wrap gap-2">
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">PyTorch</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">YOLOv11/v8</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">YOLOv11 / v8</span>
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">SAM</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">TensorRT</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">TensorRT / ONNX Runtime</span>
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">OpenCV</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">遥感图像变化检测</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">遥感变化检测</span>
               </div>
             </div>
 
             <div>
-              <div class="text-slate-400 mb-2 font-mono">大模型与智能体 (LLMs, Multi-Agent & RAG)</div>
+              <div class="text-slate-400 mb-2 font-mono">大模型、微调量化与智能体 (LLM, VLM &amp; Agents)</div>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">LangGraph</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">ChromaDB</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">Qwen2 / Qwen2.5-VL</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">QLoRA / INT4 量化</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">Multi-Agent 编排</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">ChromaDB / RAG</span>
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">MCP 协议</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">RAG 混合检索</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">Token 审计引擎</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-purple-300 border border-slate-700">CCF LMCC-A 一级认证</span>
               </div>
             </div>
 
             <div>
-              <div class="text-slate-400 mb-2 font-mono">全栈开发与边缘硬件 (Full-Stack & Edge Computing)</div>
+              <div class="text-slate-400 mb-2 font-mono">全栈研发与边缘硬件 (Full-Stack &amp; Infrastructure)</div>
               <div class="flex flex-wrap gap-2">
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Python FastAPI</span>
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Java Spring Boot</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">.NET 8</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Vue 3 / Vite</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">React / Vue 3 / TypeScript</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">SQLite FTS5 / MySQL</span>
                 <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">NVIDIA Jetson</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Tailscale Mesh</span>
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Docker</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Docker / Linux</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-400">
-            <span>坐标: 上海 · 徐汇滨江 / 松江大学城</span>
-            <span class="text-emerald-400 font-bold">● 就绪可联络</span>
+          <div class="mt-7 pt-5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
+            <span>坐标：上海 · 徐汇 / 松江大学城</span>
+            <a href="career/" class="text-sky-400 hover:text-white underline underline-offset-4">查看求职工作流与简历 →</a>
           </div>
         </div>
       </div>
@@ -702,11 +947,12 @@
   <!-- Footer -->
   <footer class="py-12 border-t border-slate-800/80 text-center text-xs text-slate-500 font-mono">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>刘钢 · 作品集</div>
-      <div class="flex items-center gap-4 text-slate-400">
-        <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-        <a href="https://insistgang.top" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">个人博客</a>
-        <a href="mailto:insistgang@163.com" class="hover:text-white transition-colors">电子邮箱</a>
+      <div>刘钢 Leo · 软件工程与研究作品集</div>
+      <div class="flex flex-wrap items-center justify-center gap-5 text-slate-400">
+        <a href="career/" class="hover:text-white transition-colors">求职工作流与简历</a>
+        <a href="https://insistgang.top/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">个人博客 ↗</a>
+        <a href="https://github.com/insistgang" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub ↗</a>
+        <a href="mailto:insistgang@163.com" class="hover:text-white transition-colors">insistgang@163.com</a>
       </div>
       <div>2026</div>
     </div>
@@ -715,7 +961,7 @@
   <!-- Detail Modal -->
   <div id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
-      <button id="modal-close" onclick="closeModal()" aria-label="关闭项目详情" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 hover:bg-slate-800 transition-all">
+      <button id="modal-close" onclick="closeModal()" aria-label="关闭项目详情" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
@@ -732,23 +978,26 @@
     "id": "comp-01",
     "category": "competition",
     "title": "第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖",
-    "subtitle": "智能追光式输电线路在线监测装置",
+    "subtitle": "智能追光式输电线路在线监测装置 · 证书编号 GEDC-01250600383",
     "role": "团队成员",
     "status": "上海赛区团队三等奖",
     "statusColor": "amber",
-    "badge": "研电赛",
-    "metrics": "2025 年 · 上海分赛区团队三等奖",
+    "badge": "研电赛 2025",
+    "metrics": "2025 年 7 月 · 上海分赛区团队三等奖 · 输电线路监测",
     "tech": [
       "输电线路监测",
-      "装置设计"
+      "传感器采集",
+      "追光供能",
+      "装置工程"
     ],
-    "description": "参赛作品为智能追光式输电线路在线监测装置，获第二十届中国研究生电子设计竞赛上海分赛区团队三等奖。",
+    "description": "参赛作品为《智能追光式输电线路在线监测装置》，针对野外输电走廊长周期无人值守监测需求设计，获第二十届中国研究生电子设计竞赛上海分赛区团队三等奖。",
     "highlights": [
-      "证书载明刘钢为参赛队员",
-      "作品名称与奖项按 2025 年 7 月证书核对"
+      "证书载明刘钢为参赛队员（证书编号 GEDC-01250600383）",
+      "作品名称、赛事届次与奖项等级均按 2025 年 7 月原始证书核对",
+      "独立于 2026 年第二十一届研电赛边缘辅助通行项目"
     ],
     "image": "assets/images/certs/cert_yandian.jpg",
-    "imageCaption": "2025 年第二十届研电赛上海赛区团队三等奖证书；对应输电线路监测装置，与 LinkAble 为不同项目。"
+    "imageCaption": "2025 年第二十届研电赛上海赛区团队三等奖证书（编号 GEDC-01250600383）；对应输电线路监测装置。"
   },
   {
     "id": "comp-02",
@@ -758,8 +1007,8 @@
     "role": "算法与系统实现",
     "status": "华东一赛区二等奖",
     "statusColor": "amber",
-    "badge": "西门子杯",
-    "metrics": "2026 年 · 全国初赛华东一赛区二等奖",
+    "badge": "西门子杯 2026",
+    "metrics": "2026 年 · 全国初赛华东一赛区二等奖 · 边缘计算盒子实机",
     "tech": [
       "Python",
       "PyTorch",
@@ -768,25 +1017,33 @@
       "Jetson",
       "Linux"
     ],
-    "description": "围绕工业现场安全监测，使用 Jetson 边缘计算盒子实现视觉检测、区域规则与告警联调，获 2026 年西门子杯全国初赛华东一赛区二等奖。这套硬件也用于同年的研电赛辅助通行项目。",
+    "description": "围绕工业现场安全监测，使用 Jetson 边缘计算盒子实现视觉检测、区域规则与告警联调，获 2026 年第二十届“西门子杯”全国初赛华东一赛区二等奖。同一边缘硬件平台亦用于同年研电赛辅助通行项目。",
     "highlights": [
-      "结合目标检测与区域规则识别风险事件",
-      "连接本地声光告警与云端事件汇总",
-      "相关软件：工业边缘动态环境智能监测与多模态预警系统（申请已提交）"
+      "结合目标检测与区域规则识别现场风险事件",
+      "打通边缘端实时推理、本地声光告警与事件汇总闭环",
+      "提供学生个人证书、团队证书与边缘设备带外设实拍多维佐证"
     ],
     "image": "assets/images/certs/cimc-2026-liugang.png",
-    "imageCaption": "刘钢学生获奖证书：2026 年第二十届 CIMC 全国初赛华东一赛区二等奖。证书编号 CIMC-ZNAS-202680118。"
+    "imageCaption": "刘钢学生获奖证书：2026 年第二十届 CIMC 全国初赛华东一赛区二等奖（编号 CIMC-ZNAS-202680118）。",
+    "gallery": [
+      "assets/images/certs/cimc-2026-liugang.png",
+      "assets/images/soft/submitted-11.png"
+    ],
+    "galleryCaptions": [
+      "刘钢学生个人获奖证书（编号 CIMC-ZNAS-202680118）",
+      "工业边缘安全监测与研电赛共用的边缘计算盒子、摄像头及声光告警外设实拍"
+    ]
   },
   {
     "id": "comp-03",
     "category": "competition",
     "title": "第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖",
-    "subtitle": "大规模非线性复杂系统数据建模、参数辨识与全局最优控制 (Task 2/3/4)",
+    "subtitle": "复杂系统数据建模、参数辨识与多目标优化 · 证书编号 E2025205007",
     "role": "建模与算法实现",
     "status": "国家二等奖",
     "statusColor": "amber",
     "badge": "华为杯数模",
-    "metrics": "国二证书 · 数万行仿真数据 · 完整报告",
+    "metrics": "2025 年 12 月 · 全国二等奖 · 建模与仿真实现",
     "tech": [
       "Python",
       "MATLAB",
@@ -794,54 +1051,68 @@
       "蒙特卡洛",
       "时序预测"
     ],
-    "description": "在全国数万支研究生顶尖队伍同台竞技中，主导完成高维物理场耦合建模、离散状态空间搜索与全局多目标鲁棒优化，斩获高含金量国家级二等奖。",
+    "description": "参加“华为杯”第二十二届中国研究生数学建模竞赛，负责核心子问题建模、数值求解与仿真实验验证，获全国二等奖。",
     "highlights": [
-      "攻克高阶微分方程离散求解与复杂约束边界收敛难题",
-      "通过算法仿真与拟合分析模型行为",
-      "获奖材料已全量归档并作为研究生国家奖学金核心申报成果"
+      "完成复杂约束下的数值求解、参数拟合与敏感性分析",
+      "构建可复现实验脚本与可视化图表支撑论文论证",
+      "证书载明参赛队长与队员信息（编号 E2025205007，2025 年 12 月颁发）"
     ],
     "image": "assets/images/certs/cert_shumo.jpg",
-    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。"
+    "imageCaption": "“华为杯”第二十二届中国研究生数学建模竞赛全国二等奖证书（编号 E2025205007）。"
   },
   {
     "id": "comp-04",
     "category": "competition",
     "title": "第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖",
-    "subtitle": "基于大模型多智能体协同的特定人群智能自适应助学辅导系统",
-    "role": "全栈架构设计 / 核心微服务研发",
+    "subtitle": "参赛作品：《体育生语文基础智能辅导系统》 · 证书编号 0625A30704",
+    "role": "全栈架构设计 / 核心服务研发",
     "status": "国家三等奖",
     "statusColor": "amber",
     "badge": "AI 创新大赛",
-    "metrics": "国三证书 · 完整实施方案 · 可运行工程",
+    "metrics": "2025 年 9 月 · 全国三等奖 · 小程序端与教师管理端",
     "tech": [
       "Taro 3.6",
       "React 18",
       "Less",
       "微信云开发"
     ],
-    "description": "聚焦人工智能在垂直教育场景的普惠化落地，融合自适应题库、知识图谱推演与多智能体问答，获大赛全国评审组三等奖表彰。",
+    "description": "面向高校体育生群体的语文基础薄弱点，设计并实现《体育生语文基础智能辅导系统》，涵盖词汇成语专项训练、练习追踪与教师管理流程，获第七届中国研究生人工智能创新大赛全国三等奖。",
     "highlights": [
-      "支持词汇成语、练习记录与教师管理流程",
-      "云端与模型功能需配置相应运行环境",
-      "相关软件：体育生语文智能学习系统（小程序版）（申请已提交）"
+      "基于 Taro 3.6 + React 18 构建跨端学习界面与专项题库练习模块",
+      "支持学情记录、薄弱知识点统计与教师端题库管理流程",
+      "公开静态演示版可在浏览器中直接体验核心交互流程"
     ],
     "image": "assets/images/certs/cert_ai.jpg",
-    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。",
+    "imageCaption": "第七届“华为杯”中国研究生人工智能创新大赛全国三等奖证书（编号 0625A30704）。",
+    "gallery": [
+      "assets/images/certs/cert_ai.jpg",
+      "assets/images/soft/submitted-05.png"
+    ],
+    "galleryCaptions": [
+      "第七届中国研究生人工智能创新大赛全国三等奖证书（编号 0625A30704）",
+      "体育生语文基础智能辅导系统小程序首页原图"
+    ],
     "links": [
-      { "href": "https://insistgang.top/xcx/", "label": "查看语文学习静态演示" },
-      { "href": "https://github.com/insistgang/xcx", "label": "查看项目代码" }
+      {
+        "href": "https://insistgang.top/xcx/",
+        "label": "查看语文学习静态演示"
+      },
+      {
+        "href": "https://github.com/insistgang/xcx",
+        "label": "查看项目代码"
+      }
     ]
   },
   {
     "id": "comp-05",
     "category": "competition",
     "title": "第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖",
-    "subtitle": "基于专家混合推理与威胁情报检索的多智能体网络威胁研判平台",
+    "subtitle": "参赛作品：《基于多智能体协同的网络安全威胁智能分析系统》 · 证书编号 1625A30007",
     "role": "智能推理算法与 RAG 架构设计",
     "status": "国家三等奖",
     "statusColor": "amber",
     "badge": "网安创新大赛",
-    "metrics": "国三证书 · 专家评委答辩 Q&A",
+    "metrics": "2025 年 11 月 · 创意作品赛全国三等奖 · 可查看静态演示",
     "tech": [
       "Python",
       "Streamlit",
@@ -849,92 +1120,115 @@
       "ChromaDB",
       "PyTorch"
     ],
-    "description": "面向网络威胁研判，探索专家智能体协作与检索增强分析，相关参赛作品获得全国三等奖。",
+    "description": "面向网络威胁研判场景，设计并实现《基于多智能体协同的网络安全威胁智能分析系统》，探索多角色智能体协作与威胁情报检索增强分析，获第四届中国研究生网络安全创新大赛创意作品赛全国三等奖。",
     "highlights": [
-      "Streamlit 界面组织告警分析与结果查看",
-      "当前展示为本地工作区；完整模型与实时流量场景尚待验证",
-      "相关软件：网络安全威胁分析系统（申请已提交）"
+      "使用 Streamlit 与 FastAPI 组织多源安全告警接入、角色协同研判与报告生成",
+      "结合向量检索增强（RAG）关联历史威胁情报与处置建议",
+      "公开仓库与静态演示页展示本地工作区与威胁研判流程"
     ],
     "image": "assets/images/certs/cert_wangan.jpg",
-    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。",
+    "imageCaption": "第四届“华为杯”中国研究生网络安全创新大赛全国三等奖证书（编号 1625A30007）。",
+    "gallery": [
+      "assets/images/certs/cert_wangan.jpg",
+      "assets/images/soft/submitted-06.png"
+    ],
+    "galleryCaptions": [
+      "第四届中国研究生网络安全创新大赛创意作品赛全国三等奖证书（编号 1625A30007）",
+      "网络安全威胁分析系统本地告警研判工作区原图"
+    ],
     "links": [
-      { "href": "https://insistgang.top/multi-agent-security-analysis/", "label": "查看静态演示" },
-      { "href": "https://github.com/insistgang/multi-agent-security-analysis", "label": "查看项目代码" }
+      {
+        "href": "https://insistgang.top/multi-agent-security-analysis/",
+        "label": "查看静态演示"
+      },
+      {
+        "href": "https://github.com/insistgang/multi-agent-security-analysis",
+        "label": "查看项目代码"
+      }
     ]
   },
   {
     "id": "comp-06",
     "category": "competition",
     "title": "创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖",
-    "subtitle": "复杂集成电路系统原理图框图自动识别与拓扑网表重构算法",
+    "subtitle": "集成电路原理图框图识别与拓扑网表重构算法 · 证书编号 2825A30075",
     "role": "算法开发",
     "status": "国家三等奖",
     "statusColor": "amber",
     "badge": "EDA 精英赛",
-    "metrics": "国三证书 · 答辩问答题库 · 算法代码",
+    "metrics": "2025 年 12 月 · 全国三等奖 · 原理图解析与网表生成",
     "tech": [
       "OpenCV",
       "图神经网络",
       "目标检测",
       "电路网表解析"
     ],
-    "description": "围绕集成电路原理图识别，探索文本符号、引脚连线和逻辑组件检测，以及电路拓扑网表重构。",
+    "description": "围绕集成电路原理图自动识别赛题，研究文本符号、引脚连线与逻辑器件检测方法，并构建电路拓扑网表重构流程，获 2025 中国研究生创“芯”大赛·EDA 精英挑战赛全国三等奖。",
     "highlights": [
-      "结合形态学图像处理与检测模型分析图纸",
-      "构建电路拓扑图结构解析算法，实现图像到 SPICE 网表的自动化映射",
-      "斩获半导体与芯片设计软件领域全国高含金量奖项"
+      "结合形态学图像处理与目标检测模型定位器件符号与引脚节点",
+      "构建电路拓扑连接关系解析算法，实现图像到结构化网表的映射",
+      "证书编号 2825A30075（2025 年 12 月颁发，获奖团队：芯火队）"
     ],
     "image": "assets/images/certs/cert_eda.jpg",
-    "imageCaption": "竞赛证书与项目资料；团队荣誉与个人职责分别展示。"
+    "imageCaption": "2025 中国研究生创“芯”大赛·EDA 精英挑战赛全国三等奖证书（编号 2825A30075）。"
   },
   {
     "id": "comp-07",
     "category": "competition",
     "title": "第七届上海市研究生智慧城市创意设计大赛 · 三等奖",
-    "subtitle": "基于多模态 AI 的违章建筑智能检测与管理系统",
+    "subtitle": "参赛作品：《基于多模态 AI 的违章建筑智能检测与管理系统》",
     "role": "视觉检测算法开发",
     "status": "三等奖",
     "statusColor": "amber",
     "badge": "智慧城市大赛",
-    "metrics": "上海市赛事 · 团队三等奖",
+    "metrics": "2025 年 11 月 · 上海市暨长三角研究生赛事 · 三等奖",
     "tech": [
       "YOLO 目标检测",
       "多尺度遥感",
       "无人机遥感",
       "PyTorch"
     ],
-    "description": "依托上海工程技术大学与智慧城市科研项目，针对违建识别时效低、多尺度目标漏检问题，研发端到端检测系统，获赛区三等奖。",
+    "description": "依托上海工程技术大学智慧城市相关研究课题，针对违章建筑识别时效低、多尺度目标易漏检问题，设计《基于多模态 AI 的违章建筑智能检测与管理系统》，获第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛三等奖。",
     "highlights": [
-      "自建空地一体化高分辨率违建样本库与标注规范",
-      "提出兼顾小目标彩钢棚与大面积违建厂房的多尺度检测网络",
-      "为硕士毕业大论文研究奠定关键前期算法与实验基础"
+      "整理空地多源违建样本与标注复核流程",
+      "设计兼顾小尺度棚户目标与大尺度厂房目标的多尺度检测方案",
+      "与硕士学位论文研究主线相互支撑"
     ],
     "image": "assets/images/certs/cert_zhihuichengshi.jpg",
-    "imageCaption": "2025 年第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛证书。"
+    "imageCaption": "2025 年第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛三等奖证书。"
   },
   {
     "id": "comp-08",
     "category": "competition",
     "title": "第三届上海市大学生行业分析大赛 · 银奖",
-    "subtitle": "智航长三角：上海无人机低空配送行业分析及人才需求洞察",
+    "subtitle": "参赛报告：《智航长三角：上海无人机低空配送行业分析及人才需求洞察》",
     "role": "行业调研与数据分析",
-    "status": "银奖",
+    "status": "高教组银奖",
     "statusColor": "amber",
     "badge": "行业分析大赛",
-    "metrics": "高教组银奖 · 行业分析报告",
+    "metrics": "2025 年 10 月 · 高教组银奖 · 低空经济行业报告",
     "tech": [
       "行业研究",
       "计量经济学",
       "数据可视化",
       "战略规划"
     ],
-    "description": "参与无人机低空配送行业分析与人才需求研究，整理行业资料、分析框架及报告，获第三届上海市大学生行业分析大赛高教组银奖。",
+    "description": "围绕长三角无人机低空配送场景开展行业调研与人才需求分析，完成指标拆解、数据整理与可视化报告撰写，获第三届上海市大学生行业分析大赛高教组银奖。",
     "highlights": [
-      "报告围绕长三角物流与低空配送场景展开",
-      "竞赛证书载明高教组银奖"
+      "围绕城市配送、医疗急送等低空经济场景构建量化分析框架",
+      "结合岗位数据提炼低空经济产业链复合型人才需求画像",
+      "相关行业指标亦衍生为公开的 20 个低空经济数据可视化仪表板"
     ],
     "image": "assets/images/certs/cert_hangyefenxi.jpg",
-    "imageCaption": "第三届上海市大学生行业分析大赛高教组银奖证书，2025 年 10 月。"
+    "imageCaption": "第三届上海市大学生行业分析大赛高教组银奖证书（2025 年 10 月）。",
+    "gallery": [
+      "assets/images/certs/cert_hangyefenxi.jpg",
+      "assets/images/comp_industry_analysis.png"
+    ],
+    "galleryCaptions": [
+      "第三届上海市大学生行业分析大赛高教组银奖证书",
+      "低空配送行业分析与数据可视化配套展示图"
+    ]
   },
   {
     "id": "comp-09",
@@ -945,52 +1239,72 @@
     "status": "华北二赛区一等奖",
     "statusColor": "amber",
     "badge": "西门子杯 2025",
-    "metrics": "2025 年 · 全国初赛华北二赛区一等奖",
+    "metrics": "2025 年 8 月 · 全国初赛华北二赛区一等奖",
     "tech": [
       "工业网络",
       "信息化网络化",
       "智能制造"
     ],
-    "description": "参加 2025 年第十九届 CIMC“西门子杯”中国智能制造挑战赛全国初赛，获华北二赛区智能制造工程设计与应用类赛项信息化网络化方向一等奖。",
+    "description": "参加 2025 年第十九届 CIMC“西门子杯”中国智能制造挑战赛全国初赛，获华北二赛区智能制造工程设计与应用类赛项信息化网络化方向（本科及研究生组）一等奖。",
     "highlights": [
-      "本科及研究生组，赛项为信息化网络化方向",
-      "获奖学生姓名为刘钢，单位为上海工程技术大学"
+      "本科及研究生组，赛项为智能制造工程设计与应用类：信息化网络化方向",
+      "获奖学生姓名为刘钢，所在单位为上海工程技术大学（编号 CIMC-GYAS-202538368）"
     ],
     "image": "assets/images/certs/cimc-2025-liugang.png",
-    "imageCaption": "刘钢学生获奖证书：2025 年第十九届 CIMC 全国初赛华北二赛区一等奖。证书编号 CIMC-GYAS-202538368。"
+    "imageCaption": "刘钢学生获奖证书：2025 年第十九届 CIMC 全国初赛华北二赛区一等奖（编号 CIMC-GYAS-202538368）。"
   },
   {
     "id": "comp-10",
     "category": "competition",
     "title": "第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖",
-    "subtitle": "边缘计算设备 · 基于边缘智能的无障碍辅助通行感知系统设计与实现",
+    "subtitle": "参赛作品：《基于边缘智能的无障碍辅助通行感知系统设计与实现》",
     "role": "参赛队员",
     "status": "上海赛区团队二等奖",
     "statusColor": "amber",
     "badge": "研电赛 2026",
-    "metrics": "同一边缘设备平台 · 上海分赛区团队二等奖",
+    "metrics": "2026 年 7 月 · 上海分赛区团队二等奖 · 附原始 PDF 与数据大屏",
     "tech": [
       "Jetson",
       "边缘计算",
       "计算机视觉",
       "辅助通行感知"
     ],
-    "description": "使用与 2026 年西门子杯相同的边缘计算盒子，以“基于边缘智能的无障碍辅助通行感知系统设计与实现”参加第二十一届中国研究生电子设计竞赛，获上海分赛区团队二等奖。",
+    "description": "使用与 2026 年西门子杯相同的边缘计算盒子硬件平台，以《基于边缘智能的无障碍辅助通行感知系统设计与实现》参加第二十一届中国研究生电子设计竞赛，获上海分赛区团队二等奖。",
     "highlights": [
-      "以边缘计算设备承载视觉感知与辅助通行功能",
-      "与同年的西门子杯项目共用硬件平台，分别面向不同场景展示",
-      "证书载明刘钢为参赛队员，原始 PDF 可查看"
+      "以本地边缘计算设备承载人行空间视觉感知、事件确认与辅助通行提示",
+      "与同年西门子杯项目共用边缘计算盒子硬件，分别面向不同应用场景",
+      "提供官方原始证书 PDF 与 LinkAble 本地视频离线复核大屏"
     ],
     "image": "assets/images/certs/gedc-2026-edge-device.png",
-    "imageCaption": "2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书。编号 GEDC-02260600144；预览图由原始 PDF 渲染。",
+    "imageCaption": "2026 年 7 月第二十一届研电赛上海分赛区团队二等奖证书（编号 GEDC-02260600144）。",
+    "gallery": [
+      "assets/images/certs/gedc-2026-edge-device.png",
+      "assets/images/soft/submitted-11.png",
+      "assets/images/screenshots/yds.jpg"
+    ],
+    "galleryCaptions": [
+      "第二十一届研电赛上海分赛区团队二等奖证书（编号 GEDC-02260600144）",
+      "承载边缘视觉感知的边缘计算盒子与外设硬件实拍",
+      "配套本地视频复核大屏真实截图（不是互助 App）"
+    ],
     "url": "assets/certificates/gedc-2026-edge-device.pdf",
-    "urlLabel": "查看原始证书 PDF"
+    "urlLabel": "查看原始证书 PDF",
+    "links": [
+      {
+        "href": "assets/certificates/gedc-2026-edge-device.pdf",
+        "label": "查看原始证书 PDF"
+      },
+      {
+        "href": "https://insistgang.top/portfolio/yds/",
+        "label": "打开视频复核大屏"
+      }
+    ]
   },
   {
     "id": "res-01",
     "category": "research",
     "title": "硕士毕业论文主线：《面向违法建筑识别的多尺度图像检测方法研究》",
-    "subtitle": "上海工程技术大学 硕士学位论文 · 产学研重大科研课题",
+    "subtitle": "上海工程技术大学 硕士学位论文 · 产学研科研课题",
     "role": "独立完成人 (硕士学位论文)",
     "status": "研究进行中",
     "statusColor": "purple",
@@ -1003,35 +1317,39 @@
       "遥感图像处理",
       "PyTorch"
     ],
-    "description": "面向空地多源图像中的建筑识别问题，研究多尺度特征融合与目标检测方法，并开展数据标注复核和模型评估。",
+    "description": "面向空地多源图像中的违法建筑识别问题，研究多尺度特征融合与目标检测方法，并开展样本标注复核、消融实验和独立测试集评估。",
     "highlights": [
-      "研究复杂背景下的多尺度建筑目标检测",
-      "结合数据标注复核与独立测试集评估模型"
+      "针对复杂城乡背景下的多尺度建筑目标设计特征融合与检测方案",
+      "建立样本清洗、标注质量复核与独立测试集评估流程",
+      "衔接智慧城市产学研项目与硕士学位论文实验验证"
     ],
-    "image": "assets/images/res_weijian_vis.png"
+    "image": "assets/images/res_weijian_vis.png",
+    "imageCaption": "违章建筑检测多尺度目标特征与实验可视化示意。"
   },
   {
     "id": "res-02",
     "category": "research",
     "title": "小论文代表作：《MS-LightCD: 一种面向高分辨率遥感图像的轻量级变化检测网络》",
-    "subtitle": "拟投中文核心期刊《计算机工程》· 全套实验数据与审阅版已就绪",
+    "subtitle": "双时相高分辨率遥感影像变化检测 · 实验与论文手稿整理",
     "role": "第一作者 (学生一作)",
     "status": "论文与实验整理",
     "statusColor": "purple",
     "badge": "期刊小论文",
-    "metrics": "轻量变化检测 · 对照实验 · 端侧评估",
+    "metrics": "轻量变化检测 · 对照消融实验 · 端侧推理评估",
     "tech": [
       "Change Detection",
       "Siamese Network",
       "轻量化注意力",
       "遥感影像"
     ],
-    "description": "面向高分辨率遥感影像的双时相变化检测研究，探索多尺度特征表达、特征融合与轻量化网络设计。",
+    "description": "面向高分辨率遥感影像的双时相变化检测研究，探索多尺度特征表达、跨时相差异融合与轻量化网络设计，兼顾检测精度与推理开销。",
     "highlights": [
-      "围绕双时相遥感影像开展轻量变化检测实验",
-      "整理对比、消融结果与端侧模型推理评估"
+      "围绕双时相遥感影像设计轻量级孪生特征提取与跨时相差异聚合模块",
+      "完成主流基线方法对比、模块消融实验与参数量/计算量分析",
+      "结合 PaperStudio 工作流对实验证据链与稿件表述进行投前核查"
     ],
-    "image": "assets/images/res_ms_lightcd_diff.png"
+    "image": "assets/images/res_ms_lightcd_diff.png",
+    "imageCaption": "MS-LightCD 双时相遥感图像变化检测对比结果示意。"
   },
   {
     "id": "res-04",
@@ -1049,23 +1367,24 @@
       "NLP 情感分析",
       "文本挖掘"
     ],
-    "description": "参与网络文化社群研究，将文本处理与数据分析方法用于跨学科研究材料整理和稿件协作。",
+    "description": "参与网络文化社群跨学科研究，将 Python 文本处理、情感倾向分析与数据可视化方法用于研究语料整理、结构图示绘制与学术稿件修订。",
     "highlights": [
-      "围绕研究问题组织文本材料与分析流程",
-      "参与研究图示整理和学术稿件修订"
+      "围绕研究问题组织大规模社群文本材料清洗与特征统计流程",
+      "参与研究框架图示整理与跨学科定量/定性稿件协作修订"
     ],
-    "image": "assets/images/res_mcssci_governance.jpg"
+    "image": "assets/images/res_mcssci_governance.jpg",
+    "imageCaption": "跨学科合作研究框架与文本分析流程示意。"
   },
   {
     "id": "ind-01",
     "category": "industry",
     "title": "上海卓繁信息技术股份有限公司 · 后端研发 / AI 应用落地工程",
-    "subtitle": "智慧政务、教育与停车场景的软件研发实践",
+    "subtitle": "智慧政务、教育排课与停车管理场景的软件研发实践",
     "role": "后端开发 / AI 算法落地实习生",
     "status": "工程实践",
     "statusColor": "sky",
     "badge": "产业实习",
-    "metrics": "后端研发 · 系统联调 · 业务演示",
+    "metrics": "后端研发 · 系统联调 · 政企 AI 助手",
     "tech": [
       "Java",
       "Spring Boot",
@@ -1073,36 +1392,41 @@
       "MySQL",
       "Docker"
     ],
-    "description": "参与智慧政务与教育场景的后端研发、系统联调和业务演示，结合 Java 服务与 AI 应用能力推进需求实现。",
+    "description": "参与智慧政务、教育与停车管理场景的后端研发、系统联调和业务演示，结合 Java Spring Boot 微服务与 Python AI Agent 能力推进政企需求落地。",
     "highlights": [
-      "参与教育场景演示系统与排课业务联调",
-      "推进停车管理系统和相关后端功能开发",
-      "参与 AI 应用需求分析与工程实现"
+      "参与教育场景演示系统与多约束排课业务接口联调",
+      "推进停车管理系统后端服务开发与数据库表结构优化",
+      "参与政企知识库检索增强（RAG）与智能问答原型工程实现"
     ],
-    "image": "assets/images/ind_zhuofan_agent.png"
+    "image": null,
+    "imageCaption": "暂无可公开核验的实习项目截图；已撤下通用示意图，不用 Ops-Hub 图代替。",
+    "imageUnavailableNote": "暂无可公开核验的实习项目截图；已撤下通用示意图，不用 Ops-Hub 图代替。"
   },
   {
     "id": "ind-02",
     "category": "industry",
     "title": "中国电子科技集团第50研究所 · 智慧城市图像检测科研结项",
-    "subtitle": "产学研合作中的图像检测与工程交接",
+    "subtitle": "产学研合作中的图像检测算法开发与工程技术交接",
     "role": "算法开发与技术交付",
     "status": "项目交付",
     "statusColor": "emerald",
     "badge": "产学研合作",
-    "metrics": "全套算法代码交付 · 结项文档 · 顺利验收",
+    "metrics": "算法代码交付 · 结项文档 · 验收交接",
     "tech": [
       "目标检测",
       "遥感工程化",
-      "C++ 推理引擎",
+      "ONNX / C++ 推理",
       "Linux"
     ],
-    "description": "参与高校与研究所合作的图像检测项目，整理算法代码、工程测试与结项材料，完成技术交接。",
+    "description": "参与高校与研究所合作的智慧城市图像检测产学研项目，负责训练推理代码整理、工程环境测试与结项技术文档编写，完成算法模块交接。",
     "highlights": [
-      "交付图像检测算法代码与相关文档",
-      "将工程中的问题反馈到后续研究与评估"
+      "按规范交付可复现图像检测训练/推理代码、模型权重与配置说明",
+      "编写实验测试报告、接口调用文档与结项验收材料",
+      "将工程测试中发现的困难样本问题反哺至后续学位论文研究"
     ],
-    "image": "assets/images/ind_50suo_remote_cd.png"
+    "image": null,
+    "imageCaption": "暂无可确认归属的公开项目图；不将 LEVIR-CD 建筑变化检测图作为该研究所交付证据。",
+    "imageUnavailableNote": "暂无可确认归属的公开项目图；不将 LEVIR-CD 建筑变化检测图作为该研究所交付证据。"
   },
   {
     "id": "ind-03",
@@ -1113,30 +1437,32 @@
     "status": "协作开发",
     "statusColor": "sky",
     "badge": "具身智能",
-    "metrics": "设备控制 · 软硬件联调",
+    "metrics": "设备控制 · 语音交互 · 软硬件联调",
     "tech": [
       "Python",
       "嵌入式通信",
       "多模态大模型",
       "ROS"
     ],
-    "description": "围绕小智机器人开展设备控制与交互功能协作，参与代码集成、运行环境配置和软硬件联调。",
+    "description": "围绕小智机器人开展设备控制与多模态语音交互功能协作，参与代码集成、端侧运行环境配置和软硬件联调测试。",
     "highlights": [
-      "集成设备交互与控制逻辑",
-      "整理部署流程与协作交付材料"
+      "集成语音对话唤醒、意图解析与端侧设备控制逻辑",
+      "整理软硬件联调部署流程与协作交付文档"
     ],
-    "image": "assets/images/ind_andy_robot.png"
+    "image": null,
+    "imageCaption": "暂无可确认归属的机器人联调照片；不使用来源未核验的设备图。",
+    "imageUnavailableNote": "暂无可确认归属的机器人联调照片；不使用来源未核验的设备图。"
   },
   {
     "id": "ind-04",
     "category": "industry",
     "title": "电商中台微服务与供应链管理系统",
-    "subtitle": "订单、商品数据与供应链业务整合",
+    "subtitle": "多渠道订单处理、商品数据同步与对账清算",
     "role": "全栈架构与开发负责人",
     "status": "工程实践",
     "statusColor": "emerald",
     "badge": "商业系统",
-    "metrics": "订单处理 · 数据同步 · 对账",
+    "metrics": "订单处理 · 数据同步 · 自动对账",
     "tech": [
       "Node.js",
       "Python 数据管道",
@@ -1144,35 +1470,38 @@
       "Redis",
       "Vue"
     ],
-    "description": "针对电商供应链多渠道订单分散与数据同步滞后问题，自研轻量级数据抽取与商品中台微服务，支持多平台库存同步与对账清算。",
+    "description": "针对电商供应链多渠道订单分散与数据同步滞后问题，开发轻量级数据抽取管道与商品中台服务，支撑多平台库存同步与对账核销。",
     "highlights": [
-      "设计异步重试与网络超时处理流程",
-      "连接商品数据、订单处理与对账业务"
+      "设计异步任务队列、失败重试与接口幂等校验机制",
+      "打通商品主数据、多渠道订单归集与财务对账核销流程"
     ],
-    "image": "assets/images/ind_ecommerce_order.jpg"
+    "image": null,
+    "imageCaption": "暂无可确认归属的订单与供应链系统截图；不使用产品利润分析系统图片代替。",
+    "imageUnavailableNote": "暂无可确认归属的订单与供应链系统截图；不使用产品利润分析系统图片代替。"
   },
   {
     "id": "prod-01",
     "category": "products",
     "title": "Ops-Hub · 个人数字化运营工作总台",
-    "subtitle": "设备状态、任务分流和工程进度",
+    "subtitle": "多端设备状态、任务分流调度与工程进度看板",
     "role": "独立设计师 & 全栈工程师",
     "status": "🚀 生产自用中",
     "statusColor": "sky",
     "badge": "开源自研产品",
-    "metrics": "命令行与看板",
+    "metrics": "CLI 调度 · 静态看板 · launchd 守护",
     "tech": [
       "Python",
       "HTML5",
       "Tailwind CSS",
       "launchd"
     ],
-    "description": "正在用的个人工作总台。看板汇总设备状态、任务分流和工程进度，命令行按任务给出执行端建议。",
+    "description": "日常高频自用的个人数字化运营总台。看板汇总多台设备的在线健康度、任务分流与项目孵化进度，配套 CLI 工具按任务负载给出推荐执行终端。",
     "highlights": [
-      "看设备状态、任务该放在哪台机器、项目进度",
-      "命令行、静态看板和定时同步是同一套系统"
+      "一屏掌握主力开发机、远程服务器与边缘设备状态及项目进展",
+      "CLI 命令行、静态可视化看板与 launchd 定时同步共用同一套状态机"
     ],
     "image": "assets/images/opshub-cover.png",
+    "imageCaption": "Ops-Hub 个人数字化运营工作总台看板实拍。",
     "url": "https://github.com/insistgang/ops-hub",
     "urlLabel": "查看公开代码仓库",
     "links": [
@@ -1190,24 +1519,35 @@
     "id": "prod-02",
     "category": "products",
     "title": "AI-QuotaMonitor · 大语言模型多源算力额度监控大屏",
-    "subtitle": "多来源额度、历史趋势与阈值预警",
+    "subtitle": "多来源额度采集、消耗趋势分析与阈值预警",
     "role": "独立全栈开发者",
     "status": "🚀 持续运行中",
     "statusColor": "sky",
     "badge": "效能监控工具",
-    "metrics": "额度监控与预警",
+    "metrics": "多源额度采集 · 历史趋势 · 阈值预警",
     "tech": [
       "Python 标准库",
       "HTML5",
       "CSS Grid",
       "GitHub Pages"
     ],
-    "description": "汇总不同模型服务的额度与消耗状态，展示历史趋势和阈值预警，辅助安排模型使用计划。",
+    "description": "汇总多个大模型服务商与开发工具的额度余量、重置周期和消耗速率，提供历史趋势图与低额度预警，辅助安排高负载编码与实验任务。",
     "highlights": [
-      "提供多来源状态采集与统一展示",
-      "支持定时守护、数据整理及自动化发布"
+      "无第三方重依赖，基于 Python 标准库实现多来源额度状态定时采集",
+      "自动生成响应式监控大屏并同步更新至静态站点"
     ],
     "image": "assets/images/soft/submitted-12.png",
+    "imageCaption": "AI-QuotaMonitor 大语言模型多源算力额度监控大屏。",
+    "gallery": [
+      "assets/images/soft/submitted-12.png",
+      "assets/images/quota_02_算力额度监控总控大屏.jpg",
+      "assets/images/quota_03_历史额度消耗时序走势大屏.jpg"
+    ],
+    "galleryCaptions": [
+      "AI-QuotaMonitor 额度监控大屏主视图",
+      "AI-QuotaMonitor 算力额度监控总控大屏",
+      "AI-QuotaMonitor 历史额度消耗时序走势大屏"
+    ],
     "url": "https://github.com/insistgang/ai-quota-monitor",
     "urlLabel": "查看公开代码仓库",
     "links": [
@@ -1225,24 +1565,26 @@
     "id": "prod-03",
     "category": "products",
     "title": "基于多智能体协同的 AI 技术知识库管理系统",
-    "subtitle": "技术资料采集、质量检查与知识归档",
+    "subtitle": "九节点 LangGraph 工作流、审核修订回路与 MCP 检索",
     "role": "系统架构师",
     "status": "🚀 生产自用中",
     "statusColor": "sky",
     "badge": "AI 智能体系统",
-    "metrics": "知识采集、检查与归档",
+    "metrics": "LangGraph 编排 · 审核修订 · 人工兜底",
     "tech": [
       "Python",
+      "LangGraph",
       "MCP",
-      "质量检查",
-      "知识管理"
+      "JSON-RPC 2.0"
     ],
-    "description": "将技术资料采集、结构化分析和质量检查组织为工作流，结合人工复核完成知识归档，并提供 MCP 查询接口。",
+    "description": "将 GitHub 技术项目采集、结构化分析、审核、修订与归档组织为九节点 LangGraph 工作流。审核未通过时进入有界修订回路，超过次数转人工处理，并通过 MCP 提供知识查询；公开 Dashboard 用于浏览归档结果，不等同于在线执行采集。",
     "highlights": [
-      "组织多维质量检查与人工复核步骤",
-      "记录资料处理结果并支持知识查询"
+      "九节点状态图连接规划、采集、分析、审核、修订、整理、监督、保存与人工标记",
+      "审核失败按次数进入修订或人工兜底，保留质量门禁与来源信息",
+      "MCP 提供关键词检索、条目读取与知识库统计工具"
     ],
     "image": "assets/images/soft/submitted-13.png",
+    "imageCaption": "AI 技术知识库管理系统看板与质量统计界面。",
     "url": "https://github.com/insistgang/ai-knowledge-base",
     "urlLabel": "查看公开代码仓库",
     "links": [
@@ -1254,57 +1596,79 @@
         "href": "https://github.com/insistgang/ai-knowledge-base",
         "label": "查看公开代码仓库"
       }
-    ]
+    ],
+    "caseStudy": {
+      "problem": "收藏的技术链接难以持续整理，模型生成的摘要也不能未经审核直接当作可靠知识入库。",
+      "responsibility": "独立设计与开发个人 AI 技术知识库，组织采集、分析、审核与归档，并提供 MCP 查询；不与竞赛威胁情报库混写。",
+      "decisions": [
+        "以九节点 LangGraph 状态图表达流程；审核不通过进入有界修订，超限转人工标记。",
+        "五维审核分数由代码加权计算，归档保留来源；MCP 将查询能力与采集链路分开。"
+      ],
+      "evidence": [
+        {
+          "label": "九节点状态图与分支实现",
+          "href": "https://github.com/insistgang/ai-knowledge-base/blob/main/pipeline/workflow_graph.py",
+          "note": "检查 review → organize / revise / human_flag 的分支与修订回路。"
+        },
+        {
+          "label": "审核评分与门禁实现",
+          "href": "https://github.com/insistgang/ai-knowledge-base/blob/main/workflows/reviewer.py",
+          "note": "检查五维权重、通过阈值与评分处理，而非仅凭架构图判断能力。"
+        }
+      ],
+      "boundary": "当前自动采集主线是 GitHub；HN、arXiv、RSS 不写成已交付数据源。公开 Dashboard 展示归档结果，不代表浏览器可在线启动采集或所有条目已人工复核。"
+    }
   },
   {
     "id": "prod-04",
     "category": "products",
     "title": "得到大脑日记工作流 & MCP 日记自动化服务器",
-    "subtitle": "Getnote 笔记归档与知识库同步工作流",
+    "subtitle": "Getnote 语音笔记归档、幂等去重与双端知识库同步",
     "role": "架构与开发者",
     "status": "私人使用",
     "statusColor": "emerald",
     "badge": "知识管理产品",
-    "metrics": "笔记归档 · MCP 接口 · Markdown",
+    "metrics": "MCP Server · 幂等去重 · 双端归档",
     "tech": [
       "MCP Server",
       "Python",
       "Getnote API",
       "Markdown AST"
     ],
-    "description": "打通得到大脑随手语音记录与本地 Obsidian 知识库。按 note_id 幂等去重归档，提炼日记时间线并全自动完成 Hexo 博客脱敏稿双端写入。",
+    "description": "打通得到大脑随手语音记录与本地 Obsidian 知识库。按 note_id 幂等去重归档，提炼日记时间线并支持博客脱敏稿结构化生成。",
     "highlights": [
-      "通过 MCP 接口连接笔记读取与本地归档",
-      "按笔记标识去重，整理日记与复盘素材"
+      "通过自研 MCP 接口连接云端语音笔记拉取与本地 Markdown 归档",
+      "基于 note_id 与游标状态幂等去重，自动串联每日复盘与周报素材"
     ],
-    "image": "assets/images/paperstudio-overview.svg",
-    "imageCaption": "工作流示意，不展示个人日记内容。",
-    "privateNote": "工作流含个人日记主库，属于私人使用范畴，不提供公开代码仓库与在线访问。"
+    "image": null,
+    "imageCaption": "私人日记工作流不公开原始记录；暂无可公开核验的界面截图。",
+    "privateNote": "工作流含个人日记主库，属于私人使用范畴，不提供公开代码仓库与在线访问。",
+    "imageUnavailableNote": "私人日记工作流不公开原始记录；暂无可公开核验的界面截图。"
   },
   {
     "id": "prod-05",
     "category": "products",
-    "title": "Weight-Tracker · 协作健康打卡看板",
-    "subtitle": "每日记录、变化趋势与阶段目标跟踪",
+    "title": "Weight-Tracker · 历史协作健康打卡看板",
+    "subtitle": "历史协作版展示，通用本机版已迁入 Ops-Hub",
     "role": "前端独立开发 & 运维",
-    "status": "私人使用",
+    "status": "历史私人版本",
     "statusColor": "sky",
     "badge": "健康记录工具",
-    "metrics": "响应式页面 · 趋势图 · 协作打卡",
+    "metrics": "历史协作版 · 趋势展示 · 版本分离",
     "tech": [
       "Vue 3",
       "Tailwind CSS",
       "GitHub Pages",
       "JSON 数据流"
     ],
-    "description": "面向小组协作的轻量健康打卡工具，用时间序列图展示记录变化和阶段进度。",
+    "description": "保留早期小组协作健康打卡版本的界面与阶段记录展示。当前通用版已迁入 Ops-Hub，采用原生 JavaScript 与浏览器本地存储，支持多使用者、目标体重和本机模拟小组；两版实现与数据分开，不把本机小组表述为跨设备协作。",
     "highlights": [
-      "展示每日记录与变化趋势",
-      "适配手机查看和小组协作场景"
+      "本条保留历史协作版的 Vue 3 技术记录与已授权旧截图，不代表当前通用版实现",
+      "Ops-Hub 通用版仅在当前浏览器保存数据，小组不自动跨设备同步"
     ],
     "image": "assets/images/prod_weight_tracker.png",
-    "imageCaption": "界面示意。项目为私人使用范畴，不提供公开代码仓库。",
-    "privateNote": "项目涉及个人健康数据，属于私人使用范畴，不提供公开代码仓库与在线访问。"
+    "imageCaption": "已授权保留的历史协作版截图；并非 Ops-Hub 当前通用本机版界面。",
+    "privateNote": "历史协作版涉及个人健康数据，属于私人使用范畴，本条不提供其代码仓库与在线访问；通用本机版另在 Ops-Hub 维护。"
   },
   {
     "id": "prod-06",
@@ -1315,47 +1679,53 @@
     "status": "✅ 原型归档",
     "statusColor": "emerald",
     "badge": "创意组件库",
-    "metrics": "完整可运行源码 · 归档于知识库",
+    "metrics": "纯前端 Canvas/SVG · 归档于知识库",
     "tech": [
       "JavaScript",
       "HTML5 Canvas",
       "SVG 渲染",
       "Vue"
     ],
-    "description": "自研趣味交互与实用图形生成套件，包含参数化二维码纹理合成、物理惯性抽奖转盘及古典毛笔印章渲染，已收录于知识库精品零散成品库。",
+    "description": "自研趣味交互与实用图形生成套件，包含参数化二维码纹理合成、物理惯性抽奖转盘及传统篆刻电子印章渲染，所有图形均在浏览器本地实时合成。",
     "highlights": [
-      "在浏览器端生成二维码与图形素材",
-      "整合创意交互组件，便于独立运行与复用"
+      "基于 HTML5 Canvas 与 SVG 在浏览器端实时生成艺术二维码与电子印章",
+      "封装模块化创意交互组件，便于零依赖独立运行与复用"
     ],
-    "image": "assets/images/prod_gema_studio.png"
+    "image": "assets/images/prod_gema_studio.png",
+    "imageCaption": "格码工坊 (GeMa-Studio) 创意图形与交互组件界面。"
   },
   {
     "id": "prod-07",
     "category": "products",
     "title": "Career-Copilot · 求职与简历工作流",
-    "subtitle": "从经历证据、岗位匹配到简历生成与投递跟踪",
+    "subtitle": "从经历证据账本、岗位匹配到 Typst 简历生成与投递跟踪",
     "role": "设计与开发",
     "status": "本地使用",
+    "statusColor": "sky",
     "badge": "个人工作流",
-    "metrics": "经历主库 · 岗位匹配 · 简历生成",
+    "metrics": "证据账本 · 岗位匹配 · Typst 简历 · 投递看板",
     "tech": [
       "Python",
       "Typst",
       "HTML",
       "MCP"
     ],
-    "description": "连接个人经历主库与岗位需求，组织项目证据、定制简历并跟踪投递进展。支持企业求职与学术申请两类工作流。",
+    "description": "连接个人经历主库与目标岗位需求，以证据账本约束简历表述，一键编译 Typst 单页 PDF / HTML 简历并跟踪全周期投递进展，同时支撑企业求职与博后/教职学术申请。",
     "highlights": [
-      "用主张与证据账本约束经历描述",
-      "支持 Typst 单页 PDF 与 HTML 简历生成",
-      "结合本地仪表盘组织岗位、简历与后续进展"
+      "建立“主张—证据”映射账本，杜绝无来源指标进入外发简历",
+      "支持 Typst 单页 PDF 与响应式 HTML 简历双通道自动化构建",
+      "配套公开介绍页展示脱敏后的 15 项核心工程证据与 30 条投递归档记录"
     ],
-    "image": "assets/images/career-copilot-overview.svg",
-    "imageCaption": "功能流程示意；不包含个人经历主库或邮件内容。",
+    "image": "assets/images/screenshots/career.jpg",
+    "imageCaption": "Career-Copilot 已授权公开经历页实图；不是本机私有投递控制台。",
     "links": [
       {
+        "href": "career/",
+        "label": "打开求职工作流公开页"
+      },
+      {
         "href": "https://insistgang.top/portfolio/career/",
-        "label": "求职工作流公开介绍页"
+        "label": "线上访问 (insistgang.top)"
       }
     ]
   },
@@ -1366,6 +1736,7 @@
     "subtitle": "问题定义、审稿压力测试与改稿决策",
     "role": "工作流设计",
     "status": "本地使用",
+    "statusColor": "sky",
     "badge": "科研工作流",
     "metrics": "稿件解剖 · 压力测试 · 改稿判决",
     "tech": [
@@ -1374,14 +1745,14 @@
       "结构化模板",
       "Agent 工作流"
     ],
-    "description": "将论文中的问题、方法和证据组织成可检查的档案，通过压力测试识别证据缺口，再形成改稿计划与期刊匹配判断。",
+    "description": "将论文中的问题、方法和证据组织成可检查的结构化档案，通过模拟审稿压力测试识别证据缺口，进而形成改稿计划与目标期刊匹配判断。",
     "highlights": [
-      "按动机、设计、实验验证组织研究主张",
-      "用 A 解剖、B 压力测试、C 判决记录评估",
-      "将防守补丁、语体校准与投稿前检查串联"
+      "按研究动机、方法设计、实验验证三层组织核心主张与证据映射",
+      "通过 A 稿件解剖、B 审稿压力测试、C 改稿判决书规范化评估记录",
+      "串联防守补丁编写、学术语体校准与投稿前完整性检查清单"
     ],
-    "image": "assets/images/paperstudio-overview.svg",
-    "imageCaption": "工作流示意；不代表论文已录用或发表。",
+    "image": "assets/images/screenshots/paperstudio.jpg",
+    "imageCaption": "PaperStudio 公开工作流介绍页实图；不是私有稿件或诊断报告。",
     "links": [
       {
         "href": "https://insistgang.top/PaperStudio/",
@@ -1412,12 +1783,12 @@
     ],
     "description": "面向情感陪伴场景的对话应用，通过长期记忆抽取与检索维持跨会话连续性，由多智能体协作完成人设校验与回复生成，并支持情绪化流式语音与多段消息同步。",
     "highlights": [
-      "长期记忆 RAG 维持跨会话上下文",
-      "多智能体协作与人设输出校验",
-      "情绪化流式语音与多段消息同步"
+      "长期记忆 RAG 维持跨会话上下文与用户偏好记忆",
+      "多智能体协作完成人设一致性校验与共情回复生成",
+      "支持情绪化流式语音合成与自然多段消息节奏控制"
     ],
-    "image": "assets/images/luyao-overview.svg",
-    "imageCaption": "应用架构示意。",
+    "image": "assets/images/screenshots/luyao.jpg",
+    "imageCaption": "路遥公开项目入口截图；已裁去对话 iframe，不含任何会话内容。",
     "links": [
       {
         "href": "https://insistgang.top/luyao/",
@@ -1445,14 +1816,14 @@
       "JavaScript",
       "数据可视化"
     ],
-    "description": "将分散的竞赛记录整理为可视化看板，按届次、赛题与团队维度呈现参赛项目，统计获奖分布与技术领域覆盖情况，便于快速回顾与对外展示。",
+    "description": "将分散的竞赛记录整理为可视化看板，按届次、赛题与团队维度呈现参赛项目，统计获奖分布与技术领域覆盖情况，现已演进并整合入本作品集主站。",
     "highlights": [
-      "按届次与赛题组织参赛记录",
-      "统计获奖等级分布与获奖率",
-      "呈现技术领域覆盖情况"
+      "按届次、赛事级别与赛题方向结构化组织参赛记录",
+      "可视化呈现获奖等级分布与跨学科技术领域覆盖情况"
     ],
-    "image": "assets/images/cpicp-overview.svg",
-    "imageCaption": "历史作品示意，原展示站点已下线。"
+    "image": null,
+    "imageCaption": "历史竞赛看板暂无可核验原图；不将自绘结构图当作历史界面。",
+    "imageUnavailableNote": "历史竞赛看板暂无可核验原图；不将自绘结构图当作历史界面。"
   },
   {
     "id": "prod-11",
@@ -1463,21 +1834,21 @@
     "status": "在线运行",
     "statusColor": "emerald",
     "badge": "前端可视化",
-    "metrics": "20 个数据仪表板",
+    "metrics": "20 个独立仪表板 · ECharts 交互",
     "tech": [
       "HTML",
       "CSS",
       "JavaScript",
       "ECharts"
     ],
-    "description": "围绕低空经济主题，将行业材料拆解为城市配送、医疗运输与工业应用等场景，提炼时效、成本与规模等指标，并以二十个独立仪表板呈现数据叙事。",
+    "description": "围绕低空经济主题，将行业调研材料拆解为城市配送、医疗急送、空域调度与工业巡检等场景，提炼时效、成本与规模等核心指标，并以二十个独立仪表板呈现数据叙事。",
     "highlights": [
-      "按应用场景拆解行业材料",
-      "提炼时效、成本与规模等关键指标",
-      "以二十个仪表板组织数据叙事"
+      "按低空经济细分应用场景系统拆解行业调研材料",
+      "提炼配送时效、单均成本、航线密度与市场规模等核心指标",
+      "以二十个交互式 ECharts 仪表板组织多维数据叙事"
     ],
-    "image": "assets/images/word-to-pic-overview.svg",
-    "imageCaption": "前端可视化练习作品，数据用于演示呈现。",
+    "image": "assets/images/screenshots/dashboards.jpg",
+    "imageCaption": "低空经济数据仪表板集合的真实目录页；页面数字为项目展示内容，不作为本轮核验的行业数据。",
     "links": [
       {
         "href": "https://insistgang.top/word_to_pic/",
@@ -1492,25 +1863,25 @@
   {
     "id": "prod-12",
     "category": "products",
-    "title": "数海航标",
-    "subtitle": "数据库学习闯关",
+    "title": "数海航标 · 数据库学习闯关平台",
+    "subtitle": "SQL 语法闯关练习、实时判题与学习进度追踪",
     "role": "合作开发",
     "status": "在线运行",
     "statusColor": "emerald",
     "badge": "学习应用",
-    "metrics": "静态站与阿里云自建站",
+    "metrics": "静态体验站 + 阿里云自建全栈站",
     "tech": [
       "Vite",
       "TypeScript",
       "FastAPI"
     ],
-    "description": "把数据库知识做成闯关练习。GitHub Pages 上是纯静态版；阿里云子域接了学习记录接口。",
+    "description": "将数据库原理与 SQL 查询设计为渐进式闯关练习。提供开箱即用的纯静态体验版，同时在阿里云子域名部署接入 FastAPI 学习记录接口的全栈版本。",
     "highlights": [
-      "主域路径提供可直接打开的静态版",
-      "aidatabase.insistgang.top 提供自建版"
+      "主域名路径提供免登录、零后端依赖的纯静态闯关体验版",
+      "aidatabase.insistgang.top 部署全栈自建版，支持用户进度与答题记录持久化"
     ],
-    "image": "assets/images/aidatabase-overview.svg",
-    "imageCaption": "公开学习应用示意，不含私人数据。",
+    "image": "assets/images/screenshots/aidatabase.jpg",
+    "imageCaption": "数海航标公开体验版的知识航线与关卡界面截图。",
     "links": [
       {
         "href": "https://insistgang.top/aidatabase/",
@@ -1529,23 +1900,26 @@
   {
     "id": "prod-14",
     "category": "products",
-    "title": "论文阅读笔记",
-    "subtitle": "公开的阅读与思考",
+    "title": "论文阅读笔记 · 结构化文献研读库",
+    "subtitle": "AI 首轮拆解、主题检索与单独标记的人工复核",
     "role": "独立整理",
     "status": "代码公开",
     "statusColor": "emerald",
-    "badge": "阅读",
-    "metrics": "公开笔记仓库",
+    "badge": "学术阅读",
+    "metrics": "547 篇笔记 · AI 首轮拆解 · 人工复核分层",
     "tech": [
-      "Markdown"
+      "Markdown",
+      "静态目录",
+      "文献综述"
     ],
-    "description": "已经公开的论文阅读和思考。未发表稿和评审意见不在这个仓库里。线上目录链到每一篇公开笔记。",
+    "description": "整理计算机视觉、遥感与大模型 Agent 相关的 547 篇结构化论文笔记，均包含 AI 首轮阅读稿。人工精读是否完成，按笔记中的 human_reviewed、status 与人工补充内容单独判断，不将笔记总量等同于人工精读完成量。",
     "highlights": [
-      "线上目录可以按标题查找",
-      "笔记原文在公开仓库"
+      "按主题与标题检索研究问题、方法和局限性，保留结构化笔记索引",
+      "AI 首轮阅读稿与人工复核状态分层管理，不把自动生成笔记计为人工掌握",
+      "公开库定位为笔记与索引，不含未发表投稿手稿与审稿意见"
     ],
-    "image": "assets/images/read-paper-overview.svg",
-    "imageCaption": "公开笔记，不是投稿稿。",
+    "image": "assets/images/screenshots/read-paper.jpg",
+    "imageCaption": "论文阅读笔记公开目录实图（截图时显示 589 条）；目录条目不等于人工精读完成量。",
     "links": [
       {
         "href": "https://insistgang.top/read_paper/",
@@ -1561,24 +1935,26 @@
     "id": "prod-15",
     "category": "products",
     "title": "VitaFlow · 四账户精力管家",
-    "subtitle": "日程、打卡和精力都留在本机",
+    "subtitle": "四维精力账户、浏览器记录与本地 JSON 同步",
     "role": "独立设计与开发",
     "status": "代码公开",
     "statusColor": "sky",
     "badge": "本地应用",
-    "metrics": "单文件页面 · 本地同步",
+    "metrics": "本地同步服务 · 访问口令 · 轮换备份",
     "tech": [
       "HTML",
       "JavaScript",
-      "本地存储"
+      "Node.js",
+      "LocalStorage"
     ],
-    "description": "用体能、情感、思维、意志四个账户组织日程和精力管理。项目现整合在 Ops-Hub 中，个人日程保持私有。",
+    "description": "以体能、情感、思维、意志四个账户组织日程与精力记录，模块源码整合在 Ops-Hub 中。除浏览器存储外，还提供带访问口令的 Node.js 本地同步服务，将数据保存为本地 JSON 并维护轮换备份；私人日程和口令不进入公开仓库。",
     "highlights": [
-      "以四账户组织日程和精力管理",
-      "个人日程不作为公开演示数据"
+      "四维账户组织任务负荷与恢复记录，不作为医疗或能力测量结论",
+      "浏览器与本地 JSON 同步，服务提供访问口令校验和轮换备份",
+      "通过 Ops-Hub 本地 Tab 接入，公开源码不包含个人日程与访问口令"
     ],
-    "image": "assets/images/vitaflow-overview.svg",
-    "imageCaption": "精力管理模块示意。",
+    "image": "assets/images/screenshots/vitaflow.jpg",
+    "imageCaption": "Ops-Hub 中 VitaFlow 模块的公开项目说明页截图；不展示私人日程或个人精力记录。",
     "links": [
       {
         "href": "https://github.com/insistgang/ops-hub/tree/main/vitaflow",
@@ -1589,25 +1965,26 @@
   {
     "id": "prod-16",
     "category": "products",
-    "title": "食安崇明演示",
-    "subtitle": "食品安全检查流程的前端样例",
-    "role": "前端演示",
+    "title": "食安崇明 · 家宴备案与食药共治前端原型",
+    "subtitle": "家宴申报、公众与骑手吹哨、政策指南及分级审核",
+    "role": "前端设计与开发",
     "status": "代码公开",
     "statusColor": "sky",
-    "badge": "演示",
-    "metrics": "浏览器本地数据",
+    "badge": "前端原型",
+    "metrics": "家宴备案 · 食药吹哨 · 乡镇与区级监管",
     "tech": [
       "React",
       "TypeScript",
       "Vite"
     ],
-    "description": "把检查、记录和查阅做成可点击的页面。示例数据写在浏览器里，不是已经上线的监管系统。",
+    "description": "面向食品药品安全共治场景的 React 前端原型，覆盖农村集体聚餐备案、公众与骑手线索上报、政策与办事指南，并提供乡镇审核和区级监管视角。数据保存在浏览器 localStorage，无在线业务后端，也不是已投产的政务监管系统。",
     "highlights": [
-      "流程可以点通",
-      "不连接真实检查记录"
+      "家宴申报包含菜单关键词核验与安全承诺书，监管端展示审核处置流程",
+      "公众或骑手提交吹哨线索，演示受理、转派、核查与结案流转",
+      "原始示例记录真实性及脱敏完整性未核实，不将公开入口授权视为数据审查完成"
     ],
-    "image": "assets/images/food-safety-overview.svg",
-    "imageCaption": "演示代码已公开。",
+    "image": "assets/images/screenshots/food-safety.jpg",
+    "imageCaption": "食安崇明公开前端原型首页实图；未展示人员明细，示例记录的真实性及脱敏完整性未核实。",
     "links": [
       {
         "href": "https://insistgang.top/food-safety-chongming/",
@@ -1622,25 +1999,27 @@
   {
     "id": "prod-17",
     "category": "products",
-    "title": "神盾 AEGIS",
-    "subtitle": "给会调用工具的模型做拦截和留痕",
-    "role": "规则与审计",
+    "title": "神盾 AEGIS · Agent 工具调用安全网关",
+    "subtitle": "面向大模型工具调用的规则拦截、风险分级与审计留痕",
+    "role": "规则引擎与审计设计",
     "status": "代码公开",
     "statusColor": "sky",
-    "badge": "安全",
-    "metrics": "检测 · 研判 · 阻断 · 留痕",
+    "badge": "Agent 安全",
+    "metrics": "确定性策略 · 三态门禁 · SQLite 审计",
     "tech": [
       "Python",
       "规则引擎",
-      "审计记录"
+      "MCP 代理",
+      "SQLite"
     ],
-    "description": "模型要读文件、执行命令或访问网络时，先由规则决定放行、询问或阻断，并把决定记下来。这和已经公开的威胁分析页面不是同一个项目。",
+    "description": "在接入的 Agent 或 MCP 工具执行前，由确定性规则、命令类别、会话污点与来源信息决定放行、询问或阻断。使用 SQLite 保存脱敏审计记录并导出可追溯的来源链路；公开看板提供归档案例回放，不等同于已部署的企业防护服务。",
     "highlights": [
-      "工具调用先过规则",
-      "演练不连接真实密钥和外部网络"
+      "文件、命令与网络调用执行前独立判定，模型建议不能替代规则放行",
+      "多上游 MCP 代理按来源隔离工具描述，记录策略、证据下标与影响链路",
+      "固定轨迹回归、真实模型探索与离线参数复核分开呈现，不混用为统一防护成功率"
     ],
-    "image": "assets/images/aegis-overview.svg",
-    "imageCaption": "代码与演示看板已公开。",
+    "image": "assets/images/screenshots/aegis.jpg",
+    "imageCaption": "神盾 AEGIS 公开静态演示界面截图；不代表本轮调用真实模型或执行安全测试。",
     "links": [
       {
         "href": "https://insistgang.top/aegis/",
@@ -1650,7 +2029,28 @@
         "href": "https://github.com/insistgang/aegis",
         "label": "查看公开代码仓库"
       }
-    ]
+    ],
+    "caseStudy": {
+      "problem": "外部文档或工具描述可能把 Agent 从原始任务引向敏感文件、命令执行与数据外发，仅靠模型自我约束不足以控制工具副作用。",
+      "responsibility": "规则引擎与审计设计；聚焦工具执行前的三态判定、来源关联和脱敏留痕，不把整个安全系统的协作成果归为个人独立交付。",
+      "decisions": [
+        "由确定性规则执行放行、询问或阻断，模型输出不直接取得执行权限。",
+        "多上游 MCP 按来源隔离；SQLite 保存策略编号、证据下标与影响链路。"
+      ],
+      "evidence": [
+        {
+          "label": "受控工具攻防对照报告",
+          "href": "https://github.com/insistgang/aegis/blob/main/docs/攻防对照实验报告.md",
+          "note": "包含协议、固定轨迹、真实模型结果及原始记录索引；固定轨迹效果不能当作自主攻击成功率。"
+        },
+        {
+          "label": "SQLite 审计实现",
+          "href": "https://github.com/insistgang/aegis/blob/main/src/aegis/audit.py",
+          "note": "可检查写入前脱敏、会话与审计记录存储、JSON 导出的具体实现。"
+        }
+      ],
+      "boundary": "公开演示为归档案例回放；受控沙箱不等于企业部署。历史评测未在本轮重跑，不作全面安全或审计不可修改保证。"
+    }
   },
   {
     "id": "prod-18",
@@ -1670,12 +2070,12 @@
     ],
     "description": "面向老旧小区车位分配的业主 H5 与物业管理中台。系统按一车优先、申请时间自动排队，支持车位维修、清退、签约和存证；属于可离线运行的业务演示，不是已投入物业使用的生产系统。",
     "highlights": [
-      "物业无手动指派入口，车位由 FIFO 引擎分发",
-      "外区房与家庭二车执行对应准入和降权规则",
-      "中签 48 小时倒计时与超时自动顺延"
+      "物业无手动指派入口，车位由 FIFO 引擎按规则自动分发",
+      "外区房与家庭二车执行对应准入校验和优先级降权规则",
+      "支持中签 48 小时确认倒计时与超时自动顺延递补"
     ],
-    "image": "assets/images/parking-overview.svg",
-    "imageCaption": "全栈演示功能示意；不代表线上服务正在运行。",
+    "image": "assets/images/screenshots/parking-property-dashboard.png",
+    "imageCaption": "慧停管家项目公开的物业端 50 车位矩阵原图；项目说明为预置演示账号与虚构数据。",
     "links": [
       {
         "href": "https://insistgang.top/community-parking-system/",
@@ -1685,6 +2085,16 @@
         "href": "https://github.com/insistgang/community-parking-system",
         "label": "查看公开代码仓库"
       }
+    ],
+    "gallery": [
+      "assets/images/screenshots/parking-property-dashboard.png",
+      "assets/images/screenshots/parking-owner-home.png",
+      "assets/images/screenshots/parking-owner-queue.png"
+    ],
+    "galleryCaptions": [
+      "物业端 50 车位资产矩阵（虚构演示数据）",
+      "业主端申请状态与小区概况（虚构演示数据）",
+      "业主端顺位公示（虚构演示数据）"
     ]
   },
   {
@@ -1697,19 +2107,28 @@
     "statusColor": "sky",
     "badge": "边缘智能",
     "metrics": "本地推理 · 事件确认 · 隐私优先",
-    "tech": ["Jetson", "YOLO", "FastAPI", "边缘部署"],
+    "tech": [
+      "Jetson",
+      "YOLO",
+      "FastAPI",
+      "边缘部署"
+    ],
     "description": "面向人行无障碍空间的边缘感知原型，在本地处理视觉输入，将通道风险转成稳定事件、辅助提示和可复核记录。产品语义与论文语义分开，不把历史指标直接当成当前产品结论。",
     "highlights": [
-      "本地视觉感知与事件过滤，不上传连续视频流",
-      "按需提供简短辅助提示，不识别用户残障身份",
-      "结构化事件记录支撑无障碍设施复核"
+      "本地视觉感知与多帧事件过滤，不向公网上传连续视频流",
+      "按需提供简短语音/灯语辅助提示，不识别或绑定用户残障身份",
+      "输出结构化事件与脱敏关键帧，支撑本地视频数据大屏复核"
     ],
-    "image": "assets/images/yds-overview.svg",
-    "imageCaption": "功能结构示意；不代表真实场景中的检测精度或现场成功率。",
+    "image": "assets/images/screenshots/yds.jpg",
+    "imageCaption": "本仓库 LinkAble 本地视频复核大屏实图：8 段样本、604 条事件；不是互助 App。",
     "links": [
       {
+        "href": "yds/",
+        "label": "打开本地视频数据大屏"
+      },
+      {
         "href": "https://insistgang.top/portfolio/yds/",
-        "label": "查看视频数据大屏"
+        "label": "线上访问 (insistgang.top)"
       }
     ]
   },
@@ -1717,60 +2136,134 @@
     "id": "prod-20",
     "category": "products",
     "title": "视频画面内容检索平台",
-    "subtitle": "视频抽帧、多模态分析与全文检索",
+    "subtitle": "多模态分阶段分析、持久化任务队列与全文检索",
     "role": "设计与开发",
     "status": "静态演示",
     "statusColor": "sky",
     "badge": "多模态检索",
-    "metrics": "抽帧 · 内容分析 · 全文检索",
-    "tech": ["FastAPI", "React", "FFmpeg", "SQLite FTS5"],
-    "description": "围绕录屏视频建立画面内容检索流程，结合视频抽帧、视觉分析和全文索引，支持查看匹配画面与任务进度。",
-    "highlights": ["按间隔提取视频帧并建立全文索引", "静态页面用于界面展示，不代表后端处理服务在线"],
-    "image": "assets/images/word-to-pic-overview.svg",
-    "imageCaption": "通用可视化示意，非项目实拍。",
+    "metrics": "持久化队列 · 重启恢复 · FTS5 检索",
+    "tech": [
+      "FastAPI",
+      "React",
+      "FFmpeg",
+      "SQLite FTS5"
+    ],
+    "description": "围绕无声录屏资料建立 FFmpeg 抽帧、多模态分析与 SQLite FTS5 检索流程。后端使用持久化任务队列，支持重启恢复、分阶段处理与失败重试；公开静态页只展示搜索和结果界面，真实视频处理需要启动后端并配置模型服务。",
+    "highlights": [
+      "支持 quick、two_stage、deep 处理模式，结合抽帧去重、OCR 粗筛与多模态分析",
+      "SQLite 保存任务状态，支持重启恢复待处理任务与失败任务重试",
+      "FTS5 按关键词定位匹配帧与时间戳，不声称未经基准验证的毫秒级性能"
+    ],
+    "image": "assets/images/screenshots/video-search.jpg",
+    "imageCaption": "视频画面检索公开静态示例的检索中心实图；不含在线视频处理后端。",
     "links": [
-      { "href": "https://insistgang.top/video-speech-search/", "label": "查看静态演示" },
-      { "href": "https://github.com/insistgang/video-speech-search", "label": "查看项目代码" }
-    ]
+      {
+        "href": "https://insistgang.top/video-speech-search/",
+        "label": "查看静态演示"
+      },
+      {
+        "href": "https://github.com/insistgang/video-speech-search",
+        "label": "查看项目代码"
+      }
+    ],
+    "caseStudy": {
+      "problem": "无声录屏缺少可搜索的内容索引，人工回看成本高；长时间分析任务还需要在失败和进程重启后保留处理状态。",
+      "responsibility": "视频检索平台设计与开发，围绕 FastAPI 后端、React 检索界面和任务处理链路组织实现；不将源码能力或历史描述升级为未经验证的性能成绩。",
+      "decisions": [
+        "FFmpeg 抽帧与去重，按 quick / two_stage / deep 分阶段处理，再将分析文本写入 SQLite FTS5。",
+        "任务状态落入 SQLite；启动时恢复待处理任务，失败任务通过接口重试，不只依赖进程内队列。"
+      ],
+      "evidence": [
+        {
+          "label": "持久化队列与恢复实现",
+          "href": "https://github.com/insistgang/video-speech-search/blob/main/backend/services/task_queue.py",
+          "note": "可检查任务入库、状态更新、启动恢复与 worker 调度。"
+        },
+        {
+          "label": "项目运行与配置说明",
+          "href": "https://github.com/insistgang/video-speech-search/blob/main/README.md",
+          "note": "列出前后端、FFmpeg、模型模式与鉴权配置，区分真实处理和 UI 调试。"
+        }
+      ],
+      "boundary": "公开站点仅为静态演示。真实处理需启动后端、安装 FFmpeg 并配置模型服务；FTS5 是全文检索，不宣称任意语义召回、毫秒级性能或多卡吞吐。"
+    }
   },
   {
     "id": "prod-21",
     "category": "products",
     "title": "六级备考与每日词汇",
-    "subtitle": "词汇学习、复习计划和本地学习记录",
+    "subtitle": "真实日期词表、WORK/LIFE 场景图与本地复习进度",
     "role": "设计与开发",
     "status": "静态学习版",
     "statusColor": "sky",
     "badge": "学习工具",
-    "metrics": "每日词汇 · 间隔复习 · 本地进度",
-    "tech": ["React", "TypeScript", "FastAPI", "SQLite"],
-    "description": "将词汇、复习计划和学习记录组织为备考工作流。公开的静态版主要用于词汇学习，进度保存在当前浏览器。",
-    "highlights": ["按日期浏览词表并记录复习进度", "静态版无需后端，不代表全部后端功能在线"],
-    "image": "assets/images/read-paper-overview.svg",
-    "imageCaption": "学习工具示意，非项目界面截图。",
+    "metrics": "每日 20 词 · 场景配图 · 范围受限发布",
+    "tech": [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "SQLite"
+    ],
+    "description": "从按日期维护的每日词表导出静态学习数据，提供每期 20 词、例句、记忆提示、WORK/LIFE 双栏场景图及完整 Markdown 学习资料。复习进度只保存在当前浏览器；缺少当天资料时显示最近已有期次，不冒充当日生成内容。",
+    "highlights": [
+      "按真实期次查看词表、场景图与完整原文，支持词库搜索和间隔复习标记",
+      "发布脚本校验词条、当天配图及复习窗口，只提交限定资料与导出产物",
+      "已实现 macOS 定时发布与补检；Git 同步回执不等同于 Pages 部署成功，学习进度不跨设备自动同步"
+    ],
+    "image": "assets/images/screenshots/liuji.jpg",
+    "imageCaption": "六级学习系统每日词表、场景配图与复习入口实图；使用干净浏览器，无个人学习记录。",
     "links": [
-      { "href": "https://insistgang.top/liuji/", "label": "打开词汇学习版" },
-      { "href": "https://github.com/insistgang/liuji", "label": "查看项目代码" }
+      {
+        "href": "https://insistgang.top/liuji/",
+        "label": "打开词汇学习版"
+      },
+      {
+        "href": "https://github.com/insistgang/liuji",
+        "label": "查看项目代码"
+      }
     ]
   },
   {
     "id": "prod-22",
     "category": "products",
     "title": "专注力训练",
-    "subtitle": "舒尔特方格、N-Back 与 Stroop 互动练习",
+    "subtitle": "舒尔特方格、N-Back 工作记忆与 Stroop 抗干扰练习",
     "role": "设计与开发",
     "status": "网页演示",
     "statusColor": "sky",
     "badge": "交互练习",
-    "metrics": "三种练习 · 浏览器交互",
-    "tech": ["React", "JavaScript", "CSS"],
-    "description": "将舒尔特方格、N-Back 和 Stroop 三类练习组织为可在浏览器中使用的交互应用；训练效果不作为医疗或能力提升结论。",
-    "highlights": ["提供三种不同交互形式的练习", "公开页面为训练演示，效果未做独立验证"],
-    "image": "assets/images/soft/submitted-09.png",
-    "imageCaption": "项目提交材料中的界面截图。",
+    "metrics": "三类经典范式 · 实时计时统计 · 浏览器交互",
+    "tech": [
+      "React",
+      "JavaScript",
+      "CSS"
+    ],
+    "description": "将舒尔特方格视觉搜索、N-Back 工作记忆挑战和 Stroop 色词抗干扰三类经典训练范式制作为可直接在浏览器体验的交互应用；训练统计仅用于日常练习反馈，不作为医疗或能力评估结论。",
+    "highlights": [
+      "完整实现舒尔特方格、N-Back 与 Stroop 三种交互范式及难度调节",
+      "提供实时反应耗时统计与准确率反馈，界面清爽无广告"
+    ],
+    "image": "assets/images/screenshots/attention.jpg",
+    "imageCaption": "专注力训练公开控制台实图，包含舒尔特方格、N-Back 与 Stroop 三个入口；不作为效果证明。",
     "links": [
-      { "href": "https://insistgang.top/attention-trainer/", "label": "打开网页演示" },
-      { "href": "https://github.com/insistgang/attention-trainer", "label": "查看项目代码" }
+      {
+        "href": "https://insistgang.top/attention-trainer/",
+        "label": "打开网页演示"
+      },
+      {
+        "href": "https://github.com/insistgang/attention-trainer",
+        "label": "查看项目代码"
+      }
+    ],
+    "gallery": [
+      "assets/images/screenshots/attention.jpg",
+      "assets/images/attention_img2.jpg",
+      "assets/images/attention_img4.jpg"
+    ],
+    "galleryCaptions": [
+      "专注力训练控制台真实截图",
+      "舒尔特方格训练界面实图",
+      "N-Back 训练界面实图"
     ]
   }
 ];
@@ -1778,6 +2271,26 @@
     let currentCategory = "all";
     let searchQuery = "";
     let previousFocus = null;
+    let activeModalId = null;
+
+    const statusBadgeStyles = {
+      amber: "bg-amber-500/10 text-amber-300 border-amber-500/30",
+      emerald: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+      purple: "bg-purple-500/10 text-purple-300 border-purple-500/30",
+      sky: "bg-sky-500/10 text-sky-300 border-sky-500/30"
+    };
+
+    const containImageIds = new Set(["ind-04", "prod-05"]);
+
+    function getFilteredProjects() {
+      return projects.filter(p => {
+        const matchCat = currentCategory === "all" || p.category === currentCategory;
+        const q = searchQuery.toLowerCase().trim();
+        const matchSearch = !q || [p.title, p.subtitle, p.description, p.status, p.badge, p.role, ...p.tech]
+          .join(' ').toLowerCase().includes(q);
+        return matchCat && matchSearch;
+      });
+    }
 
     function updateCounts() {
       document.querySelectorAll('[data-count]').forEach(el => {
@@ -1794,20 +2307,27 @@
         ? p.links
         : (p.url ? [{ href: p.url, label: p.urlLabel || '查看公开项目' }] : []);
       const note = p.privateNote
-        ? `<p class="mb-2 text-slate-500">${p.privateNote}</p>`
+        ? `<p class="mb-2.5 text-slate-400 text-xs">${p.privateNote}</p>`
         : '';
       if (!links.length) {
         return `<div class="pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
-          ${note}<a href="mailto:insistgang@163.com" class="text-sky-400 underline">联系我，了解项目</a>
+          ${note}<a href="mailto:insistgang@163.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700 font-medium transition-colors">联系我，了解项目详情 →</a>
         </div>`;
       }
-      const items = links.map(l => {
+      const items = links.map((l, idx) => {
         const external = /^https?:/i.test(l.href);
         const attrs = external ? 'target="_blank" rel="noopener noreferrer"' : '';
-        return `<a href="${l.href}" ${attrs} class="text-sky-400 underline">${l.label}</a>`;
+        const btnStyle = idx === 0
+          ? 'bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold border border-sky-400/40'
+          : 'bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 font-medium';
+        return `<a href="${l.href}" ${attrs} class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs transition-colors ${btnStyle}">
+          <span>${l.label}</span>
+          <i data-lucide="${external ? 'external-link' : 'arrow-up-right'}" class="w-3.5 h-3.5"></i>
+        </a>`;
       });
-      return `<div class="pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed flex flex-wrap gap-x-4 gap-y-1">
-        ${note}${items.join('')}
+      return `<div class="pt-4 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+        ${note}
+        <div class="flex flex-wrap gap-2.5">${items.join('')}</div>
       </div>`;
     }
 
@@ -1816,13 +2336,7 @@
       const emptyState = document.getElementById("empty-state");
       grid.innerHTML = "";
 
-      const filtered = projects.filter(p => {
-        const matchCat = currentCategory === "all" || p.category === currentCategory;
-        const q = searchQuery.toLowerCase().trim();
-        const matchSearch = !q || [p.title, p.subtitle, p.description, p.status, p.badge, p.role, ...p.tech]
-          .join(' ').toLowerCase().includes(q);
-        return matchCat && matchSearch;
-      });
+      const filtered = getFilteredProjects();
       document.getElementById('results-count').textContent = `显示 ${filtered.length} / ${projects.length} 条作品记录`;
 
       if (filtered.length === 0) {
@@ -1842,45 +2356,52 @@
           if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openModal(p.id); }
         };
 
-        const techHtml = p.tech.slice(0, 3).map(t => 
+        const techHtml = p.tech.slice(0, 4).map(t =>
           `<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-800">${t}</span>`
         ).join("");
         const openHref = (p.links && p.links[0] && p.links[0].href) || p.url || "";
         const openLabel = (p.links && p.links[0] && p.links[0].label) || "打开作品";
+        const isExternal = /^https?:/i.test(openHref);
         const openHtml = (!p.privateNote && openHref)
-          ? `<a href="${openHref.replace(/"/g, "&quot;")}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-sky-400 underline">${openLabel}</a>`
-          : `<span>案例详情</span>`;
+          ? `<a href="${openHref.replace(/"/g, "&quot;")}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''} onclick="event.stopPropagation()" class="text-sky-400 hover:text-sky-300 underline underline-offset-2">${openLabel}</a>`
+          : `<span>查看详情</span>`;
+
+        const useContain = p.category === "competition" || containImageIds.has(p.id) || p.image?.startsWith('assets/images/screenshots/');
+        const imgFitClass = useContain
+          ? "w-full h-full object-contain p-2.5 group-hover:scale-[1.03] transition-transform duration-300"
+          : "w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-300";
+        const statusStyle = statusBadgeStyles[p.statusColor] || "bg-slate-800/90 text-slate-300 border-slate-700";
+        const galleryBadge = Array.isArray(p.gallery) && p.gallery.length > 1
+          ? `<span class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md text-[10px] font-mono bg-slate-950/85 text-slate-300 border border-slate-700/80 backdrop-blur-sm">${p.gallery.length} 张视图</span>`
+          : "";
+
+        const imageHtml = p.image
+          ? `<img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async" class="${imgFitClass}" />`
+          : `<div class="p-5 text-center text-xs text-slate-400 leading-relaxed"><p class="font-medium text-slate-300 mb-2">暂无可公开核验配图</p><p>${p.imageUnavailableNote}</p></div>`;
 
         card.innerHTML = `
           <div>
-            <div class="h-44 bg-slate-900 overflow-hidden relative border-b border-slate-800/80">
-              <img 
-                src="${p.image}" 
-                alt="${p.title}" 
-                loading="lazy" decoding="async"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                onerror="this.onerror=null; this.style.visibility='hidden'"
-              />
-              <div class="absolute top-3 left-3">
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-950/80 backdrop-blur-md text-sky-400 border border-slate-800">
+            <div class="aspect-video bg-slate-950 overflow-hidden relative border-b border-slate-800/80 flex items-center justify-center">
+              ${imageHtml}
+              ${galleryBadge}
+            </div>
+
+            <div class="p-5 pb-3">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-900 text-sky-400 border border-slate-800 truncate">
                   ${p.badge}
                 </span>
-              </div>
-              <div class="absolute top-3 right-3">
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-950/90 text-slate-200 border border-slate-700 backdrop-blur-md">
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-semibold border shrink-0 ${statusStyle}">
                   ${p.status}
                 </span>
               </div>
-            </div>
-
-            <div class="p-5">
-              <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors line-clamp-1 mb-1">
+              <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors line-clamp-1 mb-1" title="${p.title.replace(/"/g, '&quot;')}">
                 ${p.title}
               </h3>
-              <p class="text-xs text-slate-400 font-medium line-clamp-1 mb-3">
+              <p class="text-xs text-slate-400 font-medium line-clamp-1 mb-2.5" title="${p.subtitle.replace(/"/g, '&quot;')}">
                 ${p.subtitle}
               </p>
-              <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed mb-4">
+              <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed mb-3">
                 ${p.description}
               </p>
             </div>
@@ -1890,9 +2411,9 @@
             <div class="flex flex-wrap gap-1.5 mb-3">
               ${techHtml}
             </div>
-            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span>${p.metrics.split('·')[0]}</span>
-              <span class="text-sky-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono gap-2">
+              <span class="truncate">${p.metrics.split('·')[0].trim()}</span>
+              <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-1 shrink-0">
                 ${openHtml}
                 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
               </span>
@@ -1908,25 +2429,92 @@
     function setCategory(cat) {
       currentCategory = cat;
       document.querySelectorAll(".cat-btn").forEach(btn => {
-        btn.setAttribute('aria-pressed', String(btn.dataset.cat === cat));
-        if (btn.dataset.cat === cat) {
-          btn.className = "cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-white flex items-center gap-2";
+        const isActive = btn.dataset.cat === cat;
+        btn.setAttribute('aria-pressed', String(isActive));
+        const badgeSpan = btn.lastElementChild;
+        if (isActive) {
+          btn.className = "cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-sky-500 text-slate-950 flex items-center gap-2";
+          if (badgeSpan) badgeSpan.className = "px-1.5 py-0.5 rounded-full bg-slate-950/20 text-slate-950 text-[10px]";
         } else {
           btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800 transition-all flex items-center gap-2";
+          if (badgeSpan) badgeSpan.className = "px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[10px]";
         }
       });
       renderProjects();
     }
 
     function handleSearch() {
-      searchQuery = document.getElementById("search-input").value;
+      const input = document.getElementById("search-input");
+      const clearBtn = document.getElementById("search-clear");
+      searchQuery = input ? input.value : "";
+      if (clearBtn) {
+        clearBtn.classList.toggle("hidden", !searchQuery.trim());
+      }
       renderProjects();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById("search-input");
+      if (input) {
+        input.value = "";
+        input.focus();
+      }
+      handleSearch();
+    }
+
+    function resetFilters() {
+      const input = document.getElementById("search-input");
+      const clearBtn = document.getElementById("search-clear");
+      if (input) input.value = "";
+      if (clearBtn) clearBtn.classList.add("hidden");
+      searchQuery = "";
+      setCategory("all");
+    }
+
+    function getProjectGallery(p) {
+      const urls = (Array.isArray(p.gallery) && p.gallery.length ? p.gallery : [p.image]).filter(Boolean);
+      const captions = Array.isArray(p.galleryCaptions) ? p.galleryCaptions : [];
+      return urls.map((src, i) => ({
+        src,
+        caption: captions[i] || p.imageCaption || '项目展示资料'
+      }));
+    }
+
+    function selectModalImage(index) {
+      const p = projects.find(item => item.id === activeModalId);
+      if (!p) return;
+      const gallery = getProjectGallery(p);
+      const item = gallery[index] || gallery[0];
+      if (!item) return;
+      const imgEl = document.getElementById("modal-main-image");
+      const linkEl = document.getElementById("modal-raw-link");
+      const capEl = document.getElementById("modal-image-caption");
+      if (imgEl) imgEl.src = item.src;
+      if (linkEl) linkEl.href = item.src;
+      if (capEl) capEl.textContent = item.caption;
+      document.querySelectorAll("[data-gallery-idx]").forEach(btn => {
+        const active = Number(btn.dataset.galleryIdx) === index;
+        btn.className = active
+          ? "px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/50 transition-colors"
+          : "px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-colors";
+      });
+    }
+
+    function navigateModal(delta) {
+      if (!activeModalId) return;
+      const list = getFilteredProjects();
+      const pool = list.length ? list : projects;
+      const idx = pool.findIndex(item => item.id === activeModalId);
+      if (idx === -1) return;
+      const nextIdx = (idx + delta + pool.length) % pool.length;
+      openModal(pool[nextIdx].id);
     }
 
     function openModal(id) {
       const p = projects.find(item => item.id === id);
       if (!p) return;
       if (document.getElementById('detail-modal').classList.contains('hidden')) previousFocus = document.activeElement;
+      activeModalId = id;
 
       const content = document.getElementById("modal-content");
       const techBadges = p.tech.map(t => 
@@ -1937,16 +2525,46 @@
         `<li class="flex items-start gap-2 text-xs sm:text-sm text-slate-300"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i><span>${h}</span></li>`
       ).join("");
 
-      content.innerHTML = `
-        <div class="mb-4 rounded-xl overflow-hidden max-h-[460px] bg-slate-950 border border-slate-800 flex items-center justify-center relative group">
-          <img src="${p.image}" alt="${p.title}" class="w-full max-h-[440px] object-contain" />
-          <a href="${p.image}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/90 hover:bg-sky-600 text-slate-200 hover:text-white border border-slate-700 shadow-lg flex items-center gap-1.5 backdrop-blur transition-all">
-            <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-            <span>查看高清原图</span>
-          </a>
-        </div>
+      const caseStudy = p.caseStudy;
+      const caseHtml = caseStudy
+        ? `<section data-case-study="${p.id}" class="mb-6 border-t border-slate-800 pt-5">
+            <h3 class="text-base font-semibold text-white mb-4">工程案例：从问题到证据</h3>
+            <dl class="space-y-4 text-xs sm:text-sm leading-relaxed">
+              <div><dt class="font-semibold text-slate-200">问题</dt><dd class="mt-1 text-slate-300">${caseStudy.problem}</dd></div>
+              <div><dt class="font-semibold text-slate-200">个人职责</dt><dd class="mt-1 text-slate-300">${caseStudy.responsibility}</dd></div>
+              <div><dt class="font-semibold text-slate-200">技术决策</dt><dd><ul class="mt-1 list-disc pl-5 space-y-2 text-slate-300">${caseStudy.decisions.map(item => `<li>${item}</li>`).join('')}</ul></dd></div>
+              <div><dt class="font-semibold text-slate-200">可核验证据</dt><dd><ul class="mt-2 space-y-3">${caseStudy.evidence.map(item => `<li><a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-white underline underline-offset-4">${item.label} ↗</a><p class="mt-1 text-slate-400">${item.note}</p></li>`).join('')}</ul></dd></div>
+              <div><dt class="font-semibold text-slate-200">能力边界</dt><dd class="mt-1 text-slate-400">${caseStudy.boundary}</dd></div>
+            </dl>
+          </section>`
+        : '';
+      const gallery = getProjectGallery(p);
+      const firstMedia = gallery[0] || null;
+      const galleryTabs = gallery.length > 1
+        ? `<div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="text-[11px] font-mono text-slate-400">切换视图：</span>
+            ${gallery.map((g, i) => `<button type="button" data-gallery-idx="${i}" onclick="selectModalImage(${i})" class="${i === 0 ? 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/50 transition-colors' : 'px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-colors'}">视图 ${i + 1}</button>`).join('')}
+          </div>`
+        : '';
 
-        <p class="text-xs text-slate-400 mb-4">${p.imageCaption || '项目展示资料'}</p>
+      const pool = getFilteredProjects();
+      const activePool = pool.some(item => item.id === p.id) ? pool : projects;
+      const currentIdx = activePool.findIndex(item => item.id === p.id);
+
+      const mediaHtml = firstMedia
+        ? `<div class="mb-3 rounded-xl overflow-hidden max-h-[460px] bg-slate-950 border border-slate-800 flex items-center justify-center relative group">
+            <img id="modal-main-image" src="${firstMedia.src}" alt="${p.title}" class="w-full max-h-[440px] object-contain" />
+            <a id="modal-raw-link" href="${firstMedia.src}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900/90 hover:bg-sky-500 text-slate-200 hover:text-slate-950 border border-slate-700 shadow-lg flex items-center gap-1.5 backdrop-blur transition-all">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              <span>查看高清原图</span>
+            </a>
+          </div>
+          ${galleryTabs}
+          <p id="modal-image-caption" class="text-xs text-slate-400 mb-4">${firstMedia.caption}</p>`
+        : `<div class="p-5 mb-4 rounded-xl bg-slate-950 border border-slate-800 text-sm text-slate-400 leading-relaxed"><p class="font-medium text-slate-300 mb-2">暂无可公开核验配图</p><p>${p.imageUnavailableNote}</p></div>`;
+
+      content.innerHTML = `
+        ${mediaHtml}
         <div class="flex flex-wrap items-center gap-2 mb-2">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">${p.badge}</span>
           <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">${p.role}</span>
@@ -1980,7 +2598,20 @@
           </div>
         </div>
 
+        ${caseHtml}
         ${renderProjectLinks(p)}
+
+        <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+          <button type="button" onclick="navigateModal(-1)" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-colors">
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+            <span>上一项</span>
+          </button>
+          <span class="font-mono text-[11px] text-slate-400">${currentIdx + 1} / ${activePool.length}（支持 ← / → 键切换）</span>
+          <button type="button" onclick="navigateModal(1)" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-colors">
+            <span>下一项</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
       `;
 
       document.getElementById("detail-modal").classList.remove("hidden");
@@ -1992,6 +2623,7 @@
     function closeModal() {
       document.getElementById("detail-modal").classList.add("hidden");
       document.body.classList.remove('modal-open');
+      activeModalId = null;
       if (previousFocus && previousFocus.isConnected) previousFocus.focus();
     }
 
@@ -2003,6 +2635,8 @@
       const modal = document.getElementById('detail-modal');
       if (modal.classList.contains('hidden')) return;
       if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") { e.preventDefault(); navigateModal(-1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); navigateModal(1); }
       if (e.key === 'Tab') {
         const focusable = [...modal.querySelectorAll('button, a[href], [tabindex="0"]')];
         const first = focusable[0], last = focusable[focusable.length - 1];
@@ -2011,8 +2645,36 @@
       }
     });
 
+    function initScrollSpy() {
+      const navLinks = [...document.querySelectorAll('#site-nav-links a[href^="#"]')];
+      const sections = navLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+      if (!sections.length || !('IntersectionObserver' in window)) return;
+
+      const setActive = (id) => {
+        navLinks.forEach(link => {
+          const match = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('text-sky-400', match);
+          link.classList.toggle('bg-slate-800/90', match);
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActive(visible[0].target.id);
+        }
+      }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.05, 0.2, 0.5] });
+
+      sections.forEach(sec => observer.observe(sec));
+    }
+
     updateCounts();
     renderProjects();
+    initScrollSpy();
   </script>
 </body>
 </html>

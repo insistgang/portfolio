@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">中国电科五十所 智慧城市图像检测产学研结项</title><desc id="desc">道路与城市场景目标检测、单目测距算法研发及工程化交接。</desc>
+  <rect width="960" height="540" fill="#131918"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', sans-serif">
+    <text x="64" y="80" fill="#86efac" font-size="18" letter-spacing="3">RESEARCH &amp; INDUSTRY DELIVERY / CETC 50</text>
+    <text x="64" y="150" fill="#f0eee8" font-size="40" font-weight="700">智慧城市图像检测与工程交接</text>
+    <text x="64" y="196" fill="#a8abae" font-size="23">中国电子科技集团第 50 研究所 · 产学研合作研发与结项交付</text>
+    <path d="M300 330H344M598 330H642" stroke="#3b6e5c" stroke-width="3"/>
+    <g fill="#1a2421" stroke="#314740"><rect x="64" y="258" width="236" height="154" rx="14"/><rect x="344" y="258" width="254" height="154" rx="14"/><rect x="642" y="258" width="254" height="154" rx="14"/></g>
+    <g fill="#86efac" font-size="16" letter-spacing="1.5"><text x="88" y="294">DETECTION</text><text x="368" y="294">FILTERING</text><text x="666" y="294">DELIVERY</text></g>
+    <g fill="#f0eee8" font-size="26" font-weight="600"><text x="88" y="342">检测与单目测距</text><text x="368" y="342">时域滤波防抖</text><text x="666" y="342">工程验收交接</text></g>
+    <g fill="#a8abae" font-size="17"><text x="88" y="382">YOLO · 几何标定</text><text x="368" y="382">卡尔曼滤波 · 工控部署</text><text x="666" y="382">算法代码 · 结项文档</text></g>
+    <text x="64" y="476" fill="#727c82" font-size="17">产学研技术交付示意 · 脱敏呈现算法与工程模块</text>
+  </g>
+</svg>
