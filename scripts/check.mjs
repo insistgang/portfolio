@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { Script } from 'node:vm';
+import { Script, runInNewContext } from 'node:vm';
+import { execFileSync } from 'node:child_process';
 
 const html = readFileSync('index.html', 'utf8');
 const projects = JSON.parse(html.match(/const projects\s*=\s*(\[[\s\S]*?\n\]);/)[1]);
@@ -108,6 +109,43 @@ assert.ok(!/<script[^>]+src="https?:|@import url\('https?:/.test(html), '运行�
 assert.ok(html.includes('aria-label="搜索作品"'));
 assert.ok(html.includes('role="dialog"'));
 
+const mainScript = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1];
+function mockElement() {
+  const classes = new Set();
+  return { dataset: {}, style: {}, innerHTML: '', textContent: '', isConnected: true,
+    classList: { contains: name => classes.has(name), add: name => classes.add(name), remove: name => classes.delete(name), toggle(name, active) { if (active) classes.add(name); else classes.delete(name); } },
+    setAttribute() {}, addEventListener() {}, focus() {}
+  };
+}
+const mainElements = new Map();
+const cards = [];
+const documentMock = {
+  activeElement: mockElement(), body: mockElement(),
+  getElementById(id) { if (!mainElements.has(id)) mainElements.set(id, mockElement()); return mainElements.get(id); },
+  querySelectorAll() { return []; }, createElement() { return mockElement(); }, addEventListener() {}
+};
+const grid = documentMock.getElementById('projects-grid');
+grid.appendChild = card => cards.push(card);
+documentMock.getElementById('detail-modal').classList.add('hidden');
+const mainRuntime = { document: documentMock, lucide: { createIcons() {} } };
+runInNewContext(mainScript.slice(0, mainScript.lastIndexOf('    updateCounts();')), mainRuntime);
+mainRuntime.renderProjects();
+assert.equal(cards.length, projects.length, '作品卡片未完整渲染');
+const key = { key: 'Enter', target: {}, currentTarget: cards[0], prevented: false, preventDefault() { this.prevented = true; } };
+cards[0].onkeydown(key);
+assert.ok(!key.prevented && documentMock.getElementById('detail-modal').classList.contains('hidden'), '内部链接键盘事件不得打开详情');
+key.target = cards[0];
+cards[0].onkeydown(key);
+assert.ok(key.prevented && !documentMock.getElementById('detail-modal').classList.contains('hidden'), '卡片自身 Enter 应打开详情');
+mainRuntime.closeModal();
+runInNewContext(`currentCategory = 'research'; openModal('prod-17'); navigateModal(1);`, mainRuntime);
+assert.equal(runInNewContext('activeModalId', mainRuntime), 'prod-18', '跨分类详情应使用完整浏览集合');
+assert.ok(documentMock.getElementById('modal-content').innerHTML.includes('34 / 38'), '弹窗序号与翻页集合不一致');
+mainRuntime.closeModal();
+runInNewContext(`openModal('res-04'); navigateModal(1);`, mainRuntime);
+assert.equal(runInNewContext('activeModalId', mainRuntime), 'res-01', '分类内翻页应循环');
+mainRuntime.closeModal();
+
 // Sub-page checks: career/index.html & yds/index.html
 const careerHtml = readFileSync('career/index.html', 'utf8');
 assert.ok(!/\*\*/.test(careerHtml), 'career/index.html 不得残留未解析的 Markdown 粗体符号 **');
@@ -115,9 +153,52 @@ assert.ok(!/软著|\/Users\//.test(careerHtml), 'career/index.html 不得包含�
 for (const match of careerHtml.matchAll(/(?:src|href)="\.\.\/(assets\/[^"$]+)"/g)) {
   assert.ok(existsSync(match[1]), `career/index.html 引用资源缺失：${match[1]}`);
 }
-for (const script of careerHtml.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)) {
-  new Script(script[1]);
+function checkCareerPage(page, expectedRows) {
+  for (const id of ['edu-title', 'skills-title', 'projects-title', 'intern-title', 'awards-title', 'targets-title', 'resume-title']) {
+    assert.ok(page.includes(`id="${id}"`), `求职页关键区块缺失：${id}`);
+  }
+  const tbody = page.match(/<tbody id="targets-tbody">([\s\S]*?)<\/tbody>/)?.[1];
+  assert.ok(tbody, '求职页投递表缺失');
+  const rows = [...tbody.matchAll(/<tr data-group="([^"]+)">/g)].map(match => ({ dataset: { group: match[1] }, style: {} }));
+  assert.equal(rows.length, expectedRows, '求职页投递记录数量不符');
+  const buttons = [...page.matchAll(/<button[^>]*data-stage="([^"]+)"[^>]*>([^<]+)<\/button>/g)].map(match => ({
+    dataset: { stage: match[1] }, label: match[2], pressed: '', active: false,
+    classList: { toggle(_name, active) { this.owner.active = active; } },
+    setAttribute(_name, value) { this.pressed = value; }
+  }));
+  for (const button of buttons) button.classList.owner = button;
+  assert.ok(buttons.some(button => button.dataset.stage === 'all'), '求职页筛选入口缺失');
+  const summary = { textContent: '' };
+  const context = { document: {
+    querySelectorAll(selector) { return selector === '#targets-tbody tr' ? rows : selector === '.filter-pill' ? buttons : []; },
+    getElementById(id) { return id === 'targets-summary' ? summary : null; }
+  } };
+  for (const script of page.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)) runInNewContext(script[1], context);
+  assert.equal(typeof context.filterTargets, 'function', '求职页筛选函数缺失');
+  for (const button of buttons) {
+    context.filterTargets(button.dataset.stage);
+    const expected = button.dataset.stage === 'all' ? rows.length : rows.filter(row => row.dataset.group === button.dataset.stage).length;
+    assert.equal(rows.filter(row => row.style.display !== 'none').length, expected, '求职页筛选结果错误');
+    assert.equal(Number(button.label.match(/\((\d+)\)/)?.[1]), expected, '求职页筛选数量标注错误');
+    assert.equal(button.pressed, 'true', '求职页筛选状态未同步');
+    assert.ok(summary.textContent.includes(`${expected} / ${rows.length}`), '求职页筛选结果提示错误');
+  }
+  assert.ok(page.includes('href="../assets/career/resume_zh_reviewed.pdf"') && page.includes('href="../assets/career/resume_en_reviewed.pdf"'), '中英文简历入口缺失');
 }
+checkCareerPage(careerHtml, 29);
+const generatedCareer = execFileSync('python3', ['-B', '-c', `
+import importlib.util
+spec = importlib.util.spec_from_file_location('career', 'scripts/build_career_page.py')
+m = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(m)
+apps = [{'company': 'Example', 'position': 'Engineer', 'status': status} for status in ['todo', 'applied', 'offer', 'screening', 'interview', 'rejected']]
+assert [m.application_stage(a)[0] for a in apps] == ['prep', 'sent', 'active', 'active', 'active', 'closed']
+assert m.application_stage({'status': 'applied', 'stage': '资料待补全'})[0] == 'sent'
+profile = {'basic_info': {'name': 'Review'}, 'education': [{}], 'skills': {'inference_and_deployment': {'title': '推理优化与端侧部署', 'description': '单卡 42 tokens/s'}}, 'projects': [{'title': '项目 07：understand_mov_v2', 'challenge': '毫秒级', 'highlights': ['CLIP 多卡'], 'tags': ['CLIP']}], 'internships': [{}], 'awards': {'national': [{}]}}
+print(m.build(profile, apps, [('中文简历', '../assets/career/resume_zh_reviewed.pdf'), ('English Resume', '../assets/career/resume_en_reviewed.pdf')]))
+`], { encoding: 'utf8' });
+checkCareerPage(generatedCareer, 6);
+assert.ok(!/42 tokens\/s|毫秒级|CLIP|多卡/.test(generatedCareer), '生成求职页不得重新引入未经核验的推理数字或视频检索旧主张');
 
 const ydsHtml = readFileSync('yds/index.html', 'utf8');
 assert.ok(ydsHtml.includes('<title>LinkAble 本地视频数据大屏</title>'), 'yds/index.html 需保持标题一致');
@@ -133,6 +214,38 @@ for (const match of ydsHtml.matchAll(/<script(?:\s+([^>]*))?>([\s\S]*?)<\/script
     new Script(match[2]);
   }
 }
+
+const report = JSON.parse(ydsHtml.match(/<script id="report-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+const eventElements = Object.fromEntries(['eventTable', 'eventCountLabel', 'eventPageLabel', 'eventPrev', 'eventNext', 'videoFilter', 'typeFilter', 'videoTable'].map(id => [id, { innerHTML: '', textContent: '', value: 'all', disabled: false, scrollTop: 0 }]));
+const eventScript = [...ydsHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)[1];
+const eventContext = { document: { getElementById: id => eventElements[id] } };
+const eventRuntime = { ...eventContext, report };
+runInNewContext(eventScript.slice(eventScript.indexOf('    const colors =')).replace(/\n\s*init\(\);\s*$/, ''), eventRuntime);
+function pageRows() {
+  return [...eventElements.eventTable.innerHTML.matchAll(/<tr>\s*<td class="font-mono">视频 ([^<]+)<\/td>\s*<td class="font-mono">([^<]+)<\/td>/g)].map(match => [match[1], match[2]]);
+}
+for (const video of ['all', ...report.videos.map(video => String(video.video_name))]) {
+  for (const type of ['all', ...Object.keys(report.summary.events_by_type)]) {
+    eventElements.videoFilter.value = video;
+    eventElements.typeFilter.value = type;
+    eventRuntime.applyEventFilters();
+    const expected = report.events.filter(event => (video === 'all' || String(event.video) === video) && (type === 'all' || event.type === type));
+    const actual = [];
+    for (let page = 0; page <= report.events.length; page += 1) {
+      actual.push(...pageRows());
+      if (eventElements.eventNext.disabled) break;
+      assert.ok(page < report.events.length, '事件分页未到达尾页');
+      eventRuntime.changeEventPage(1);
+    }
+    assert.deepEqual(actual, expected.map(event => [String(event.video), `${Number(event.video_time_sec).toFixed(1)}s`]), `事件分页遗漏或重复：${video}/${type}`);
+    eventRuntime.changeEventPage(100);
+    assert.ok(eventElements.eventNext.disabled, '事件分页不得超出尾页');
+    eventRuntime.changeEventPage(-100);
+    assert.ok(eventElements.eventPrev.disabled, '事件分页不得超出首页');
+  }
+}
+eventRuntime.resetEventFilters();
+assert.ok(eventElements.eventPrev.disabled && eventElements.eventPageLabel.textContent.startsWith('第 1 /'), '重置事件筛选应回到首页');
 
 const pdfScript = readFileSync('scripts/build_portfolio_pdf.py', 'utf8');
 for (const match of pdfScript.matchAll(/'(assets\/[^']+)'/g)) {

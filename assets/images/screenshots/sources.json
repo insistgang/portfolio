@@ -72,10 +72,11 @@
     "capturedAt": "2026-11-06"
   },
   "prod-22": {
-    "image": "assets/images/screenshots/attention.jpg",
+    "image": "assets/images/screenshots/attention-modules.jpg",
     "source": "https://insistgang.top/attention-trainer/",
     "kind": "screenshot",
-    "capturedAt": "2026-11-06"
+    "capturedAt": "2026-11-06",
+    "edit": "裁切原 attention.jpg 的三个模块区域，未修改界面文字"
   },
   "prod-18": {
     "image": "assets/images/screenshots/parking-property-dashboard.png",

@@ -4,7 +4,7 @@ Source facts: index.html + CONTENT_NOTES.md. No invented metrics or publication 
 """
 from pathlib import Path
 from io import BytesIO
-import json, re, html
+import argparse, json, re, html
 from PIL import Image
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
@@ -18,9 +18,12 @@ from reportlab.graphics.shapes import Drawing
 from reportlab.graphics import renderPDF
 
 ROOT=Path(__file__).resolve().parent.parent
-OUT=ROOT/'output/pdf/刘钢_Leo_软件工程与研究作品集.pdf'
+parser=argparse.ArgumentParser(description='生成作品集 PDF；输出须指定新文件，避免覆盖既有版本。')
+parser.add_argument('--output', type=Path, required=True)
+OUT=parser.parse_args().output
+if OUT.exists():
+ raise FileExistsError(f'输出已存在，请选择新文件：{OUT}')
 OUT.parent.mkdir(parents=True,exist_ok=True)
-(ROOT/'.tmp/pdf-preview').mkdir(parents=True,exist_ok=True)
 DATA=json.JSONDecoder().raw_decode((ROOT/'index.html').read_text().split('const projects = ',1)[1])[0]
 P={p['id']:p for p in DATA}
 W,H=841.89,595.28
@@ -138,7 +141,13 @@ def flow(items,x,y,w,dark=False):
    line(xx+bw+3,y+40,xx+bw+12,y+40,LIGHT if dark else BLUE,.7)
    line(xx+bw+9,y+37,xx+bw+12,y+40,LIGHT if dark else BLUE,.7)
    line(xx+bw+9,y+43,xx+bw+12,y+40,LIGHT if dark else BLUE,.7)
-def note(s,y=532,dark=False):para(s,M,y,W-2*M,8.5,12,LIGHT if dark else MUTED,max_h=23)
+def note(s,y=532,dark=False):
+ before=len(checks)
+ para(s,M,y,W-2*M,8.5,12,LIGHT if dark else MUTED,max_h=23)
+ current=checks[-1]
+ for previous in checks[:before]:
+  if previous['page']==num and previous['x']<current['right'] and previous['right']>current['x'] and previous['top']<current['bottom'] and previous['bottom']>current['top']:
+   raise ValueError(f'Page {num} note overlaps text: {s}')
 
 # 01 | Cover. Real device photo, deliberate wide whitespace and compact identity.
 page('SOFTWARE ENGINEERING & RESEARCH','封面',True,'cover')
@@ -309,8 +318,7 @@ tags(['Python','MCP Server','Markdown'],x,262,363)
 line(x,311,800,311)
 label_body('Weight-Tracker','面向小组协作的轻量健康打卡工具，展示每日记录、变化趋势与阶段进度，适配手机查看。',x,336,363)
 tags(['Vue 3','Tailwind CSS','JSON'],x,429,363)
-note('私人使用范畴，不提供公开代码仓库。')
-note('个人工具共 8 项：另含前述 Ops-Hub、AI-QuotaMonitor、AI 技术知识库、Career-Copilot 与 PaperStudio。')
+note('日记与健康记录属于私人使用范畴，不提供公开代码仓库。个人工具另含 Ops-Hub、AI-QuotaMonitor、AI 技术知识库、Career-Copilot 与 PaperStudio。')
 end()
 
 # 12 | Thesis.
@@ -404,7 +412,7 @@ for chunk in range(2):
  for j in range(7):
   i=chunk*7+j+1;p=P[catalog_ids[i-1]];yy=184+j*46.8
   txt(f'{i:02}',M,yy,12,BLUE,'Mono')
-  title=p['title']
+  title='边缘智能辅助通行感知设备' if p['id']=='prod-19' else p['title']
   txt(title,79,yy-1,11.3,INK,'CJK')
   para(p['subtitle'],79,yy+20,415,8.9,12,MUTED,max_h=16)
   ts=' / '.join(p['tech'][:3])
@@ -435,6 +443,6 @@ txt('刘钢 / Leo',605,455,23,PAPER,'Title')
 end()
 assert num==20,num
 c.save()
-(ROOT/'.tmp/pdf-preview/layout-checks.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2))
+OUT.with_suffix('.layout-checks.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2))
 print(OUT)
 print(f'{num} pages; {OUT.stat().st_size/1024/1024:.2f} MiB')

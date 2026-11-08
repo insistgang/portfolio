@@ -309,6 +309,7 @@
       font-size: 12px;
       cursor: pointer;
     }
+    .filter-reset:disabled { opacity: .45; cursor: default; }
     .filter-reset:hover {
       color: #fff;
       border-color: #667d87;
@@ -418,7 +419,7 @@
       <section class="panel">
         <div class="panel-header">
           <h2>结构化事件明细</h2>
-          <span class="panel-sub" id="eventCountLabel">显示 604 条事件</span>
+          <span class="panel-sub" id="eventCountLabel" aria-live="polite">显示 604 条事件</span>
         </div>
         <div class="filter-bar">
           <label for="videoFilter" style="font-size:12px;color:var(--muted);">视频：</label>
@@ -432,6 +433,11 @@
           <button type="button" class="filter-reset" onclick="resetEventFilters()">重置筛选</button>
         </div>
         <div class="events" id="eventTable"></div>
+        <nav class="filter-bar" aria-label="事件分页" style="margin-top:12px;">
+          <button type="button" id="eventPrev" class="filter-reset" onclick="changeEventPage(-1)">上一页</button>
+          <span id="eventPageLabel" class="panel-sub" aria-live="polite"></span>
+          <button type="button" id="eventNext" class="filter-reset" onclick="changeEventPage(1)">下一页</button>
+        </nav>
       </section>
       <section class="panel wide">
         <div class="panel-header">
@@ -459,6 +465,8 @@
 
     let selectedVideo = 'all';
     let selectedType = 'all';
+    let eventPage = 1;
+    const eventPageSize = 80;
 
     function fmt(n) {
       return Number(n || 0).toLocaleString('zh-CN');
@@ -667,6 +675,7 @@
     function applyEventFilters() {
       selectedVideo = document.getElementById('videoFilter').value;
       selectedType = document.getElementById('typeFilter').value;
+      eventPage = 1;
       renderVideoTable();
       renderEventTable();
     }
@@ -699,17 +708,28 @@
         </table>`;
     }
 
+    function changeEventPage(delta) {
+      eventPage += delta;
+      renderEventTable();
+      document.getElementById('eventTable').scrollTop = 0;
+    }
+
     function renderEventTable() {
       const filtered = report.events.filter(e => {
         const matchV = selectedVideo === 'all' || String(e.video) === selectedVideo;
         const matchT = selectedType === 'all' || e.type === selectedType;
         return matchV && matchT;
       });
-      const displayList = filtered.slice(0, 80);
-      document.getElementById('eventCountLabel').textContent =
-        filtered.length > 80
-          ? `匹配 ${filtered.length} 条（展示前 80 条）`
-          : `共匹配 ${filtered.length} 条事件`;
+      const pageCount = Math.max(1, Math.ceil(filtered.length / eventPageSize));
+      eventPage = Math.max(1, Math.min(eventPage, pageCount));
+      const start = (eventPage - 1) * eventPageSize;
+      const displayList = filtered.slice(start, start + eventPageSize);
+      document.getElementById('eventCountLabel').textContent = filtered.length
+        ? `匹配 ${filtered.length} 条，显示 ${start + 1}–${start + displayList.length} 条`
+        : '共匹配 0 条事件';
+      document.getElementById('eventPageLabel').textContent = `第 ${eventPage} / ${pageCount} 页`;
+      document.getElementById('eventPrev').disabled = eventPage === 1;
+      document.getElementById('eventNext').disabled = eventPage === pageCount;
 
       const rows = displayList.map(e => {
         const dotColor = typeColors[e.type] || '#38bdf8';

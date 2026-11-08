@@ -107,8 +107,8 @@
     <h1 class="hero-title">刘钢 <span class="hero-en">Leo</span></h1>
     <p class="hero-lead">具备“模型训练/微调 → 权重量化与剪枝 (INT4/FP16) → 端侧/边缘 (Jetson/TensorRT/ONNX Runtime) 部署”端到端全栈工程能力，拥有中国电科五十所与上海卓繁信息落地实践经验；研究生阶段获国家级竞赛奖项 4 项、省部级奖项 6 项；深度实践 AI-Native 研发与多智能体工作流。</p>
     <div class="flex flex-wrap gap-3 mt-6">
-      <a class="download-btn" href="../assets/career/resume_zh.pdf" download>中文简历 PDF ↓</a>
-      <a class="secondary-btn" href="../assets/career/resume_en.pdf" download>English Resume PDF ↓</a>
+      <a class="download-btn" href="../assets/career/resume_zh_reviewed.pdf" download>中文简历 PDF ↓</a>
+      <a class="secondary-btn" href="../assets/career/resume_en_reviewed.pdf" download>English Resume PDF ↓</a>
       <a class="secondary-btn" href="../">浏览 38 项作品与证书证据 →</a>
     </div>
     <dl class="contact-grid">
@@ -164,7 +164,7 @@
     </article>
     <article class="panel p-6">
       <h3 class="font-medium mb-2">推理优化与端侧部署</h3>
-      <p class="text-sm leading-7 text-slate-400 mb-4">主攻 LLM INT4 权重量化（Qwen2-7B 显存由 14GB 压缩至 5.8GB，单卡 42 tokens/s）、QLoRA 微调、vLLM / TensorRT FP16/INT8 算子加速与 NVIDIA Jetson 边缘端部署调优，具备工业现场与人行无障碍场景离线推理经验。</p>
+      <p class="text-sm leading-7 text-slate-400 mb-4">实践 Qwen 模型量化、QLoRA 微调和 ONNX / TensorRT 部署，探索单卡离线推理与 Jetson 端侧部署；具体性能以可复现测试为准。</p>
       <div class="flex flex-wrap gap-2">
         <span class="tag px-3 py-1 text-xs">LLM INT4 量化</span>
         <span class="tag px-3 py-1 text-xs">QLoRA</span>
@@ -466,13 +466,13 @@
   <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
     <div>
       <h2 id="targets-title" class="section-title mb-2">目标岗位与投递进展</h2>
-      <p id="targets-summary" class="text-sm text-slate-400">共 29 条记录：已接受实习 Offer 1 条，初筛/已投递 14 条，其余在准备或资料确认中。</p>
+      <p id="targets-summary" class="text-sm text-slate-400" aria-live="polite">共 29 条记录</p>
     </div>
     <div class="flex flex-wrap gap-2" role="group" aria-label="按投递阶段筛选">
-      <button type="button" class="filter-pill active" data-stage="all" onclick="filterTargets('all')">全部 (29)</button>
-      <button type="button" class="filter-pill" data-stage="active" onclick="filterTargets('active')">Offer / 初筛中 (4)</button>
-      <button type="button" class="filter-pill" data-stage="sent" onclick="filterTargets('sent')">已投递 (11)</button>
-      <button type="button" class="filter-pill" data-stage="prep" onclick="filterTargets('prep')">准备中 / 待确认 (14)</button>
+      <button type="button" class="filter-pill active" data-stage="all" aria-pressed="true" onclick="filterTargets('all')">全部 (29)</button>
+      <button type="button" class="filter-pill" data-stage="active" aria-pressed="false" onclick="filterTargets('active')">Offer / 初筛中 / 面试中 (4)</button>
+      <button type="button" class="filter-pill" data-stage="sent" aria-pressed="false" onclick="filterTargets('sent')">已投递 (11)</button>
+      <button type="button" class="filter-pill" data-stage="prep" aria-pressed="false" onclick="filterTargets('prep')">准备中 / 待确认 (14)</button>
     </div>
   </div>
   <div class="panel overflow-x-auto">
@@ -480,28 +480,28 @@
       <thead><tr><th>单位</th><th>岗位</th><th>阶段</th><th>渠道</th><th>时间节点</th></tr></thead>
       <tbody id="targets-tbody">
         <tr data-group="active">
-          <td class="font-medium text-slate-100">上海卓繁信息技术股份有限公司</td>
+          <td>上海卓繁信息技术股份有限公司</td>
           <td>后端开发 / AI 应用落地实习</td>
           <td><span class="stage-badge stage-offer">已接受实习 Offer</span></td>
           <td>HR 微信直聘</td>
           <td class="font-mono text-xs">2026-09-07</td>
         </tr>
         <tr data-group="active">
-          <td class="font-medium text-slate-100">合合信息</td>
+          <td>合合信息</td>
           <td>Agent开发工程师（J14436，2027届校招）</td>
           <td><span class="stage-badge stage-screen">简历筛选-初筛进行中</span></td>
           <td>官方网申</td>
           <td class="font-mono text-xs">—</td>
         </tr>
         <tr data-group="active">
-          <td class="font-medium text-slate-100">合合信息</td>
+          <td>合合信息</td>
           <td>AI全栈开发工程师（J14388，2027届校招）</td>
           <td><span class="stage-badge stage-screen">简历筛选-初筛进行中</span></td>
           <td>官方网申</td>
           <td class="font-mono text-xs">—</td>
         </tr>
         <tr data-group="active">
-          <td class="font-medium text-slate-100">合合信息</td>
+          <td>合合信息</td>
           <td>FDE工程师（J14378，2027届校招）</td>
           <td><span class="stage-badge stage-screen">简历筛选-初筛进行中</span></td>
           <td>官方网申</td>
@@ -689,8 +689,8 @@
 <section class="page-wrap pb-16" aria-labelledby="resume-title">
   <h2 id="resume-title" class="section-title">简历下载</h2>
   <div class="flex flex-wrap gap-4">
-    <a class="download-btn" href="../assets/career/resume_zh.pdf" download>中文简历 PDF ↓</a>
-    <a class="download-btn" href="../assets/career/resume_en.pdf" download>English Resume PDF ↓</a>
+    <a class="download-btn" href="../assets/career/resume_zh_reviewed.pdf" download>中文简历 PDF ↓</a>
+    <a class="download-btn" href="../assets/career/resume_en_reviewed.pdf" download>English Resume PDF ↓</a>
   </div>
 </section>
   <section class="page-wrap pb-20" aria-labelledby="system-title">
@@ -732,15 +732,22 @@
   </footer>
   <script>
     function filterTargets(group) {
-      const rows = document.querySelectorAll('#targets-tbody tr');
+      const rows = [...document.querySelectorAll('#targets-tbody tr')];
+      let visible = 0;
       rows.forEach(row => {
         const show = group === 'all' || row.dataset.group === group;
         row.style.display = show ? '' : 'none';
+        if (show) visible += 1;
       });
       document.querySelectorAll('.filter-pill').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.stage === group);
+        const active = btn.dataset.stage === group;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
       });
+      const summary = document.getElementById('targets-summary');
+      if (summary) summary.textContent = `显示 ${visible} / ${rows.length} 条投递记录`;
     }
+    filterTargets('all');
   </script>
 </body>
 </html>
