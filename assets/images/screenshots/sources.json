@@ -5,6 +5,13 @@
     "kind": "screenshot",
     "capturedAt": "2026-11-06"
   },
+  "prod-10": {
+    "image": "assets/images/screenshots/competition-awards.png",
+    "source": "https://insistgang.top/portfolio/#awards",
+    "kind": "screenshot",
+    "capturedAt": "2026-11-08",
+    "edit": "干净浏览器截取荣誉区标题与前两排证书卡片；截图时隐藏固定导航以免遮挡正文。展示整合后页面，不是历史独立看板原图。"
+  },
   "prod-08": {
     "image": "assets/images/screenshots/paperstudio.jpg",
     "source": "https://insistgang.top/PaperStudio/",
