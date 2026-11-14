@@ -5,88 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>刘钢 Leo · 求职工作流与经历主库</title>
   <meta name="description" content="刘钢的求职工作流与经历主库：AI 算法工程师 / 前置部署工程师 (FDE) / 大模型与边缘端落地，含 15 个核心项目、奖项、实习与目标岗位投递进展。">
-  <meta name="theme-color" content="#141719">
+  <meta name="theme-color" content="#f8fafc">
   <link rel="canonical" href="https://insistgang.top/portfolio/career/">
   <link rel="icon" href="../assets/brand/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" type="image/svg+xml" href="../assets/brand/leo-mark.svg" sizes="any">
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/theme.css">
   <link rel="stylesheet" href="../assets/site.css">
-  <style>
-    :root {
-      color-scheme: dark;
-      --page: 20 23 25;
-      --surface: 27 31 33;
-      --surface-raised: 36 41 44;
-      --line: 52 58 61;
-      --copy: 238 234 224;
-      --muted: 168 171 174;
-      --accent: 186 208 218;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
-    .font-mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: rgb(var(--page)); }
-    ::-webkit-scrollbar-thumb { background: rgb(var(--surface-raised)); border-radius: 4px; }
-    .site-header { position: sticky; top: 0; z-index: 40; background: rgb(var(--page) / 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgb(var(--line)); }
-    .site-header-inner { width: min(100% - 64px, 1120px); margin: 0 auto; min-height: 64px; padding: 10px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .site-brand { display: inline-flex; align-items: center; color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; text-decoration: none; }
-    .site-mark { width: 28px; height: 28px; flex: none; margin-right: 10px; }
-    .site-brand span { margin-left: 7px; color: #a8abae; font-family: Georgia, serif; font-style: italic; font-weight: 400; }
-    .site-header a:hover { color: #fff; }
-    .site-links { display: flex; align-items: center; gap: 16px; font-size: 13px; color: #b9bcbf; flex-wrap: wrap; }
-    .site-links a { text-decoration: none; transition: color .15s ease; }
-    .page-wrap { width: min(100% - 64px, 1120px); margin: 0 auto; }
-    .hero { padding: 64px 0 40px; }
-    .hero-kicker { margin: 0 0 14px; font-size: 12px; color: #9ec5db; letter-spacing: .14em; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    .hero-title { margin: 0; font-size: 40px; line-height: 1.2; letter-spacing: -.03em; font-weight: 600; color: rgb(var(--copy)); }
-    .hero-en { margin-left: 14px; font-family: Georgia, serif; font-style: italic; font-weight: 400; color: #a8abae; }
-    .hero-lead { max-width: 820px; margin-top: 18px; color: #c5c8cb; font-size: 15px; line-height: 1.9; }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 24px; margin: 28px 0 0; padding: 20px 24px; background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 14px; }
-    .contact-grid dt { font-size: 11px; color: #a8abae; letter-spacing: .08em; }
-    .contact-grid dd { margin: 4px 0 0; font-size: 13.5px; color: rgb(var(--copy)); word-break: break-all; }
-    .section-title { font-size: 1.6rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 20px; color: #f2efe9; }
-    .sub-title { font-size: 12px; letter-spacing: .14em; color: #9ec5db; margin: 26px 0 10px; font-weight: 600; }
-    .panel { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 14px; transition: border-color .2s ease; }
-    .panel:hover { border-color: #4f5d65; }
-    .tag { border: 1px solid rgb(var(--line)); background: rgb(var(--page) / 0.55); color: #ced2cf; border-radius: 6px; }
-    .award-list { list-style: none; padding: 0; margin: 0; }
-    .award-list li { padding: 11px 0; border-bottom: 1px solid rgb(var(--line)); font-size: 14px; color: #d8d8d3; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; }
-    .award-level { color: #e2c98d; font-weight: 600; min-width: 140px; }
-    table { border-collapse: collapse; }
-    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgb(var(--line)); vertical-align: middle; }
-    th { font-size: 11px; letter-spacing: .08em; color: #a8abae; font-weight: 600; background: rgb(var(--page) / 0.5); }
-    td { font-size: 13px; color: #d0d2cf; }
-    tbody tr:hover { background: rgb(var(--surface-raised) / 0.55); }
-    .stage-badge { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 500; border: 1px solid transparent; }
-    .stage-offer { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.35); }
-    .stage-screen { background: rgba(56, 189, 248, 0.14); color: #7dd3fc; border-color: rgba(56, 189, 248, 0.35); }
-    .stage-sent { background: rgba(245, 158, 11, 0.12); color: #fcd34d; border-color: rgba(245, 158, 11, 0.3); }
-    .stage-prep { background: rgba(148, 163, 184, 0.12); color: #cbd5e1; border-color: rgba(148, 163, 184, 0.25); }
-    .filter-pill { padding: 6px 12px; border-radius: 8px; font-size: 12px; border: 1px solid rgb(var(--line)); background: rgb(var(--surface)); color: #b9bcbf; cursor: pointer; transition: all .15s ease; }
-    .filter-pill:hover { color: #fff; border-color: #667d87; }
-    .filter-pill.active { background: #dce8ee; color: #141719; border-color: #dce8ee; font-weight: 600; }
-    .download-btn { display: inline-flex; align-items: center; gap: 8px; background: #eeeae0; color: #141719; border: 1px solid #eeeae0; border-radius: 8px; padding: 10px 18px; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: all .15s ease; }
-    .download-btn:hover { background: #fff; border-color: #fff; }
-    .secondary-btn { display: inline-flex; align-items: center; gap: 8px; background: rgb(var(--surface)); color: #e5e7eb; border: 1px solid rgb(var(--line)); border-radius: 8px; padding: 10px 16px; font-size: 13.5px; font-weight: 500; text-decoration: none; transition: all .15s ease; }
-    .secondary-btn:hover { border-color: #88a2ae; color: #fff; }
-    a { color: inherit; }
-    .link-accent { color: #bad0da; border-bottom: 1px solid #667d87; text-decoration: none; }
-    .link-accent:hover { color: #fff; }
-    :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
-    footer { border-top: 1px solid rgb(var(--line)); color: #a8abae; }
-    @media (max-width: 640px) {
-      .site-header-inner, .page-wrap { width: calc(100% - 32px); }
-      .hero { padding: 40px 0 28px; }
-      .hero-title { font-size: 28px; }
-      .site-links { gap: 12px; font-size: 12px; }
-      .award-level { min-width: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/career.css">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
   <header class="site-header">
     <nav class="site-header-inner" aria-label="主导航">
       <a href="../" class="site-brand"><img src="../assets/brand/leo-mark.svg" class="site-mark" width="28" height="28" alt="">刘钢 <span>/ Leo · Career-Copilot</span></a>
+      <div class="appearance-controls" data-appearance-controls hidden>
+        <div class="style-switcher" role="group" aria-label="视觉风格">
+          <button type="button" class="style-button" data-style-option="finance" aria-pressed="true" aria-label="财务绿风格" title="财务绿风格"><span class="style-swatch" aria-hidden="true"></span><span class="style-name">财务绿</span></button>
+          <button type="button" class="style-button" data-style-option="blue" aria-pressed="false" aria-label="科技蓝风格" title="科技蓝风格"><span class="style-swatch" aria-hidden="true"></span><span class="style-name">科技蓝</span></button>
+          <button type="button" class="style-button" data-style-option="paper" aria-pressed="false" aria-label="暖纸笺风格" title="暖纸笺风格"><span class="style-swatch" aria-hidden="true"></span><span class="style-name">暖纸笺</span></button>
+        </div>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换到夜间模式" title="切换到夜间模式">
+          <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10Z"/></svg>
+        </button>
+      </div>
       <div class="site-links">
         <a href="../">← 返回作品集</a>
         <a href="#edu-title">教育</a>
@@ -105,11 +47,11 @@
   <div class="page-wrap">
     <p class="hero-kicker">CAREER WORKFLOW · AI 算法工程师 / 前置部署工程师 (FDE) / 大模型与边缘端落地</p>
     <h1 class="hero-title">刘钢 <span class="hero-en">Leo</span></h1>
-    <p class="hero-lead">具备“模型训练/微调 → 权重量化与剪枝 (INT4/FP16) → 端侧/边缘 (Jetson/TensorRT/ONNX Runtime) 部署”端到端全栈工程能力，拥有中国电科五十所与上海卓繁信息落地实践经验；研究生阶段获国家级竞赛奖项 4 项、省部级奖项 6 项；深度实践 AI-Native 研发与多智能体工作流。</p>
+    <p class="hero-lead">具备“模型训练/微调 → 权重量化与剪枝 (INT4/FP16) → 端侧/边缘 (Jetson/TensorRT/ONNX Runtime) 部署”端到端全栈工程能力，拥有中国电科五十所与上海卓繁信息落地实践经验；研究生阶段获国家级竞赛奖项 4 项、省市与赛区奖项 7 项；深度实践 AI-Native 研发与多智能体工作流。</p>
     <div class="flex flex-wrap gap-3 mt-6">
       <a class="download-btn" href="../assets/career/resume_zh_reviewed.pdf" download>中文简历 PDF ↓</a>
       <a class="secondary-btn" href="../assets/career/resume_en_reviewed.pdf" download>English Resume PDF ↓</a>
-      <a class="secondary-btn" href="../">浏览 38 项作品与证书证据 →</a>
+      <a class="secondary-btn" href="../">浏览作品与证书证据 →</a>
     </div>
     <dl class="contact-grid">
       <div><dt>电话</dt><dd>+86 159-9519-7640</dd></div>
@@ -428,21 +370,23 @@
 </section>
 <section class="page-wrap pb-16" aria-labelledby="awards-title">
   <h2 id="awards-title" class="section-title">竞赛与荣誉（按原始证书核对）</h2>
+  <p class="text-sm text-slate-400 mb-5">全国奖优先；同层级按奖次、年份排序，同档同年保留既有顺序。赛区奖不等同于全国奖，此为展示优先级。</p>
     <h3 class="sub-title">国家级竞赛奖项（4 项）</h3>
     <ul class="award-list">
-      <li><span class="award-level">国家二等奖</span> <span>“华为杯”第二十二届中国研究生数学建模竞赛 · 2025.12（证书编号 E2025205007）</span></li>
-      <li><span class="award-level">国家三等奖</span> <span>“华为杯”第四届中国研究生网络安全创新大赛 · 创意作品赛《基于多智能体协同的网络安全威胁智能分析系统》 · 2025.11（队长 · 编号 1625A30007）</span></li>
-      <li><span class="award-level">国家三等奖</span> <span>“华为杯”第七届中国研究生人工智能创新大赛 · 《体育生语文基础智能辅导系统》 · 2025.09（队长 · 编号 0625A30704）</span></li>
-      <li><span class="award-level">国家三等奖</span> <span>2025 中国研究生创“芯”大赛 · EDA 精英挑战赛 · 2025.12（芯火队 · 编号 2825A30075）</span></li>
+      <li data-award-id="comp-03"><span class="award-level">国家二等奖</span> <span>第二十二届“华为杯”中国研究生数学建模竞赛 · 全国二等奖 · 2025 · 复杂系统数据建模、参数辨识与多目标优化 · 证书编号 E2025205007</span> <a class="link-accent" href="../assets/images/certs/cert_shumo.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-04"><span class="award-level">国家三等奖</span> <span>第七届“华为杯”中国研究生人工智能创新大赛 · 全国三等奖 · 2025 · 参赛作品：《体育生语文基础智能辅导系统》 · 证书编号 0625A30704</span> <a class="link-accent" href="../assets/images/certs/cert_ai.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-05"><span class="award-level">国家三等奖</span> <span>第四届“华为杯”中国研究生网络安全创新大赛 · 全国三等奖 · 2025 · 参赛作品：《基于多智能体协同的网络安全威胁智能分析系统》 · 证书编号 1625A30007</span> <a class="link-accent" href="../assets/images/certs/cert_wangan.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-06"><span class="award-level">国家三等奖</span> <span>创“芯”大赛·中国研究生 EDA 精英挑战赛 · 全国三等奖 · 2025 · 集成电路原理图框图识别与拓扑网表重构算法 · 证书编号 2825A30075</span> <a class="link-accent" href="../assets/images/certs/cert_eda.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
     </ul>
-    <h3 class="sub-title">省部级与赛区奖项（6 项）</h3>
+    <h3 class="sub-title">省市与赛区奖项（7 项）</h3>
     <ul class="award-list">
-      <li><span class="award-level">华北二赛区一等奖</span> <span>第十九届 CIMC“西门子杯”中国智能制造挑战赛 · 信息化网络化方向（本科及研究生组） · 2025.08（编号 CIMC-GYAS-202538368）</span></li>
-      <li><span class="award-level">华东一赛区二等奖</span> <span>第二十届 CIMC“西门子杯”中国智能制造挑战赛 · 智能制造创新研发类自由探索方向 · 2026.07（编号 CIMC-ZNAS-202680118）</span></li>
-      <li><span class="award-level">上海赛区团队二等奖</span> <span>第二十一届中国研究生电子设计竞赛 · 《基于边缘智能的无障碍辅助通行感知系统设计与实现》 · 2026.07（编号 GEDC-02260600144）</span></li>
-      <li><span class="award-level">上海赛区团队三等奖</span> <span>第二十届中国研究生电子设计竞赛 · 《智能追光式输电线路在线监测装置》 · 2025.07（编号 GEDC-01250600383）</span></li>
-      <li><span class="award-level">赛区三等奖</span> <span>第七届上海市研究生智慧城市创意设计大赛暨第五届长三角研究生智慧城市创意设计大赛 · 《基于多模态 AI 的违章建筑智能检测与管理系统》 · 2025.11</span></li>
-      <li><span class="award-level">高教组银奖</span> <span>第三届上海市大学生行业分析大赛 · 《智航长三角：上海无人机低空配送行业分析及人才需求洞察》 · 2025.10</span></li>
+      <li data-award-id="comp-09"><span class="award-level">华北二赛区一等奖</span> <span>第十九届“西门子杯”中国智能制造挑战赛（2025）· 华北二赛区一等奖 · 2025 · 全国初赛 · 智能制造工程设计与应用类赛项：信息化网络化方向（本科及研究生组）</span> <a class="link-accent" href="../assets/images/certs/cimc-2025-liugang.png" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-02"><span class="award-level">华东一赛区二等奖</span> <span>第二十届“西门子杯”中国智能制造挑战赛（2026）· 华东一赛区二等奖 · 2026 · 全国初赛 · 智能制造创新研发类赛项：自由探索方向</span> <a class="link-accent" href="../assets/images/certs/cimc-2026-liugang.png" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-10"><span class="award-level">上海赛区团队二等奖</span> <span>第二十一届中国研究生电子设计竞赛（2026）· 上海赛区二等奖 · 2026 · 参赛作品：《基于边缘智能的无障碍辅助通行感知系统设计与实现》</span> <a class="link-accent" href="../assets/images/certs/gedc-2026-edge-device.png" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-08"><span class="award-level">高教组银奖</span> <span>第三届上海市大学生行业分析大赛 · 银奖 · 2025 · 参赛报告：《智航长三角：上海无人机低空配送行业分析及人才需求洞察》</span> <a class="link-accent" href="../assets/images/certs/cert_hangyefenxi.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-11"><span class="award-level">上海市／长三角三等奖</span> <span>第八届上海市研究生智慧城市创意设计大赛 · 三等奖 · 2026 · 第六届长三角赛事 · LinkCity：赋能智慧城市人行“最后 20 米”的边缘智能感知与数字孪生微治理系统</span> <a class="link-accent" href="../assets/images/certs/smart-city-2026-linkcity.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-01"><span class="award-level">上海赛区团队三等奖</span> <span>第二十届中国研究生电子设计竞赛（2025）· 上海赛区三等奖 · 2025 · 智能追光式输电线路在线监测装置 · 证书编号 GEDC-02250600270</span> <a class="link-accent" href="../assets/images/certs/cert_yandian.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
+      <li data-award-id="comp-07"><span class="award-level">三等奖</span> <span>第七届上海市研究生智慧城市创意设计大赛 · 三等奖 · 2025 · 参赛作品：《基于多模态 AI 的违章建筑智能检测与管理系统》</span> <a class="link-accent" href="../assets/images/certs/cert_zhihuichengshi.jpg" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>
     </ul>
     <h3 class="sub-title">校级与荣誉表彰</h3>
     <ul class="award-list">

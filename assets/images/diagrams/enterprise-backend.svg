@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">政企业务与 AI 应用集成工程示意</title><desc id="desc">业务场景、后端服务与 AI 应用的职责概览，非界面截图，不包含内部业务数据。</desc>
+  <style>:root{--bg:#edf3f8;--panel:#fff;--line:#cbdce8;--ink:#213e55;--muted:#536c80;--accent:#236995} @media(prefers-color-scheme:dark){:root{--bg:#182536;--panel:#203247;--line:#35506a;--ink:#e1edf7;--muted:#a4bdd2;--accent:#83c5ef}} text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:var(--ink)} .muted{fill:var(--muted)} .accent{fill:var(--accent)} .box{fill:var(--panel);stroke:var(--line);stroke-width:2}</style>
+  <rect width="960" height="540" rx="20" fill="var(--bg)"/>
+  <path d="M712 0v540M832 0v540M0 180h960M0 420h960" stroke="var(--line)" opacity=".35"/>
+  <text x="48" y="63" font-size="17" letter-spacing="3" class="accent">ENTERPRISE / BACKEND + AI</text>
+  <text x="48" y="124" font-size="42" font-weight="650">让业务需求进入工程闭环</text>
+  <text x="48" y="162" font-size="20" class="muted">智慧政务 · 教育排课 · 停车管理</text>
+  <g><rect class="box" x="48" y="212" width="252" height="182" rx="18"/><rect class="box" x="354" y="212" width="252" height="182" rx="18"/><rect class="box" x="660" y="212" width="252" height="182" rx="18"/></g>
+  <path d="M312 303h28m-8-8 8 8-8 8M618 303h28m-8-8 8 8-8 8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <g font-size="19" class="accent"><text x="72" y="252" class="accent">01 / 场景</text><text x="378" y="252" class="accent">02 / 服务</text><text x="684" y="252" class="accent">03 / 集成</text></g>
+  <g font-size="29" font-weight="600"><text x="72" y="306">业务接口</text><text x="378" y="306">后端研发</text><text x="684" y="306">AI 应用</text></g>
+  <g font-size="18"><text x="72" y="352" class="muted">需求对齐 / 系统联调</text><text x="378" y="352" class="muted">Spring Boot / MySQL</text><text x="684" y="352" class="muted">RAG / Agent 原型</text></g>
+  <text x="48" y="461" font-size="20" font-weight="500">职责概览，不展示内部系统或客户信息</text>
+  <text x="48" y="501" font-size="16" class="muted">工程示意 · 非界面截图</text><text x="912" y="501" text-anchor="end" font-size="16" class="muted">LEO / INDUSTRY 01</text>
+</svg>

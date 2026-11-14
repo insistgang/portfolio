@@ -1,0 +1,44 @@
+{
+  "ind-01": {
+    "image": "assets/images/diagrams/enterprise-backend.svg",
+    "kind": "illustration",
+    "createdAt": "2026-11-15",
+    "source": "index.html 中 ind-01 已有公开介绍：政企场景、Spring Boot 后端、业务联调与 RAG 原型。",
+    "note": "工程示意，非界面截图；不包含客户信息或内部系统材料。"
+  },
+  "ind-02": {
+    "image": "assets/images/diagrams/vision-delivery.svg",
+    "kind": "illustration",
+    "createdAt": "2026-11-15",
+    "source": "index.html 中 ind-02 已有公开介绍：训练推理代码整理、工程环境测试与结项技术交接。",
+    "note": "工程示意，非界面截图；不包含合作方原始图像、模型权重或验收材料。"
+  },
+  "ind-03": {
+    "image": "assets/images/diagrams/robot-integration.svg",
+    "kind": "illustration",
+    "createdAt": "2026-11-15",
+    "source": "index.html 中 ind-03 已有公开介绍：语音唤醒、意图解析、设备控制与端侧集成。",
+    "note": "工程示意，非界面截图；不表示已完成本轮真机验证。"
+  },
+  "ind-04": {
+    "image": "assets/images/diagrams/commerce-pipeline.svg",
+    "kind": "illustration",
+    "createdAt": "2026-11-15",
+    "source": "index.html 中 ind-04 已有公开介绍：订单归集、商品主数据、库存同步、幂等校验与对账核销。",
+    "note": "工程示意，非界面截图；不包含真实订单或业务数据。"
+  },
+  "prod-04": {
+    "image": "assets/images/diagrams/diary-workflow.svg",
+    "kind": "illustration",
+    "createdAt": "2026-11-15",
+    "source": "index.html 中 prod-04 已有公开介绍：Getnote API、MCP、note_id 幂等去重与 Markdown 本地归档。",
+    "note": "工程示意，非界面截图；不包含私人日记、个人记录或私有访问入口。"
+  },
+  "prod-23": {
+    "image": "assets/images/diagrams/finance-pipeline.svg",
+    "kind": "illustration",
+    "createdAt": "2026-11-15",
+    "source": "财务看板本地源码核对：scripts/build_data.py 的 money_sum 与构建流程；src/index.html 的 derivePeriod 与 ECharts 展示。仅转述工程结构，不复制源码中的账务内容。",
+    "note": "工程示意，非界面截图；不含账户、金额或交易数据。在线入口需要身份验证。"
+  }
+}

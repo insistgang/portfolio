@@ -2,18 +2,26 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { Script, runInNewContext } from 'node:vm';
 import { execFileSync } from 'node:child_process';
+import { checkThemeMarkup } from './check-theme.mjs';
 
 const html = readFileSync('index.html', 'utf8');
 const projects = JSON.parse(html.match(/const projects\s*=\s*(\[[\s\S]*?\n\]);/)[1]);
 const awards = html.slice(html.indexOf('<section id="awards"'), html.indexOf('<section id="research"'));
+const expectedAwardOrder = ['comp-03', 'comp-04', 'comp-05', 'comp-06', 'comp-09', 'comp-02', 'comp-10', 'comp-08', 'comp-11', 'comp-01', 'comp-07'];
+assert.deepEqual([...awards.matchAll(/data-award-id="([^"]+)"/g)].map(match => match[1]), expectedAwardOrder, '静态证书墙需按全国奖、奖次、年份排序，无脚本时也保持顺序');
 for (const project of projects.filter(p => p.category === 'competition')) {
+  assert.ok(['national', 'regional'].includes(project.awardLevel), `奖项层级缺失：${project.id}`);
+  assert.ok([1, 2, 3].includes(project.awardRank) && Number.isInteger(project.awardYear), `奖次或年份无效：${project.id}`);
   assert.ok(awards.includes(project.title), `证书墙与项目标题不一致：${project.id}`);
   assert.ok(awards.includes(project.image), `证书墙与项目配图不一致：${project.id}`);
 }
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length, '项目 ID 必须唯一');
 const illustratedProjects = projects.filter(p => p.image);
 assert.equal(new Set(illustratedProjects.map(p => p.image)).size, illustratedProjects.length, '有图项目的主封面图必须唯一');
-assert.equal(Number(html.match(/data-count="all">(\d+)/)[1]), projects.length, '初始展示记录数必须与项目数据一致');
+for (const match of html.matchAll(/data-count="(all|competition)">(\d+)/g)) {
+  assert.equal(Number(match[2]), match[1] === 'all' ? projects.length : expectedAwardOrder.length, '初始展示数量必须与项目数据一致');
+}
+assert.equal(Number(html.match(/data-cat="competition">\s*<span>[^<]+<\/span>\s*<span[^>]*>(\d+)<\/span>/)[1]), expectedAwardOrder.length, '竞赛筛选初始数量需同步');
 const productCount = html.match(/data-cat="products">\s*<span>[^<]+<\/span>\s*<span[^>]*>(\d+)<\/span>/);
 assert.equal(Number(productCount?.[1]), projects.filter(p => p.category === 'products').length, '软件作品初始数量必须与项目数据一致');
 for (const project of projects) {
@@ -80,6 +88,14 @@ for (const id of featuredIds) {
 assert.ok(featured.includes('https://insistgang.top/LinkLab/') && featured.includes('href="yds/"') && featured.includes("openModal('prod-01')"), '精选重组不得丢失互助应用、边缘大屏与总台入口');
 assert.ok(html.includes('${caseHtml}'), '详情弹窗需展示案例内容');
 const contentOf = id => JSON.stringify(projectById[id]);
+assert.equal(projectById['comp-11'].image, 'assets/images/certs/smart-city-2026-linkcity.jpg');
+assert.equal(projectById['comp-11'].awardLevel, 'regional', '市级／区域奖不得升级为全国奖');
+assert.equal(projectById['comp-11'].awardYear, 2026);
+assert.equal(projectById['comp-11'].awardRank, 3);
+assert.ok(/第八届/.test(contentOf('comp-11')) && /第六届/.test(contentOf('comp-11')) && /LinkCity/.test(contentOf('comp-11')) && /2026 年 10 月/.test(contentOf('comp-11')), '新增证书的届次、作品与落款需完整');
+assert.ok(/第七届/.test(contentOf('comp-07')) && /2025/.test(contentOf('comp-07')), '不得用新证书覆盖 2025 年智慧城市奖项');
+assert.ok(/GEDC-02250600270/.test(contentOf('comp-01')) && !/GEDC-01250600383/.test(html), '2025 研电赛编号应与已展示的团队证书一致');
+assert.ok(/2025 年 10 月/.test(projectById['comp-04'].metrics) && /2025 年 11 月/.test(projectById['comp-06'].metrics), 'AI 与 EDA 证书落款月份需与原图一致');
 const imageSources = JSON.parse(readFileSync('assets/images/screenshots/sources.json', 'utf8'));
 for (const [id, entry] of Object.entries(imageSources)) {
   assert.equal(projectById[id]?.image, entry.image, `封面与来源记录不一致：${id}`);
@@ -87,8 +103,29 @@ for (const [id, entry] of Object.entries(imageSources)) {
 }
 for (const project of projects) {
   if (project.image?.startsWith('assets/images/screenshots/')) assert.ok(imageSources[project.id], `缺少截图来源：${project.id}`);
-  if (project.category === 'products' && project.image) assert.ok(!project.image.endsWith('.svg'), `产品封面应使用核验截图，不使用自绘占位图：${project.id}`);
+  if (project.category === 'products' && project.image?.endsWith('.svg')) assert.equal(project.imageKind, 'illustration', `产品示意图必须显式标注类型：${project.id}`);
 }
+const diagramSources = JSON.parse(readFileSync('assets/images/diagrams/sources.json', 'utf8'));
+for (const [id, entry] of Object.entries(diagramSources)) {
+  const project = projectById[id];
+  assert.equal(project?.image, entry.image, `工程示意图与来源记录不一致：${id}`);
+  assert.equal(project.imageKind, 'illustration', `工程示意图需显式标注类型：${id}`);
+  assert.equal(entry.kind, 'illustration');
+  assert.ok(entry.source && entry.createdAt && /工程示意/.test(entry.note), `工程示意图来源不完整：${id}`);
+  assert.ok(/工程示意/.test(project.imageCaption) && /非界面截图/.test(project.imageCaption), `图注不得将示意图作为真实界面：${id}`);
+  const svg = readFileSync(entry.image, 'utf8');
+  assert.ok(svg.includes('工程示意 · 非界面截图') && svg.includes('prefers-color-scheme'), `示意图需包含标识与日夜配色：${id}`);
+  assert.ok(!/<script|<foreignObject|(?:href|src)\s*=|\/Users\//i.test(svg), `示意图不得加载资源或泄露本地路径：${id}`);
+}
+for (const project of projects) {
+  if (project.imageKind === 'illustration' || project.image?.startsWith('assets/images/diagrams/')) assert.ok(diagramSources[project.id], `缺少工程示意来源：${project.id}`);
+}
+assert.ok(projects.every(project => project.image), '本轮补图后所有展示记录均应有配图');
+const finance = projectById['prod-23'];
+assert.equal(finance.links[0].href, 'https://finance.insistgang.top');
+assert.ok(/需授权/.test(finance.links[0].label) && /需要身份验证/.test(finance.accessNote), '财务入口必须说明访问边界');
+assert.ok(/不公开个人账务数据/.test(finance.description) && /Decimal/.test(contentOf('prod-23')), '财务项目需保持工程介绍与隐私边界');
+assert.ok(!/余额\s*\d|\d[,.]\d{2}|financial_data\.json/.test(contentOf('prod-23')), '财务记录不得带入账务金额或数据接口');
 assert.equal(projectById['comp-04'].gallery[1], 'assets/images/soft/submitted-05.png', 'AI 竞赛必须对应语文学习系统原图');
 assert.equal(projectById['comp-05'].gallery[1], 'assets/images/soft/submitted-06.png', '网安竞赛必须对应告警研判工作区原图');
 assert.ok(!projects.some(p => p.gallery?.includes('assets/images/certs/cert_ximengzi.jpg')), '不得将教师证书作为个人或团队证书使用');
@@ -131,6 +168,8 @@ const mainRuntime = { document: documentMock, lucide: { createIcons() {} } };
 runInNewContext(mainScript.slice(0, mainScript.lastIndexOf('    updateCounts();')), mainRuntime);
 mainRuntime.renderProjects();
 assert.equal(cards.length, projects.length, '作品卡片未完整渲染');
+assert.deepEqual(JSON.parse(runInNewContext('JSON.stringify(rankedAwards.map(project => project.id))', mainRuntime)), expectedAwardOrder, '作品库排序需与证书墙一致');
+assert.ok(cards[0].innerHTML.includes(projectById[expectedAwardOrder[0]].title), '全部记录首项也应为优先级最高的奖项');
 const key = { key: 'Enter', target: {}, currentTarget: cards[0], prevented: false, preventDefault() { this.prevented = true; } };
 cards[0].onkeydown(key);
 assert.ok(!key.prevented && documentMock.getElementById('detail-modal').classList.contains('hidden'), '内部链接键盘事件不得打开详情');
@@ -140,10 +179,17 @@ assert.ok(key.prevented && !documentMock.getElementById('detail-modal').classLis
 mainRuntime.closeModal();
 runInNewContext(`currentCategory = 'research'; openModal('prod-17'); navigateModal(1);`, mainRuntime);
 assert.equal(runInNewContext('activeModalId', mainRuntime), 'prod-18', '跨分类详情应使用完整浏览集合');
-assert.ok(documentMock.getElementById('modal-content').innerHTML.includes('34 / 38'), '弹窗序号与翻页集合不一致');
+assert.ok(documentMock.getElementById('modal-content').innerHTML.includes(`${projects.findIndex(project => project.id === 'prod-18') + 1} / ${projects.length}`), '弹窗序号与翻页集合不一致');
 mainRuntime.closeModal();
 runInNewContext(`openModal('res-04'); navigateModal(1);`, mainRuntime);
 assert.equal(runInNewContext('activeModalId', mainRuntime), 'res-01', '分类内翻页应循环');
+mainRuntime.closeModal();
+
+runInNewContext(`currentCategory = 'competition'; openModal('comp-11'); navigateModal(1);`, mainRuntime);
+assert.equal(runInNewContext('activeModalId', mainRuntime), 'comp-01', '新增奖项的详情翻页应沿排序后的集合');
+mainRuntime.closeModal();
+runInNewContext(`openModal('comp-07'); navigateModal(1);`, mainRuntime);
+assert.equal(runInNewContext('activeModalId', mainRuntime), 'comp-03', '竞赛末项应循环回全国二等奖');
 mainRuntime.closeModal();
 
 // Sub-page checks: career/index.html & yds/index.html
@@ -154,6 +200,8 @@ for (const match of careerHtml.matchAll(/(?:src|href)="\.\.\/(assets\/[^"$]+)"/g
   assert.ok(existsSync(match[1]), `career/index.html 引用资源缺失：${match[1]}`);
 }
 function checkCareerPage(page, expectedRows) {
+  assert.deepEqual([...page.matchAll(/data-award-id="([^"]+)"/g)].map(match => match[1]), expectedAwardOrder, '求职页及生成器须共用主站证书与排序');
+  assert.ok(page.includes('国家级竞赛奖项（4 项）') && page.includes('省市与赛区奖项（7 项）'), '求职页竞赛统计需更新');
   for (const id of ['edu-title', 'skills-title', 'projects-title', 'intern-title', 'awards-title', 'targets-title', 'resume-title']) {
     assert.ok(page.includes(`id="${id}"`), `求职页关键区块缺失：${id}`);
   }
@@ -195,7 +243,11 @@ apps = [{'company': 'Example', 'position': 'Engineer', 'status': status} for sta
 assert [m.application_stage(a)[0] for a in apps] == ['prep', 'sent', 'active', 'active', 'active', 'closed']
 assert m.application_stage({'status': 'applied', 'stage': '资料待补全'})[0] == 'sent'
 profile = {'basic_info': {'name': 'Review'}, 'education': [{}], 'skills': {'inference_and_deployment': {'title': '推理优化与端侧部署', 'description': '单卡 42 tokens/s'}}, 'projects': [{'title': '项目 07：understand_mov_v2', 'challenge': '毫秒级', 'highlights': ['CLIP 多卡'], 'tags': ['CLIP']}], 'internships': [{}], 'awards': {'national': [{}]}}
-print(m.build(profile, apps, [('中文简历', '../assets/career/resume_zh_reviewed.pdf'), ('English Resume', '../assets/career/resume_en_reviewed.pdf')]))
+profile['basic_info']['summary'] = '研究生阶段获国家级竞赛奖项 4 项、省部级奖项 6 项'
+assert [item['id'] for item in m.load_portfolio_awards()] == ${JSON.stringify(expectedAwardOrder)}
+page = m.build(profile, apps, [('中文简历', '../assets/career/resume_zh_reviewed.pdf'), ('English Resume', '../assets/career/resume_en_reviewed.pdf')])
+assert '国家级竞赛奖项 4 项、省市与赛区奖项 7 项' in page
+print(page)
 `], { encoding: 'utf8' });
 checkCareerPage(generatedCareer, 6);
 assert.ok(!/42 tokens\/s|毫秒级|CLIP|多卡/.test(generatedCareer), '生成求职页不得重新引入未经核验的推理数字或视频检索旧主张');
@@ -247,6 +299,10 @@ for (const video of ['all', ...report.videos.map(video => String(video.video_nam
 eventRuntime.resetEventFilters();
 assert.ok(eventElements.eventPrev.disabled && eventElements.eventPageLabel.textContent.startsWith('第 1 /'), '重置事件筛选应回到首页');
 
+for (const [page, markup] of [['主站', html], ['求职页', careerHtml], ['求职生成页', generatedCareer], ['视频大屏', ydsHtml]]) {
+  checkThemeMarkup(markup, page);
+}
+for (const asset of ['assets/theme.js', 'assets/theme.css', 'assets/career.css']) assert.ok(existsSync(asset), `主题资源缺失：${asset}`);
 const pdfScript = readFileSync('scripts/build_portfolio_pdf.py', 'utf8');
 for (const match of pdfScript.matchAll(/'(assets\/[^']+)'/g)) {
   assert.ok(existsSync(match[1]), `build_portfolio_pdf.py 引用资源缺失：${match[1]}`);

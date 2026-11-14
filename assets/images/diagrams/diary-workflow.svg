@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 日记归档工作流工程示意</title><desc id="desc">语音笔记经过 MCP 拉取与幂等去重后进入本地 Markdown 知识库，不含私人日记内容。</desc>
+  <style>:root{--bg:#eef2f8;--panel:#fff;--line:#d1daea;--ink:#344867;--muted:#5f728e;--accent:#4f68a4} @media(prefers-color-scheme:dark){:root{--bg:#20273a;--panel:#2b354b;--line:#424f70;--ink:#e5ecfa;--muted:#afbfdf;--accent:#a3baf3}} text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:var(--ink)} .muted{fill:var(--muted)} .accent{fill:var(--accent)} .box{fill:var(--panel);stroke:var(--line);stroke-width:2}</style>
+  <rect width="960" height="540" rx="20" fill="var(--bg)"/>
+  <path d="M712 0v540M832 0v540M0 180h960M0 420h960" stroke="var(--line)" opacity=".35"/>
+  <text x="48" y="63" font-size="17" letter-spacing="3" class="accent">PERSONAL KNOWLEDGE / MCP</text>
+  <text x="48" y="124" font-size="42" font-weight="650">让随手记录，有序归档</text>
+  <text x="48" y="162" font-size="20" class="muted">得到大脑语音笔记 · 本地知识库自动化</text>
+  <g><rect class="box" x="48" y="212" width="252" height="182" rx="18"/><rect class="box" x="354" y="212" width="252" height="182" rx="18"/><rect class="box" x="660" y="212" width="252" height="182" rx="18"/></g>
+  <path d="M312 303h28m-8-8 8 8-8 8M618 303h28m-8-8 8 8-8 8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <g font-size="19"><text x="72" y="252" class="accent">01 / 记录</text><text x="378" y="252" class="accent">02 / 处理</text><text x="684" y="252" class="accent">03 / 归档</text></g>
+  <g font-size="29" font-weight="600"><text x="72" y="306">语音笔记</text><text x="378" y="306">MCP 服务</text><text x="684" y="306">本地知识库</text></g>
+  <g font-size="18"><text x="72" y="352" class="muted">Getnote API / 拉取</text><text x="378" y="352" class="muted">note_id / 幂等去重</text><text x="684" y="352" class="muted">Markdown / Obsidian</text></g>
+  <text x="48" y="461" font-size="20" font-weight="500">只展示工作流结构，不包含日记正文或私有链接</text>
+  <text x="48" y="501" font-size="16" class="muted">工程示意 · 非界面截图</text><text x="912" y="501" text-anchor="end" font-size="16" class="muted">LEO / PRIVATE WORKFLOW</text>
+</svg>

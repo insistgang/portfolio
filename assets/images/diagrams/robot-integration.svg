@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">小智机器人语音与设备协作工程示意</title><desc id="desc">语音唤醒、意图解析与设备控制集成概览，非机器人实拍或实机测试证明。</desc>
+  <style>:root{--bg:#f1eef8;--panel:#fff;--line:#d8cfe9;--ink:#493562;--muted:#746386;--accent:#7851a4} @media(prefers-color-scheme:dark){:root{--bg:#262136;--panel:#342b47;--line:#514065;--ink:#ede5f9;--muted:#c0addb;--accent:#c5a2ef}} text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:var(--ink)} .muted{fill:var(--muted)} .accent{fill:var(--accent)} .box{fill:var(--panel);stroke:var(--line);stroke-width:2}</style>
+  <rect width="960" height="540" rx="20" fill="var(--bg)"/>
+  <path d="M712 0v540M832 0v540M0 180h960M0 420h960" stroke="var(--line)" opacity=".35"/>
+  <text x="48" y="63" font-size="17" letter-spacing="3" class="accent">EMBODIED AI / INTEGRATION</text>
+  <text x="48" y="124" font-size="42" font-weight="650">连接语音、意图与设备</text>
+  <text x="48" y="162" font-size="20" class="muted">小智机器人 · 软硬件协作开发</text>
+  <g><rect class="box" x="48" y="212" width="252" height="182" rx="18"/><rect class="box" x="354" y="212" width="252" height="182" rx="18"/><rect class="box" x="660" y="212" width="252" height="182" rx="18"/></g>
+  <path d="M312 303h28m-8-8 8 8-8 8M618 303h28m-8-8 8 8-8 8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <g font-size="19"><text x="72" y="252" class="accent">01 / 交互</text><text x="378" y="252" class="accent">02 / 理解</text><text x="684" y="252" class="accent">03 / 控制</text></g>
+  <g font-size="29" font-weight="600"><text x="72" y="306">语音唤醒</text><text x="378" y="306">意图解析</text><text x="684" y="306">设备联调</text></g>
+  <g font-size="18"><text x="72" y="352" class="muted">对话输入 / 功能集成</text><text x="378" y="352" class="muted">多模态模型 / Python</text><text x="684" y="352" class="muted">端侧配置 / 通信控制</text></g>
+  <text x="48" y="461" font-size="20" font-weight="500">协作链路概览，不作为真机能力证明</text>
+  <text x="48" y="501" font-size="16" class="muted">工程示意 · 非界面截图</text><text x="912" y="501" text-anchor="end" font-size="16" class="muted">LEO / INDUSTRY 03</text>
+</svg>

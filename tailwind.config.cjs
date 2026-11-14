@@ -6,21 +6,22 @@ module.exports = {
         white: 'rgb(var(--copy) / <alpha-value>)',
         slate: {
           100: 'rgb(var(--copy) / <alpha-value>)',
-          200: '#ddded8',
-          300: '#c5c7c4',
+          200: 'rgb(var(--copy-soft) / <alpha-value>)',
+          300: 'rgb(var(--secondary) / <alpha-value>)',
           400: 'rgb(var(--muted) / <alpha-value>)',
-          500: '#949da1',
-          600: '#727c82',
-          700: '#42484b',
+          500: 'rgb(var(--muted) / <alpha-value>)',
+          600: 'rgb(var(--line-strong) / <alpha-value>)',
+          700: 'rgb(var(--line-strong) / <alpha-value>)',
           800: 'rgb(var(--surface-raised) / <alpha-value>)',
           900: 'rgb(var(--surface) / <alpha-value>)',
           950: 'rgb(var(--page) / <alpha-value>)'
         },
-        sky: { 300: '#c0d2da', 400: 'rgb(var(--accent) / <alpha-value>)', 500: '#465a63', 600: '#526974' },
-        amber: { 200: '#ded3b6', 300: '#d5c69e', 400: '#c6b88f', 500: '#9e875d' },
-        purple: { 300: '#cbc7d7', 400: '#bbb4cf', 500: '#817793' },
-        emerald: { 300: '#c1cdbf', 400: '#adbfae', 500: '#7a927c' }
+        sky: Object.fromEntries([300, 400, 500, 600].map(step => [step, 'rgb(var(--accent) / <alpha-value>)'])),
+        amber: Object.fromEntries([200, 300, 400, 500].map(step => [step, 'rgb(var(--amber) / <alpha-value>)'])),
+        purple: Object.fromEntries([300, 400, 500].map(step => [step, 'rgb(var(--purple) / <alpha-value>)'])),
+        emerald: Object.fromEntries([300, 400, 500].map(step => [step, 'rgb(var(--emerald) / <alpha-value>)']))
       },
+      borderColor: { slate: { 800: 'rgb(var(--line) / <alpha-value>)', 700: 'rgb(var(--line-strong) / <alpha-value>)' } },
       borderRadius: { lg: '8px', xl: '12px', '2xl': '16px' },
       boxShadow: { lg: 'none', xl: 'none', '2xl': '0 20px 60px rgb(0 0 0 / .3)' }
     }

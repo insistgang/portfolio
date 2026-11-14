@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">个人财务复盘看板工程示意</title><desc id="desc">Markdown 复盘通过 Python 规则解析与金额校验生成 JSON，供静态看板展示周月年视图。非界面截图，不含真实账务。</desc>
+  <style>:root{--bg:#eaf4f2;--panel:#fff;--line:#c5dfd8;--ink:#214c44;--muted:#51796f;--accent:#167664} @media(prefers-color-scheme:dark){:root{--bg:#172e2a;--panel:#203d36;--line:#335c50;--ink:#dff4ed;--muted:#a4cbbd;--accent:#83d9bd}} text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:var(--ink)} .muted{fill:var(--muted)} .accent{fill:var(--accent)} .box{fill:var(--panel);stroke:var(--line);stroke-width:2}</style>
+  <rect width="960" height="540" rx="20" fill="var(--bg)"/>
+  <path d="M712 0v540M832 0v540M0 180h960M0 420h960" stroke="var(--line)" opacity=".35"/>
+  <text x="48" y="63" font-size="17" letter-spacing="3" class="accent">FINANCE / TRACEABLE BY DESIGN</text>
+  <text x="48" y="124" font-size="42" font-weight="650">从复盘文本，到可信的视图</text>
+  <text x="48" y="162" font-size="20" class="muted">个人财务复盘看板 · 确定性数据链路</text>
+  <g><rect class="box" x="48" y="212" width="252" height="182" rx="18"/><rect class="box" x="354" y="212" width="252" height="182" rx="18"/><rect class="box" x="660" y="212" width="252" height="182" rx="18"/></g>
+  <path d="M312 303h28m-8-8 8 8-8 8M618 303h28m-8-8 8 8-8 8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <g font-size="19"><text x="72" y="252" class="accent">01 / 来源</text><text x="378" y="252" class="accent">02 / 校验</text><text x="684" y="252" class="accent">03 / 展示</text></g>
+  <g font-size="29" font-weight="600"><text x="72" y="306">复盘与台账</text><text x="378" y="306">规则解析</text><text x="684" y="306">周期看板</text></g>
+  <g font-size="18"><text x="72" y="352" class="muted">Markdown / 记录来源</text><text x="378" y="352" class="muted">Python / Decimal</text><text x="684" y="352" class="muted">JSON / ECharts</text></g>
+  <text x="48" y="461" font-size="20" font-weight="500">周／月／年视图 · 缺失不等于零 · 入口需授权</text>
+  <text x="48" y="501" font-size="16" class="muted">工程示意 · 非界面截图 · 不含真实账务</text><text x="912" y="501" text-anchor="end" font-size="16" class="muted">LEO / FINANCE</text>
+</svg>

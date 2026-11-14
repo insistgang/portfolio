@@ -182,6 +182,29 @@ TARGET_SCRIPT = """  <script>
   </script>"""
 
 
+def load_portfolio_awards() -> list[dict]:
+    source = (Path(__file__).resolve().parent.parent / "index.html").read_text(encoding="utf-8")
+    records = json.JSONDecoder().raw_decode(source.split("const projects = ", 1)[1])[0]
+    awards = [item for item in records if item.get("category") == "competition"]
+    return sorted(awards, key=lambda item: (
+        {"national": 0, "regional": 1}[item["awardLevel"]], item["awardRank"], -item["awardYear"]
+    ))
+
+
+def render_competition_awards(awards: list[dict]) -> str:
+    parts = []
+    for level, heading in (("national", "国家级竞赛奖项"), ("regional", "省市与赛区奖项")):
+        rows = [item for item in awards if item["awardLevel"] == level]
+        if not rows:
+            continue
+        parts.append(f'    <h3 class="sub-title">{heading}（{len(rows)} 项）</h3>')
+        parts.append('    <ul class="award-list">')
+        for item in rows:
+            parts.append(f'      <li data-award-id="{esc(item["id"])}"><span class="award-level">{esc(item["status"])}</span> <span>{esc(item["title"])} · {item["awardYear"]} · {esc(item["subtitle"])}</span> <a class="link-accent" href="../{esc(item["image"])}" target="_blank" rel="noopener noreferrer">查看证书 ↗</a></li>')
+        parts.append('    </ul>')
+    return "\n".join(parts)
+
+
 def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) -> str:
     info = data.get("basic_info", {})
     skills = data.get("skills", {})
@@ -190,6 +213,14 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
     projects = data.get("projects", [])
     internships = data.get("internships", [])
     ip = data.get("publications_and_ip", {})
+    verified_awards = load_portfolio_awards()
+    national_count = sum(item["awardLevel"] == "national" for item in verified_awards)
+    regional_count = sum(item["awardLevel"] == "regional" for item in verified_awards)
+    summary = re.sub(
+        r"国家级竞赛奖项\s*\d+\s*项[、，]\s*(?:省部级|省市与赛区)奖项\s*\d+\s*项",
+        f"国家级竞赛奖项 {national_count} 项、省市与赛区奖项 {regional_count} 项",
+        str(info.get("summary", "")),
+    )
 
     parts: list[str] = []
     add = parts.append
@@ -199,12 +230,14 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
     add('  <meta name="viewport" content="width=device-width, initial-scale=1.0">')
     add(f'  <title>{esc(info.get("name", ""))} {esc(info.get("english_name", ""))} · 求职工作流与经历主库</title>')
     add(f'  <meta name="description" content="{esc(info.get("name", ""))}的求职工作流与经历主库：{esc(info.get("title", ""))}，含 {len(projects)} 个核心项目、奖项、实习与目标岗位投递进展。">')
-    add('  <meta name="theme-color" content="#141719">')
+    add('  <meta name="theme-color" content="#f8fafc">')
     add('  <link rel="canonical" href="https://insistgang.top/portfolio/career/">')
     add('  <link rel="icon" href="../assets/brand/favicon.ico" sizes="16x16 32x32 48x48">')
     add('  <link rel="icon" type="image/svg+xml" href="../assets/brand/leo-mark.svg" sizes="any">')
+    add('  <script src="../assets/theme.js"></script>')
+    add('  <link rel="stylesheet" href="../assets/theme.css">')
     add('  <link rel="stylesheet" href="../assets/site.css">')
-    add(STYLE)
+    add('  <link rel="stylesheet" href="../assets/career.css">')
     add('</head>')
     add('<body class="bg-slate-950 text-slate-100 min-h-screen antialiased">')
     add(HEADER)
@@ -214,7 +247,7 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
     add('  <div class="page-wrap">')
     add(f'    <p class="hero-kicker">CAREER WORKFLOW · {esc(info.get("title", ""))}</p>')
     add(f'    <h1 class="hero-title">{esc(info.get("name", ""))} <span class="hero-en">{esc(info.get("english_name", ""))}</span></h1>')
-    add(f'    <p class="hero-lead">{esc(info.get("summary", ""))}</p>')
+    add(f'    <p class="hero-lead">{esc(summary)}</p>')
     if resumes:
         add('    <div class="flex flex-wrap gap-3 mt-6">')
         for label, href in resumes:
@@ -323,18 +356,16 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
         add('  </div>')
         add('</section>')
 
-    national = awards.get("national", []) or []
-    provincial = awards.get("provincial", []) or []
     university = awards.get("university", []) or []
-    if national or provincial or university:
+    if verified_awards or university:
         add('<section class="page-wrap pb-16" aria-labelledby="awards-title">')
-        add('  <h2 id="awards-title" class="section-title">竞赛与荣誉</h2>')
-        for heading, rows in (("国家级", national), ("省部级", provincial), ("校级", university)):
-            if not rows:
-                continue
-            add(f'    <h3 class="sub-title">{heading}</h3>')
+        add('  <h2 id="awards-title" class="section-title">竞赛与荣誉（按原始证书核对）</h2>')
+        add('  <p class="text-sm text-slate-400 mb-5">全国奖优先；同层级按奖次、年份排序，同档同年保留既有顺序。赛区奖不等同于全国奖，此为展示优先级。</p>')
+        add(render_competition_awards(verified_awards))
+        if university:
+            add('    <h3 class="sub-title">校级与荣誉表彰</h3>')
             add('    <ul class="award-list">')
-            for row in rows:
+            for row in university:
                 extra = f'（{esc(row["role"])}）' if row.get("role") else ""
                 add(f'      <li><span class="award-level">{esc(row.get("level", ""))}</span> {esc(row.get("name", ""))}{extra} · {esc(row.get("year", ""))}</li>')
             add('    </ul>')
@@ -383,82 +414,20 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
     return "\n".join(parts)
 
 
-STYLE = """  <style>
-    :root {
-      color-scheme: dark;
-      --page: 20 23 25;
-      --surface: 27 31 33;
-      --surface-raised: 36 41 44;
-      --line: 52 58 61;
-      --copy: 238 234 224;
-      --muted: 168 171 174;
-      --accent: 186 208 218;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
-    .font-mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: rgb(var(--page)); }
-    ::-webkit-scrollbar-thumb { background: rgb(var(--surface-raised)); border-radius: 4px; }
-    .site-header { position: sticky; top: 0; z-index: 40; background: rgb(var(--page) / 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgb(var(--line)); }
-    .site-header-inner { width: min(100% - 64px, 1120px); margin: 0 auto; min-height: 64px; padding: 10px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .site-brand { display: inline-flex; align-items: center; color: #f0eee8; font-size: 16px; font-weight: 600; white-space: nowrap; text-decoration: none; }
-    .site-mark { width: 28px; height: 28px; flex: none; margin-right: 10px; }
-    .site-brand span { margin-left: 7px; color: #a8abae; font-family: Georgia, serif; font-style: italic; font-weight: 400; }
-    .site-header a:hover { color: #fff; }
-    .site-links { display: flex; align-items: center; gap: 16px; font-size: 13px; color: #b9bcbf; flex-wrap: wrap; }
-    .site-links a { text-decoration: none; transition: color .15s ease; }
-    .page-wrap { width: min(100% - 64px, 1120px); margin: 0 auto; }
-    .hero { padding: 64px 0 40px; }
-    .hero-kicker { margin: 0 0 14px; font-size: 12px; color: #9ec5db; letter-spacing: .14em; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    .hero-title { margin: 0; font-size: 40px; line-height: 1.2; letter-spacing: -.03em; font-weight: 600; color: rgb(var(--copy)); }
-    .hero-en { margin-left: 14px; font-family: Georgia, serif; font-style: italic; font-weight: 400; color: #a8abae; }
-    .hero-lead { max-width: 820px; margin-top: 18px; color: #c5c8cb; font-size: 15px; line-height: 1.9; }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px 24px; margin: 28px 0 0; padding: 20px 24px; background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 14px; }
-    .contact-grid dt { font-size: 11px; color: #a8abae; letter-spacing: .08em; }
-    .contact-grid dd { margin: 4px 0 0; font-size: 13.5px; color: rgb(var(--copy)); word-break: break-all; }
-    .section-title { font-size: 1.6rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 20px; color: #f2efe9; }
-    .sub-title { font-size: 12px; letter-spacing: .14em; color: #9ec5db; margin: 26px 0 10px; font-weight: 600; }
-    .panel { background: rgb(var(--surface)); border: 1px solid rgb(var(--line)); border-radius: 14px; transition: border-color .2s ease; }
-    .panel:hover { border-color: #4f5d65; }
-    .tag { border: 1px solid rgb(var(--line)); background: rgb(var(--page) / 0.55); color: #ced2cf; border-radius: 6px; }
-    .award-list { list-style: none; padding: 0; margin: 0; }
-    .award-list li { padding: 11px 0; border-bottom: 1px solid rgb(var(--line)); font-size: 14px; color: #d8d8d3; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; }
-    .award-level { color: #e2c98d; font-weight: 600; min-width: 140px; }
-    table { border-collapse: collapse; }
-    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgb(var(--line)); vertical-align: middle; }
-    th { font-size: 11px; letter-spacing: .08em; color: #a8abae; font-weight: 600; background: rgb(var(--page) / 0.5); }
-    td { font-size: 13px; color: #d0d2cf; }
-    tbody tr:hover { background: rgb(var(--surface-raised) / 0.55); }
-    .stage-badge { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 500; border: 1px solid transparent; }
-    .stage-offer { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.35); }
-    .stage-screen { background: rgba(56, 189, 248, 0.14); color: #7dd3fc; border-color: rgba(56, 189, 248, 0.35); }
-    .stage-sent { background: rgba(245, 158, 11, 0.12); color: #fcd34d; border-color: rgba(245, 158, 11, 0.3); }
-    .stage-prep { background: rgba(148, 163, 184, 0.12); color: #cbd5e1; border-color: rgba(148, 163, 184, 0.25); }
-    .filter-pill { padding: 6px 12px; border-radius: 8px; font-size: 12px; border: 1px solid rgb(var(--line)); background: rgb(var(--surface)); color: #b9bcbf; cursor: pointer; transition: all .15s ease; }
-    .filter-pill:hover { color: #fff; border-color: #667d87; }
-    .filter-pill.active { background: #dce8ee; color: #141719; border-color: #dce8ee; font-weight: 600; }
-    .download-btn { display: inline-flex; align-items: center; gap: 8px; background: #eeeae0; color: #141719; border: 1px solid #eeeae0; border-radius: 8px; padding: 10px 18px; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: all .15s ease; }
-    .download-btn:hover { background: #fff; border-color: #fff; }
-    .secondary-btn { display: inline-flex; align-items: center; gap: 8px; background: rgb(var(--surface)); color: #e5e7eb; border: 1px solid rgb(var(--line)); border-radius: 8px; padding: 10px 16px; font-size: 13.5px; font-weight: 500; text-decoration: none; transition: all .15s ease; }
-    .secondary-btn:hover { border-color: #88a2ae; color: #fff; }
-    a { color: inherit; }
-    .link-accent { color: #bad0da; border-bottom: 1px solid #667d87; text-decoration: none; }
-    .link-accent:hover { color: #fff; }
-    :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
-    footer { border-top: 1px solid rgb(var(--line)); color: #a8abae; }
-    @media (max-width: 640px) {
-      .site-header-inner, .page-wrap { width: calc(100% - 32px); }
-      .hero { padding: 40px 0 28px; }
-      .hero-title { font-size: 28px; }
-      .site-links { gap: 12px; font-size: 12px; }
-      .award-level { min-width: auto; }
-    }
-  </style>"""
-
 HEADER = """  <header class="site-header">
     <nav class="site-header-inner" aria-label="主导航">
       <a href="../" class="site-brand"><img src="../assets/brand/leo-mark.svg" class="site-mark" width="28" height="28" alt="">刘钢 <span>/ Leo · Career-Copilot</span></a>
+      <div class="appearance-controls" data-appearance-controls hidden>
+        <div class="style-switcher" role="group" aria-label="视觉风格">
+          <button type="button" class="style-button" data-style-option="finance" aria-pressed="true" aria-label="财务绿风格" title="财务绿风格"><span class="style-swatch" aria-hidden="true"></span><span class="style-name">财务绿</span></button>
+          <button type="button" class="style-button" data-style-option="blue" aria-pressed="false" aria-label="科技蓝风格" title="科技蓝风格"><span class="style-swatch" aria-hidden="true"></span><span class="style-name">科技蓝</span></button>
+          <button type="button" class="style-button" data-style-option="paper" aria-pressed="false" aria-label="暖纸笺风格" title="暖纸笺风格"><span class="style-swatch" aria-hidden="true"></span><span class="style-name">暖纸笺</span></button>
+        </div>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换到夜间模式" title="切换到夜间模式">
+          <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10Z"/></svg>
+        </button>
+      </div>
       <div class="site-links">
         <a href="../">← 返回作品集</a>
         <a href="#edu-title">教育</a>

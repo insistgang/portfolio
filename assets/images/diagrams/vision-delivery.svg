@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">智慧城市图像检测算法交付工程示意</title><desc id="desc">训练推理代码、工程环境测试与技术材料交接的流程概览，非界面截图或实测结果。</desc>
+  <style>:root{--bg:#edf4f0;--panel:#fff;--line:#caddd1;--ink:#244c3b;--muted:#537666;--accent:#287650} @media(prefers-color-scheme:dark){:root{--bg:#192b25;--panel:#213b30;--line:#355b48;--ink:#e1f0e8;--muted:#a4c8b3;--accent:#8dd8af}} text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:var(--ink)} .muted{fill:var(--muted)} .accent{fill:var(--accent)} .box{fill:var(--panel);stroke:var(--line);stroke-width:2}</style>
+  <rect width="960" height="540" rx="20" fill="var(--bg)"/>
+  <path d="M712 0v540M832 0v540M0 180h960M0 420h960" stroke="var(--line)" opacity=".35"/>
+  <text x="48" y="63" font-size="17" letter-spacing="3" class="accent">COMPUTER VISION / DELIVERY</text>
+  <text x="48" y="124" font-size="42" font-weight="650">从检测算法，到工程交接</text>
+  <text x="48" y="162" font-size="20" class="muted">智慧城市图像检测 · 产学研合作</text>
+  <g><rect class="box" x="48" y="212" width="252" height="182" rx="18"/><rect class="box" x="354" y="212" width="252" height="182" rx="18"/><rect class="box" x="660" y="212" width="252" height="182" rx="18"/></g>
+  <path d="M312 303h28m-8-8 8 8-8 8M618 303h28m-8-8 8 8-8 8" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <g font-size="19"><text x="72" y="252" class="accent">01 / 算法</text><text x="378" y="252" class="accent">02 / 验证</text><text x="684" y="252" class="accent">03 / 交付</text></g>
+  <g font-size="29" font-weight="600"><text x="72" y="306">训练与推理</text><text x="378" y="306">环境测试</text><text x="684" y="306">技术交接</text></g>
+  <g font-size="18"><text x="72" y="352" class="muted">代码 / 权重 / 配置</text><text x="378" y="352" class="muted">Linux / ONNX / C++</text><text x="684" y="352" class="muted">测试报告 / 接口文档</text></g>
+  <text x="48" y="461" font-size="20" font-weight="500">呈现交付职责，不展示合作方原始材料</text>
+  <text x="48" y="501" font-size="16" class="muted">工程示意 · 非界面截图</text><text x="912" y="501" text-anchor="end" font-size="16" class="muted">LEO / INDUSTRY 02</text>
+</svg>
