@@ -1,0 +1,212 @@
+{
+  "assets/images/certs/cert_ai.jpg": {
+    "image": "assets/images/previews/certs__cert_ai.jpg.webp",
+    "originalSha256": "0194d99fee1e86a244b4d66b5c08730070e1b4f22696b2b90a8d0f399d4c6f63",
+    "originalBytes": 183320,
+    "previewBytes": 54924,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cert_eda.jpg": {
+    "image": "assets/images/previews/certs__cert_eda.jpg.webp",
+    "originalSha256": "6d4f677173d12f91e44aee703e0c9fbc2ab41649015777eb0c222b29da1d8f13",
+    "originalBytes": 175312,
+    "previewBytes": 51650,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cert_hangyefenxi.jpg": {
+    "image": "assets/images/previews/certs__cert_hangyefenxi.jpg.webp",
+    "originalSha256": "828ac515437a5acebbbadcb49623c5a3116fb8acf84cdb91177c1b51e36bd275",
+    "originalBytes": 194290,
+    "previewBytes": 59820,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cert_shumo.jpg": {
+    "image": "assets/images/previews/certs__cert_shumo.jpg.webp",
+    "originalSha256": "08e69377697f9a89971fc97253aa60ff4c24ba92d113a04a8c44a5d2e4c35813",
+    "originalBytes": 177559,
+    "previewBytes": 51062,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cert_wangan.jpg": {
+    "image": "assets/images/previews/certs__cert_wangan.jpg.webp",
+    "originalSha256": "5a3b83dd4965fd2a51edd6dd6f2f2e903ab34f6d72fe60e46a5c99adc7d3adee",
+    "originalBytes": 189702,
+    "previewBytes": 58120,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cert_yandian.jpg": {
+    "image": "assets/images/previews/certs__cert_yandian.jpg.webp",
+    "originalSha256": "1da9d78f390a1d1b74d451b70f8d31b43b147427162ecfbd630f354e3269d64d",
+    "originalBytes": 594626,
+    "previewBytes": 242646,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cert_zhihuichengshi.jpg": {
+    "image": "assets/images/previews/certs__cert_zhihuichengshi.jpg.webp",
+    "originalSha256": "b5f403a942ff0d24a73652f9c52d966c5b742df3933aa4c3e12b157d22181c37",
+    "originalBytes": 323943,
+    "previewBytes": 113378,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cimc-2025-liugang.png": {
+    "image": "assets/images/previews/certs__cimc-2025-liugang.png.webp",
+    "originalSha256": "2a787e60b7d114a2364d5aeb1ace9bf7444e18ff18b2c0d5dd8bf562a1146345",
+    "originalBytes": 2537892,
+    "previewBytes": 73330,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/cimc-2026-liugang.png": {
+    "image": "assets/images/previews/certs__cimc-2026-liugang.png.webp",
+    "originalSha256": "afb5e67fa2e2e6fabe7a9275e7f73f270f1d09f319991715031b4c9d8b65f7b0",
+    "originalBytes": 2004628,
+    "previewBytes": 66384,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/gedc-2026-edge-device.png": {
+    "image": "assets/images/previews/certs__gedc-2026-edge-device.png.webp",
+    "originalSha256": "50c37452ed1e557f898a7cb90f758b03eed62454db77036d0183d863c6fa7aa3",
+    "originalBytes": 4641595,
+    "previewBytes": 230280,
+    "kind": "derivative-preview"
+  },
+  "assets/images/certs/smart-city-2026-linkcity.jpg": {
+    "image": "assets/images/previews/certs__smart-city-2026-linkcity.jpg.webp",
+    "originalSha256": "85f76bdbf0c911ba4155d719eefd4e00c4658331bf9a35036afc9a24771ccdc1",
+    "originalBytes": 290365,
+    "previewBytes": 120758,
+    "kind": "derivative-preview"
+  },
+  "assets/images/opshub-cover.png": {
+    "image": "assets/images/previews/opshub-cover.png.webp",
+    "originalSha256": "63ed9c55419e73cef176ba61cc2ad3e1ee537a18111c943db13f25d87d453f02",
+    "originalBytes": 390848,
+    "previewBytes": 40820,
+    "kind": "derivative-preview"
+  },
+  "assets/images/prod_weight_tracker.png": {
+    "image": "assets/images/previews/prod_weight_tracker.png.webp",
+    "originalSha256": "68ca9a3e76c65acb134817fd9e7cba3fa720eab7701b69cd49a85d3a3dda9c28",
+    "originalBytes": 188528,
+    "previewBytes": 51572,
+    "kind": "derivative-preview"
+  },
+  "assets/images/res_ms_lightcd_diff.png": {
+    "image": "assets/images/previews/res_ms_lightcd_diff.png.webp",
+    "originalSha256": "a1db0a90b9c53b706c373c1d4146ab9aad838fb6205c7810b99fe27976648f2e",
+    "originalBytes": 364117,
+    "previewBytes": 145500,
+    "kind": "derivative-preview"
+  },
+  "assets/images/res_weijian_vis.png": {
+    "image": "assets/images/previews/res_weijian_vis.png.webp",
+    "originalSha256": "191f56f76717630839e5a3e2b501da5208ddaf1004d736dc6f9bd83db9f7fe5f",
+    "originalBytes": 444060,
+    "previewBytes": 217494,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/aegis.jpg": {
+    "image": "assets/images/previews/screenshots__aegis.jpg.webp",
+    "originalSha256": "ad4e9bd4a3c3399867aeff0ec3c3025cf3b9fb2e87b5c3bb2af74e32b8057494",
+    "originalBytes": 188848,
+    "previewBytes": 74084,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/aidatabase.jpg": {
+    "image": "assets/images/previews/screenshots__aidatabase.jpg.webp",
+    "originalSha256": "69c6ac49ce64c2b712f2a9d1f7d9410aa11ca5eab8a1429861a5c4bf1ffb0000",
+    "originalBytes": 118660,
+    "previewBytes": 36372,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/career.jpg": {
+    "image": "assets/images/previews/screenshots__career.jpg.webp",
+    "originalSha256": "5d1e20eb0b6a0518ccba197741cd27df86609114a0440e45f6a3c3ea9f6e21a7",
+    "originalBytes": 110716,
+    "previewBytes": 41038,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/competition-awards.png": {
+    "image": "assets/images/previews/screenshots__competition-awards.png.webp",
+    "originalSha256": "7ee26adbb69a6fd3af0b49c93e6ad184419f8b2318356207bc5bacd88bf15d6c",
+    "originalBytes": 155588,
+    "previewBytes": 44344,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/dashboards.jpg": {
+    "image": "assets/images/previews/screenshots__dashboards.jpg.webp",
+    "originalSha256": "18804b10cc7f160644612341c3368634b8b9971eb2050fbd79944e0f6ba77131",
+    "originalBytes": 200516,
+    "previewBytes": 72780,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/food-safety.jpg": {
+    "image": "assets/images/previews/screenshots__food-safety.jpg.webp",
+    "originalSha256": "02e3e8b7fc624801d0fd6f4368c122c0ba41c19228dab330cd3b6f93c244d663",
+    "originalBytes": 139156,
+    "previewBytes": 46840,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/liuji.jpg": {
+    "image": "assets/images/previews/screenshots__liuji.jpg.webp",
+    "originalSha256": "76d696760c7fa19a81bdb94cef6e13c8f58fbd1d33db3024139ee6466a67dc2b",
+    "originalBytes": 104557,
+    "previewBytes": 38556,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/parking-property-dashboard.png": {
+    "image": "assets/images/previews/screenshots__parking-property-dashboard.png.webp",
+    "originalSha256": "3d6ce5e012eba64bf2eb5a613088ee7e89fb0dfafc790fce9d16437dcefa7e40",
+    "originalBytes": 435185,
+    "previewBytes": 64286,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/read-paper.jpg": {
+    "image": "assets/images/previews/screenshots__read-paper.jpg.webp",
+    "originalSha256": "cccab7faa4f576d45026cef5a214ef3b6568d08eeb5fd1561fbc8e549b6d801a",
+    "originalBytes": 159417,
+    "previewBytes": 61206,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/video-search.jpg": {
+    "image": "assets/images/previews/screenshots__video-search.jpg.webp",
+    "originalSha256": "43d9d56de4c718f39f4877f251867ea10fb5f121142bb3d2de5bff4a056aac8b",
+    "originalBytes": 101658,
+    "previewBytes": 33008,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/vitaflow.jpg": {
+    "image": "assets/images/previews/screenshots__vitaflow.jpg.webp",
+    "originalSha256": "37e9d35fa7f4549cfe7386af227c3b4fabb16457e44ab38d979e89e9d6aca2fe",
+    "originalBytes": 112621,
+    "previewBytes": 38754,
+    "kind": "derivative-preview"
+  },
+  "assets/images/screenshots/yds.jpg": {
+    "image": "assets/images/previews/screenshots__yds.jpg.webp",
+    "originalSha256": "1888f9072ad121f594bb9da2aeb53b0fd1cb3bb59dc97af81b31f4fd34cae42f",
+    "originalBytes": 128098,
+    "previewBytes": 39330,
+    "kind": "derivative-preview"
+  },
+  "assets/images/soft/submitted-11.png": {
+    "image": "assets/images/previews/soft__submitted-11.png.webp",
+    "originalSha256": "87c210266a92c4fac0ea32dbebd9e2e103c547f9aaa2a6f6c71b7371400809ef",
+    "originalBytes": 2016101,
+    "previewBytes": 121592,
+    "kind": "derivative-preview"
+  },
+  "assets/images/soft/submitted-12.png": {
+    "image": "assets/images/previews/soft__submitted-12.png.webp",
+    "originalSha256": "6743509f941927f4c40ae73509325609b465fc56ca412b24c35e31470c1dd3ec",
+    "originalBytes": 322690,
+    "previewBytes": 27392,
+    "kind": "derivative-preview"
+  },
+  "assets/images/soft/submitted-13.png": {
+    "image": "assets/images/previews/soft__submitted-13.png.webp",
+    "originalSha256": "ed1dfda8ca75543f30fe1b9fbf4c0852a11e349a4dde87a80e1624b28ce30580",
+    "originalBytes": 436375,
+    "previewBytes": 50112,
+    "kind": "derivative-preview"
+  }
+}

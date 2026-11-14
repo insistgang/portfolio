@@ -5,9 +5,12 @@ Usage:
     python3 scripts/build_career_page.py \
         --profile-dir "/path/to/Career-Copilot/data/master_profile" \
         --applications "/path/to/Career-Copilot/data/applications.json" \
-        --resume "中文简历:/path/to/resume.pdf" \
-        --resume "English resume:/path/to/resume_en.pdf" \
+        --resume "中文简历:assets/career/resume_zh_reviewed.pdf" \
+        --resume "English Resume:assets/career/resume_en_reviewed.pdf" \
         --out career/index.html
+
+简历仅允许 assets/career/ 下的中英文 reviewed PDF，且输出目录旁须真实存在
+对应的 assets/career/ 文件。传入私人目录或其他文件会拒绝，不自动复制公开。
 
 The master profile is YAML; it is converted to JSON with the system Ruby YAML
 parser so the repository keeps zero runtime dependencies.
@@ -25,7 +28,7 @@ from pathlib import Path
 STAGE_LABELS = {
     "todo": "准备投递",
     "applied": "已投递",
-    "offer": "已接受实习 Offer",
+    "offer": "Offer",
     "screening": "初筛中",
     "interview": "面试中",
     "rejected": "已结束",
@@ -102,6 +105,24 @@ def esc(text: str) -> str:
     return html.escape(str(text), quote=True)
 
 
+def external_url(value: str) -> str:
+    """Only emit real public web URLs, never executable or data URLs."""
+    from urllib.parse import urlsplit
+    value = str(value).strip()
+    parsed = urlsplit(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise ValueError(f"仅允许公开 HTTP(S) 链接：{value!r}")
+    return value
+
+
+def resume_reference(value: str) -> str:
+    """Allow only reviewed, explicitly published resume assets."""
+    value = str(value).replace("\\", "/")
+    match = re.fullmatch(r"(?:\.\./)?assets/career/(resume_(?:zh|en)_reviewed\.pdf)", value)
+    if not match:
+        raise ValueError("简历仅允许 assets/career/ 下的中英文 reviewed PDF；请先审阅并显式复制公开文件，不要传入本地绝对路径。")
+    return f"../assets/career/{match.group(1)}"
+
 
 TARGET_GROUPS = {"all": "全部", "active": "Offer / 初筛中 / 面试中", "sent": "已投递", "prep": "准备中 / 待确认", "closed": "已结束"}
 
@@ -112,7 +133,8 @@ def application_stage(item: dict) -> tuple[str, str, str]:
     if re.search(r"拒绝|未通过|不通过|已结束|撤回|放弃|终止|不合适", stage) or status in {"rejected", "withdrawn", "closed"}:
         return "closed", "prep", stage
     if re.search(r"offer", stage, re.I) or status == "offer":
-        return "active", "offer", stage
+        accepted = "已接受实习 Offer" if re.search(r"已接受|已录用|接受\s*Offer", stage, re.I) else "Offer"
+        return "active", "offer", accepted
     if re.search(r"初筛|筛选.*进行中|面试|复试|笔试", stage) or status in {"screening", "interview"}:
         return "active", "screen", stage
     if re.search(r"已投递|已发送", stage) or status == "applied":
@@ -222,6 +244,7 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
         str(info.get("summary", "")),
     )
 
+    resumes = [(label, resume_reference(href)) for label, href in resumes]
     parts: list[str] = []
     add = parts.append
 
@@ -267,7 +290,7 @@ def build(data: dict, applications: list[dict], resumes: list[tuple[str, str]]) 
     for label, key in (("GitHub", "github"), ("博客", "blog"), ("作品集", "portfolio")):
         value = info.get(key)
         if value:
-            add(f'      <div><dt>{label}</dt><dd><a class="link-accent" href="{esc(value)}" target="_blank" rel="noopener noreferrer">{esc(value)}</a></dd></div>')
+            add(f'      <div><dt>{label}</dt><dd><a class="link-accent" href="{esc(external_url(value))}" target="_blank" rel="noopener noreferrer">{esc(value)}</a></dd></div>')
     add('    </dl>')
     add('  </div>')
     add('</section>')
@@ -497,7 +520,11 @@ def main() -> None:
     resumes = []
     for item in args.resume:
         label, _, target = item.partition(":")
-        resumes.append((label, target))
+        href = resume_reference(target)
+        resumes.append((label, href))
+        resume_path = (args.out.parent / href).resolve()
+        if not resume_path.is_file():
+            raise FileNotFoundError(f"公开简历文件不存在：{resume_path}")
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(build(profile, applications, resumes), encoding="utf-8")

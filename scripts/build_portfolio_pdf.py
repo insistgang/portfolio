@@ -4,7 +4,7 @@ Source facts: index.html + CONTENT_NOTES.md. No invented metrics or publication 
 """
 from pathlib import Path
 from io import BytesIO
-import argparse, json, re, html
+import argparse, json, html
 from PIL import Image
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
@@ -21,8 +21,10 @@ ROOT=Path(__file__).resolve().parent.parent
 parser=argparse.ArgumentParser(description='生成作品集 PDF；输出须指定新文件，避免覆盖既有版本。')
 parser.add_argument('--output', type=Path, required=True)
 OUT=parser.parse_args().output
-if OUT.exists():
- raise FileExistsError(f'输出已存在，请选择新文件：{OUT}')
+CHECKS_OUT=OUT.with_suffix('.layout-checks.json')
+for path in (OUT, CHECKS_OUT):
+ if path.exists():
+  raise FileExistsError(f'输出或布局检查文件已存在，请选择新文件：{path}')
 OUT.parent.mkdir(parents=True,exist_ok=True)
 DATA=json.JSONDecoder().raw_decode((ROOT/'index.html').read_text().split('const projects = ',1)[1])[0]
 P={p['id']:p for p in DATA}
@@ -171,10 +173,11 @@ page('PROFILE & CONTENTS','个人简介与阅读导航',key='contents')
 eyebrow('01 / OVERVIEW')
 heading('把问题做成可以使用的工具')
 para('我关注软件与真实场景之间的连接：从图像检测和端侧部署，到产品交互与日常自动化。开发中的实践与复盘，也会整理在个人博客中。',M,155,326,12,20,max_h=85)
-for i,(big,lbl) in enumerate([('21','软件与工具'),('10','竞赛记录'),('03','研究工作'),('04','产业实践')]):
+for i,(category,label) in enumerate([('products','软件与工具'),('competition','竞赛记录'),('research','研究工作'),('industry','产业实践')]):
+ big=f"{sum(p['category']==category for p in DATA):02d}"
  xx=M+(i%2)*173;yy=265+(i//2)*94
- txt(big,xx,yy,34,INK,'Latin');txt(lbl,xx,yy+47,10,MUTED)
-para('共收录 38 条展示记录。\n同一项目可能跨类别展示，条目数不等于独立项目数。',M,466,334,9.5,16,MUTED)
+ txt(big,xx,yy,34,INK,'Latin');txt(label,xx,yy+47,10,MUTED)
+para(f'共收录 {len(DATA)} 条展示记录。\n同一项目可能跨类别展示，条目数不等于独立项目数。',M,466,334,9.5,16,MUTED)
 line(410,158,410,516)
 items=[('01','精选项目','边缘视觉、无障碍应用与 AI 工具',3,'edge'),('02','个人工具','研究、求职与日常工作流',10,'workflows'),('03','研究工作','多尺度检测、遥感变化检测与跨学科研究',12,'research'),('04','产业实践','后端服务、算法交付与软硬件协作',15,'industry'),('05','竞赛与作品目录','奖项证书与精选软件作品目录',16,'honors')]
 for i,(a,b,d,pn,k) in enumerate(items):
@@ -389,16 +392,16 @@ for i,(pid,title,award,desc) in enumerate(honors):
  para(desc,xx,506,236,9,14,MUTED,max_h=28)
 end()
 
-# 17 | all 10 competition records, precise scoped awards.
+# 17 | All verified competition records, in the same order as the public pages.
 page('HONORS / COMPLETE INDEX','竞赛记录索引')
-eyebrow('10 RECORDS / COMPETITION INDEX')
-heading('竞赛记录一览','同一硬件用于不同赛项时分别记录；赛区奖项保留完整范围')
-awards=[('2025','西门子杯 · 第十九届','全国初赛华北二赛区一等奖'),('2026','西门子杯 · 第二十届','全国初赛华东一赛区二等奖'),('2025','中国研究生电子设计竞赛 · 第二十届','上海分赛区团队三等奖'),('2026','中国研究生电子设计竞赛 · 第二十一届','上海分赛区团队二等奖'),('第22届','华为杯 · 中国研究生数学建模竞赛','全国二等奖'),('第7届','华为杯 · 中国研究生人工智能创新大赛','全国三等奖'),('第4届','华为杯 · 中国研究生网络安全创新大赛','全国三等奖'),('创芯','中国研究生 EDA 精英挑战赛','全国三等奖'),('第7届','上海市研究生智慧城市创意设计大赛','三等奖（同时为第 5 届长三角赛事）'),('第3届','上海市大学生行业分析大赛','高教组银奖')]
-for i,(date,title,award) in enumerate(awards):
- yy=185+i*33
- txt(date,M,yy+1,9,BLUE,'CJK' if not date.isdigit() else 'Mono')
- txt(title,105,yy,11,INK)
- txt(award,545,yy+1,9.3,BLUE)
+awards=sorted((p for p in DATA if p['category']=='competition'),key=lambda p:({'national':0,'regional':1}[p['awardLevel']],p['awardRank'],-p['awardYear']))
+eyebrow(f'{len(awards)} RECORDS / COMPETITION INDEX')
+heading('竞赛记录一览','全国奖优先，再按奖次、年份排列；赛区奖项保留完整范围')
+for i,p in enumerate(awards):
+ yy=178+i*30
+ txt(str(p['awardYear']),M,yy+1,9,BLUE,'Mono')
+ txt(p['title'].split(' · ')[0],105,yy,11,INK)
+ txt(p['status'],545,yy+1,9.3,BLUE)
  line(M,yy+25,800,yy+25)
 note('证书图片已收录于在线作品集。')
 end()
@@ -443,6 +446,6 @@ txt('刘钢 / Leo',605,455,23,PAPER,'Title')
 end()
 assert num==20,num
 c.save()
-OUT.with_suffix('.layout-checks.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2))
+CHECKS_OUT.write_text(json.dumps(checks,ensure_ascii=False,indent=2))
 print(OUT)
 print(f'{num} pages; {OUT.stat().st_size/1024/1024:.2f} MiB')

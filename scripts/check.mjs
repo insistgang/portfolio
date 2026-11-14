@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { Script, runInNewContext } from 'node:vm';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { checkThemeMarkup } from './check-theme.mjs';
 
 const html = readFileSync('index.html', 'utf8');
@@ -13,7 +14,7 @@ for (const project of projects.filter(p => p.category === 'competition')) {
   assert.ok(['national', 'regional'].includes(project.awardLevel), `奖项层级缺失：${project.id}`);
   assert.ok([1, 2, 3].includes(project.awardRank) && Number.isInteger(project.awardYear), `奖次或年份无效：${project.id}`);
   assert.ok(awards.includes(project.title), `证书墙与项目标题不一致：${project.id}`);
-  assert.ok(awards.includes(project.image), `证书墙与项目配图不一致：${project.id}`);
+  assert.ok(awards.includes(project.preview || project.image), `证书墙与项目预览配图不一致：${project.id}`);
 }
 assert.equal(new Set(projects.map(p => p.id)).size, projects.length, '项目 ID 必须唯一');
 const illustratedProjects = projects.filter(p => p.image);
@@ -43,7 +44,20 @@ assert.ok(!/\/Users\/|100%可申报|191张图|成功涨薪|线下碰面/.test(ht
 for (const script of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)) {
   new Script(script[1]);
 }
-const assets = new Set(projects.flatMap(p => [p.image, ...(p.gallery || []), ...(p.url?.startsWith('assets/') ? [p.url] : [])]).filter(Boolean));
+const assets = new Set(projects.flatMap(p => [p.image, p.preview, ...(p.gallery || []), ...(p.url?.startsWith('assets/') ? [p.url] : [])]).filter(Boolean));
+const previews = JSON.parse(readFileSync('assets/images/previews/sources.json', 'utf8'));
+for (const project of projects) {
+  if (!project.preview) continue;
+  const entry = previews[project.image];
+  assert.equal(entry?.image, project.preview, `预览与原图关系不一致：${project.id}`);
+  assert.equal(entry?.kind, 'derivative-preview');
+  const digest = createHash('sha256').update(readFileSync(project.image)).digest('hex');
+  assert.equal(entry?.originalSha256, digest, `原图已变化但预览未重建：${project.id}`);
+  assert.ok(readFileSync(project.preview).length < readFileSync(project.image).length, `预览体积应小于原图：${project.id}`);
+}
+for (const match of html.matchAll(/src="(assets\/images\/previews\/[^"]+)"/g)) {
+  assert.ok(Object.values(previews).some(entry => entry.image === match[1]), `静态预览未登记来源：${match[1]}`);
+}
 for (const match of html.matchAll(/(?:src|href)="(assets\/[^"$]+)"/g)) assets.add(match[1]);
 for (const asset of assets) assert.ok(existsSync(asset), `资源缺失：${asset}`);
 for (const match of html.matchAll(/openModal\('([^']+)'\)/g)) {
@@ -71,7 +85,7 @@ for (const id of featuredIds) {
   const study = project.caseStudy;
   const article = featured.match(new RegExp(`<article id="case-${id}"[\\s\\S]*?</article>`))?.[0];
   assert.ok(article && study, `精选案例缺少记录或结构：${id}`);
-  assert.ok(article.includes(project.title) && article.includes(project.image), `精选标题与配图需和记录一致：${id}`);
+  assert.ok(article.includes(project.title) && article.includes(project.preview || project.image), `精选标题与预览配图需和记录一致：${id}`);
   for (const key of ['problem', 'responsibility', 'boundary']) {
     assert.ok(study[key]?.trim() && article.includes(study[key]), `精选正文与案例数据不一致：${id}/${key}`);
   }
@@ -149,7 +163,8 @@ assert.ok(html.includes('role="dialog"'));
 const mainScript = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1];
 function mockElement() {
   const classes = new Set();
-  return { dataset: {}, style: {}, innerHTML: '', textContent: '', isConnected: true,
+  return { dataset: {}, style: {}, innerHTML: '', textContent: '', isConnected: true, tagName: 'ARTICLE',
+    querySelector() { return this.openButton; },
     classList: { contains: name => classes.has(name), add: name => classes.add(name), remove: name => classes.delete(name), toggle(name, active) { if (active) classes.add(name); else classes.delete(name); } },
     setAttribute() {}, addEventListener() {}, focus() {}
   };
@@ -170,12 +185,14 @@ mainRuntime.renderProjects();
 assert.equal(cards.length, projects.length, '作品卡片未完整渲染');
 assert.deepEqual(JSON.parse(runInNewContext('JSON.stringify(rankedAwards.map(project => project.id))', mainRuntime)), expectedAwardOrder, '作品库排序需与证书墙一致');
 assert.ok(cards[0].innerHTML.includes(projectById[expectedAwardOrder[0]].title), '全部记录首项也应为优先级最高的奖项');
-const key = { key: 'Enter', target: {}, currentTarget: cards[0], prevented: false, preventDefault() { this.prevented = true; } };
-cards[0].onkeydown(key);
-assert.ok(!key.prevented && documentMock.getElementById('detail-modal').classList.contains('hidden'), '内部链接键盘事件不得打开详情');
-key.target = cards[0];
-cards[0].onkeydown(key);
-assert.ok(key.prevented && !documentMock.getElementById('detail-modal').classList.contains('hidden'), '卡片自身 Enter 应打开详情');
+assert.ok(cards.every(card => card.tagName === 'ARTICLE' && card.tabIndex === undefined), '作品卡片应为语义化 article，不嵌套交互角色');
+for (const card of cards) card.openButton = mockElement();
+cards[0].onclick({ target: { closest: () => ({ tagName: 'A' }) } });
+assert.ok(documentMock.getElementById('detail-modal').classList.contains('hidden'), '内部链接点击不得打开详情');
+cards[0].onclick({ target: { closest: () => null } });
+assert.ok(!documentMock.getElementById('detail-modal').classList.contains('hidden'), '卡片空白区域点击应打开详情');
+assert.ok(cards[0].innerHTML.includes('data-project-open') && cards[0].innerHTML.includes(projectById[expectedAwardOrder[0]].title), '卡片标题按钮需包含可见名称');
+assert.ok(!html.includes('function initScrollSpy() {\n      const navLinks') || !html.includes('new IntersectionObserver'), '长作品库滚动高亮不得依赖易失效的阈值');
 mainRuntime.closeModal();
 runInNewContext(`currentCategory = 'research'; openModal('prod-17'); navigateModal(1);`, mainRuntime);
 assert.equal(runInNewContext('activeModalId', mainRuntime), 'prod-18', '跨分类详情应使用完整浏览集合');
@@ -241,16 +258,33 @@ m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 apps = [{'company': 'Example', 'position': 'Engineer', 'status': status} for status in ['todo', 'applied', 'offer', 'screening', 'interview', 'rejected']]
 assert [m.application_stage(a)[0] for a in apps] == ['prep', 'sent', 'active', 'active', 'active', 'closed']
+assert m.application_stage({'status': 'offer'}) == ('active', 'offer', 'Offer'), '普通 Offer 不得写成已接受'
+assert m.application_stage({'status': 'offer', 'stage': '已接受实习 Offer'})[2] == '已接受实习 Offer'
 assert m.application_stage({'status': 'applied', 'stage': '资料待补全'})[0] == 'sent'
 profile = {'basic_info': {'name': 'Review'}, 'education': [{}], 'skills': {'inference_and_deployment': {'title': '推理优化与端侧部署', 'description': '单卡 42 tokens/s'}}, 'projects': [{'title': '项目 07：understand_mov_v2', 'challenge': '毫秒级', 'highlights': ['CLIP 多卡'], 'tags': ['CLIP']}], 'internships': [{}], 'awards': {'national': [{}]}}
 profile['basic_info']['summary'] = '研究生阶段获国家级竞赛奖项 4 项、省部级奖项 6 项'
 assert [item['id'] for item in m.load_portfolio_awards()] == ${JSON.stringify(expectedAwardOrder)}
+for bad in ['/Users/example/private/resume.pdf', '../../secret.pdf', 'assets/career/other.pdf']:
+    try:
+        m.resume_reference(bad)
+        raise AssertionError('unsafe resume path accepted: ' + bad)
+    except ValueError:
+        pass
+for bad in ['javascript:alert(1)', 'data:text/html,test', 'not-a-url']:
+    try:
+        m.external_url(bad)
+        raise AssertionError('unsafe external link accepted: ' + bad)
+    except ValueError:
+        pass
+assert m.external_url('https://example.com') == 'https://example.com'
+assert m.resume_reference('assets/career/resume_zh_reviewed.pdf') == '../assets/career/resume_zh_reviewed.pdf'
 page = m.build(profile, apps, [('中文简历', '../assets/career/resume_zh_reviewed.pdf'), ('English Resume', '../assets/career/resume_en_reviewed.pdf')])
 assert '国家级竞赛奖项 4 项、省市与赛区奖项 7 项' in page
 print(page)
 `], { encoding: 'utf8' });
 checkCareerPage(generatedCareer, 6);
 assert.ok(!/42 tokens\/s|毫秒级|CLIP|多卡/.test(generatedCareer), '生成求职页不得重新引入未经核验的推理数字或视频检索旧主张');
+execFileSync('python3', ['-B', 'scripts/check_career_cli.py'], { encoding: 'utf8' });
 
 const ydsHtml = readFileSync('yds/index.html', 'utf8');
 assert.ok(ydsHtml.includes('<title>LinkAble 本地视频数据大屏</title>'), 'yds/index.html 需保持标题一致');
@@ -268,9 +302,32 @@ for (const match of ydsHtml.matchAll(/<script(?:\s+([^>]*))?>([\s\S]*?)<\/script
 }
 
 const report = JSON.parse(ydsHtml.match(/<script id="report-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+const reportSummary = report.summary;
+assert.equal(report.events.length, reportSummary.total_events, '事件记录数与摘要不一致');
+assert.equal(report.videos.length, reportSummary.video_count, '视频记录数与摘要不一致');
+for (const field of ['total_frames', 'total_detections']) {
+  assert.equal(report.videos.reduce((sum, video) => sum + video[field], 0), reportSummary[field], `视频汇总字段不一致：${field}`);
+}
+for (const [key, source, expected] of [
+  ['事件类型', event => event.type, reportSummary.events_by_type],
+  ['视频', event => String(event.video), reportSummary.events_by_video],
+  ['时间桶', event => String(event.time_bucket_10s), report.timeline_total_10s]
+]) {
+  const actual = {};
+  for (const event of report.events) {
+    const value = source(event);
+    actual[value] = (actual[value] || 0) + 1;
+  }
+  assert.deepEqual(actual, expected, `${key}汇总与原始事件不一致`);
+}
+for (const video of report.videos) {
+  const actual = report.events.filter(event => String(event.video) === String(video.video_name)).length;
+  assert.equal(actual, video.total_events, `视频事件数不一致：${video.video_name}`);
+}
+assert.equal(reportSummary.top_video.video, report.videos.reduce((top, video) => video.total_events > top.total_events ? video : top).video_name, '最多事件样本选择不一致');
 const eventElements = Object.fromEntries(['eventTable', 'eventCountLabel', 'eventPageLabel', 'eventPrev', 'eventNext', 'videoFilter', 'typeFilter', 'videoTable'].map(id => [id, { innerHTML: '', textContent: '', value: 'all', disabled: false, scrollTop: 0 }]));
 const eventScript = [...ydsHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)[1];
-const eventContext = { document: { getElementById: id => eventElements[id] } };
+const eventContext = { document: { getElementById: id => eventElements[id], querySelectorAll() { return []; } } };
 const eventRuntime = { ...eventContext, report };
 runInNewContext(eventScript.slice(eventScript.indexOf('    const colors =')).replace(/\n\s*init\(\);\s*$/, ''), eventRuntime);
 function pageRows() {
@@ -304,6 +361,10 @@ for (const [page, markup] of [['主站', html], ['求职页', careerHtml], ['求
 }
 for (const asset of ['assets/theme.js', 'assets/theme.css', 'assets/career.css']) assert.ok(existsSync(asset), `主题资源缺失：${asset}`);
 const pdfScript = readFileSync('scripts/build_portfolio_pdf.py', 'utf8');
+assert.ok(pdfScript.includes("sum(p['category']==category for p in DATA)") && pdfScript.includes('len(DATA)'), 'PDF 统计必须动态读取项目数据');
+assert.ok(pdfScript.includes("for p in DATA if p['category']=='competition'") && pdfScript.includes("p['awardLevel']"), 'PDF 奖项必须读取完整排序');
+assert.ok(pdfScript.includes("for path in (OUT, CHECKS_OUT):") && pdfScript.includes('raise FileExistsError'), 'PDF 不得覆盖已有输出或布局检查文件');
+for (const path of ['assets/images/previews/sources.json', 'assets/images/diagrams/sources.json']) JSON.parse(readFileSync(path, 'utf8'));
 for (const match of pdfScript.matchAll(/'(assets\/[^']+)'/g)) {
   assert.ok(existsSync(match[1]), `build_portfolio_pdf.py 引用资源缺失：${match[1]}`);
 }

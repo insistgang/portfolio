@@ -452,7 +452,7 @@
           </select>
           <button type="button" class="filter-reset" onclick="resetEventFilters()">重置筛选</button>
         </div>
-        <div class="events" id="eventTable"></div>
+        <div class="events" id="eventTable" tabindex="0" role="region" aria-label="可滚动的结构化事件明细"></div>
         <nav class="filter-bar" aria-label="事件分页" style="margin-top:12px;">
           <button type="button" id="eventPrev" class="filter-reset" onclick="changeEventPage(-1)">上一页</button>
           <span id="eventPageLabel" class="panel-sub" aria-live="polite"></span>
@@ -506,7 +506,7 @@
     }
 
     function init() {
-      document.getElementById('generatedAt').textContent = '生成时间 · ' + report.metadata.generated_at.replace('T', ' ').slice(0, 19);
+      document.getElementById('generatedAt').textContent = '生成时间（UTC） · ' + new Date(report.metadata.generated_at).toISOString().replace('T', ' ').slice(0, 19);
       document.getElementById('modelLine').textContent = '检测模型 · ' + report.metadata.model.split(/[\\/]/).pop() + ' (耗时 ' + report.metadata.analysis_elapsed_sec + 's)';
       document.getElementById('thresholdLine').textContent = '去抖参数 · 置信度 ≥ ' + report.metadata.event_confidence_threshold + ' / 连续 ' + report.metadata.min_consecutive_frames + ' 帧确认';
       populateFilters();
@@ -555,7 +555,7 @@
         ['原始检出框', s.total_detections, 'YOLO 逐帧原始检出'],
         ['累计分析帧', s.total_frames, '总时长 ' + s.total_duration_sec + ' 秒'],
         ['事件触发密度', s.events_per_minute, '去抖后每分钟事件数'],
-        ['最高风险样本', '视频 ' + s.top_video.video, s.top_video.events + ' 起结构化事件'],
+        ['事件最多样本', '视频 ' + s.top_video.video, s.top_video.events + ' 起结构化事件'],
       ];
       document.getElementById('kpis').innerHTML = items.map(([label, value, hint]) => `
         <div class="kpi">
@@ -572,6 +572,8 @@
 
     function drawBarChart(canvasId, rows, yLabel) {
       const canvas = document.getElementById(canvasId);
+      canvas.setAttribute('role', 'img');
+      canvas.setAttribute('aria-label', `${yLabel}：${rows.map(([label, value]) => `${label} ${value}`).join('；')}`);
       const { ctx, w, h } = setupCanvas(canvas);
       ctx.clearRect(0, 0, w, h);
       const pad = { left: 48, right: 18, top: 28, bottom: 52 };
@@ -606,6 +608,8 @@
 
     function drawLineChart(canvasId, rows) {
       const canvas = document.getElementById(canvasId);
+      canvas.setAttribute('role', 'img');
+      canvas.setAttribute('aria-label', `10 秒时间桶事件数：${rows.map(([label, value]) => `${label} ${value}`).join('；')}`);
       const { ctx, w, h } = setupCanvas(canvas);
       const pad = { left: 48, right: 24, top: 28, bottom: 42 };
       ctx.clearRect(0, 0, w, h);
@@ -702,7 +706,11 @@
       selectedVideo = document.getElementById('videoFilter').value;
       selectedType = document.getElementById('typeFilter').value;
       eventPage = 1;
-      renderVideoTable();
+      document.querySelectorAll('#videoTable [data-video]').forEach(row => {
+        const active = selectedVideo === row.dataset.video;
+        row.classList.toggle('active-row', active);
+        row.querySelector('button').setAttribute('aria-pressed', String(active));
+      });
       renderEventTable();
     }
 
@@ -716,7 +724,7 @@
       const rows = report.videos.map(v => {
         const isActive = selectedVideo === String(v.video_name);
         return `
-        <tr class="clickable-row ${isActive ? 'active-row' : ''}" onclick="selectVideoRow('${v.video_name}')">
+        <tr data-video="${v.video_name}" class="clickable-row ${isActive ? 'active-row' : ''}" onclick="selectVideoRow('${v.video_name}')">
           <td class="font-mono"><button type="button" class="video-select" aria-pressed="${isActive}" onclick="event.stopPropagation();selectVideoRow('${v.video_name}')">视频 ${v.video_name}</button></td>
           <td class="font-mono">${fmt(v.total_frames)}</td>
           <td class="font-mono">${v.duration_sec}s</td>
